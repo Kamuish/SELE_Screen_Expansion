@@ -9,6 +9,7 @@
 #define SPI_COMMS_H_
 
 #include <avr/io.h>
+#include <util/delay.h>
 
 /* Define SPI Data Direction Register and Bits */
 
@@ -17,6 +18,7 @@
 #define DD_MOSI PB3
 #define DD_MISO PB4
 #define DD_SCK PB5
+#define EN 2
 
 /* Define SPI_comms.c functions */
 
