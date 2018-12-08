@@ -20,16 +20,19 @@ int main(void) {
 
 	/* Display ON, Cursor Blink */
 
-	command = 0x0B;
+	command = LCD_DISP_ON_BLINK;
 	screen_instruction(command);
 
 	/* Print 'O' */
 
-	uint8_t string[] = "O asadase gay!!";
+	uint8_t string[] = "O Andre e gay!!";
 	put_string(string, sizeof(string) -1);
 
+	_delay_ms(5000);
+
 	while (1) {
-		_delay_ms(1000);
+		screen_instruction(LCD_MOVE_DISP_RIGHT);
+		_delay_ms(10000);
 	}
 
 	return 0;

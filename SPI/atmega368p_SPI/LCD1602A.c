@@ -8,22 +8,6 @@
 #include <LCD1602A.h>
 
 void screen_init(void) {
-	/* Function Set */
-
-	//screen_instruction(LCD_FUNCTION_4BIT_2LINES);
-
-	/* Display OFF */
-
-	//screen_instruction(LCD_DISP_OFF);
-
-	/* Display Clear */
-
-	//screen_instruction(0x01);
-
-	/* Mode Set */
-
-	//screen_instruction(LCD_MODE_DEFAULT);
-
 	uint8_t command;
 
 	command = 0x60;
@@ -61,99 +45,27 @@ void screen_init(void) {
 
 	/* Function Set */
 
-	command = 0x20;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
-
-	command = 0x08;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
+	screen_instruction(LCD_FUNCTION_4BIT_2LINES);
 
 	/* Display OFF */
 
-	command = 0x00;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
-
-	command = 0x48;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
+	screen_instruction(LCD_DISP_OFF);
 
 	/* Display Clear */
 
-	command = 0x00;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
-
-	command = 0x40;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
+	screen_instruction(LCD_DISP_CLEAR);
 
 	/* Mode Set */
 
-	command = 0x00;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
-
-	command = 0x30;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
+	screen_instruction(LCD_MODE_DEFAULT);
 }
 
 void screen_instruction(uint8_t instruction) {
 	uint8_t high_nibble = (instruction)&0xF0;
 	uint8_t low_nibble  = (instruction)&0x0F;
 
-	//high_nibble = reverse_nibble(high_nibble)<<4;
-	//low_nibble 	= reverse_nibble(low_nibble)>>4;
+	high_nibble = reverse_nibble(high_nibble)<<4;
+	low_nibble 	= reverse_nibble(low_nibble)>>4;
 
 	/* High nibble */
 
@@ -164,9 +76,7 @@ void screen_instruction(uint8_t instruction) {
 
 	SPI_MasterTransmit(send_instruction);
 
-	send_instruction = high_nibble>>1;
 	send_instruction &= ~(1<<EN);
-	send_instruction &= ~(1<<RS);
 
 	SPI_MasterTransmit(send_instruction);
 
@@ -180,9 +90,8 @@ void screen_instruction(uint8_t instruction) {
 
 	SPI_MasterTransmit(send_instruction);
 
-	send_instruction = low_nibble<<3;
 	send_instruction &= ~(1<<EN);
-	send_instruction &= ~(1<<RS);
+	send_instruction |= (1<<BKL);
 
 	SPI_MasterTransmit(send_instruction);
 
@@ -201,8 +110,6 @@ void screen_data(uint8_t data) {
 
 	SPI_MasterTransmit(send_data);
 
-	send_data = high_nibble>>1;
-	send_data |= (1<<RS)|(1<<BKL);
 	send_data &= ~(1<<EN);
 
 	SPI_MasterTransmit(send_data);
@@ -216,8 +123,6 @@ void screen_data(uint8_t data) {
 
 	SPI_MasterTransmit(send_data);
 
-	send_data = low_nibble<<3;
-	send_data |= (1<<RS)|(1<<BKL);
 	send_data &= ~(1<<EN);
 
 	SPI_MasterTransmit(send_data);
@@ -230,12 +135,12 @@ void put_char(uint8_t character){
 	uint8_t high_nibble = (character)&0xF0;
 	uint8_t low_nibble = (character)&0x0F;
 
-	uint8_t rev_high_nibble = reverse_nibble(high_nibble);
-	uint8_t rev_low_nibble = reverse_nibble(low_nibble);
+	high_nibble = reverse_nibble(high_nibble);
+	low_nibble = reverse_nibble(low_nibble);
 
-	uint8_t reverse_character = (rev_high_nibble<<4)|(rev_low_nibble>>4);
+	character = (high_nibble<<4)|(low_nibble>>4);
 
-	screen_data(reverse_character);
+	screen_data(character);
 }
 
 uint8_t reverse_nibble(uint8_t nibble) {
