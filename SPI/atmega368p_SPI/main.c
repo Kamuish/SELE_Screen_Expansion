@@ -20,8 +20,8 @@ int main(void) {
 
 	/* Display ON, Cursor Blink */
 
-	command = LCD_DISP_ON;
-	screen_instruction_reverse(command);
+	command = 0x0B;
+	screen_instruction(command);
 
 	/* Print 'O' */
 
