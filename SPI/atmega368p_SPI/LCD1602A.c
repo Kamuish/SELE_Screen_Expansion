@@ -215,23 +215,31 @@ void put_char(uint8_t character){
 	uint8_t high_nibble = (character)&0xF0;
 	uint8_t low_nibble = (character)&0x0F;
 
-	uint8_t NO_OF_BITS = sizeof(high_nibble)*8;
-	uint8_t rev_high_nibble = 0;
-
-	for (int i = 0; i < NO_OF_BITS; i++) {
-		if((high_nibble & (1 << i)))
-		   rev_high_nibble |= 1 << ((NO_OF_BITS - 1) - i);
-	}
-
-	NO_OF_BITS = sizeof(low_nibble)*8;
-	uint8_t rev_low_nibble = 0;
-
-	for (int i = 0; i < NO_OF_BITS; i++) {
-		if((low_nibble & (1 << i)))
-		   rev_low_nibble |= 1 << ((NO_OF_BITS - 1) - i);
-	}
+	uint8_t rev_high_nibble = reverse_nibble(high_nibble);
+	uint8_t rev_low_nibble = reverse_nibble(low_nibble);
 
 	uint8_t reverse_character = (rev_high_nibble<<4)|(rev_low_nibble>>4);
 
 	screen_data(reverse_character);
+}
+
+uint8_t reverse_nibble(uint8_t nibble) {
+	uint8_t NO_OF_BITS = sizeof(nibble)*8;
+	uint8_t rev_nibble = 0;
+
+	for (int i = 0; i < NO_OF_BITS; i++) {
+		if((nibble & (1 << i)))
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);
+	}
+
+	return rev_nibble;
+}
+
+void put_string(uint8_t string[], uint16_t length) {
+	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
+
+	for (int i = 0; i < NO_OF_CHARS; i++) {
+		uint8_t character = string[i];
+		put_char(character);
+	}
 }

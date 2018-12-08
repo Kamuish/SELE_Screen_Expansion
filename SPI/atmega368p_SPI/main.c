@@ -20,12 +20,13 @@ int main(void) {
 
 	/* Display ON, Cursor Blink */
 
-	command = 0x0B;
+	command = LCD_DISP_ON_CURSOR_BLINK;
 	screen_instruction(command);
 
 	/* Print 'O' */
 
-	put_char('A');
+	uint8_t string[] = "O Andre e gay!!";
+	put_string(string, sizeof(string) -1);
 
 	while (1) {
 		_delay_ms(100);
