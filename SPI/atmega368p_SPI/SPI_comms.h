@@ -9,6 +9,7 @@
 #define SPI_COMMS_H_
 
 #include <avr/io.h>
+#include <util/delay.h>
 
 /* Define SPI Data Direction Register and Bits */
 
@@ -21,6 +22,8 @@
 /* Define SPI_comms.c functions */
 
 void SPI_MasterInit(void);
-void SPI_MasterTransmit(char cData);
+void SPI_MasterTransmit(uint8_t cData);
+
+void flush_shift_register(void);
 
 #endif /* SPI_COMMS_H_ */

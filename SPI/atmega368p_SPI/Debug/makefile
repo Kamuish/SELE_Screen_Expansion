@@ -29,11 +29,14 @@ endif
 -include ../makefile.defs
 
 # Add inputs and outputs from these tool invocations to the build variables 
-LSS += \
-atmega368p_SPI.lss \
+FLASH_IMAGE += \
+atmega368p_SPI.hex \
 
 SIZEDUMMY += \
 sizedummy \
+
+AVRDUDEDUMMY += \
+avrdudedummy \
 
 
 # All Target
@@ -47,9 +50,9 @@ atmega368p_SPI.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-atmega368p_SPI.lss: atmega368p_SPI.elf
-	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S atmega368p_SPI.elf  >"atmega368p_SPI.lss"
+atmega368p_SPI.hex: atmega368p_SPI.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex atmega368p_SPI.elf  "atmega368p_SPI.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -59,12 +62,18 @@ sizedummy: atmega368p_SPI.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+avrdudedummy: atmega368p_SPI.elf
+	@echo 'Invoking: AVRDude'
+	/usr/bin/avrdude -pm328p -carduino -P/dev/ttyACM0 -Uflash:w:atmega368p_SPI.hex:a
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) atmega368p_SPI.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(AVRDUDEDUMMY)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(C_DEPS) atmega368p_SPI.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(SIZEDUMMY)
+secondary-outputs: $(FLASH_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:
