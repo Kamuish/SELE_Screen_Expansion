@@ -68,6 +68,7 @@
 
 void screen_init(void); // Initializes the screen
 void screen_instruction(uint8_t instruction); // Sends an 8-bit instruction to the screen
+void screen_instruction_reverse(uint8_t instruction); // Sends an 8-bit instruction to the screen
 void screen_data(uint8_t data); // Sends an 8-bit data command to the screen
 
 void put_char(uint8_t character); // Puts the character 'character' on the cursor position

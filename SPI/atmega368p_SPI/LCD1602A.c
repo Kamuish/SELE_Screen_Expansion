@@ -10,43 +10,6 @@
 void screen_init(void) {
 	uint8_t command;
 
-	command = 0x60;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	_delay_ms(41);
-
-	command = 0x60;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	_delay_ms(1);
-
-	command = 0x60;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	_delay_ms(1);
-
-	command = 0x20;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
-
-	_delay_ms(10);
-
 	/* Function Set */
 
 	command = 0x20;
@@ -139,6 +102,47 @@ void screen_init(void) {
 void screen_instruction(uint8_t instruction) {
 	uint8_t high_nibble = (instruction)&0xF0;
 	uint8_t low_nibble  = (instruction)&0x0F;
+
+	/* High nibble */
+
+	uint8_t send_instruction;
+	send_instruction = high_nibble>>1;
+	send_instruction |= (1<<EN);
+	send_instruction &= ~(1<<RS);
+
+	SPI_MasterTransmit(send_instruction);
+
+	send_instruction = high_nibble>>1;
+	send_instruction &= ~(1<<EN);
+	send_instruction &= ~(1<<RS);
+
+	SPI_MasterTransmit(send_instruction);
+
+	_delay_ms(10);
+
+	/* Low nibble */
+
+	send_instruction = low_nibble<<3;
+	send_instruction |= (1<<EN);
+	send_instruction &= ~(1<<RS);
+
+	SPI_MasterTransmit(send_instruction);
+
+	send_instruction = low_nibble<<3;
+	send_instruction &= ~(1<<EN);
+	send_instruction &= ~(1<<RS);
+
+	SPI_MasterTransmit(send_instruction);
+
+	_delay_ms(10);
+}
+
+void screen_instruction_reverse(uint8_t instruction) {
+	uint8_t high_nibble = (instruction)&0xF0;
+	uint8_t low_nibble  = (instruction)&0x0F;
+
+	high_nibble = reverse_nibble(high_nibble)<<4;
+	low_nibble 	= reverse_nibble(low_nibble)>>4;
 
 	/* High nibble */
 
