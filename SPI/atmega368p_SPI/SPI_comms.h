@@ -18,11 +18,12 @@
 #define DD_MOSI PB3
 #define DD_MISO PB4
 #define DD_SCK PB5
-#define EN 2
 
 /* Define SPI_comms.c functions */
 
 void SPI_MasterInit(void);
-void SPI_MasterTransmit(char cData);
+void SPI_MasterTransmit(uint8_t cData);
+
+void flush_shift_register(void);
 
 #endif /* SPI_COMMS_H_ */

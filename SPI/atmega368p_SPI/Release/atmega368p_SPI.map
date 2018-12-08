@@ -19,6 +19,7 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+LOAD ./LCD1602A.o
 LOAD ./SPI_comms.o
 LOAD ./main.o
 START GROUP
@@ -118,7 +119,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x21a
+.text           0x0000000000000000      0x384
  *(.vectors)
  .vectors       0x0000000000000000       0x68 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
                 0x0000000000000000                __vectors
@@ -197,38 +198,54 @@ END GROUP
                 0x000000000000007c                __vector_16
                 0x000000000000007c                __vector_18
                 0x000000000000007c                __vector_20
+ .text          0x0000000000000080        0x0 ./LCD1602A.o
  .text          0x0000000000000080        0x0 ./SPI_comms.o
  .text          0x0000000000000080        0x0 ./main.o
  .text          0x0000000000000080        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
                 0x0000000000000080                . = ALIGN (0x2)
  *(.text.*)
+ .text.screen_init
+                0x0000000000000080      0x122 ./LCD1602A.o
+                0x0000000000000080                screen_init
+ .text.screen_instruction
+                0x00000000000001a2       0x4e ./LCD1602A.o
+                0x00000000000001a2                screen_instruction
+ .text.screen_data
+                0x00000000000001f0       0x52 ./LCD1602A.o
+                0x00000000000001f0                screen_data
+ .text.put_char
+                0x0000000000000242       0xc6 ./LCD1602A.o
+                0x0000000000000242                put_char
  .text.SPI_MasterInit
-                0x0000000000000080       0x16 ./SPI_comms.o
-                0x0000000000000080                SPI_MasterInit
+                0x0000000000000308       0x16 ./SPI_comms.o
+                0x0000000000000308                SPI_MasterInit
  .text.SPI_MasterTransmit
-                0x0000000000000096       0x3c ./SPI_comms.o
-                0x0000000000000096                SPI_MasterTransmit
+                0x000000000000031e       0x1c ./SPI_comms.o
+                0x000000000000031e                SPI_MasterTransmit
+ .text.flush_shift_register
+                0x000000000000033a       0x12 ./SPI_comms.o
+                0x000000000000033a                flush_shift_register
  .text.startup.main
-                0x00000000000000d2      0x144 ./main.o
-                0x00000000000000d2                main
+                0x000000000000034c       0x34 ./main.o
+                0x000000000000034c                main
  .text.libgcc.mul
-                0x0000000000000216        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x0000000000000380        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.div
-                0x0000000000000216        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
- .text.libgcc   0x0000000000000216        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x0000000000000380        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000380        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x0000000000000216        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x0000000000000380        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x0000000000000216        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x0000000000000380        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x0000000000000216        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x0000000000000380        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x0000000000000216        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
-                0x0000000000000216                . = ALIGN (0x2)
+                0x0000000000000380        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x0000000000000380                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000216        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
-                0x0000000000000216                exit
-                0x0000000000000216                _exit
+ .fini9         0x0000000000000380        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x0000000000000380                exit
+                0x0000000000000380                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -247,14 +264,15 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000216        0x4 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .fini0         0x0000000000000380        0x4 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x000000000000021a                _etext = .
+                0x0000000000000384                _etext = .
 
-.data           0x0000000000800100        0x0 load address 0x000000000000021a
+.data           0x0000000000800100        0x0 load address 0x0000000000000384
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800100        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+ .data          0x0000000000800100        0x0 ./LCD1602A.o
  .data          0x0000000000800100        0x0 ./SPI_comms.o
  .data          0x0000000000800100        0x0 ./main.o
  .data          0x0000000000800100        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
@@ -270,14 +288,15 @@ END GROUP
                 0x0000000000800100                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x0000000000800100        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr5/crtatmega328p.o
+ .bss           0x0000000000800100        0x0 ./LCD1602A.o
  .bss           0x0000000000800100        0x0 ./SPI_comms.o
  .bss           0x0000000000800100        0x0 ./main.o
  .bss           0x0000000000800100        0x0 /usr/lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  *(.bss*)
  *(COMMON)
                 0x0000000000800100                PROVIDE (__bss_end, .)
-                0x000000000000021a                __data_load_start = LOADADDR (.data)
-                0x000000000000021a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000000384                __data_load_start = LOADADDR (.data)
+                0x0000000000000384                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0000000000800100        0x0
                 0x0000000000800100                PROVIDE (__noinit_start, .)
@@ -325,8 +344,9 @@ END GROUP
 
 .comment        0x0000000000000000       0x11
  *(.comment)
- .comment       0x0000000000000000       0x11 ./SPI_comms.o
+ .comment       0x0000000000000000       0x11 ./LCD1602A.o
                                          0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 ./SPI_comms.o
  .comment       0x0000000000000011       0x12 ./main.o
 
 .note.gnu.avr.deviceinfo

@@ -21,34 +21,26 @@ void SPI_MasterInit(void) {
 	SPSR &= ~(1<<SPI2X);
 }
 
-void SPI_MasterTransmit(char cData) {
-	char flush_buffer;
+void SPI_MasterTransmit(uint8_t cData) {
+	uint8_t flush_buffer;
 
 	/* Start transmission */
-	SPDR = cData|(1<<EN);
+	SPDR = cData;
 	/* Wait for transmission complete */
 	while (!(SPSR & (1<<SPIF)));
 
-	for (int i = 0; i < 9; i++) {
-		PORTB |= (1<<DD_SS);
-		_delay_us(1);
-		PORTB &= ~(1<<DD_SS);
-	}
-
-	_delay_us(1);
-
-	/* Start transmission */
-	SPDR = cData&(~(1<<EN));
-	/* Wait for transmission complete */
-	while (!(SPSR & (1<<SPIF)));
-
-	for (int i = 0; i < 9; i++) {
-		PORTB |= (1<<DD_SS);
-		_delay_us(1);
-		PORTB &= ~(1<<DD_SS);
-	}
-
-	_delay_us(1);
+	flush_shift_register();
 
 	flush_buffer = SPDR;
 }
+
+void flush_shift_register(void) {
+	for (int i = 0; i < 9; i++) {
+		PORTB |= (1<<DD_SS);
+		_delay_us(1);
+		PORTB &= ~(1<<DD_SS);
+	}
+
+	_delay_us(1);
+}
+

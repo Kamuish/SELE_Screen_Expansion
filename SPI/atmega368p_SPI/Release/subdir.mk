@@ -4,14 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../LCD1602A.c \
 ../SPI_comms.c \
 ../main.c 
 
 OBJS += \
+./LCD1602A.o \
 ./SPI_comms.o \
 ./main.o 
 
 C_DEPS += \
+./LCD1602A.d \
 ./SPI_comms.d \
 ./main.d 
 
