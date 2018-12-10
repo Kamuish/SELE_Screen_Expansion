@@ -6,12 +6,12 @@
  */
 
 #include "util/delay.h"
-#include "i2cmaster.h"
+#include "I2C_comms.h"
+#include "LCD.h"
+
 #include "LCD.h"
 
 
-
-// CLK -> A5
 int main(){
 
 	i2c_init();                                // init I2C interface();
@@ -60,7 +60,7 @@ int main(){
 	_delay_ms(10);
 
 
-	uint8_t string[] = "Ola Mundo ad as sa";
+	uint8_t string[] = "HAAAA !!!!";
 	put_string(string, sizeof(string) -1);
 
 
