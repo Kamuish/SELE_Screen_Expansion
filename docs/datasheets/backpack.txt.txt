@@ -1,0 +1,3 @@
+Schematic and board of I2C/SPI backpack
+
+https://github.com/adafruit/i2c-SPI-LCD-backpack
