@@ -1,4 +1,22 @@
+/********************************************************************
+ *
+*		FILE NAME:
+*		PURPOSE:
+*		FILE REFERENCES:
+*
+ *
+*		Notes:
+*			ToDO:
+*				- Include the SPI part
+*				- Introduce the differences in the sending format of the data
+*				- 	Test
+*
+*		Date		Author		Change ID		Release		Description of change
+*		10/12	André				0							0						Initial commit
+*/
+
 #include "LCD.h"
+
 
 
 void screen_init(uint8_t addr, uint8_t comm[]){
@@ -11,6 +29,7 @@ void screen_init(uint8_t addr, uint8_t comm[]){
 	if ("I2C" == comm){
 		// Initialize backpack
 	}
+
 	uint8_t command;
 
 	command = 0x18;
