@@ -11,133 +11,60 @@
 
 
 
-uint8_t reverse_nibble(uint8_t nibble) {
-
-		uint8_t NO_OF_BITS = sizeof(nibble)*8;
-		uint8_t rev_nibble = 0;
-
-		for (int i = 0; i < NO_OF_BITS; i++) {
-			if((nibble & (1 << i)))
-			   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);
-		}
-
-		return rev_nibble;
-	}
-
-
 void screen_init(void) {
 	uint8_t command;
 
 	command = 0x18;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(41);
 
 	command = 0x18;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(1);
 
 	command = 0x18;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(1);
 
 	command = 0x10;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(10);
 
 
 	//  Function set
 	command = 0x10;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(10);
 
 	command = 0x60;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(10);
 
 
 	// Disp off
 	command = 0x00;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
+	send_4_bit_command(command);
 	i2c_write(command);
 
 
 	command = 0x40;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(10);
 
 	// DIsp clear
 	command = 0x00;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 
 	command = 0x08;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(10);
 
 	// Mode set
 	command = 0x00;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 
 	command = 0x30;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+		send_4_bit_command(command);
 	_delay_ms(10);
 }
 
@@ -217,6 +144,19 @@ void screen_data(uint8_t data) {
 
 }
 
+void send_4_bit_command(uint8_t command){
+		/*
+		 *  Sends a 4 bit command to the screen, using the I2C protocol.
+		 *  The input is 2 bytes, in hex,, in the following order : BLK DB7 DB6 DB5 DB4 E RS x
+		 */
+
+		command |= (1<<EN);
+		command &= ~(1<<RS);
+		i2c_write(command);
+		command &= ~(1<<EN);
+		command &= ~(1<<RS);
+		i2c_write(command);
+}
 
 
 void put_string(uint8_t string[], uint16_t length) {
