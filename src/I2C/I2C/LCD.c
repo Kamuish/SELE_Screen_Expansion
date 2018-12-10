@@ -30,42 +30,22 @@ void screen_init(void) {
 	send_4_bit_command(command);
 	_delay_ms(10);
 
+
 	//  Function set
-
-	command = 0x10;
-	send_4_bit_command(command);
-	_delay_ms(10);
-
-	command = 0x60;
-	send_4_bit_command(command);
-	_delay_ms(10);
-
+	screen_instruction(LCD_FUNCTION_4BIT_2LINES);
 
 	// Disp off
-	command = 0x00;
-	send_4_bit_command(command);
-	i2c_write(command);
 
+	screen_instruction(LCD_DISP_OFF);
 
-	command = 0x40;
-	send_4_bit_command(command);
-	_delay_ms(10);
+	// Disp clear
+	screen_instruction(LCD_DISP_CLEAR);
 
-	// DIsp clear
-	command = 0x00;
-	send_4_bit_command(command);
-
-	command = 0x08;
-	send_4_bit_command(command);
-	_delay_ms(10);
 
 	// Mode set
-	command = 0x00;
-	send_4_bit_command(command);
+	screen_instruction(LCD_ENTRY_INC_);
 
-	command = 0x30;
-	send_4_bit_command(command);
-	_delay_ms(10);
+
 }
 
 
