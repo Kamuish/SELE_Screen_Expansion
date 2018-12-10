@@ -50,55 +50,26 @@ int main(){
 
 
 	// Display ON
-
 	command = 0x00;
-	command |= 1<<BKL;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	_delay_ms(1);
+	send_4_bit_command(command);
 
+	_delay_ms(1);
 
 	command = 0x70;
-	command |= 1<<BKL;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	i2c_write(command);
+	send_4_bit_command(command);
 	_delay_ms(10);
 
 
-
-
-	// 	Writes H
-	/*
-	command = 0x20;
-	command |= 1<<BKL;
-	command |= (1<<EN);
-	command |= (1<<RS);
-	i2c_write(command);
-	_delay_ms(1);
-	command &= ~(1<<EN);
-	i2c_write(command);
-	_delay_ms(10);
-	command = 0x40;
-	command |= 1<<BKL;
-	command |= (1<<EN);
-	command |= (1<<RS);
-	i2c_write(command);
-	command &= ~(1<<EN);
-	i2c_write(command);
-	_delay_ms(1000);
-	*/
-	uint8_t string[] = "Mand";
+	uint8_t string[] = "Ola Mundo ad as sa";
 	put_string(string, sizeof(string) -1);
 
 
+	while (1) {
+		screen_instruction(LCD_DISP_ON_CURSOR_BLINK);
+
+				_delay_ms(1000);
+
+	}
 
 	i2c_stop();
 

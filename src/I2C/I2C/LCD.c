@@ -30,8 +30,8 @@ void screen_init(void) {
 	send_4_bit_command(command);
 	_delay_ms(10);
 
-
 	//  Function set
+
 	command = 0x10;
 	send_4_bit_command(command);
 	_delay_ms(10);
@@ -64,7 +64,7 @@ void screen_init(void) {
 	send_4_bit_command(command);
 
 	command = 0x30;
-		send_4_bit_command(command);
+	send_4_bit_command(command);
 	_delay_ms(10);
 }
 
@@ -74,20 +74,21 @@ void screen_instruction(uint8_t instruction) {
 	uint8_t high_nibble = (instruction)&0xF0;
 	uint8_t low_nibble  = (instruction)&0x0F;
 
-	high_nibble = high_nibble<<4;
-	low_nibble 	=  low_nibble  >>4;
+	//high_nibble = high_nibble<<4;
+	//low_nibble 	=  low_nibble  >>4;
 
 	/* High nibble */
 
 	uint8_t send_instruction;
 	send_instruction = high_nibble>>1;
 	send_instruction |= (1<<EN);
+	send_instruction |= (1<<BKL);
 	send_instruction &= ~(1<<RS);
 
 	i2c_write(send_instruction);
 
 	send_instruction &= ~(1<<EN);
-
+	_delay_ms(1);
 	i2c_write(send_instruction);
 
 	_delay_ms(10);
@@ -102,7 +103,7 @@ void screen_instruction(uint8_t instruction) {
 
 	send_instruction &= ~(1<<EN);
 	send_instruction |= (1<<BKL);
-
+	_delay_ms(1);
 	i2c_write(send_instruction);
 
 	_delay_ms(10);
