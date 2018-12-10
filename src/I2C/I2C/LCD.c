@@ -195,6 +195,7 @@ void screen_data(uint8_t data) {
 	i2c_write(send_data);
 
 	send_data &= ~(1<<EN);
+	_delay_ms(1);
 
 	i2c_write(send_data);
 
@@ -208,6 +209,7 @@ void screen_data(uint8_t data) {
 	i2c_write(send_data);
 
 	send_data &= ~(1<<EN);
+	_delay_ms(1);
 
 	i2c_write(send_data);
 
@@ -215,18 +217,6 @@ void screen_data(uint8_t data) {
 
 }
 
-void put_char(uint8_t character){
-	uint8_t high_nibble = (character)&0xF0;
-	uint8_t low_nibble = (character)&0x0F;
-
-	high_nibble = reverse_nibble(high_nibble);
-		low_nibble = reverse_nibble(low_nibble);
-
-
-	character = (high_nibble<<4)|(low_nibble>>4);
-
-	screen_data(character);
-}
 
 
 void put_string(uint8_t string[], uint16_t length) {
@@ -234,7 +224,7 @@ void put_string(uint8_t string[], uint16_t length) {
 
 	for (int i = 0; i < NO_OF_CHARS; i++) {
 		uint8_t character = string[i];
-		put_char(character);
+		screen_data(character);
 	}
 }
 

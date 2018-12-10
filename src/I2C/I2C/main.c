@@ -76,6 +76,7 @@ int main(){
 
 
 	// 	Writes H
+	/*
 	command = 0x20;
 	command |= 1<<BKL;
 	command |= (1<<EN);
@@ -93,8 +94,8 @@ int main(){
 	command &= ~(1<<EN);
 	i2c_write(command);
 	_delay_ms(1000);
-
-	uint8_t string[] = "O Joao e gay!!";
+	*/
+	uint8_t string[] = "Mand";
 	put_string(string, sizeof(string) -1);
 
 

@@ -73,7 +73,6 @@ void screen_init(void); // Initializes the screen
 void screen_instruction(uint8_t instruction); // Sends an 8-bit instruction to the screen
 void screen_data(uint8_t data); // Sends an 8-bit data command to the screen
 
-void put_char(uint8_t character); // Puts the character 'character' on the cursor position
 void put_string(uint8_t string[], uint16_t length); // Puts a string starting on the cursor position
 
 uint8_t reverse_nibble(uint8_t nibble); // Reverses a nibble's bit order
