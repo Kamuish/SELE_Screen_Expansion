@@ -16,54 +16,30 @@ int main(){
 
 	_delay_ms(1);
 
-	// COnfigures all  the pins as outputs
-	i2c_start(0x40);
-	_delay_ms(1);
-	i2c_write(0x00); // register addr
-	_delay_ms(1);
-	i2c_write(0x00); // clear all bits
-	i2c_stop();
-	_delay_ms(100);
-
-	// set up internal register for continuous write to address
-
-	i2c_start(0x40);
-	_delay_ms(100);
-	i2c_write(0x05);
-	_delay_ms(10);
-	i2c_write(0x20);
-	i2c_stop();
-
-	i2c_start(0x40);
-	_delay_ms(100);
-
-	i2c_write(0x09); // gpio register
-	_delay_ms(10);
-
 
 	uint8_t command;
 
-	screen_init(0X40, "I2C");
+	screen_init(0X40, I2C);
 	_delay_ms(10);
 
 
 	// Display ON
 	command = 0x00;
-	send_4_bit_command(command,  "I2C");
+	send_4_bit_command(command,  I2C);
 
 	_delay_ms(1);
 
 	command = 0x70;
-	send_4_bit_command(command,  "I2C");
+	send_4_bit_command(command,  I2C);
 	_delay_ms(10);
 
 
-	uint8_t string[] = "HAAAA !!!!";
-	put_string(string, sizeof(string) -1);
+	uint8_t string[] = "ASDSADSAD";
+	put_string(string, sizeof(string) -1, I2C);
 
 
 	while (1) {
-		screen_instruction(LCD_DISP_ON_CURSOR_BLINK, "I2C");
+		screen_instruction(LCD_DISP_ON_CURSOR_BLINK, I2C);
 
 				_delay_ms(1000);
 

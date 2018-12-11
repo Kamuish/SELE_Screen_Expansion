@@ -18,55 +18,82 @@
 #include "LCD.h"
 
 
+void i2c_init_screen(uint8_t addr){
+	uint8_t command;
 
-void screen_init(uint8_t addr, char comm[]){
+	// Initialize backpack
+
+	// COnfigures all  the pins as outputs
+	i2c_start(addr);
+	_delay_ms(1);
+	i2c_write(0x00); // register addr
+	_delay_ms(1);
+	i2c_write(0x00); // clear all bits
+	i2c_stop();
+	_delay_ms(100);
+	// set up internal register for continuous write to address
+	i2c_start(addr);
+	_delay_ms(100);
+	i2c_write(0x05);
+	_delay_ms(10);
+	i2c_write(0x20);
+	i2c_stop();
+
+	// Prepares to write on the GPIO registers
+	i2c_start(0x40);
+	_delay_ms(100);
+	i2c_write(0x09); // gpio register
+	_delay_ms(10);
+
+	command = 0x18;
+	send_4_bit_command(command, I2C);
+	_delay_ms(41);
+
+	command = 0x18;
+	send_4_bit_command(command, I2C);
+	_delay_ms(1);
+
+	command = 0x18;
+	send_4_bit_command(command, I2C);
+	_delay_ms(1);
+
+	command = 0x10;
+	send_4_bit_command(command, I2C);
+	_delay_ms(10);
+
+
+	//  Function set
+	screen_instruction(LCD_FUNCTION_4BIT_2LINES, I2C);
+
+	// Disp off
+
+	screen_instruction(LCD_DISP_OFF, I2C);
+
+	// Disp clear
+	screen_instruction(LCD_DISP_CLEAR, I2C);
+
+
+	// Mode set
+	screen_instruction(LCD_ENTRY_INC_, I2C);
+
+}
+
+void spi_init(){
+
+
+}
+void screen_init(uint8_t addr, char comm){
 	/*
 	 *  Initializes the screen, with the I2C interface if the slave address is different than 0xFF. Otherwise,
 	 *  it uses the SPI interface.
 	 *  It's assumed that the configuration of the interfaces has been already done before invoking this function
 	 */
 
-	if ("I2C" == comm){
-		// Initialize backpack
-	}
-
-	uint8_t command;
-
-	command = 0x18;
-	send_4_bit_command(command, comm);
-	_delay_ms(41);
-
-	command = 0x18;
-	send_4_bit_command(command, comm);
-	_delay_ms(1);
-
-	command = 0x18;
-	send_4_bit_command(command, comm);
-	_delay_ms(1);
-
-	command = 0x10;
-	send_4_bit_command(command, comm);
-	_delay_ms(10);
-
-
-	//  Function set
-	screen_instruction(LCD_FUNCTION_4BIT_2LINES, comm);
-
-	// Disp off
-
-	screen_instruction(LCD_DISP_OFF, comm);
-
-	// Disp clear
-	screen_instruction(LCD_DISP_CLEAR, comm);
-
-
-	// Mode set
-	screen_instruction(LCD_ENTRY_INC_, comm);
-
+	I2C == comm ? i2c_init_screen(addr): spi_init();
 }
 
 
-void screen_instruction(uint8_t instruction, char comm[] ) {
+void screen_instruction(uint8_t instruction, char comm ) {
 	uint8_t high_nibble = (instruction)&0xF0;
 	uint8_t low_nibble  = (instruction)&0x0F;
 
@@ -102,8 +129,8 @@ void screen_instruction(uint8_t instruction, char comm[] ) {
 	_delay_ms(10);
 }
 
-void transfer_data(uint8_t data, char comm[] ){
-	if ( "I2C" == comm)
+void transfer_data(uint8_t data, char comm ){
+	if ( I2C== comm)
 	{
 		i2c_write(data);
 	}
@@ -113,7 +140,7 @@ void transfer_data(uint8_t data, char comm[] ){
 	}
 }
 
-void screen_data(uint8_t data, char comm[] ){
+void screen_data(uint8_t data, char comm ){
     /*
 	 * Sends an 8-bit data command to the screen
 	 */
@@ -149,7 +176,7 @@ void screen_data(uint8_t data, char comm[] ){
 }
 
 
-void put_string(uint8_t string[], uint16_t length, char comm[]) {
+void put_string(uint8_t string[], uint16_t length, char comm) {
 	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
 
 	for (int i = 0; i < NO_OF_CHARS; i++) {
@@ -158,7 +185,7 @@ void put_string(uint8_t string[], uint16_t length, char comm[]) {
 	}
 }
 
-void send_4_bit_command(uint8_t command, char comm[]){
+void send_4_bit_command(uint8_t command, char comm){
 	// sends a 4 bit command, via I2C or SPI
 
 	command |= (1<<EN);
