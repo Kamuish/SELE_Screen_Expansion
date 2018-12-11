@@ -21,8 +21,8 @@
 
 /* SPI functions */
 
-void SPIMasterInit(void);				/* Initializes SPI Master */
-void SPIMasterTransmit(uint8_t cData);	/* Transmits data through SPI */
+void SPI_MasterInit(void);				/* Initializes SPI Master */
+void SPI_MasterTransmit(uint8_t data);	/* Transmits data through SPI */
 
 /* Utility functions */
 
