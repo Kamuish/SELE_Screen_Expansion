@@ -19,34 +19,34 @@ void ScreenInit(void) {
 	command = 0x60;
 	command |= (1<<EN);
 	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
+	SPIMasterTransmit(command);
 	command &= ~(1<<EN);
 	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
+	SPIMasterTransmit(command);
 	_delay_ms(41);
 	command = 0x60;
 	command |= (1<<EN);
 	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
+	SPIMasterTransmit(command);
 	command &= ~(1<<EN);
 	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
+	SPIMasterTransmit(command);
 	_delay_ms(1);
 	command = 0x60;
 	command |= (1<<EN);
 	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
+	SPIMasterTransmit(command);
 	command &= ~(1<<EN);
 	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
+	SPIMasterTransmit(command);
 	_delay_ms(1);
 	command = 0x20;
 	command |= (1<<EN);
 	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
+	SPIMasterTransmit(command);
 	command &= ~(1<<EN);
 	command &= ~(1<<RS);
-	SPI_MasterTransmit(command);
+	SPIMasterTransmit(command);
 	_delay_ms(10);
 
 	/* Function Set */
@@ -87,11 +87,11 @@ void ScreenInstruction(uint8_t instruction) {
 	send_instruction |= (1<<EN);			/* Enable pin high */
 	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
 
-	SPI_MasterTransmit(send_instruction);	/* Send instruction */
+	SPIMasterTransmit(send_instruction);	/* Send instruction */
 
 	send_instruction &= ~(1<<EN);			/* Enable pin low */
 
-	SPI_MasterTransmit(send_instruction);	/* Send again with EN low */
+	SPIMasterTransmit(send_instruction);	/* Send again with EN low */
 
 	_delay_ms(10);							/* Delay between screen writes */
 
@@ -101,12 +101,12 @@ void ScreenInstruction(uint8_t instruction) {
 	send_instruction |= (1<<EN);			/* Same procedure as for high nibble */
 	send_instruction &= ~(1<<RS);
 
-	SPI_MasterTransmit(send_instruction);
+	SPIMasterTransmit(send_instruction);
 
 	send_instruction &= ~(1<<EN);
 	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
 
-	SPI_MasterTransmit(send_instruction);
+	SPIMasterTransmit(send_instruction);
 
 	_delay_ms(10);
 }
@@ -131,11 +131,11 @@ void ScreenData(uint8_t data) {
 	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
 	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
 
-	SPI_MasterTransmit(send_data);				/* Send data */
+	SPIMasterTransmit(send_data);				/* Send data */
 
 	send_data &= ~(1<<EN);						/* Enable low */
 
-	SPI_MasterTransmit(send_data);				/* Send data again with enable low */
+	SPIMasterTransmit(send_data);				/* Send data again with enable low */
 
 	_delay_ms(10);
 
@@ -144,11 +144,11 @@ void ScreenData(uint8_t data) {
 	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
 	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* Same procedure as for high nibble */
 
-	SPI_MasterTransmit(send_data);
+	SPIMasterTransmit(send_data);
 
 	send_data &= ~(1<<EN);
 
-	SPI_MasterTransmit(send_data);
+	SPIMasterTransmit(send_data);
 
 	_delay_ms(10);
 
@@ -161,9 +161,6 @@ void PutChar(uint8_t character){
 	 * uint8_t character - the character to write
 	 * Returns: void.
 	 */
-
-	uint8_t high_nibble = (character)&0xF0;			/* High 4bit nibble of the character */
-	uint8_t low_nibble = (character)&0x0F;			/* Low 4bit nibble of the character */
 
 	ScreenData(character);		/* Send data to screen */
 }
