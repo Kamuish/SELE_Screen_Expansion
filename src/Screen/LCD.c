@@ -86,18 +86,18 @@ void spi_init(void){
 	_delay_ms(400);
 	uint8_t command;
 	command = 0x60;
-	send_4_bit_command(command, I2C);
+	send_4_bit_command(command, SPI);
 	_delay_ms(41);
 
 	command = 0x60;
-	send_4_bit_command(command, I2C);
+	send_4_bit_command(command, SPI);
 	_delay_ms(1);
 	command = 0x60;
-	send_4_bit_command(command, I2C);
+	send_4_bit_command(command, SPI);
 	_delay_ms(1);
 
 	command = 0x20;
-	send_4_bit_command(command, I2C);
+	send_4_bit_command(command, SPI);
 
 	_delay_ms(10);
 
