@@ -1,4 +1,4 @@
-#include "I2C/I2C_comms.h"
+#include "../I2C/I2C/I2C_comms.h"
 
 // Define screen pins
 #define RS 1
@@ -58,4 +58,11 @@
 
 // Define the library functions
 
-void init(uint8_t addr);
+void screen_init(uint8_t addr, uint8_t comm[]);
+void screen_instruction(uint8_t instruction, uint8_t comm[]);
+void transfer_data(uint8_t data, uint8_t comm[]); // Transfer data via I2C or SPI
+void screen_data(uint8_t data , uint8_t comm[]); // Sends an 8 bit data command (RS ==1) to the screen
+void put_string(uint8_t string[], uint16_t length);  // Writes string to the screen
+void send_4_bit_command(uint8_t command, uint8_t comm[]); // Sends a 4 bit command to the screen
+
+

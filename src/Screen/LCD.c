@@ -19,7 +19,7 @@
 
 
 
-void screen_init(uint8_t addr, uint8_t comm[]){
+void screen_init(uint8_t addr, char comm[]){
 	/*
 	 *  Initializes the screen, with the I2C interface if the slave address is different than 0xFF. Otherwise,
 	 *  it uses the SPI interface.
@@ -66,7 +66,7 @@ void screen_init(uint8_t addr, uint8_t comm[]){
 }
 
 
-void screen_instruction(uint8_t instruction, uint8_t comm[] ) {
+void screen_instruction(uint8_t instruction, char comm[] ) {
 	uint8_t high_nibble = (instruction)&0xF0;
 	uint8_t low_nibble  = (instruction)&0x0F;
 
@@ -102,7 +102,7 @@ void screen_instruction(uint8_t instruction, uint8_t comm[] ) {
 	_delay_ms(10);
 }
 
-void transfer_data(uint8_t data, uint8_t comm[] ){
+void transfer_data(uint8_t data, char comm[] ){
 	if ( "I2C" == comm)
 	{
 		i2c_write(send_data);
@@ -113,7 +113,7 @@ void transfer_data(uint8_t data, uint8_t comm[] ){
 	}
 }
 
-void screen_data(uint8_t data, uint8_t comm[] ){
+void screen_data(uint8_t data, char comm[] ){
     /*
 	 * Sends an 8-bit data command to the screen
 	 */
@@ -158,7 +158,7 @@ void put_string(uint8_t string[], uint16_t length) {
 	}
 }
 
-void send_4_bit_command(uint8_t command, uint8_t comm[]){
+void send_4_bit_command(uint8_t command, char comm[]){
 	// sends a 4 bit command, via I2C or SPI
 
 	command |= (1<<EN);
