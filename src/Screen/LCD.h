@@ -4,6 +4,7 @@
 // INcludes the I2C communication
 #include "util/delay.h"
 #include "../I2C/I2C/I2C_comms.h"
+#include "../SPI/atmega368p_SPI/SPI_comms.h"
 
 //
 #define SPI 0
@@ -67,7 +68,10 @@
 
 
 // Define the library functions
-void i2c_init_screen(uint8_t addr);// Start instructions for the I2C
+uint8_t reverse_nibble(uint8_t nibble);
+void i2c_init_screen(uint8_t addr);// Start instructions for the screen using the I2C interface
+void spi_init(void);  // Start instructions for the screen using the SPI interface
+
 void screen_init(uint8_t addr, char comm);
 void screen_instruction(uint8_t instruction, char comm);
 void transfer_data(uint8_t data, char comm); // Transfer data via I2C or SPI
