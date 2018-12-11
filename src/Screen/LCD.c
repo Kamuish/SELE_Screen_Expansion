@@ -33,10 +33,9 @@ uint8_t reverse_nibble(uint8_t nibble) {
 void i2c_init_screen(uint8_t addr){
 	uint8_t command;
 
-	i2c_init();
 	// Initialize backpack
 
-	_delay_ms(10);
+	_delay_ms(100);
 	// COnfigures all  the pins as outputs
 	i2c_start(addr);
 	_delay_ms(1);
@@ -79,6 +78,7 @@ void i2c_init_screen(uint8_t addr){
 }
 
 void spi_init(void){
+	/*
 	SPI_MasterInit();
 	_delay_ms(400);
 	uint8_t command;
@@ -97,7 +97,7 @@ void spi_init(void){
 	send_4_bit_command(command, I2C);
 
 	_delay_ms(10);
-
+	*/
 }
 
 
@@ -107,8 +107,11 @@ void screen_init(uint8_t addr, char comm){
 	 *  It's assumed that the configuration of the interfaces has been already done before invoking this function
 	 */
 
-	I2C == comm ? i2c_init_screen(addr): spi_init();
+	//I2C == comm ? i2c_init_screen(addr): spi_init();
 
+	i2c_init();
+	_delay_ms(100);
+	 i2c_init_screen(addr);
 	/* General codes for initialization
 	 * */
 	/* Function Set */
@@ -134,10 +137,12 @@ void screen_instruction(uint8_t instruction, char comm ) {
 	uint8_t low_nibble  = (instruction)&0x0F;
 
 	/* High nibble */
+	/*
 	if ( SPI == comm ){
 		high_nibble = reverse_nibble(high_nibble) << 4 ;
 		low_nibble  =  reverse_nibble(low_nibble)>>4 ;
 	}
+	*/
 
 	uint8_t send_instruction;
 	send_instruction = high_nibble>>1;
@@ -170,8 +175,8 @@ void screen_instruction(uint8_t instruction, char comm ) {
 }
 
 void transfer_data(uint8_t data, char comm ){
-
-	I2C == comm ? i2c_write(data): SPI_MasterTransmit(data);
+	i2c_write(data);
+	//I2C == comm ? i2c_write(data): SPI_MasterTransmit(data);
 }
 
 void screen_data(uint8_t data, char comm ){
@@ -183,11 +188,15 @@ void screen_data(uint8_t data, char comm ){
 	uint8_t low_nibble  = (data)&0x0F;
 
 	/* High nibble */
+
+	/*
 	if (SPI == comm){
 		high_nibble = reverse_nibble(high_nibble);
 		low_nibble = reverse_nibble(low_nibble);
 		data = (high_nibble<<4)|(low_nibble>>4);
 	}
+
+	*/
 
 	uint8_t send_data;
 	send_data = high_nibble>>1;

@@ -4,7 +4,7 @@
 // INcludes the I2C communication
 #include "util/delay.h"
 #include "../I2C/I2C/I2C_comms.h"
-#include "../SPI/atmega368p_SPI/SPI_comms.h"
+//#include "../SPI/atmega368p_SPI/SPI_comms.h"
 
 //
 #define SPI 0
