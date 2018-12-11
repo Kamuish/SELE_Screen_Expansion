@@ -5,6 +5,11 @@
 #include "util/delay.h"
 #include "../I2C/I2C/I2C_comms.h"
 
+//
+#define SPI 0
+#define I2C 1
+
+
 // Define screen pins
 #define RS 1
 #define EN 2
@@ -62,12 +67,12 @@
 
 
 // Define the library functions
-
-void screen_init(uint8_t addr, char comm[]);
-void screen_instruction(uint8_t instruction, char comm[]);
-void transfer_data(uint8_t data, char comm[]); // Transfer data via I2C or SPI
-void screen_data(uint8_t data , char comm[]); // Sends an 8 bit data command (RS ==1) to the screen
-void put_string(uint8_t string[], uint16_t length, char comm[]);  // Writes string to the screen
-void send_4_bit_command(uint8_t command, char comm[]); // Sends a 4 bit command to the screen
+void i2c_init_screen(uint8_t addr);// Start instructions for the I2C
+void screen_init(uint8_t addr, char comm);
+void screen_instruction(uint8_t instruction, char comm);
+void transfer_data(uint8_t data, char comm); // Transfer data via I2C or SPI
+void screen_data(uint8_t data , char comm); // Sends an 8 bit data command (RS ==1) to the screen
+void put_string(uint8_t string[], uint16_t length, char comm);  // Writes string to the screen
+void send_4_bit_command(uint8_t command, char comm); // Sends a 4 bit command to the screen
 
 #endif
