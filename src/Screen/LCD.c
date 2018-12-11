@@ -31,6 +31,10 @@ uint8_t reverse_nibble(uint8_t nibble) {
 
 
 void i2c_init_screen(uint8_t addr){
+	i2c_init();
+	_delay_ms(100);
+
+
 	uint8_t command;
 
 	// Initialize backpack
@@ -78,7 +82,6 @@ void i2c_init_screen(uint8_t addr){
 }
 
 void spi_init(void){
-	/*
 	SPI_MasterInit();
 	_delay_ms(400);
 	uint8_t command;
@@ -97,21 +100,19 @@ void spi_init(void){
 	send_4_bit_command(command, I2C);
 
 	_delay_ms(10);
-	*/
+
 }
 
 
-void screen_init(uint8_t addr, char comm){
+void screen_init(uint8_t addr, uint8_t comm){
 	/*
 	 *  Initializes the screen, depending on the comm parameter.
 	 *  It's assumed that the configuration of the interfaces has been already done before invoking this function
 	 */
 
-	//I2C == comm ? i2c_init_screen(addr): spi_init();
+	I2C == comm ? i2c_init_screen(addr): spi_init();
 
-	i2c_init();
-	_delay_ms(100);
-	 i2c_init_screen(addr);
+
 	/* General codes for initialization
 	 * */
 	/* Function Set */
@@ -132,17 +133,17 @@ void screen_init(uint8_t addr, char comm){
 }
 
 
-void screen_instruction(uint8_t instruction, char comm ) {
+void screen_instruction(uint8_t instruction, uint8_t comm ) {
 	uint8_t high_nibble = (instruction)&0xF0;
 	uint8_t low_nibble  = (instruction)&0x0F;
 
 	/* High nibble */
-	/*
+
 	if ( SPI == comm ){
 		high_nibble = reverse_nibble(high_nibble) << 4 ;
 		low_nibble  =  reverse_nibble(low_nibble)>>4 ;
 	}
-	*/
+
 
 	uint8_t send_instruction;
 	send_instruction = high_nibble>>1;
@@ -174,12 +175,12 @@ void screen_instruction(uint8_t instruction, char comm ) {
 	_delay_ms(10);
 }
 
-void transfer_data(uint8_t data, char comm ){
-	i2c_write(data);
-	//I2C == comm ? i2c_write(data): SPI_MasterTransmit(data);
+void transfer_data(uint8_t data, uint8_t comm ){
+	//i2c_write(data);
+    I2C == comm ? i2c_write(data): SPI_MasterTransmit(data);
 }
 
-void screen_data(uint8_t data, char comm ){
+void screen_data(uint8_t data, uint8_t comm ){
     /*
 	 * Sends an 8-bit data command to the screen
 	 */
@@ -189,14 +190,12 @@ void screen_data(uint8_t data, char comm ){
 
 	/* High nibble */
 
-	/*
+
 	if (SPI == comm){
 		high_nibble = reverse_nibble(high_nibble);
 		low_nibble = reverse_nibble(low_nibble);
 		data = (high_nibble<<4)|(low_nibble>>4);
 	}
-
-	*/
 
 	uint8_t send_data;
 	send_data = high_nibble>>1;
@@ -224,7 +223,7 @@ void screen_data(uint8_t data, char comm ){
 }
 
 
-void put_string(uint8_t string[], uint16_t length, char comm) {
+void put_string(uint8_t string[], uint16_t length, uint8_t comm) {
 	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
 
 	for (int i = 0; i < NO_OF_CHARS; i++) {
@@ -233,7 +232,7 @@ void put_string(uint8_t string[], uint16_t length, char comm) {
 	}
 }
 
-void send_4_bit_command(uint8_t command, char comm){
+void send_4_bit_command(uint8_t command, uint8_t comm){
 	// sends a 4 bit command, via I2C or SPI
 
 	command |= (1<<EN);
