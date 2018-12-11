@@ -105,7 +105,7 @@ void screen_instruction(uint8_t instruction, char comm[] ) {
 void transfer_data(uint8_t data, char comm[] ){
 	if ( "I2C" == comm)
 	{
-		i2c_write(send_data);
+		i2c_write(data);
 	}
 	else
 	{
@@ -145,16 +145,16 @@ void screen_data(uint8_t data, char comm[] ){
 
 	transfer_data(send_data,comm);
 
-	}
+
 }
 
 
-void put_string(uint8_t string[], uint16_t length) {
+void put_string(uint8_t string[], uint16_t length, char comm[]) {
 	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
 
 	for (int i = 0; i < NO_OF_CHARS; i++) {
 		uint8_t character = string[i];
-		screen_data(character);
+		screen_data(character, comm);
 	}
 }
 
