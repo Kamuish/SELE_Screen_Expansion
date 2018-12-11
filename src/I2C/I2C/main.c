@@ -7,9 +7,7 @@
 
 #include "util/delay.h"
 #include "I2C_comms.h"
-#include "LCD.h"
-
-#include "LCD.h"
+#include "../../Screen/LCD.h"
 
 
 int main(){
@@ -45,18 +43,18 @@ int main(){
 
 	uint8_t command;
 
-	screen_init();
+	screen_init(0X40, "I2C");
 	_delay_ms(10);
 
 
 	// Display ON
 	command = 0x00;
-	send_4_bit_command(command);
+	send_4_bit_command(command,  "I2C");
 
 	_delay_ms(1);
 
 	command = 0x70;
-	send_4_bit_command(command);
+	send_4_bit_command(command,  "I2C");
 	_delay_ms(10);
 
 
@@ -65,7 +63,7 @@ int main(){
 
 
 	while (1) {
-		screen_instruction(LCD_DISP_ON_CURSOR_BLINK);
+		screen_instruction(LCD_DISP_ON_CURSOR_BLINK, "I2C");
 
 				_delay_ms(1000);
 

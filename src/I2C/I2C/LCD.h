@@ -8,7 +8,7 @@
 #ifndef LCD_H_
 #define LCD_H_
 
-#include "i2cmaster.h"
+#include "I2C_comms.h"
 #include "util/delay.h"
 
 // Define screen pins
@@ -66,15 +66,13 @@
 #define LCD_MODE_DEFAULT		((1<<LCD_ENTRY_MODE) | (1<<LCD_ENTRY_INC) )
 
 
-
 /* Define screen functions */
 
 void screen_init(void); // Initializes the screen
-void screen_instruction(uint8_t instruction); // Sends an 8-bit instruction to the screen
-void screen_data(uint8_t data); // Sends an 8-bit data command to the screen
-
-void put_string(uint8_t string[], uint16_t length); // Puts a string starting on the cursor position
-void send_4_bit_command(uint8_t command);
-
+void screen_instruction(uint8_t instruction);
+void transfer_data(uint8_t data); // Transfer data via I2C or SPI
+void screen_data(uint8_t data ); // Sends an 8 bit data command (RS ==1) to the screen
+void put_string(uint8_t string[], uint16_t length);  // Writes string to the screen
+void send_4_bit_command(uint8_t command); // Sends a 4 bit command to the screen
 
 #endif /* LCD_H_ */

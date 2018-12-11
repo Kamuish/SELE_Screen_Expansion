@@ -6,9 +6,8 @@
  */
 
 
-#include "i2cmaster.h"
+#include "I2C_comms.h"
 #include "LCD.h"
-
 
 
 void screen_init(void) {
@@ -45,7 +44,6 @@ void screen_init(void) {
 	// Mode set
 	screen_instruction(LCD_ENTRY_INC_);
 
-
 }
 
 
@@ -53,9 +51,6 @@ void screen_init(void) {
 void screen_instruction(uint8_t instruction) {
 	uint8_t high_nibble = (instruction)&0xF0;
 	uint8_t low_nibble  = (instruction)&0x0F;
-
-	//high_nibble = high_nibble<<4;
-	//low_nibble 	=  low_nibble  >>4;
 
 	/* High nibble */
 
