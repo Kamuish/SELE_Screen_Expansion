@@ -8,6 +8,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Screen/Debug/subdir.mk
+-include Screen/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -49,7 +51,7 @@ all: I2C.elf secondary-outputs
 I2C.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,I2C.map -mmcu=atmega328p -o "I2C.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,I2C.map -L"/home/andre/eclipse-workspace/project_ICARUS/src/Screen" -mmcu=atmega328p -o "I2C.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -73,7 +75,7 @@ sizedummy: I2C.elf
 
 avrdudedummy: I2C.elf
 	@echo 'Invoking: AVRDude'
-	/usr/bin/avrdude -pm328p -carduino -P/dev/ttyUSB1 -Uflash:w:I2C.hex:a
+	/usr/bin/avrdude -pm328p -carduino -P/dev/ttyUSB0 -Uflash:w:I2C.hex:a
 	@echo 'Finished building: $@'
 	@echo ' '
 

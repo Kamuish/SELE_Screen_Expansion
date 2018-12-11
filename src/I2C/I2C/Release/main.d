@@ -1,5 +1,8 @@
-main.o: ../main.c ../i2cmaster.h ../LCD.h
+main.o: ../main.c ../I2C_comms.h ../../../Screen/LCD.h \
+ ../../../Screen/../I2C/I2C/I2C_comms.h
 
-../i2cmaster.h:
+../I2C_comms.h:
 
-../LCD.h:
+../../../Screen/LCD.h:
+
+../../../Screen/../I2C/I2C/I2C_comms.h:
