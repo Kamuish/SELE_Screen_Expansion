@@ -38,6 +38,7 @@
 
 void ScreenInit(uint8_t protocol_flag) {
 	/* Initializes the screen according to the datasheet.
+	 * uint8_t protocol_flag : Allows to choose the protocol to use for the communication
 	 */
 
 	/* Initial commands */
@@ -62,6 +63,9 @@ void ScreenInit(uint8_t protocol_flag) {
 }
 
 void I2C_InitScreen(void){
+	/* Initializes the I2C interface and sends the necessary commands to initialize the MCP23008
+	 * on the backpack and, afterwards, initializes the screen.
+	 */
 	I2C_Init();
 	_delay_ms(100);
 
@@ -111,6 +115,9 @@ void I2C_InitScreen(void){
 }
 
 void SPI_InitScreen(void){
+	/* Initializes the SPI interface and sends the necessary commands to initialize the screen (accordingly to
+	 * the datasheet).
+	 */
 	SPI_MasterInit();
 	_delay_ms(400);
 
@@ -185,8 +192,8 @@ void ScreenData(uint8_t data, uint8_t protocol_flag) {
 	 * Returns: void.
 	 */
 
-	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
-	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
+	uint8_t high_nibble = (data) & 0xF0;	/* High 4bit nibble of the character */
+	uint8_t low_nibble  = (data) & 0x0F;	/* Low 4bit nibble of the character */
 
 	/* Send high nibble */
 
@@ -273,11 +280,23 @@ uint8_t ReverseNibble(uint8_t nibble) {
 }
 
 void TransferData(uint8_t data, uint8_t protocol_flag){
+	/* Uses the I2C protocol or the SPI, depending on the passed flag
+	 * uint8_t data - data to send
+	 * uint8_t protocol_flag - Chooses the protocol to use. Can be SPI or I2C
+	 * Returns: void
+	 */
+
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
 }
 
 void Send4BitCommand(uint8_t command, uint8_t protocol_flag){
-	// sends a 4 bit command, via I2C or SPI
+	/* Uses the I2C protocol or the SPI, depending on the passed flag, to pass a 4 bit command.
+	 * 	Sends a command with the Enable bit set  and RS clear and, afterwards, sends the same command
+	 * 	with the Enable bit clear.
+	 * uint8_t command - command to send
+	 * uint8_t protocol_flag - Chooses the protocol to use. Can be SPI or I2C
+	 * Returns: void
+	 */
 
 	command |= (1<<EN);
 	command &= ~(1<<RS);
