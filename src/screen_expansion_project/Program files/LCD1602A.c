@@ -188,12 +188,6 @@ void ScreenData(uint8_t data, uint8_t protocol_flag) {
 	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
 	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
 
-	/* if (SPI) reverse the data before sending */
-	if (SPI == protocol_flag){
-		high_nibble = ReverseNibble(high_nibble);
-		low_nibble = ReverseNibble(low_nibble);
-	}
-
 	/* Send high nibble */
 
 	uint8_t send_data;							/* Data to be sent */
@@ -229,6 +223,18 @@ void PutChar(uint8_t character, uint8_t protocol_flag){
 	 * uint8_t character - the character to write
 	 * Returns: void.
 	 */
+
+	/* if (SPI) reverse the data before sending */
+	if (SPI == protocol_flag){
+		uint8_t high_nibble = (character)&0xF0;
+		uint8_t low_nibble = (character)&0x0F;
+
+		high_nibble = ReverseNibble(high_nibble);
+		low_nibble = ReverseNibble(low_nibble);
+
+		character = (high_nibble<<4)|(low_nibble>>4);
+
+	}
 
 	ScreenData(character, protocol_flag);		/* Send data to screen */
 }
