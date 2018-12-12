@@ -36,7 +36,7 @@
 
 #include <SPI_comms.h>
 
-void SPIMasterInit(void) {
+void SPI_MasterInit(void) {
 	/* Set up SPI Master
 	 * Returns: void.
 	 */
@@ -54,7 +54,7 @@ void SPIMasterInit(void) {
 	SPSR &= ~(1<<SPI2X);
 }
 
-void SPIMasterTransmit(uint8_t data) {
+void SPI_MasterTransmit(uint8_t data) {
 	/* Transmits the data through SPI
 	 * uint8_t data - data to be transmitted
 	 * Returns: void.

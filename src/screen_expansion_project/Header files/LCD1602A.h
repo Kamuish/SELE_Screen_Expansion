@@ -8,11 +8,15 @@
 #ifndef LCD1602A_H_
 #define LCD1602A_H_
 
+#include <util/delay.h>
 #include <SPI_comms.h>
 #include <I2C_comms.h>
-#include <stdint.h>
 
-// Define screen pins
+/* SPI or I2C flags */
+#define SPI 0
+#define I2C 1
+
+/* Screen RS, EN and BKL pins */
 #define RS 1
 #define EN 2
 #define BKL 7
@@ -60,24 +64,26 @@
 /* function set: set interface data length and number of display lines */
 #define LCD_FUNCTION_4BIT_1LINE  0x20   /* 4-bit interface, single line, 5x7 dots */
 #define LCD_FUNCTION_4BIT_2LINES 0x28   /* 4-bit interface, dual line,   5x7 dots */
+#define LCD_FUNCTION_8BIT_1LINE  0x30   /* 8-bit interface, single line, 5x7 dots */
+#define LCD_FUNCTION_8BIT_2LINES 0x38   /* 8-bit interface, dual line,   5x7 dots */
 
 #define LCD_DISP_CLEAR			(1<<LCD_CLR)
 #define LCD_MODE_DEFAULT		((1<<LCD_ENTRY_MODE) | (1<<LCD_ENTRY_INC) )
 
+// Define the library functions
 
-/* Low level screen functions */
+void ScreenInit(uint8_t protocol_flag);		/* Initialize screen in either SPI or I2C modes */
+void I2C_InitScreen(void);					/* Start instructions for the screen using the I2C interface */
+void SPI_InitScreen(void);  				/* Start instructions for the screen using the SPI interface */
 
-void ScreenInit(void); /* Initializes the screen */
-void ScreenInstruction(uint8_t instruction); /* Sends an 8-bit instruction to the screen */
-void ScreenData(uint8_t data); /* Sends an 8-bit data command to the screen */
-
-/* Higher level character write functions */
-
-void PutChar(uint8_t character); /* Puts a character on the cursor position */
-void PutString(uint8_t string[], uint16_t length); /* Puts a string starting on the cursor position */
+void ScreenInstruction(uint8_t instruction, uint8_t protocol_flag);
+void ScreenData(uint8_t data , uint8_t protocol_flag);		/* Sends an 8 bit data command (RS ==1) to the screen */
+void PutChar(uint8_t character, uint8_t protocol_flag);		/* Writes a single character to the screen */
+void PutString(uint8_t string[], uint16_t length, uint8_t protocol_flag);	/* Writes string to the screen */
 
 /* Utility functions */
-uint8_t ReverseNibble(uint8_t nibble); /* Reverses a nibble's bit order */
-
+uint8_t ReverseNibble(uint8_t nibble);		/* Inverts a nibble of data */
+void TransferData(uint8_t data, uint8_t protocol_flag); 		/* Transfer data via I2C or SPI */
+void Send4BitCommand(uint8_t command, uint8_t protocol_flag);	/* Sends a 4 bit command to the screen */
 
 #endif /* LCD1602A_H_ */

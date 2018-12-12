@@ -34,4 +34,35 @@
  *																		*
  ************************************************************************/
 
+#include <SPI_comms.h>
+#include <I2C_comms.h>
+#include <LCD1602A.h>
 
+//#define F_CPU 1600000UL
+
+int main(void) {
+	SPI_MasterInit();
+	_delay_ms(400);
+
+	uint8_t command;
+
+	ScreenInit(SPI);
+
+	/* Display ON, Cursor Blink */
+
+	command = LCD_DISP_ON_BLINK;
+	ScreenInstruction(command, SPI);
+
+	/* Print a string */
+
+	uint8_t string[] = "ABCDEFGHIJKLMNO";
+	PutString(string, sizeof(string) - 1, SPI);
+	_delay_ms(5000);
+
+	while (1) {
+		//ScreenInstruction(LCD_MOVE_DISP_RIGHT, SPI);
+		_delay_ms(10000);
+	}
+
+	return 0;
+}

@@ -3,48 +3,48 @@ screen_expansion.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  0000053e  000005b2  2**0
+  0 .data         00000010  00800100  0000078a  000007fe  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000053e  00000000  00000000  00000074  2**1
+  1 .text         0000078a  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .stab         000016a4  00000000  00000000  000005b4  2**2
+  2 .stab         00001ca4  00000000  00000000  00000810  2**2
                   CONTENTS, READONLY, DEBUGGING
-  3 .stabstr      00000dcf  00000000  00000000  00001c58  2**0
+  3 .stabstr      00000f73  00000000  00000000  000024b4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .comment      00000011  00000000  00000000  00002a27  2**0
+  4 .comment      00000011  00000000  00000000  00003427  2**0
                   CONTENTS, READONLY
-  5 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00002a38  2**2
+  5 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00003438  2**2
                   CONTENTS, READONLY
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
-   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
-  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   4:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   8:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+   c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
 
 00000068 <__ctors_end>:
   68:	11 24       	eor	r1, r1
@@ -53,1148 +53,1570 @@ Disassembly of section .text:
   6e:	d8 e0       	ldi	r29, 0x08	; 8
   70:	de bf       	out	0x3e, r29	; 62
   72:	cd bf       	out	0x3d, r28	; 61
-  74:	0e 94 9a 02 	call	0x534	; 0x534 <main>
-  78:	0c 94 9d 02 	jmp	0x53a	; 0x53a <_exit>
 
-0000007c <__bad_interrupt>:
-  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ea e8       	ldi	r30, 0x8A	; 138
+  7c:	f7 e0       	ldi	r31, 0x07	; 7
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a0 31       	cpi	r26, 0x10	; 16
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+  8a:	0e 94 80 03 	call	0x700	; 0x700 <main>
+  8e:	0c 94 c3 03 	jmp	0x786	; 0x786 <_exit>
 
-00000080 <ScreenInit>:
-	/* Initial commands */
+00000092 <__bad_interrupt>:
+  92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-	command = 0x60;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPIMasterTransmit(command);
-  80:	84 e6       	ldi	r24, 0x64	; 100
-  82:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPIMasterTransmit(command);
-  86:	80 e6       	ldi	r24, 0x60	; 96
-  88:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
+00000096 <I2C_Init>:
+
+void I2C_Init(void){
+	/* Sets up I2C communication
+	 */
+
+	 TWSR = 0;                         /* no prescaler */
+  96:	10 92 b9 00 	sts	0x00B9, r1
+	 TWBR = ( (F_CPU/SCL_CLOCK )-16 )/2;  /* must be > 10 for stable operation */
+  9a:	8d ef       	ldi	r24, 0xFD	; 253
+  9c:	80 93 b8 00 	sts	0x00B8, r24
+  a0:	08 95       	ret
+
+000000a2 <I2C_Start>:
+void I2C_Start(unsigned char addr){
+	/* Send start action  for I2C communication and wait untils the TWINT flag is set.
+	 * Also checks TWI status register for correct sending of start signal.
+	 * Afterwards chooses the slave, by setting the address to twdr and clearing the TWINT flag
+	 */
+	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN);
+  a2:	94 ea       	ldi	r25, 0xA4	; 164
+  a4:	90 93 bc 00 	sts	0x00BC, r25
+
+void I2C_WaitForTwint(void) {
+	/*
+	 * Waits for the TWINT flag to set
+	 */
+	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
+  a8:	90 91 bc 00 	lds	r25, 0x00BC
+  ac:	97 ff       	sbrs	r25, 7
+  ae:	fc cf       	rjmp	.-8      	; 0xa8 <I2C_Start+0x6>
+	 */
+	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN);
+
+	I2C_WaitForTwint();
+
+	TWDR = addr ;
+  b0:	80 93 bb 00 	sts	0x00BB, r24
+
+	TWCR = (1<<TWINT) | (1<<TWEN);
+  b4:	84 e8       	ldi	r24, 0x84	; 132
+  b6:	80 93 bc 00 	sts	0x00BC, r24
+
+void I2C_WaitForTwint(void) {
+	/*
+	 * Waits for the TWINT flag to set
+	 */
+	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
+  ba:	80 91 bc 00 	lds	r24, 0x00BC
+  be:	87 ff       	sbrs	r24, 7
+  c0:	fc cf       	rjmp	.-8      	; 0xba <I2C_Start+0x18>
+
+	TWDR = addr ;
+
+	TWCR = (1<<TWINT) | (1<<TWEN);
+	I2C_WaitForTwint();
+}
+  c2:	08 95       	ret
+
+000000c4 <I2C_Write>:
+
+
+uint8_t I2C_Write( unsigned char data){
+	/* Send command and wait for the flag and ACK
+	 */
+	TWDR = data;
+  c4:	80 93 bb 00 	sts	0x00BB, r24
+
+	TWCR = (1<<TWINT) | (1<<TWEN);
+  c8:	84 e8       	ldi	r24, 0x84	; 132
+  ca:	80 93 bc 00 	sts	0x00BC, r24
+
+void I2C_WaitForTwint(void) {
+	/*
+	 * Waits for the TWINT flag to set
+	 */
+	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
+  ce:	80 91 bc 00 	lds	r24, 0x00BC
+  d2:	87 ff       	sbrs	r24, 7
+  d4:	fc cf       	rjmp	.-8      	; 0xce <I2C_Write+0xa>
+	TWCR = (1<<TWINT) | (1<<TWEN);
+
+	I2C_WaitForTwint();
+
+	return 0;
+}
+  d6:	80 e0       	ldi	r24, 0x00	; 0
+  d8:	08 95       	ret
+
+000000da <I2C_Stop>:
+
+void  I2C_Stop(void){
+	/* Sends I2C stop action
+	 */
+	TWCR =  ( 1 << TWINT ) | ( 1 << TWEN ) | (1 << TWSTO ) ;
+  da:	84 e9       	ldi	r24, 0x94	; 148
+  dc:	80 93 bc 00 	sts	0x00BC, r24
+	while(TWCR & (1<<TWSTO));                                                   // waits for TWSTO to set
+  e0:	80 91 bc 00 	lds	r24, 0x00BC
+  e4:	84 fd       	sbrc	r24, 4
+  e6:	fc cf       	rjmp	.-8      	; 0xe0 <I2C_Stop+0x6>
+}
+  e8:	08 95       	ret
+
+000000ea <I2C_WaitForTwint>:
+
+void I2C_WaitForTwint(void) {
+	/*
+	 * Waits for the TWINT flag to set
+	 */
+	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
+  ea:	80 91 bc 00 	lds	r24, 0x00BC
+  ee:	87 ff       	sbrs	r24, 7
+  f0:	fc cf       	rjmp	.-8      	; 0xea <I2C_WaitForTwint>
+}
+  f2:	08 95       	ret
+
+000000f4 <I2C_InitScreen>:
+
+	ScreenInstruction(LCD_MODE_DEFAULT, protocol_flag);			/* Default entry mode. Shifts to the right */
+}
+
+void I2C_InitScreen(void){
+	I2C_Init();
+  f4:	0e 94 4b 00 	call	0x96	; 0x96 <I2C_Init>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  8c:	89 e0       	ldi	r24, 0x09	; 9
-  8e:	98 e2       	ldi	r25, 0x28	; 40
-  90:	01 97       	sbiw	r24, 0x01	; 1
-  92:	f1 f7       	brne	.-4      	; 0x90 <ScreenInit+0x10>
-  94:	00 c0       	rjmp	.+0      	; 0x96 <ScreenInit+0x16>
-  96:	00 00       	nop
-	_delay_ms(41);
-	command = 0x60;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPIMasterTransmit(command);
-  98:	84 e6       	ldi	r24, 0x64	; 100
-  9a:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPIMasterTransmit(command);
-  9e:	80 e6       	ldi	r24, 0x60	; 96
-  a0:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-  a4:	89 ef       	ldi	r24, 0xF9	; 249
-  a6:	90 e0       	ldi	r25, 0x00	; 0
-  a8:	01 97       	sbiw	r24, 0x01	; 1
-  aa:	f1 f7       	brne	.-4      	; 0xa8 <ScreenInit+0x28>
-  ac:	00 c0       	rjmp	.+0      	; 0xae <ScreenInit+0x2e>
-  ae:	00 00       	nop
-	_delay_ms(1);
-	command = 0x60;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPIMasterTransmit(command);
-  b0:	84 e6       	ldi	r24, 0x64	; 100
-  b2:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPIMasterTransmit(command);
-  b6:	80 e6       	ldi	r24, 0x60	; 96
-  b8:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-  bc:	89 ef       	ldi	r24, 0xF9	; 249
-  be:	90 e0       	ldi	r25, 0x00	; 0
-  c0:	01 97       	sbiw	r24, 0x01	; 1
-  c2:	f1 f7       	brne	.-4      	; 0xc0 <ScreenInit+0x40>
-  c4:	00 c0       	rjmp	.+0      	; 0xc6 <ScreenInit+0x46>
-  c6:	00 00       	nop
-	_delay_ms(1);
-	command = 0x20;
-	command |= (1<<EN);
-	command &= ~(1<<RS);
-	SPIMasterTransmit(command);
-  c8:	84 e2       	ldi	r24, 0x24	; 36
-  ca:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	SPIMasterTransmit(command);
-  ce:	80 e2       	ldi	r24, 0x20	; 32
-  d0:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-  d4:	83 ec       	ldi	r24, 0xC3	; 195
-  d6:	99 e0       	ldi	r25, 0x09	; 9
-  d8:	01 97       	sbiw	r24, 0x01	; 1
-  da:	f1 f7       	brne	.-4      	; 0xd8 <ScreenInit+0x58>
-  dc:	00 c0       	rjmp	.+0      	; 0xde <ScreenInit+0x5e>
-  de:	00 00       	nop
-	uint8_t send_instruction;				/* Instruction to be sent */
-	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
-	send_instruction |= (1<<EN);			/* Enable pin high */
-	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
-
-	SPIMasterTransmit(send_instruction);	/* Send instruction */
-  e0:	84 e2       	ldi	r24, 0x24	; 36
-  e2:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_instruction &= ~(1<<EN);			/* Enable pin low */
-
-	SPIMasterTransmit(send_instruction);	/* Send again with EN low */
-  e6:	80 e2       	ldi	r24, 0x20	; 32
-  e8:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-  ec:	83 ec       	ldi	r24, 0xC3	; 195
-  ee:	99 e0       	ldi	r25, 0x09	; 9
-  f0:	01 97       	sbiw	r24, 0x01	; 1
-  f2:	f1 f7       	brne	.-4      	; 0xf0 <ScreenInit+0x70>
-  f4:	00 c0       	rjmp	.+0      	; 0xf6 <ScreenInit+0x76>
-  f6:	00 00       	nop
-
-	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
-	send_instruction |= (1<<EN);			/* Same procedure as for high nibble */
-	send_instruction &= ~(1<<RS);
-
-	SPIMasterTransmit(send_instruction);
-  f8:	8c e0       	ldi	r24, 0x0C	; 12
-  fa:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_instruction &= ~(1<<EN);
-	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
-
-	SPIMasterTransmit(send_instruction);
-  fe:	88 e8       	ldi	r24, 0x88	; 136
- 100:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 104:	83 ec       	ldi	r24, 0xC3	; 195
- 106:	99 e0       	ldi	r25, 0x09	; 9
+  f8:	87 ea       	ldi	r24, 0xA7	; 167
+  fa:	91 e6       	ldi	r25, 0x61	; 97
+  fc:	01 97       	sbiw	r24, 0x01	; 1
+  fe:	f1 f7       	brne	.-4      	; 0xfc <I2C_InitScreen+0x8>
+ 100:	00 c0       	rjmp	.+0      	; 0x102 <I2C_InitScreen+0xe>
+ 102:	00 00       	nop
+ 104:	87 ea       	ldi	r24, 0xA7	; 167
+ 106:	91 e6       	ldi	r25, 0x61	; 97
  108:	01 97       	sbiw	r24, 0x01	; 1
- 10a:	f1 f7       	brne	.-4      	; 0x108 <ScreenInit+0x88>
- 10c:	00 c0       	rjmp	.+0      	; 0x10e <ScreenInit+0x8e>
+ 10a:	f1 f7       	brne	.-4      	; 0x108 <I2C_InitScreen+0x14>
+ 10c:	00 c0       	rjmp	.+0      	; 0x10e <I2C_InitScreen+0x1a>
  10e:	00 00       	nop
-	uint8_t send_instruction;				/* Instruction to be sent */
-	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
-	send_instruction |= (1<<EN);			/* Enable pin high */
-	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
 
-	SPIMasterTransmit(send_instruction);	/* Send instruction */
- 110:	84 e0       	ldi	r24, 0x04	; 4
- 112:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
+	// Initialize backpack
 
-	send_instruction &= ~(1<<EN);			/* Enable pin low */
+	_delay_ms(100);
+	// COnfigures all  the pins as outputs
+	I2C_Start(I2C_ADDR);
+ 110:	80 e4       	ldi	r24, 0x40	; 64
+ 112:	0e 94 51 00 	call	0xa2	; 0xa2 <I2C_Start>
+ 116:	89 ef       	ldi	r24, 0xF9	; 249
+ 118:	90 e0       	ldi	r25, 0x00	; 0
+ 11a:	01 97       	sbiw	r24, 0x01	; 1
+ 11c:	f1 f7       	brne	.-4      	; 0x11a <I2C_InitScreen+0x26>
+ 11e:	00 c0       	rjmp	.+0      	; 0x120 <I2C_InitScreen+0x2c>
+ 120:	00 00       	nop
+	_delay_ms(1);
+	I2C_Write(0x00); // register I2C_ADDR
+ 122:	80 e0       	ldi	r24, 0x00	; 0
+ 124:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 128:	89 ef       	ldi	r24, 0xF9	; 249
+ 12a:	90 e0       	ldi	r25, 0x00	; 0
+ 12c:	01 97       	sbiw	r24, 0x01	; 1
+ 12e:	f1 f7       	brne	.-4      	; 0x12c <I2C_InitScreen+0x38>
+ 130:	00 c0       	rjmp	.+0      	; 0x132 <I2C_InitScreen+0x3e>
+ 132:	00 00       	nop
+	_delay_ms(1);
+	I2C_Write(0x00); // clear all bits
+ 134:	80 e0       	ldi	r24, 0x00	; 0
+ 136:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+	I2C_Stop();
+ 13a:	0e 94 6d 00 	call	0xda	; 0xda <I2C_Stop>
+ 13e:	87 ea       	ldi	r24, 0xA7	; 167
+ 140:	91 e6       	ldi	r25, 0x61	; 97
+ 142:	01 97       	sbiw	r24, 0x01	; 1
+ 144:	f1 f7       	brne	.-4      	; 0x142 <I2C_InitScreen+0x4e>
+ 146:	00 c0       	rjmp	.+0      	; 0x148 <I2C_InitScreen+0x54>
+ 148:	00 00       	nop
+	_delay_ms(100);
+	// set up internal register for continuous write to addrsess
+	I2C_Start(I2C_ADDR);
+ 14a:	80 e4       	ldi	r24, 0x40	; 64
+ 14c:	0e 94 51 00 	call	0xa2	; 0xa2 <I2C_Start>
+ 150:	87 ea       	ldi	r24, 0xA7	; 167
+ 152:	91 e6       	ldi	r25, 0x61	; 97
+ 154:	01 97       	sbiw	r24, 0x01	; 1
+ 156:	f1 f7       	brne	.-4      	; 0x154 <I2C_InitScreen+0x60>
+ 158:	00 c0       	rjmp	.+0      	; 0x15a <I2C_InitScreen+0x66>
+ 15a:	00 00       	nop
+	_delay_ms(100);
+	I2C_Write(0x05);
+ 15c:	85 e0       	ldi	r24, 0x05	; 5
+ 15e:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 162:	83 ec       	ldi	r24, 0xC3	; 195
+ 164:	99 e0       	ldi	r25, 0x09	; 9
+ 166:	01 97       	sbiw	r24, 0x01	; 1
+ 168:	f1 f7       	brne	.-4      	; 0x166 <I2C_InitScreen+0x72>
+ 16a:	00 c0       	rjmp	.+0      	; 0x16c <I2C_InitScreen+0x78>
+ 16c:	00 00       	nop
+	_delay_ms(10);
+	I2C_Write(0x20);
+ 16e:	80 e2       	ldi	r24, 0x20	; 32
+ 170:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+	I2C_Stop();
+ 174:	0e 94 6d 00 	call	0xda	; 0xda <I2C_Stop>
 
-	SPIMasterTransmit(send_instruction);	/* Send again with EN low */
- 116:	80 e0       	ldi	r24, 0x00	; 0
- 118:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 11c:	83 ec       	ldi	r24, 0xC3	; 195
- 11e:	99 e0       	ldi	r25, 0x09	; 9
- 120:	01 97       	sbiw	r24, 0x01	; 1
- 122:	f1 f7       	brne	.-4      	; 0x120 <ScreenInit+0xa0>
- 124:	00 c0       	rjmp	.+0      	; 0x126 <ScreenInit+0xa6>
- 126:	00 00       	nop
+	// Prepares to write on the GPIO registers
+	I2C_Start(I2C_ADDR);
+ 178:	80 e4       	ldi	r24, 0x40	; 64
+ 17a:	0e 94 51 00 	call	0xa2	; 0xa2 <I2C_Start>
+ 17e:	87 ea       	ldi	r24, 0xA7	; 167
+ 180:	91 e6       	ldi	r25, 0x61	; 97
+ 182:	01 97       	sbiw	r24, 0x01	; 1
+ 184:	f1 f7       	brne	.-4      	; 0x182 <I2C_InitScreen+0x8e>
+ 186:	00 c0       	rjmp	.+0      	; 0x188 <I2C_InitScreen+0x94>
+ 188:	00 00       	nop
+	_delay_ms(100);
+	I2C_Write(0x09); // gpio register
+ 18a:	89 e0       	ldi	r24, 0x09	; 9
+ 18c:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 190:	83 ec       	ldi	r24, 0xC3	; 195
+ 192:	99 e0       	ldi	r25, 0x09	; 9
+ 194:	01 97       	sbiw	r24, 0x01	; 1
+ 196:	f1 f7       	brne	.-4      	; 0x194 <I2C_InitScreen+0xa0>
+ 198:	00 c0       	rjmp	.+0      	; 0x19a <I2C_InitScreen+0xa6>
+ 19a:	00 00       	nop
 
-	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
-	send_instruction |= (1<<EN);			/* Same procedure as for high nibble */
-	send_instruction &= ~(1<<RS);
-
-	SPIMasterTransmit(send_instruction);
- 128:	8c e0       	ldi	r24, 0x0C	; 12
- 12a:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_instruction &= ~(1<<EN);
-	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
-
-	SPIMasterTransmit(send_instruction);
- 12e:	88 e8       	ldi	r24, 0x88	; 136
- 130:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 134:	83 ec       	ldi	r24, 0xC3	; 195
- 136:	99 e0       	ldi	r25, 0x09	; 9
- 138:	01 97       	sbiw	r24, 0x01	; 1
- 13a:	f1 f7       	brne	.-4      	; 0x138 <ScreenInit+0xb8>
- 13c:	00 c0       	rjmp	.+0      	; 0x13e <ScreenInit+0xbe>
- 13e:	00 00       	nop
-	uint8_t send_instruction;				/* Instruction to be sent */
-	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
-	send_instruction |= (1<<EN);			/* Enable pin high */
-	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
-
-	SPIMasterTransmit(send_instruction);	/* Send instruction */
- 140:	84 e0       	ldi	r24, 0x04	; 4
- 142:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_instruction &= ~(1<<EN);			/* Enable pin low */
-
-	SPIMasterTransmit(send_instruction);	/* Send again with EN low */
- 146:	80 e0       	ldi	r24, 0x00	; 0
- 148:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 14c:	83 ec       	ldi	r24, 0xC3	; 195
- 14e:	99 e0       	ldi	r25, 0x09	; 9
- 150:	01 97       	sbiw	r24, 0x01	; 1
- 152:	f1 f7       	brne	.-4      	; 0x150 <ScreenInit+0xd0>
- 154:	00 c0       	rjmp	.+0      	; 0x156 <ScreenInit+0xd6>
- 156:	00 00       	nop
-
-	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
-	send_instruction |= (1<<EN);			/* Same procedure as for high nibble */
-	send_instruction &= ~(1<<RS);
-
-	SPIMasterTransmit(send_instruction);
- 158:	84 e4       	ldi	r24, 0x44	; 68
- 15a:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_instruction &= ~(1<<EN);
-	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
-
-	SPIMasterTransmit(send_instruction);
- 15e:	80 ec       	ldi	r24, 0xC0	; 192
- 160:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 164:	83 ec       	ldi	r24, 0xC3	; 195
- 166:	99 e0       	ldi	r25, 0x09	; 9
- 168:	01 97       	sbiw	r24, 0x01	; 1
- 16a:	f1 f7       	brne	.-4      	; 0x168 <ScreenInit+0xe8>
- 16c:	00 c0       	rjmp	.+0      	; 0x16e <ScreenInit+0xee>
- 16e:	00 00       	nop
-	uint8_t send_instruction;				/* Instruction to be sent */
-	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
-	send_instruction |= (1<<EN);			/* Enable pin high */
-	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
-
-	SPIMasterTransmit(send_instruction);	/* Send instruction */
- 170:	84 e0       	ldi	r24, 0x04	; 4
- 172:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_instruction &= ~(1<<EN);			/* Enable pin low */
-
-	SPIMasterTransmit(send_instruction);	/* Send again with EN low */
- 176:	80 e0       	ldi	r24, 0x00	; 0
- 178:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 17c:	83 ec       	ldi	r24, 0xC3	; 195
- 17e:	99 e0       	ldi	r25, 0x09	; 9
- 180:	01 97       	sbiw	r24, 0x01	; 1
- 182:	f1 f7       	brne	.-4      	; 0x180 <ScreenInit+0x100>
- 184:	00 c0       	rjmp	.+0      	; 0x186 <ScreenInit+0x106>
- 186:	00 00       	nop
-
-	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
-	send_instruction |= (1<<EN);			/* Same procedure as for high nibble */
-	send_instruction &= ~(1<<RS);
-
-	SPIMasterTransmit(send_instruction);
- 188:	84 e3       	ldi	r24, 0x34	; 52
- 18a:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_instruction &= ~(1<<EN);
-	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
-
-	SPIMasterTransmit(send_instruction);
- 18e:	80 eb       	ldi	r24, 0xB0	; 176
- 190:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 194:	83 ec       	ldi	r24, 0xC3	; 195
- 196:	99 e0       	ldi	r25, 0x09	; 9
- 198:	01 97       	sbiw	r24, 0x01	; 1
- 19a:	f1 f7       	brne	.-4      	; 0x198 <ScreenInit+0x118>
- 19c:	00 c0       	rjmp	.+0      	; 0x19e <ScreenInit+0x11e>
- 19e:	00 00       	nop
- 1a0:	08 95       	ret
-
-000001a2 <ScreenInstruction>:
-	/* Mode Set */
-
-	ScreenInstruction(LCD_MODE_DEFAULT);			/* Default entry mode. Shifts to the right */
+	return rev_nibble;
 }
 
-void ScreenInstruction(uint8_t instruction) {
- 1a2:	cf 93       	push	r28
- 1a4:	df 93       	push	r29
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 19c:	8c e1       	ldi	r24, 0x1C	; 28
+ 19e:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 1a2:	88 e1       	ldi	r24, 0x18	; 24
+ 1a4:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 1a8:	89 e0       	ldi	r24, 0x09	; 9
+ 1aa:	98 e2       	ldi	r25, 0x28	; 40
+ 1ac:	01 97       	sbiw	r24, 0x01	; 1
+ 1ae:	f1 f7       	brne	.-4      	; 0x1ac <I2C_InitScreen+0xb8>
+ 1b0:	00 c0       	rjmp	.+0      	; 0x1b2 <I2C_InitScreen+0xbe>
+ 1b2:	00 00       	nop
+ 1b4:	8c e1       	ldi	r24, 0x1C	; 28
+ 1b6:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 1ba:	88 e1       	ldi	r24, 0x18	; 24
+ 1bc:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 1c0:	89 ef       	ldi	r24, 0xF9	; 249
+ 1c2:	90 e0       	ldi	r25, 0x00	; 0
+ 1c4:	01 97       	sbiw	r24, 0x01	; 1
+ 1c6:	f1 f7       	brne	.-4      	; 0x1c4 <I2C_InitScreen+0xd0>
+ 1c8:	00 c0       	rjmp	.+0      	; 0x1ca <I2C_InitScreen+0xd6>
+ 1ca:	00 00       	nop
+ 1cc:	8c e1       	ldi	r24, 0x1C	; 28
+ 1ce:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 1d2:	88 e1       	ldi	r24, 0x18	; 24
+ 1d4:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 1d8:	89 ef       	ldi	r24, 0xF9	; 249
+ 1da:	90 e0       	ldi	r25, 0x00	; 0
+ 1dc:	01 97       	sbiw	r24, 0x01	; 1
+ 1de:	f1 f7       	brne	.-4      	; 0x1dc <I2C_InitScreen+0xe8>
+ 1e0:	00 c0       	rjmp	.+0      	; 0x1e2 <I2C_InitScreen+0xee>
+ 1e2:	00 00       	nop
+ 1e4:	84 e1       	ldi	r24, 0x14	; 20
+ 1e6:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 1ea:	80 e1       	ldi	r24, 0x10	; 16
+ 1ec:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 1f0:	83 ec       	ldi	r24, 0xC3	; 195
+ 1f2:	99 e0       	ldi	r25, 0x09	; 9
+ 1f4:	01 97       	sbiw	r24, 0x01	; 1
+ 1f6:	f1 f7       	brne	.-4      	; 0x1f4 <I2C_InitScreen+0x100>
+ 1f8:	00 c0       	rjmp	.+0      	; 0x1fa <I2C_InitScreen+0x106>
+ 1fa:	00 00       	nop
+ 1fc:	08 95       	ret
+
+000001fe <SPI_InitScreen>:
+	Send4BitCommand(command, I2C);
+	_delay_ms(10);
+}
+
+void SPI_InitScreen(void){
+	SPI_MasterInit();
+ 1fe:	0e 94 5e 03 	call	0x6bc	; 0x6bc <SPI_MasterInit>
+ 202:	2f e7       	ldi	r18, 0x7F	; 127
+ 204:	88 e3       	ldi	r24, 0x38	; 56
+ 206:	91 e0       	ldi	r25, 0x01	; 1
+ 208:	21 50       	subi	r18, 0x01	; 1
+ 20a:	80 40       	sbci	r24, 0x00	; 0
+ 20c:	90 40       	sbci	r25, 0x00	; 0
+ 20e:	e1 f7       	brne	.-8      	; 0x208 <SPI_InitScreen+0xa>
+ 210:	00 c0       	rjmp	.+0      	; 0x212 <SPI_InitScreen+0x14>
+ 212:	00 00       	nop
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 214:	84 e6       	ldi	r24, 0x64	; 100
+ 216:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 21a:	80 e6       	ldi	r24, 0x60	; 96
+ 21c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 220:	89 e0       	ldi	r24, 0x09	; 9
+ 222:	98 e2       	ldi	r25, 0x28	; 40
+ 224:	01 97       	sbiw	r24, 0x01	; 1
+ 226:	f1 f7       	brne	.-4      	; 0x224 <SPI_InitScreen+0x26>
+ 228:	00 c0       	rjmp	.+0      	; 0x22a <SPI_InitScreen+0x2c>
+ 22a:	00 00       	nop
+ 22c:	84 e6       	ldi	r24, 0x64	; 100
+ 22e:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 232:	80 e6       	ldi	r24, 0x60	; 96
+ 234:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 238:	89 ef       	ldi	r24, 0xF9	; 249
+ 23a:	90 e0       	ldi	r25, 0x00	; 0
+ 23c:	01 97       	sbiw	r24, 0x01	; 1
+ 23e:	f1 f7       	brne	.-4      	; 0x23c <SPI_InitScreen+0x3e>
+ 240:	00 c0       	rjmp	.+0      	; 0x242 <SPI_InitScreen+0x44>
+ 242:	00 00       	nop
+ 244:	84 e6       	ldi	r24, 0x64	; 100
+ 246:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 24a:	80 e6       	ldi	r24, 0x60	; 96
+ 24c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 250:	89 ef       	ldi	r24, 0xF9	; 249
+ 252:	90 e0       	ldi	r25, 0x00	; 0
+ 254:	01 97       	sbiw	r24, 0x01	; 1
+ 256:	f1 f7       	brne	.-4      	; 0x254 <SPI_InitScreen+0x56>
+ 258:	00 c0       	rjmp	.+0      	; 0x25a <SPI_InitScreen+0x5c>
+ 25a:	00 00       	nop
+ 25c:	84 e2       	ldi	r24, 0x24	; 36
+ 25e:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 262:	80 e2       	ldi	r24, 0x20	; 32
+ 264:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 268:	83 ec       	ldi	r24, 0xC3	; 195
+ 26a:	99 e0       	ldi	r25, 0x09	; 9
+ 26c:	01 97       	sbiw	r24, 0x01	; 1
+ 26e:	f1 f7       	brne	.-4      	; 0x26c <SPI_InitScreen+0x6e>
+ 270:	00 c0       	rjmp	.+0      	; 0x272 <SPI_InitScreen+0x74>
+ 272:	00 00       	nop
+ 274:	08 95       	ret
+
+00000276 <ScreenInstruction>:
+	command = 0x20;
+	Send4BitCommand(command, SPI);
+	_delay_ms(10);
+}
+
+void ScreenInstruction(uint8_t instruction, uint8_t protocol_flag) {
+ 276:	cf 93       	push	r28
+ 278:	df 93       	push	r29
 	/* Sends an instruction to the screen
 	 * uint8_t instruction - instruction to be sent
 	 * Returns: void.
 	 */
 
 	uint8_t high_nibble = (instruction)&0xF0;	/* High 4bit nibble of the character */
- 1a6:	48 2f       	mov	r20, r24
- 1a8:	40 7f       	andi	r20, 0xF0	; 240
- 1aa:	50 e0       	ldi	r21, 0x00	; 0
- 1ac:	90 e0       	ldi	r25, 0x00	; 0
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
-		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 1ae:	29 2f       	mov	r18, r25
- 1b0:	28 60       	ori	r18, 0x08	; 8
- 1b2:	44 fd       	sbrc	r20, 4
- 1b4:	92 2f       	mov	r25, r18
- 1b6:	29 2f       	mov	r18, r25
- 1b8:	24 60       	ori	r18, 0x04	; 4
- 1ba:	45 fd       	sbrc	r20, 5
- 1bc:	92 2f       	mov	r25, r18
- 1be:	29 2f       	mov	r18, r25
- 1c0:	22 60       	ori	r18, 0x02	; 2
- 1c2:	46 fd       	sbrc	r20, 6
- 1c4:	92 2f       	mov	r25, r18
- 1c6:	c9 2f       	mov	r28, r25
- 1c8:	c1 60       	ori	r28, 0x01	; 1
-	 * uint8_t instruction - instruction to be sent
-	 * Returns: void.
-	 */
-
-	uint8_t high_nibble = (instruction)&0xF0;	/* High 4bit nibble of the character */
+ 27a:	c8 2f       	mov	r28, r24
+ 27c:	c0 7f       	andi	r28, 0xF0	; 240
 	uint8_t low_nibble  = (instruction)&0x0F;	/* Low 4bit nibble of the character */
- 1ca:	28 2f       	mov	r18, r24
- 1cc:	2f 70       	andi	r18, 0x0F	; 15
- 1ce:	30 e0       	ldi	r19, 0x00	; 0
- 1d0:	80 ff       	sbrs	r24, 0
- 1d2:	42 c0       	rjmp	.+132    	; 0x258 <ScreenInstruction+0xb6>
- 1d4:	80 e8       	ldi	r24, 0x80	; 128
+ 27e:	d8 2f       	mov	r29, r24
+ 280:	df 70       	andi	r29, 0x0F	; 15
+
+	/* if (SPI) reverse the instruction before sending */
+	if (SPI == protocol_flag) {
+ 282:	61 11       	cpse	r22, r1
+ 284:	56 c0       	rjmp	.+172    	; 0x332 <ScreenInstruction+0xbc>
+ 286:	4c 2f       	mov	r20, r28
+ 288:	50 e0       	ldi	r21, 0x00	; 0
+ 28a:	90 e0       	ldi	r25, 0x00	; 0
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 1d6:	d8 2f       	mov	r29, r24
- 1d8:	d0 64       	ori	r29, 0x40	; 64
- 1da:	21 fd       	sbrc	r18, 1
- 1dc:	8d 2f       	mov	r24, r29
- 1de:	d8 2f       	mov	r29, r24
- 1e0:	d0 62       	ori	r29, 0x20	; 32
- 1e2:	22 ff       	sbrs	r18, 2
- 1e4:	d8 2f       	mov	r29, r24
- 1e6:	8d 2f       	mov	r24, r29
- 1e8:	80 61       	ori	r24, 0x10	; 16
+ 28c:	29 2f       	mov	r18, r25
+ 28e:	28 60       	ori	r18, 0x08	; 8
+ 290:	c4 fd       	sbrc	r28, 4
+ 292:	92 2f       	mov	r25, r18
+ 294:	29 2f       	mov	r18, r25
+ 296:	24 60       	ori	r18, 0x04	; 4
+ 298:	45 fd       	sbrc	r20, 5
+ 29a:	92 2f       	mov	r25, r18
+ 29c:	29 2f       	mov	r18, r25
+ 29e:	22 60       	ori	r18, 0x02	; 2
+ 2a0:	46 fd       	sbrc	r20, 6
+ 2a2:	92 2f       	mov	r25, r18
+ 2a4:	c9 2f       	mov	r28, r25
+ 2a6:	c1 60       	ori	r28, 0x01	; 1
+ 2a8:	2d 2f       	mov	r18, r29
+ 2aa:	30 e0       	ldi	r19, 0x00	; 0
+ 2ac:	80 ff       	sbrs	r24, 0
+ 2ae:	5d c0       	rjmp	.+186    	; 0x36a <ScreenInstruction+0xf4>
+ 2b0:	80 e8       	ldi	r24, 0x80	; 128
+ 2b2:	d8 2f       	mov	r29, r24
+ 2b4:	d0 64       	ori	r29, 0x40	; 64
+ 2b6:	21 ff       	sbrs	r18, 1
+ 2b8:	d8 2f       	mov	r29, r24
+ 2ba:	8d 2f       	mov	r24, r29
+ 2bc:	80 62       	ori	r24, 0x20	; 32
+ 2be:	22 fd       	sbrc	r18, 2
+ 2c0:	d8 2f       	mov	r29, r24
+ 2c2:	8d 2f       	mov	r24, r29
+ 2c4:	80 61       	ori	r24, 0x10	; 16
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 1ea:	35 95       	asr	r19
- 1ec:	27 95       	ror	r18
- 1ee:	35 95       	asr	r19
- 1f0:	27 95       	ror	r18
- 1f2:	35 95       	asr	r19
- 1f4:	27 95       	ror	r18
- 1f6:	23 2b       	or	r18, r19
- 1f8:	09 f0       	breq	.+2      	; 0x1fc <ScreenInstruction+0x5a>
- 1fa:	d8 2f       	mov	r29, r24
- 1fc:	44 0f       	add	r20, r20
- 1fe:	45 2f       	mov	r20, r21
- 200:	44 1f       	adc	r20, r20
- 202:	55 0b       	sbc	r21, r21
- 204:	45 2b       	or	r20, r21
- 206:	09 f4       	brne	.+2      	; 0x20a <ScreenInstruction+0x68>
- 208:	c9 2f       	mov	r28, r25
+ 2c6:	35 95       	asr	r19
+ 2c8:	27 95       	ror	r18
+ 2ca:	35 95       	asr	r19
+ 2cc:	27 95       	ror	r18
+ 2ce:	35 95       	asr	r19
+ 2d0:	27 95       	ror	r18
+ 2d2:	23 2b       	or	r18, r19
+ 2d4:	09 f0       	breq	.+2      	; 0x2d8 <ScreenInstruction+0x62>
+ 2d6:	d8 2f       	mov	r29, r24
+	uint8_t low_nibble  = (instruction)&0x0F;	/* Low 4bit nibble of the character */
+
+	/* if (SPI) reverse the instruction before sending */
+	if (SPI == protocol_flag) {
+		high_nibble = ReverseNibble(high_nibble)<<4;
+		low_nibble 	= ReverseNibble(low_nibble)>>4;
+ 2d8:	d2 95       	swap	r29
+ 2da:	df 70       	andi	r29, 0x0F	; 15
+
+	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
+	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
+
+	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+		if((nibble & (1 << i)))
+ 2dc:	44 0f       	add	r20, r20
+ 2de:	45 2f       	mov	r20, r21
+ 2e0:	44 1f       	adc	r20, r20
+ 2e2:	55 0b       	sbc	r21, r21
+ 2e4:	45 2b       	or	r20, r21
+ 2e6:	09 f4       	brne	.+2      	; 0x2ea <ScreenInstruction+0x74>
+ 2e8:	c9 2f       	mov	r28, r25
 	uint8_t high_nibble = (instruction)&0xF0;	/* High 4bit nibble of the character */
 	uint8_t low_nibble  = (instruction)&0x0F;	/* Low 4bit nibble of the character */
 
 	/* if (SPI) reverse the instruction before sending */
-
-	high_nibble = ReverseNibble(high_nibble)<<4;
- 20a:	c2 95       	swap	r28
- 20c:	c0 7f       	andi	r28, 0xF0	; 240
-	low_nibble 	= ReverseNibble(low_nibble)>>4;
+	if (SPI == protocol_flag) {
+		high_nibble = ReverseNibble(high_nibble)<<4;
+ 2ea:	c2 95       	swap	r28
+ 2ec:	c0 7f       	andi	r28, 0xF0	; 240
+	}
 
 	/* Send high nibble */
 
 	uint8_t send_instruction;				/* Instruction to be sent */
 	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
- 20e:	c6 95       	lsr	r28
+ 2ee:	c6 95       	lsr	r28
 	send_instruction |= (1<<EN);			/* Enable pin high */
 	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
+ 2f0:	8c 2f       	mov	r24, r28
+ 2f2:	84 60       	ori	r24, 0x04	; 4
 
-	SPIMasterTransmit(send_instruction);	/* Send instruction */
- 210:	8c 2f       	mov	r24, r28
- 212:	84 60       	ori	r24, 0x04	; 4
- 214:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
+	return rev_nibble;
+}
 
-	send_instruction &= ~(1<<EN);			/* Enable pin low */
-
-	SPIMasterTransmit(send_instruction);	/* Send again with EN low */
- 218:	8c 2f       	mov	r24, r28
- 21a:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 21e:	83 ec       	ldi	r24, 0xC3	; 195
- 220:	99 e0       	ldi	r25, 0x09	; 9
- 222:	01 97       	sbiw	r24, 0x01	; 1
- 224:	f1 f7       	brne	.-4      	; 0x222 <ScreenInstruction+0x80>
- 226:	00 c0       	rjmp	.+0      	; 0x228 <ScreenInstruction+0x86>
- 228:	00 00       	nop
-	uint8_t low_nibble  = (instruction)&0x0F;	/* Low 4bit nibble of the character */
-
-	/* if (SPI) reverse the instruction before sending */
-
-	high_nibble = ReverseNibble(high_nibble)<<4;
-	low_nibble 	= ReverseNibble(low_nibble)>>4;
- 22a:	cd 2f       	mov	r28, r29
- 22c:	c2 95       	swap	r28
- 22e:	cf 70       	andi	r28, 0x0F	; 15
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 2f4:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 2f8:	8c 2f       	mov	r24, r28
+ 2fa:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 2fe:	83 ec       	ldi	r24, 0xC3	; 195
+ 300:	99 e0       	ldi	r25, 0x09	; 9
+ 302:	01 97       	sbiw	r24, 0x01	; 1
+ 304:	f1 f7       	brne	.-4      	; 0x302 <ScreenInstruction+0x8c>
+ 306:	00 c0       	rjmp	.+0      	; 0x308 <ScreenInstruction+0x92>
+ 308:	00 00       	nop
 
 	_delay_ms(10);							/* Delay between screen writes */
 
 	/* Send low nibble */
 
 	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
- 230:	cc 0f       	add	r28, r28
- 232:	cc 0f       	add	r28, r28
- 234:	cc 0f       	add	r28, r28
-	send_instruction |= (1<<EN);			/* Same procedure as for high nibble */
-	send_instruction &= ~(1<<RS);
+ 30a:	dd 0f       	add	r29, r29
+ 30c:	dd 0f       	add	r29, r29
+ 30e:	dd 0f       	add	r29, r29
 
-	SPIMasterTransmit(send_instruction);
- 236:	8c 2f       	mov	r24, r28
- 238:	84 60       	ori	r24, 0x04	; 4
- 23a:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
+	return rev_nibble;
+}
 
-	send_instruction &= ~(1<<EN);
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 310:	8d 2f       	mov	r24, r29
+ 312:	84 60       	ori	r24, 0x04	; 4
+ 314:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 318:	8d 2f       	mov	r24, r29
+ 31a:	80 68       	ori	r24, 0x80	; 128
+ 31c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 320:	83 ec       	ldi	r24, 0xC3	; 195
+ 322:	99 e0       	ldi	r25, 0x09	; 9
+ 324:	01 97       	sbiw	r24, 0x01	; 1
+ 326:	f1 f7       	brne	.-4      	; 0x324 <ScreenInstruction+0xae>
+ 328:	00 c0       	rjmp	.+0      	; 0x32a <ScreenInstruction+0xb4>
+ 32a:	00 00       	nop
 	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
 
-	SPIMasterTransmit(send_instruction);
- 23e:	8c 2f       	mov	r24, r28
- 240:	80 68       	ori	r24, 0x80	; 128
- 242:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 246:	83 ec       	ldi	r24, 0xC3	; 195
- 248:	99 e0       	ldi	r25, 0x09	; 9
- 24a:	01 97       	sbiw	r24, 0x01	; 1
- 24c:	f1 f7       	brne	.-4      	; 0x24a <ScreenInstruction+0xa8>
- 24e:	00 c0       	rjmp	.+0      	; 0x250 <ScreenInstruction+0xae>
- 250:	00 00       	nop
+	TransferData(send_instruction, protocol_flag);
 
 	_delay_ms(10);
 }
- 252:	df 91       	pop	r29
- 254:	cf 91       	pop	r28
- 256:	08 95       	ret
- 258:	80 e0       	ldi	r24, 0x00	; 0
- 25a:	bd cf       	rjmp	.-134    	; 0x1d6 <ScreenInstruction+0x34>
-
-0000025c <ScreenData>:
-
-void ScreenData(uint8_t data) {
- 25c:	cf 93       	push	r28
- 25e:	df 93       	push	r29
-	/* Sends data to the screen.
-	 * uint8_t data - data to be displayed
-	 * Returns: void.
-	 */
-
-	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
- 260:	48 2f       	mov	r20, r24
- 262:	40 7f       	andi	r20, 0xF0	; 240
- 264:	50 e0       	ldi	r21, 0x00	; 0
- 266:	90 e0       	ldi	r25, 0x00	; 0
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
-		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 268:	c9 2f       	mov	r28, r25
- 26a:	c8 60       	ori	r28, 0x08	; 8
- 26c:	44 fd       	sbrc	r20, 4
- 26e:	9c 2f       	mov	r25, r28
- 270:	29 2f       	mov	r18, r25
- 272:	24 60       	ori	r18, 0x04	; 4
- 274:	45 fd       	sbrc	r20, 5
- 276:	92 2f       	mov	r25, r18
- 278:	29 2f       	mov	r18, r25
- 27a:	22 60       	ori	r18, 0x02	; 2
- 27c:	46 fd       	sbrc	r20, 6
- 27e:	92 2f       	mov	r25, r18
- 280:	c9 2f       	mov	r28, r25
- 282:	c1 60       	ori	r28, 0x01	; 1
-	 * uint8_t data - data to be displayed
-	 * Returns: void.
-	 */
-
-	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
-	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
- 284:	28 2f       	mov	r18, r24
- 286:	2f 70       	andi	r18, 0x0F	; 15
- 288:	30 e0       	ldi	r19, 0x00	; 0
- 28a:	80 ff       	sbrs	r24, 0
- 28c:	40 c0       	rjmp	.+128    	; 0x30e <ScreenData+0xb2>
- 28e:	60 e8       	ldi	r22, 0x80	; 128
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
-		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 290:	d6 2f       	mov	r29, r22
- 292:	d0 64       	ori	r29, 0x40	; 64
- 294:	21 fd       	sbrc	r18, 1
- 296:	6d 2f       	mov	r22, r29
- 298:	d6 2f       	mov	r29, r22
- 29a:	d0 62       	ori	r29, 0x20	; 32
- 29c:	22 ff       	sbrs	r18, 2
- 29e:	d6 2f       	mov	r29, r22
- 2a0:	6d 2f       	mov	r22, r29
- 2a2:	60 61       	ori	r22, 0x10	; 16
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
- 2a4:	35 95       	asr	r19
- 2a6:	27 95       	ror	r18
- 2a8:	35 95       	asr	r19
- 2aa:	27 95       	ror	r18
- 2ac:	35 95       	asr	r19
- 2ae:	27 95       	ror	r18
- 2b0:	23 2b       	or	r18, r19
- 2b2:	09 f0       	breq	.+2      	; 0x2b6 <ScreenData+0x5a>
- 2b4:	d6 2f       	mov	r29, r22
- 2b6:	44 0f       	add	r20, r20
- 2b8:	45 2f       	mov	r20, r21
- 2ba:	44 1f       	adc	r20, r20
- 2bc:	55 0b       	sbc	r21, r21
- 2be:	45 2b       	or	r20, r21
- 2c0:	09 f4       	brne	.+2      	; 0x2c4 <ScreenData+0x68>
- 2c2:	c9 2f       	mov	r28, r25
-	low_nibble = ReverseNibble(low_nibble);		/* Reverse low nibble */
+ 32c:	df 91       	pop	r29
+ 32e:	cf 91       	pop	r28
+ 330:	08 95       	ret
+	}
 
 	/* Send high nibble */
 
-	uint8_t send_data;							/* Data to be sent */
-	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
- 2c4:	c6 95       	lsr	r28
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
+	uint8_t send_instruction;				/* Instruction to be sent */
+	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
+ 332:	c6 95       	lsr	r28
+	send_instruction |= (1<<EN);			/* Enable pin high */
+	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
+ 334:	8c 2f       	mov	r24, r28
+ 336:	84 60       	ori	r24, 0x04	; 4
 
-	SPIMasterTransmit(send_data);				/* Send data */
- 2c6:	8c 2f       	mov	r24, r28
- 2c8:	86 68       	ori	r24, 0x86	; 134
- 2ca:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_data &= ~(1<<EN);						/* Enable low */
- 2ce:	8c 2f       	mov	r24, r28
- 2d0:	8b 7f       	andi	r24, 0xFB	; 251
-
-	SPIMasterTransmit(send_data);				/* Send data again with enable low */
- 2d2:	82 68       	ori	r24, 0x82	; 130
- 2d4:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 2d8:	83 ec       	ldi	r24, 0xC3	; 195
- 2da:	99 e0       	ldi	r25, 0x09	; 9
- 2dc:	01 97       	sbiw	r24, 0x01	; 1
- 2de:	f1 f7       	brne	.-4      	; 0x2dc <ScreenData+0x80>
- 2e0:	00 c0       	rjmp	.+0      	; 0x2e2 <ScreenData+0x86>
- 2e2:	00 00       	nop
-
-	_delay_ms(10);
-
-	/* Send low nibble */
-
-	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
- 2e4:	cd 2f       	mov	r28, r29
- 2e6:	cc 0f       	add	r28, r28
- 2e8:	cc 0f       	add	r28, r28
- 2ea:	cc 0f       	add	r28, r28
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* Same procedure as for high nibble */
-
-	SPIMasterTransmit(send_data);
- 2ec:	8c 2f       	mov	r24, r28
- 2ee:	86 68       	ori	r24, 0x86	; 134
- 2f0:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_data &= ~(1<<EN);
-
-	SPIMasterTransmit(send_data);
- 2f4:	8c 2f       	mov	r24, r28
- 2f6:	82 68       	ori	r24, 0x82	; 130
- 2f8:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 2fc:	83 ec       	ldi	r24, 0xC3	; 195
- 2fe:	99 e0       	ldi	r25, 0x09	; 9
- 300:	01 97       	sbiw	r24, 0x01	; 1
- 302:	f1 f7       	brne	.-4      	; 0x300 <ScreenData+0xa4>
- 304:	00 c0       	rjmp	.+0      	; 0x306 <ScreenData+0xaa>
- 306:	00 00       	nop
-
-	_delay_ms(10);
-
+	return rev_nibble;
 }
- 308:	df 91       	pop	r29
- 30a:	cf 91       	pop	r28
- 30c:	08 95       	ret
- 30e:	60 e0       	ldi	r22, 0x00	; 0
- 310:	bf cf       	rjmp	.-130    	; 0x290 <ScreenData+0x34>
 
-00000312 <PutChar>:
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 338:	61 30       	cpi	r22, 0x01	; 1
+ 33a:	e1 f6       	brne	.-72     	; 0x2f4 <ScreenInstruction+0x7e>
+ 33c:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 340:	8c 2f       	mov	r24, r28
+ 342:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 346:	83 ec       	ldi	r24, 0xC3	; 195
+ 348:	99 e0       	ldi	r25, 0x09	; 9
+ 34a:	01 97       	sbiw	r24, 0x01	; 1
+ 34c:	f1 f7       	brne	.-4      	; 0x34a <ScreenInstruction+0xd4>
+ 34e:	00 c0       	rjmp	.+0      	; 0x350 <ScreenInstruction+0xda>
+ 350:	00 00       	nop
 
-/* Higher level screen functions */
-
-void PutChar(uint8_t character){
- 312:	cf 93       	push	r28
- 314:	df 93       	push	r29
-	/* Sends data to the screen.
-	 * uint8_t data - data to be displayed
-	 * Returns: void.
-	 */
-
-	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
- 316:	48 2f       	mov	r20, r24
- 318:	40 7f       	andi	r20, 0xF0	; 240
- 31a:	50 e0       	ldi	r21, 0x00	; 0
- 31c:	90 e0       	ldi	r25, 0x00	; 0
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
-		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 31e:	c9 2f       	mov	r28, r25
- 320:	c8 60       	ori	r28, 0x08	; 8
- 322:	44 fd       	sbrc	r20, 4
- 324:	9c 2f       	mov	r25, r28
- 326:	29 2f       	mov	r18, r25
- 328:	24 60       	ori	r18, 0x04	; 4
- 32a:	45 fd       	sbrc	r20, 5
- 32c:	92 2f       	mov	r25, r18
- 32e:	29 2f       	mov	r18, r25
- 330:	22 60       	ori	r18, 0x02	; 2
- 332:	46 fd       	sbrc	r20, 6
- 334:	92 2f       	mov	r25, r18
- 336:	c9 2f       	mov	r28, r25
- 338:	c1 60       	ori	r28, 0x01	; 1
-	 * uint8_t data - data to be displayed
-	 * Returns: void.
-	 */
-
-	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
-	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
- 33a:	28 2f       	mov	r18, r24
- 33c:	2f 70       	andi	r18, 0x0F	; 15
- 33e:	30 e0       	ldi	r19, 0x00	; 0
- 340:	80 ff       	sbrs	r24, 0
- 342:	40 c0       	rjmp	.+128    	; 0x3c4 <PutChar+0xb2>
- 344:	60 e8       	ldi	r22, 0x80	; 128
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
-		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 346:	d6 2f       	mov	r29, r22
- 348:	d0 64       	ori	r29, 0x40	; 64
- 34a:	21 fd       	sbrc	r18, 1
- 34c:	6d 2f       	mov	r22, r29
- 34e:	d6 2f       	mov	r29, r22
- 350:	d0 62       	ori	r29, 0x20	; 32
- 352:	22 ff       	sbrs	r18, 2
- 354:	d6 2f       	mov	r29, r22
- 356:	6d 2f       	mov	r22, r29
- 358:	60 61       	ori	r22, 0x10	; 16
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
- 35a:	35 95       	asr	r19
- 35c:	27 95       	ror	r18
- 35e:	35 95       	asr	r19
- 360:	27 95       	ror	r18
- 362:	35 95       	asr	r19
- 364:	27 95       	ror	r18
- 366:	23 2b       	or	r18, r19
- 368:	09 f0       	breq	.+2      	; 0x36c <PutChar+0x5a>
- 36a:	d6 2f       	mov	r29, r22
- 36c:	44 0f       	add	r20, r20
- 36e:	45 2f       	mov	r20, r21
- 370:	44 1f       	adc	r20, r20
- 372:	55 0b       	sbc	r21, r21
- 374:	45 2b       	or	r20, r21
- 376:	09 f4       	brne	.+2      	; 0x37a <PutChar+0x68>
- 378:	c9 2f       	mov	r28, r25
-	low_nibble = ReverseNibble(low_nibble);		/* Reverse low nibble */
-
-	/* Send high nibble */
-
-	uint8_t send_data;							/* Data to be sent */
-	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
- 37a:	c6 95       	lsr	r28
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
-
-	SPIMasterTransmit(send_data);				/* Send data */
- 37c:	8c 2f       	mov	r24, r28
- 37e:	86 68       	ori	r24, 0x86	; 134
- 380:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
-
-	send_data &= ~(1<<EN);						/* Enable low */
- 384:	8c 2f       	mov	r24, r28
- 386:	8b 7f       	andi	r24, 0xFB	; 251
-
-	SPIMasterTransmit(send_data);				/* Send data again with enable low */
- 388:	82 68       	ori	r24, 0x82	; 130
- 38a:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 38e:	83 ec       	ldi	r24, 0xC3	; 195
- 390:	99 e0       	ldi	r25, 0x09	; 9
- 392:	01 97       	sbiw	r24, 0x01	; 1
- 394:	f1 f7       	brne	.-4      	; 0x392 <PutChar+0x80>
- 396:	00 c0       	rjmp	.+0      	; 0x398 <PutChar+0x86>
- 398:	00 00       	nop
-
-	_delay_ms(10);
+	_delay_ms(10);							/* Delay between screen writes */
 
 	/* Send low nibble */
 
-	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
- 39a:	cd 2f       	mov	r28, r29
- 39c:	cc 0f       	add	r28, r28
- 39e:	cc 0f       	add	r28, r28
- 3a0:	cc 0f       	add	r28, r28
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* Same procedure as for high nibble */
+	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
+ 352:	dd 0f       	add	r29, r29
+ 354:	dd 0f       	add	r29, r29
+ 356:	dd 0f       	add	r29, r29
 
-	SPIMasterTransmit(send_data);
- 3a2:	8c 2f       	mov	r24, r28
- 3a4:	86 68       	ori	r24, 0x86	; 134
- 3a6:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
+	return rev_nibble;
+}
 
-	send_data &= ~(1<<EN);
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 358:	8d 2f       	mov	r24, r29
+ 35a:	84 60       	ori	r24, 0x04	; 4
+ 35c:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 360:	8d 2f       	mov	r24, r29
+ 362:	80 68       	ori	r24, 0x80	; 128
+ 364:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 368:	db cf       	rjmp	.-74     	; 0x320 <ScreenInstruction+0xaa>
+ 36a:	80 e0       	ldi	r24, 0x00	; 0
+ 36c:	a2 cf       	rjmp	.-188    	; 0x2b2 <ScreenInstruction+0x3c>
 
-	SPIMasterTransmit(send_data);
- 3aa:	8c 2f       	mov	r24, r28
- 3ac:	82 68       	ori	r24, 0x82	; 130
- 3ae:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 3b2:	83 ec       	ldi	r24, 0xC3	; 195
- 3b4:	99 e0       	ldi	r25, 0x09	; 9
+0000036e <ScreenInit>:
+ *																		*
+ ************************************************************************/
+
+#include <LCD1602A.h>
+
+void ScreenInit(uint8_t protocol_flag) {
+ 36e:	cf 93       	push	r28
+ 370:	c8 2f       	mov	r28, r24
+	/* Initializes the screen according to the datasheet.
+	 */
+
+	/* Initial commands */
+
+	I2C == protocol_flag ? I2C_InitScreen(): SPI_InitScreen();
+ 372:	81 30       	cpi	r24, 0x01	; 1
+ 374:	09 f4       	brne	.+2      	; 0x378 <ScreenInit+0xa>
+ 376:	4c c0       	rjmp	.+152    	; 0x410 <ScreenInit+0xa2>
+	Send4BitCommand(command, I2C);
+	_delay_ms(10);
+}
+
+void SPI_InitScreen(void){
+	SPI_MasterInit();
+ 378:	0e 94 5e 03 	call	0x6bc	; 0x6bc <SPI_MasterInit>
+ 37c:	2f e7       	ldi	r18, 0x7F	; 127
+ 37e:	88 e3       	ldi	r24, 0x38	; 56
+ 380:	91 e0       	ldi	r25, 0x01	; 1
+ 382:	21 50       	subi	r18, 0x01	; 1
+ 384:	80 40       	sbci	r24, 0x00	; 0
+ 386:	90 40       	sbci	r25, 0x00	; 0
+ 388:	e1 f7       	brne	.-8      	; 0x382 <ScreenInit+0x14>
+ 38a:	00 c0       	rjmp	.+0      	; 0x38c <ScreenInit+0x1e>
+ 38c:	00 00       	nop
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 38e:	84 e6       	ldi	r24, 0x64	; 100
+ 390:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 394:	80 e6       	ldi	r24, 0x60	; 96
+ 396:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 39a:	89 e0       	ldi	r24, 0x09	; 9
+ 39c:	98 e2       	ldi	r25, 0x28	; 40
+ 39e:	01 97       	sbiw	r24, 0x01	; 1
+ 3a0:	f1 f7       	brne	.-4      	; 0x39e <ScreenInit+0x30>
+ 3a2:	00 c0       	rjmp	.+0      	; 0x3a4 <ScreenInit+0x36>
+ 3a4:	00 00       	nop
+ 3a6:	84 e6       	ldi	r24, 0x64	; 100
+ 3a8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 3ac:	80 e6       	ldi	r24, 0x60	; 96
+ 3ae:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 3b2:	89 ef       	ldi	r24, 0xF9	; 249
+ 3b4:	90 e0       	ldi	r25, 0x00	; 0
  3b6:	01 97       	sbiw	r24, 0x01	; 1
- 3b8:	f1 f7       	brne	.-4      	; 0x3b6 <PutChar+0xa4>
- 3ba:	00 c0       	rjmp	.+0      	; 0x3bc <PutChar+0xaa>
+ 3b8:	f1 f7       	brne	.-4      	; 0x3b6 <ScreenInit+0x48>
+ 3ba:	00 c0       	rjmp	.+0      	; 0x3bc <ScreenInit+0x4e>
  3bc:	00 00       	nop
+ 3be:	84 e6       	ldi	r24, 0x64	; 100
+ 3c0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 3c4:	80 e6       	ldi	r24, 0x60	; 96
+ 3c6:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 3ca:	89 ef       	ldi	r24, 0xF9	; 249
+ 3cc:	90 e0       	ldi	r25, 0x00	; 0
+ 3ce:	01 97       	sbiw	r24, 0x01	; 1
+ 3d0:	f1 f7       	brne	.-4      	; 0x3ce <ScreenInit+0x60>
+ 3d2:	00 c0       	rjmp	.+0      	; 0x3d4 <ScreenInit+0x66>
+ 3d4:	00 00       	nop
+ 3d6:	84 e2       	ldi	r24, 0x24	; 36
+ 3d8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 3dc:	80 e2       	ldi	r24, 0x20	; 32
+ 3de:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 3e2:	83 ec       	ldi	r24, 0xC3	; 195
+ 3e4:	99 e0       	ldi	r25, 0x09	; 9
+ 3e6:	01 97       	sbiw	r24, 0x01	; 1
+ 3e8:	f1 f7       	brne	.-4      	; 0x3e6 <ScreenInit+0x78>
+ 3ea:	00 c0       	rjmp	.+0      	; 0x3ec <ScreenInit+0x7e>
+ 3ec:	00 00       	nop
+
+	I2C == protocol_flag ? I2C_InitScreen(): SPI_InitScreen();
+
+	/* Function Set */
+
+	ScreenInstruction(LCD_FUNCTION_4BIT_2LINES, protocol_flag);	/* 4Bit mode with 2Lines interface */
+ 3ee:	6c 2f       	mov	r22, r28
+ 3f0:	88 e2       	ldi	r24, 0x28	; 40
+ 3f2:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
+
+	/* Display OFF */
+
+	ScreenInstruction(LCD_DISP_OFF, protocol_flag);
+ 3f6:	6c 2f       	mov	r22, r28
+ 3f8:	88 e0       	ldi	r24, 0x08	; 8
+ 3fa:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
+
+	/* Display Clear */
+
+	ScreenInstruction(LCD_DISP_CLEAR, protocol_flag);
+ 3fe:	6c 2f       	mov	r22, r28
+ 400:	81 e0       	ldi	r24, 0x01	; 1
+ 402:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
+
+	/* Mode Set */
+
+	ScreenInstruction(LCD_MODE_DEFAULT, protocol_flag);			/* Default entry mode. Shifts to the right */
+ 406:	6c 2f       	mov	r22, r28
+ 408:	86 e0       	ldi	r24, 0x06	; 6
+}
+ 40a:	cf 91       	pop	r28
+
+	ScreenInstruction(LCD_DISP_CLEAR, protocol_flag);
+
+	/* Mode Set */
+
+	ScreenInstruction(LCD_MODE_DEFAULT, protocol_flag);			/* Default entry mode. Shifts to the right */
+ 40c:	0c 94 3b 01 	jmp	0x276	; 0x276 <ScreenInstruction>
+	/* Initializes the screen according to the datasheet.
+	 */
+
+	/* Initial commands */
+
+	I2C == protocol_flag ? I2C_InitScreen(): SPI_InitScreen();
+ 410:	0e 94 7a 00 	call	0xf4	; 0xf4 <I2C_InitScreen>
+ 414:	ec cf       	rjmp	.-40     	; 0x3ee <ScreenInit+0x80>
+
+00000416 <ScreenData>:
+	TransferData(send_instruction, protocol_flag);
+
+	_delay_ms(10);
+}
+
+void ScreenData(uint8_t data, uint8_t protocol_flag) {
+ 416:	cf 93       	push	r28
+ 418:	df 93       	push	r29
+	/* Sends data to the screen.
+	 * uint8_t data - data to be displayed
+	 * Returns: void.
+	 */
+
+	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
+ 41a:	c8 2f       	mov	r28, r24
+ 41c:	c0 7f       	andi	r28, 0xF0	; 240
+	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
+ 41e:	d8 2f       	mov	r29, r24
+ 420:	df 70       	andi	r29, 0x0F	; 15
+
+	/* if (SPI) reverse the data before sending */
+	if (SPI == protocol_flag){
+ 422:	61 11       	cpse	r22, r1
+ 424:	54 c0       	rjmp	.+168    	; 0x4ce <ScreenData+0xb8>
+ 426:	4c 2f       	mov	r20, r28
+ 428:	50 e0       	ldi	r21, 0x00	; 0
+ 42a:	90 e0       	ldi	r25, 0x00	; 0
+	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
+	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
+
+	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+		if((nibble & (1 << i)))
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+ 42c:	c9 2f       	mov	r28, r25
+ 42e:	c8 60       	ori	r28, 0x08	; 8
+ 430:	44 fd       	sbrc	r20, 4
+ 432:	9c 2f       	mov	r25, r28
+ 434:	29 2f       	mov	r18, r25
+ 436:	24 60       	ori	r18, 0x04	; 4
+ 438:	45 fd       	sbrc	r20, 5
+ 43a:	92 2f       	mov	r25, r18
+ 43c:	29 2f       	mov	r18, r25
+ 43e:	22 60       	ori	r18, 0x02	; 2
+ 440:	46 fd       	sbrc	r20, 6
+ 442:	92 2f       	mov	r25, r18
+ 444:	c9 2f       	mov	r28, r25
+ 446:	c1 60       	ori	r28, 0x01	; 1
+ 448:	6d 2f       	mov	r22, r29
+ 44a:	70 e0       	ldi	r23, 0x00	; 0
+ 44c:	80 ff       	sbrs	r24, 0
+ 44e:	5c c0       	rjmp	.+184    	; 0x508 <ScreenData+0xf2>
+ 450:	20 e8       	ldi	r18, 0x80	; 128
+ 452:	d2 2f       	mov	r29, r18
+ 454:	d0 64       	ori	r29, 0x40	; 64
+ 456:	61 ff       	sbrs	r22, 1
+ 458:	d2 2f       	mov	r29, r18
+ 45a:	2d 2f       	mov	r18, r29
+ 45c:	20 62       	ori	r18, 0x20	; 32
+ 45e:	62 fd       	sbrc	r22, 2
+ 460:	d2 2f       	mov	r29, r18
+ 462:	2d 2f       	mov	r18, r29
+ 464:	20 61       	ori	r18, 0x10	; 16
+
+	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
+	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
+
+	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+		if((nibble & (1 << i)))
+ 466:	75 95       	asr	r23
+ 468:	67 95       	ror	r22
+ 46a:	75 95       	asr	r23
+ 46c:	67 95       	ror	r22
+ 46e:	75 95       	asr	r23
+ 470:	67 95       	ror	r22
+ 472:	67 2b       	or	r22, r23
+ 474:	09 f0       	breq	.+2      	; 0x478 <ScreenData+0x62>
+ 476:	d2 2f       	mov	r29, r18
+ 478:	44 0f       	add	r20, r20
+ 47a:	45 2f       	mov	r20, r21
+ 47c:	44 1f       	adc	r20, r20
+ 47e:	55 0b       	sbc	r21, r21
+ 480:	45 2b       	or	r20, r21
+ 482:	09 f4       	brne	.+2      	; 0x486 <ScreenData+0x70>
+ 484:	c9 2f       	mov	r28, r25
+	}
+
+	/* Send high nibble */
+
+	uint8_t send_data;							/* Data to be sent */
+	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
+ 486:	c6 95       	lsr	r28
+	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
+ 488:	8c 2f       	mov	r24, r28
+ 48a:	86 68       	ori	r24, 0x86	; 134
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 48c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
+	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
+
+	TransferData(send_data, protocol_flag);	/* Send data */
+
+	send_data &= ~(1<<EN);						/* Enable low */
+ 490:	8c 2f       	mov	r24, r28
+ 492:	8b 7f       	andi	r24, 0xFB	; 251
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 494:	82 68       	ori	r24, 0x82	; 130
+ 496:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 49a:	83 ec       	ldi	r24, 0xC3	; 195
+ 49c:	99 e0       	ldi	r25, 0x09	; 9
+ 49e:	01 97       	sbiw	r24, 0x01	; 1
+ 4a0:	f1 f7       	brne	.-4      	; 0x49e <ScreenData+0x88>
+ 4a2:	00 c0       	rjmp	.+0      	; 0x4a4 <ScreenData+0x8e>
+ 4a4:	00 00       	nop
+
+	_delay_ms(10);
+
+	/* Send low nibble */
+
+	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
+ 4a6:	dd 0f       	add	r29, r29
+ 4a8:	dd 0f       	add	r29, r29
+ 4aa:	dd 0f       	add	r29, r29
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 4ac:	8d 2f       	mov	r24, r29
+ 4ae:	86 68       	ori	r24, 0x86	; 134
+ 4b0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 4b4:	8d 2f       	mov	r24, r29
+ 4b6:	82 68       	ori	r24, 0x82	; 130
+ 4b8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 4bc:	83 ec       	ldi	r24, 0xC3	; 195
+ 4be:	99 e0       	ldi	r25, 0x09	; 9
+ 4c0:	01 97       	sbiw	r24, 0x01	; 1
+ 4c2:	f1 f7       	brne	.-4      	; 0x4c0 <ScreenData+0xaa>
+ 4c4:	00 c0       	rjmp	.+0      	; 0x4c6 <ScreenData+0xb0>
+ 4c6:	00 00       	nop
+	send_data &= ~(1<<EN);
+
+	TransferData(send_data, protocol_flag);
+
+	_delay_ms(10);
+}
+ 4c8:	df 91       	pop	r29
+ 4ca:	cf 91       	pop	r28
+ 4cc:	08 95       	ret
+	}
+
+	/* Send high nibble */
+
+	uint8_t send_data;							/* Data to be sent */
+	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
+ 4ce:	c6 95       	lsr	r28
+	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
+ 4d0:	8c 2f       	mov	r24, r28
+ 4d2:	86 68       	ori	r24, 0x86	; 134
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 4d4:	61 30       	cpi	r22, 0x01	; 1
+ 4d6:	d1 f6       	brne	.-76     	; 0x48c <ScreenData+0x76>
+ 4d8:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 4dc:	8c 2f       	mov	r24, r28
+ 4de:	82 68       	ori	r24, 0x82	; 130
+ 4e0:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 4e4:	83 ec       	ldi	r24, 0xC3	; 195
+ 4e6:	99 e0       	ldi	r25, 0x09	; 9
+ 4e8:	01 97       	sbiw	r24, 0x01	; 1
+ 4ea:	f1 f7       	brne	.-4      	; 0x4e8 <ScreenData+0xd2>
+ 4ec:	00 c0       	rjmp	.+0      	; 0x4ee <ScreenData+0xd8>
+ 4ee:	00 00       	nop
+
+	_delay_ms(10);
+
+	/* Send low nibble */
+
+	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
+ 4f0:	dd 0f       	add	r29, r29
+ 4f2:	dd 0f       	add	r29, r29
+ 4f4:	dd 0f       	add	r29, r29
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 4f6:	8d 2f       	mov	r24, r29
+ 4f8:	86 68       	ori	r24, 0x86	; 134
+ 4fa:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 4fe:	8d 2f       	mov	r24, r29
+ 500:	82 68       	ori	r24, 0x82	; 130
+ 502:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 506:	da cf       	rjmp	.-76     	; 0x4bc <ScreenData+0xa6>
+ 508:	20 e0       	ldi	r18, 0x00	; 0
+ 50a:	a3 cf       	rjmp	.-186    	; 0x452 <ScreenData+0x3c>
+
+0000050c <PutChar>:
+	/* Writes a character to the screen on the cursor current position.
 	 * uint8_t character - the character to write
 	 * Returns: void.
 	 */
 
-	ScreenData(character);		/* Send data to screen */
+	ScreenData(character, protocol_flag);		/* Send data to screen */
+ 50c:	0c 94 0b 02 	jmp	0x416	; 0x416 <ScreenData>
+
+00000510 <PutString>:
 }
- 3be:	df 91       	pop	r29
- 3c0:	cf 91       	pop	r28
- 3c2:	08 95       	ret
- 3c4:	60 e0       	ldi	r22, 0x00	; 0
- 3c6:	bf cf       	rjmp	.-130    	; 0x346 <PutChar+0x34>
 
-000003c8 <PutString>:
-
-void PutString(uint8_t string[], uint16_t length) {
- 3c8:	ef 92       	push	r14
- 3ca:	ff 92       	push	r15
- 3cc:	0f 93       	push	r16
- 3ce:	1f 93       	push	r17
- 3d0:	cf 93       	push	r28
- 3d2:	df 93       	push	r29
- 3d4:	8b 01       	movw	r16, r22
- 3d6:	11 27       	eor	r17, r17
+void PutString(uint8_t string[], uint16_t length, uint8_t protocol_flag) {
+ 510:	df 92       	push	r13
+ 512:	ef 92       	push	r14
+ 514:	ff 92       	push	r15
+ 516:	0f 93       	push	r16
+ 518:	1f 93       	push	r17
+ 51a:	cf 93       	push	r28
+ 51c:	df 93       	push	r29
+ 51e:	8b 01       	movw	r16, r22
+ 520:	11 27       	eor	r17, r17
 	 * uint16_t length - size of the character array obtained from sizeof(string)
 	 * Returns: void.
 	 */
 	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
 
 	for (int i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
- 3d8:	01 15       	cp	r16, r1
- 3da:	11 05       	cpc	r17, r1
- 3dc:	09 f4       	brne	.+2      	; 0x3e0 <PutString+0x18>
- 3de:	58 c0       	rjmp	.+176    	; 0x490 <PutString+0xc8>
- 3e0:	7c 01       	movw	r14, r24
- 3e2:	08 0f       	add	r16, r24
- 3e4:	19 1f       	adc	r17, r25
- 3e6:	44 c0       	rjmp	.+136    	; 0x470 <PutString+0xa8>
+ 522:	01 15       	cp	r16, r1
+ 524:	11 05       	cpc	r17, r1
+ 526:	09 f4       	brne	.+2      	; 0x52a <PutString+0x1a>
+ 528:	7c c0       	rjmp	.+248    	; 0x622 <PutString+0x112>
+ 52a:	d4 2e       	mov	r13, r20
+ 52c:	7c 01       	movw	r14, r24
+ 52e:	08 0f       	add	r16, r24
+ 530:	19 1f       	adc	r17, r25
+ 532:	49 c0       	rjmp	.+146    	; 0x5c6 <PutString+0xb6>
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 3e8:	34 e0       	ldi	r19, 0x04	; 4
- 3ea:	80 e0       	ldi	r24, 0x00	; 0
- 3ec:	95 fd       	sbrc	r25, 5
+ 534:	2c 2f       	mov	r18, r28
+ 536:	30 e0       	ldi	r19, 0x00	; 0
+ 538:	94 fd       	sbrc	r25, 4
+ 53a:	70 c0       	rjmp	.+224    	; 0x61c <PutString+0x10c>
+ 53c:	84 e0       	ldi	r24, 0x04	; 4
+ 53e:	c0 e0       	ldi	r28, 0x00	; 0
+ 540:	95 fd       	sbrc	r25, 5
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 3ee:	83 2f       	mov	r24, r19
+ 542:	c8 2f       	mov	r28, r24
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 3f0:	96 fd       	sbrc	r25, 6
+ 544:	96 fd       	sbrc	r25, 6
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 3f2:	82 60       	ori	r24, 0x02	; 2
+ 546:	c2 60       	ori	r28, 0x02	; 2
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 3f4:	44 0f       	add	r20, r20
- 3f6:	45 2f       	mov	r20, r21
- 3f8:	44 1f       	adc	r20, r20
- 3fa:	55 0b       	sbc	r21, r21
- 3fc:	45 2b       	or	r20, r21
- 3fe:	09 f0       	breq	.+2      	; 0x402 <PutString+0x3a>
+ 548:	22 0f       	add	r18, r18
+ 54a:	23 2f       	mov	r18, r19
+ 54c:	22 1f       	adc	r18, r18
+ 54e:	33 0b       	sbc	r19, r19
+ 550:	23 2b       	or	r18, r19
+ 552:	09 f0       	breq	.+2      	; 0x556 <PutString+0x46>
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 400:	81 60       	ori	r24, 0x01	; 1
+ 554:	c1 60       	ori	r28, 0x01	; 1
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 402:	30 e0       	ldi	r19, 0x00	; 0
- 404:	90 fd       	sbrc	r25, 0
- 406:	41 c0       	rjmp	.+130    	; 0x48a <PutString+0xc2>
- 408:	40 e4       	ldi	r20, 0x40	; 64
+ 556:	2d 2f       	mov	r18, r29
+ 558:	30 e0       	ldi	r19, 0x00	; 0
+ 55a:	90 fd       	sbrc	r25, 0
+ 55c:	5c c0       	rjmp	.+184    	; 0x616 <PutString+0x106>
+ 55e:	80 e4       	ldi	r24, 0x40	; 64
 	 * uint8_t nibble - nibble to reverse
 	 * Returns: inverted nibble.
 	 */
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
- 40a:	d0 e0       	ldi	r29, 0x00	; 0
+ 560:	d0 e0       	ldi	r29, 0x00	; 0
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 40c:	91 fd       	sbrc	r25, 1
+ 562:	91 fd       	sbrc	r25, 1
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 40e:	d4 2f       	mov	r29, r20
+ 564:	d8 2f       	mov	r29, r24
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 410:	92 fd       	sbrc	r25, 2
+ 566:	92 fd       	sbrc	r25, 2
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 412:	d0 62       	ori	r29, 0x20	; 32
+ 568:	d0 62       	ori	r29, 0x20	; 32
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 414:	35 95       	asr	r19
- 416:	27 95       	ror	r18
- 418:	35 95       	asr	r19
- 41a:	27 95       	ror	r18
- 41c:	35 95       	asr	r19
- 41e:	27 95       	ror	r18
- 420:	23 2b       	or	r18, r19
- 422:	09 f0       	breq	.+2      	; 0x426 <PutString+0x5e>
+ 56a:	c9 01       	movw	r24, r18
+ 56c:	95 95       	asr	r25
+ 56e:	87 95       	ror	r24
+ 570:	95 95       	asr	r25
+ 572:	87 95       	ror	r24
+ 574:	95 95       	asr	r25
+ 576:	87 95       	ror	r24
+ 578:	89 2b       	or	r24, r25
+ 57a:	09 f0       	breq	.+2      	; 0x57e <PutString+0x6e>
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 424:	d0 61       	ori	r29, 0x10	; 16
-	low_nibble = ReverseNibble(low_nibble);		/* Reverse low nibble */
+ 57c:	d0 61       	ori	r29, 0x10	; 16
+	}
 
 	/* Send high nibble */
 
 	uint8_t send_data;							/* Data to be sent */
 	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
- 426:	c8 2f       	mov	r28, r24
- 428:	c6 95       	lsr	r28
+ 57e:	c6 95       	lsr	r28
+	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
+ 580:	8c 2f       	mov	r24, r28
+ 582:	86 68       	ori	r24, 0x86	; 134
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 584:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
 	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
 
-	SPIMasterTransmit(send_data);				/* Send data */
- 42a:	8c 2f       	mov	r24, r28
- 42c:	86 68       	ori	r24, 0x86	; 134
- 42e:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
+	TransferData(send_data, protocol_flag);	/* Send data */
 
 	send_data &= ~(1<<EN);						/* Enable low */
- 432:	8c 2f       	mov	r24, r28
- 434:	8b 7f       	andi	r24, 0xFB	; 251
+ 588:	8c 2f       	mov	r24, r28
+ 58a:	8b 7f       	andi	r24, 0xFB	; 251
 
-	SPIMasterTransmit(send_data);				/* Send data again with enable low */
- 436:	82 68       	ori	r24, 0x82	; 130
- 438:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 43c:	83 ec       	ldi	r24, 0xC3	; 195
- 43e:	99 e0       	ldi	r25, 0x09	; 9
- 440:	01 97       	sbiw	r24, 0x01	; 1
- 442:	f1 f7       	brne	.-4      	; 0x440 <PutString+0x78>
- 444:	00 c0       	rjmp	.+0      	; 0x446 <PutString+0x7e>
- 446:	00 00       	nop
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 58c:	82 68       	ori	r24, 0x82	; 130
+ 58e:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 592:	e3 ec       	ldi	r30, 0xC3	; 195
+ 594:	f9 e0       	ldi	r31, 0x09	; 9
+ 596:	31 97       	sbiw	r30, 0x01	; 1
+ 598:	f1 f7       	brne	.-4      	; 0x596 <PutString+0x86>
+ 59a:	00 c0       	rjmp	.+0      	; 0x59c <PutString+0x8c>
+ 59c:	00 00       	nop
 
 	_delay_ms(10);
 
 	/* Send low nibble */
 
 	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
- 448:	dd 0f       	add	r29, r29
- 44a:	dd 0f       	add	r29, r29
- 44c:	dd 0f       	add	r29, r29
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* Same procedure as for high nibble */
+ 59e:	dd 0f       	add	r29, r29
+ 5a0:	dd 0f       	add	r29, r29
+ 5a2:	dd 0f       	add	r29, r29
 
-	SPIMasterTransmit(send_data);
- 44e:	8d 2f       	mov	r24, r29
- 450:	86 68       	ori	r24, 0x86	; 134
- 452:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
+	return rev_nibble;
+}
 
-	send_data &= ~(1<<EN);
-
-	SPIMasterTransmit(send_data);
- 456:	8d 2f       	mov	r24, r29
- 458:	82 68       	ori	r24, 0x82	; 130
- 45a:	0e 94 83 02 	call	0x506	; 0x506 <SPIMasterTransmit>
- 45e:	e3 ec       	ldi	r30, 0xC3	; 195
- 460:	f9 e0       	ldi	r31, 0x09	; 9
- 462:	31 97       	sbiw	r30, 0x01	; 1
- 464:	f1 f7       	brne	.-4      	; 0x462 <PutString+0x9a>
- 466:	00 c0       	rjmp	.+0      	; 0x468 <PutString+0xa0>
- 468:	00 00       	nop
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 5a4:	8d 2f       	mov	r24, r29
+ 5a6:	86 68       	ori	r24, 0x86	; 134
+ 5a8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 5ac:	8d 2f       	mov	r24, r29
+ 5ae:	82 68       	ori	r24, 0x82	; 130
+ 5b0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 5b4:	83 ec       	ldi	r24, 0xC3	; 195
+ 5b6:	99 e0       	ldi	r25, 0x09	; 9
+ 5b8:	01 97       	sbiw	r24, 0x01	; 1
+ 5ba:	f1 f7       	brne	.-4      	; 0x5b8 <PutString+0xa8>
+ 5bc:	00 c0       	rjmp	.+0      	; 0x5be <PutString+0xae>
+ 5be:	00 00       	nop
 	 * uint16_t length - size of the character array obtained from sizeof(string)
 	 * Returns: void.
 	 */
 	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
 
 	for (int i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
- 46a:	e0 16       	cp	r14, r16
- 46c:	f1 06       	cpc	r15, r17
- 46e:	81 f0       	breq	.+32     	; 0x490 <PutString+0xc8>
+ 5c0:	e0 16       	cp	r14, r16
+ 5c2:	f1 06       	cpc	r15, r17
+ 5c4:	71 f1       	breq	.+92     	; 0x622 <PutString+0x112>
 		uint8_t character = string[i];
- 470:	f7 01       	movw	r30, r14
- 472:	91 91       	ld	r25, Z+
- 474:	7f 01       	movw	r14, r30
-	 * uint8_t data - data to be displayed
-	 * Returns: void.
-	 */
-
-	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
-	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
- 476:	29 2f       	mov	r18, r25
- 478:	2f 70       	andi	r18, 0x0F	; 15
+ 5c6:	f7 01       	movw	r30, r14
+ 5c8:	91 91       	ld	r25, Z+
+ 5ca:	7f 01       	movw	r14, r30
 	/* Sends data to the screen.
 	 * uint8_t data - data to be displayed
 	 * Returns: void.
 	 */
 
 	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
- 47a:	49 2f       	mov	r20, r25
- 47c:	40 7f       	andi	r20, 0xF0	; 240
+ 5cc:	c9 2f       	mov	r28, r25
+ 5ce:	c0 7f       	andi	r28, 0xF0	; 240
+	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
+ 5d0:	d9 2f       	mov	r29, r25
+ 5d2:	df 70       	andi	r29, 0x0F	; 15
+
+	/* if (SPI) reverse the data before sending */
+	if (SPI == protocol_flag){
+ 5d4:	dd 20       	and	r13, r13
+ 5d6:	09 f4       	brne	.+2      	; 0x5da <PutString+0xca>
+ 5d8:	ad cf       	rjmp	.-166    	; 0x534 <PutString+0x24>
+	}
+
+	/* Send high nibble */
+
+	uint8_t send_data;							/* Data to be sent */
+	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
+ 5da:	c6 95       	lsr	r28
+	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
+ 5dc:	8c 2f       	mov	r24, r28
+ 5de:	86 68       	ori	r24, 0x86	; 134
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 5e0:	f1 e0       	ldi	r31, 0x01	; 1
+ 5e2:	df 12       	cpse	r13, r31
+ 5e4:	cf cf       	rjmp	.-98     	; 0x584 <PutString+0x74>
+ 5e6:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 5ea:	8c 2f       	mov	r24, r28
+ 5ec:	82 68       	ori	r24, 0x82	; 130
+ 5ee:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 5f2:	83 ec       	ldi	r24, 0xC3	; 195
+ 5f4:	99 e0       	ldi	r25, 0x09	; 9
+ 5f6:	01 97       	sbiw	r24, 0x01	; 1
+ 5f8:	f1 f7       	brne	.-4      	; 0x5f6 <PutString+0xe6>
+ 5fa:	00 c0       	rjmp	.+0      	; 0x5fc <PutString+0xec>
+ 5fc:	00 00       	nop
+
+	_delay_ms(10);
+
+	/* Send low nibble */
+
+	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
+ 5fe:	dd 0f       	add	r29, r29
+ 600:	dd 0f       	add	r29, r29
+ 602:	dd 0f       	add	r29, r29
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 604:	8d 2f       	mov	r24, r29
+ 606:	86 68       	ori	r24, 0x86	; 134
+ 608:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 60c:	8d 2f       	mov	r24, r29
+ 60e:	82 68       	ori	r24, 0x82	; 130
+ 610:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 614:	cf cf       	rjmp	.-98     	; 0x5b4 <PutString+0xa4>
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 47e:	50 e0       	ldi	r21, 0x00	; 0
- 480:	94 ff       	sbrs	r25, 4
- 482:	b2 cf       	rjmp	.-156    	; 0x3e8 <PutString+0x20>
- 484:	3c e0       	ldi	r19, 0x0C	; 12
+ 616:	80 ec       	ldi	r24, 0xC0	; 192
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 486:	88 e0       	ldi	r24, 0x08	; 8
- 488:	b1 cf       	rjmp	.-158    	; 0x3ec <PutString+0x24>
+ 618:	d0 e8       	ldi	r29, 0x80	; 128
+ 61a:	a3 cf       	rjmp	.-186    	; 0x562 <PutString+0x52>
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 48a:	40 ec       	ldi	r20, 0xC0	; 192
+ 61c:	8c e0       	ldi	r24, 0x0C	; 12
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 48c:	d0 e8       	ldi	r29, 0x80	; 128
- 48e:	be cf       	rjmp	.-132    	; 0x40c <PutString+0x44>
+ 61e:	c8 e0       	ldi	r28, 0x08	; 8
+ 620:	8f cf       	rjmp	.-226    	; 0x540 <PutString+0x30>
 
 	for (int i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
 		uint8_t character = string[i];
-		PutChar(character);						/* Put a char at a time on the screen */
+		PutChar(character, protocol_flag);						/* Put a char at a time on the screen */
 	}
 }
- 490:	df 91       	pop	r29
- 492:	cf 91       	pop	r28
- 494:	1f 91       	pop	r17
- 496:	0f 91       	pop	r16
- 498:	ff 90       	pop	r15
- 49a:	ef 90       	pop	r14
- 49c:	08 95       	ret
+ 622:	df 91       	pop	r29
+ 624:	cf 91       	pop	r28
+ 626:	1f 91       	pop	r17
+ 628:	0f 91       	pop	r16
+ 62a:	ff 90       	pop	r15
+ 62c:	ef 90       	pop	r14
+ 62e:	df 90       	pop	r13
+ 630:	08 95       	ret
 
-0000049e <ReverseNibble>:
+00000632 <ReverseNibble>:
 
 /* Utility functions */
 
 uint8_t ReverseNibble(uint8_t nibble) {
- 49e:	28 2f       	mov	r18, r24
- 4a0:	30 e0       	ldi	r19, 0x00	; 0
- 4a2:	80 ff       	sbrs	r24, 0
- 4a4:	23 c0       	rjmp	.+70     	; 0x4ec <ReverseNibble+0x4e>
- 4a6:	90 e8       	ldi	r25, 0x80	; 128
+ 632:	28 2f       	mov	r18, r24
+ 634:	30 e0       	ldi	r19, 0x00	; 0
+ 636:	80 ff       	sbrs	r24, 0
+ 638:	23 c0       	rjmp	.+70     	; 0x680 <ReverseNibble+0x4e>
+ 63a:	90 e8       	ldi	r25, 0x80	; 128
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 4a8:	89 2f       	mov	r24, r25
- 4aa:	80 64       	ori	r24, 0x40	; 64
- 4ac:	21 ff       	sbrs	r18, 1
- 4ae:	89 2f       	mov	r24, r25
- 4b0:	98 2f       	mov	r25, r24
- 4b2:	90 62       	ori	r25, 0x20	; 32
- 4b4:	22 fd       	sbrc	r18, 2
- 4b6:	89 2f       	mov	r24, r25
- 4b8:	98 2f       	mov	r25, r24
- 4ba:	90 61       	ori	r25, 0x10	; 16
- 4bc:	23 fd       	sbrc	r18, 3
- 4be:	89 2f       	mov	r24, r25
- 4c0:	98 2f       	mov	r25, r24
- 4c2:	98 60       	ori	r25, 0x08	; 8
- 4c4:	24 fd       	sbrc	r18, 4
- 4c6:	89 2f       	mov	r24, r25
- 4c8:	98 2f       	mov	r25, r24
- 4ca:	94 60       	ori	r25, 0x04	; 4
- 4cc:	25 fd       	sbrc	r18, 5
- 4ce:	89 2f       	mov	r24, r25
- 4d0:	98 2f       	mov	r25, r24
- 4d2:	92 60       	ori	r25, 0x02	; 2
- 4d4:	26 fd       	sbrc	r18, 6
- 4d6:	89 2f       	mov	r24, r25
- 4d8:	98 2f       	mov	r25, r24
- 4da:	91 60       	ori	r25, 0x01	; 1
+ 63c:	89 2f       	mov	r24, r25
+ 63e:	80 64       	ori	r24, 0x40	; 64
+ 640:	21 ff       	sbrs	r18, 1
+ 642:	89 2f       	mov	r24, r25
+ 644:	98 2f       	mov	r25, r24
+ 646:	90 62       	ori	r25, 0x20	; 32
+ 648:	22 fd       	sbrc	r18, 2
+ 64a:	89 2f       	mov	r24, r25
+ 64c:	98 2f       	mov	r25, r24
+ 64e:	90 61       	ori	r25, 0x10	; 16
+ 650:	23 fd       	sbrc	r18, 3
+ 652:	89 2f       	mov	r24, r25
+ 654:	98 2f       	mov	r25, r24
+ 656:	98 60       	ori	r25, 0x08	; 8
+ 658:	24 fd       	sbrc	r18, 4
+ 65a:	89 2f       	mov	r24, r25
+ 65c:	98 2f       	mov	r25, r24
+ 65e:	94 60       	ori	r25, 0x04	; 4
+ 660:	25 fd       	sbrc	r18, 5
+ 662:	89 2f       	mov	r24, r25
+ 664:	98 2f       	mov	r25, r24
+ 666:	92 60       	ori	r25, 0x02	; 2
+ 668:	26 fd       	sbrc	r18, 6
+ 66a:	89 2f       	mov	r24, r25
+ 66c:	98 2f       	mov	r25, r24
+ 66e:	91 60       	ori	r25, 0x01	; 1
 
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
 	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
- 4dc:	22 0f       	add	r18, r18
- 4de:	23 2f       	mov	r18, r19
- 4e0:	22 1f       	adc	r18, r18
- 4e2:	33 0b       	sbc	r19, r19
- 4e4:	23 2b       	or	r18, r19
- 4e6:	09 f0       	breq	.+2      	; 0x4ea <ReverseNibble+0x4c>
- 4e8:	89 2f       	mov	r24, r25
+ 670:	22 0f       	add	r18, r18
+ 672:	23 2f       	mov	r18, r19
+ 674:	22 1f       	adc	r18, r18
+ 676:	33 0b       	sbc	r19, r19
+ 678:	23 2b       	or	r18, r19
+ 67a:	09 f0       	breq	.+2      	; 0x67e <ReverseNibble+0x4c>
+ 67c:	89 2f       	mov	r24, r25
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
 	}
 
 	return rev_nibble;
 }
- 4ea:	08 95       	ret
- 4ec:	90 e0       	ldi	r25, 0x00	; 0
- 4ee:	dc cf       	rjmp	.-72     	; 0x4a8 <ReverseNibble+0xa>
+ 67e:	08 95       	ret
+ 680:	90 e0       	ldi	r25, 0x00	; 0
+ 682:	dc cf       	rjmp	.-72     	; 0x63c <ReverseNibble+0xa>
 
-000004f0 <SPIMasterInit>:
+00000684 <TransferData>:
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 684:	61 30       	cpi	r22, 0x01	; 1
+ 686:	11 f0       	breq	.+4      	; 0x68c <TransferData+0x8>
+ 688:	0c 94 69 03 	jmp	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 68c:	0c 94 62 00 	jmp	0xc4	; 0xc4 <I2C_Write>
+
+00000690 <Send4BitCommand>:
+}
+
+void Send4BitCommand(uint8_t command, uint8_t protocol_flag){
+ 690:	cf 93       	push	r28
+ 692:	c8 2f       	mov	r28, r24
+	// sends a 4 bit command, via I2C or SPI
+
+	command |= (1<<EN);
+	command &= ~(1<<RS);
+ 694:	98 2f       	mov	r25, r24
+ 696:	9d 7f       	andi	r25, 0xFD	; 253
+ 698:	89 2f       	mov	r24, r25
+ 69a:	84 60       	ori	r24, 0x04	; 4
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 69c:	61 30       	cpi	r22, 0x01	; 1
+ 69e:	39 f0       	breq	.+14     	; 0x6ae <Send4BitCommand+0x1e>
+ 6a0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 6a4:	8c 2f       	mov	r24, r28
+ 6a6:	89 7f       	andi	r24, 0xF9	; 249
+	TransferData(command, protocol_flag);
+	command &= ~(1<<EN);
+	command &= ~(1<<RS);
+	TransferData(command, protocol_flag);
+
+}
+ 6a8:	cf 91       	pop	r28
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 6aa:	0c 94 69 03 	jmp	0x6d2	; 0x6d2 <SPI_MasterTransmit>
+ 6ae:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+ 6b2:	8c 2f       	mov	r24, r28
+ 6b4:	89 7f       	andi	r24, 0xF9	; 249
+	TransferData(command, protocol_flag);
+	command &= ~(1<<EN);
+	command &= ~(1<<RS);
+	TransferData(command, protocol_flag);
+
+}
+ 6b6:	cf 91       	pop	r28
+
+	return rev_nibble;
+}
+
+void TransferData(uint8_t data, uint8_t protocol_flag){
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+ 6b8:	0c 94 62 00 	jmp	0xc4	; 0xc4 <I2C_Write>
+
+000006bc <SPI_MasterInit>:
 	/* Set up SPI Master
 	 * Returns: void.
 	 */
 
 	/* Set MOSI, SCK and SS output, MISO as input */
 	DDR_SPI |= (1<<DD_MOSI)|(1<<DD_SCK)|(1<<DD_SS);
- 4f0:	84 b1       	in	r24, 0x04	; 4
- 4f2:	8c 62       	ori	r24, 0x2C	; 44
- 4f4:	84 b9       	out	0x04, r24	; 4
+ 6bc:	84 b1       	in	r24, 0x04	; 4
+ 6be:	8c 62       	ori	r24, 0x2C	; 44
+ 6c0:	84 b9       	out	0x04, r24	; 4
 
 	DDR_SPI &= ~(1<<DD_MISO);
- 4f6:	24 98       	cbi	0x04, 4	; 4
+ 6c2:	24 98       	cbi	0x04, 4	; 4
 
 	PORTB |= (1<<DD_SS);
- 4f8:	2a 9a       	sbi	0x05, 2	; 5
+ 6c4:	2a 9a       	sbi	0x05, 2	; 5
 
 	/* Enable SPI, Master, set clock rate fck/16 */
 	SPCR = (1<<SPE)|(1<<MSTR)|(0<<SPR0)|(1<<SPR1);
- 4fa:	82 e5       	ldi	r24, 0x52	; 82
- 4fc:	8c bd       	out	0x2c, r24	; 44
+ 6c6:	82 e5       	ldi	r24, 0x52	; 82
+ 6c8:	8c bd       	out	0x2c, r24	; 44
 
 	SPSR &= ~(1<<SPI2X);
- 4fe:	8d b5       	in	r24, 0x2d	; 45
- 500:	8e 7f       	andi	r24, 0xFE	; 254
- 502:	8d bd       	out	0x2d, r24	; 45
- 504:	08 95       	ret
+ 6ca:	8d b5       	in	r24, 0x2d	; 45
+ 6cc:	8e 7f       	andi	r24, 0xFE	; 254
+ 6ce:	8d bd       	out	0x2d, r24	; 45
+ 6d0:	08 95       	ret
 
-00000506 <SPIMasterTransmit>:
+000006d2 <SPI_MasterTransmit>:
 	 */
 
 	uint8_t flush_buffer; /* Buffer to flush the existent data on the SPI register */
 
 	/* Start transmission */
 	SPDR = data;
- 506:	8e bd       	out	0x2e, r24	; 46
+ 6d2:	8e bd       	out	0x2e, r24	; 46
 
 	/* Wait for transmission complete */
 	while (!(SPSR & (1<<SPIF)));
- 508:	0d b4       	in	r0, 0x2d	; 45
- 50a:	07 fe       	sbrs	r0, 7
- 50c:	fd cf       	rjmp	.-6      	; 0x508 <SPIMasterTransmit+0x2>
- 50e:	89 e0       	ldi	r24, 0x09	; 9
- 510:	90 e0       	ldi	r25, 0x00	; 0
+ 6d4:	0d b4       	in	r0, 0x2d	; 45
+ 6d6:	07 fe       	sbrs	r0, 7
+ 6d8:	fd cf       	rjmp	.-6      	; 0x6d4 <SPI_MasterTransmit+0x2>
+ 6da:	89 e0       	ldi	r24, 0x09	; 9
+ 6dc:	90 e0       	ldi	r25, 0x00	; 0
 	 */
 
 	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
 
 	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
 		PORTB |= (1<<DD_SS);	/* Drive the latch to high */
- 512:	2a 9a       	sbi	0x05, 2	; 5
+ 6de:	2a 9a       	sbi	0x05, 2	; 5
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 514:	00 00       	nop
+ 6e0:	00 00       	nop
 		_delay_us(1);			/* Latch hold time */
 		PORTB &= ~(1<<DD_SS);	/* Drive the latch to low */
- 516:	2a 98       	cbi	0x05, 2	; 5
- 518:	01 97       	sbiw	r24, 0x01	; 1
+ 6e2:	2a 98       	cbi	0x05, 2	; 5
+ 6e4:	01 97       	sbiw	r24, 0x01	; 1
 	 * Returns: void
 	 */
 
 	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
 
 	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
- 51a:	d9 f7       	brne	.-10     	; 0x512 <SPIMasterTransmit+0xc>
- 51c:	00 00       	nop
+ 6e6:	d9 f7       	brne	.-10     	; 0x6de <SPI_MasterTransmit+0xc>
+ 6e8:	00 00       	nop
 	/* Wait for transmission complete */
 	while (!(SPSR & (1<<SPIF)));
 
 	FlushShiftRegister(); 	/* Flush the shift register to put the byte into the screen */
 
 	flush_buffer = SPDR;	/* Flush the SPI register */
- 51e:	8e b5       	in	r24, 0x2e	; 46
- 520:	08 95       	ret
+ 6ea:	8e b5       	in	r24, 0x2e	; 46
+ 6ec:	08 95       	ret
 
-00000522 <FlushShiftRegister>:
+000006ee <FlushShiftRegister>:
 }
 
 void FlushShiftRegister(void) {
- 522:	89 e0       	ldi	r24, 0x09	; 9
- 524:	90 e0       	ldi	r25, 0x00	; 0
+ 6ee:	89 e0       	ldi	r24, 0x09	; 9
+ 6f0:	90 e0       	ldi	r25, 0x00	; 0
 	 */
 
 	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
 
 	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
 		PORTB |= (1<<DD_SS);	/* Drive the latch to high */
- 526:	2a 9a       	sbi	0x05, 2	; 5
- 528:	00 00       	nop
+ 6f2:	2a 9a       	sbi	0x05, 2	; 5
+ 6f4:	00 00       	nop
 		_delay_us(1);			/* Latch hold time */
 		PORTB &= ~(1<<DD_SS);	/* Drive the latch to low */
- 52a:	2a 98       	cbi	0x05, 2	; 5
- 52c:	01 97       	sbiw	r24, 0x01	; 1
+ 6f6:	2a 98       	cbi	0x05, 2	; 5
+ 6f8:	01 97       	sbiw	r24, 0x01	; 1
 	 * Returns: void
 	 */
 
 	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
 
 	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
- 52e:	d9 f7       	brne	.-10     	; 0x526 <FlushShiftRegister+0x4>
- 530:	00 00       	nop
- 532:	08 95       	ret
+ 6fa:	d9 f7       	brne	.-10     	; 0x6f2 <FlushShiftRegister+0x4>
+ 6fc:	00 00       	nop
+ 6fe:	08 95       	ret
 
-00000534 <main>:
+00000700 <main>:
 #include <I2C_comms.h>
 #include <LCD1602A.h>
 
+#define F_CPU 1600000UL
+
 int main(void) {
-	return 0;
-}
- 534:	80 e0       	ldi	r24, 0x00	; 0
- 536:	90 e0       	ldi	r25, 0x00	; 0
- 538:	08 95       	ret
+ 700:	cf 93       	push	r28
+ 702:	df 93       	push	r29
+ 704:	cd b7       	in	r28, 0x3d	; 61
+ 706:	de b7       	in	r29, 0x3e	; 62
+ 708:	60 97       	sbiw	r28, 0x10	; 16
+ 70a:	0f b6       	in	r0, 0x3f	; 63
+ 70c:	f8 94       	cli
+ 70e:	de bf       	out	0x3e, r29	; 62
+ 710:	0f be       	out	0x3f, r0	; 63
+ 712:	cd bf       	out	0x3d, r28	; 61
+	SPI_MasterInit();
+ 714:	0e 94 5e 03 	call	0x6bc	; 0x6bc <SPI_MasterInit>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
 
-0000053a <_exit>:
- 53a:	f8 94       	cli
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 718:	2f e7       	ldi	r18, 0x7F	; 127
+ 71a:	88 e3       	ldi	r24, 0x38	; 56
+ 71c:	91 e0       	ldi	r25, 0x01	; 1
+ 71e:	21 50       	subi	r18, 0x01	; 1
+ 720:	80 40       	sbci	r24, 0x00	; 0
+ 722:	90 40       	sbci	r25, 0x00	; 0
+ 724:	e1 f7       	brne	.-8      	; 0x71e <main+0x1e>
+ 726:	00 c0       	rjmp	.+0      	; 0x728 <main+0x28>
+ 728:	00 00       	nop
+	_delay_ms(400);
 
-0000053c <__stop_program>:
- 53c:	ff cf       	rjmp	.-2      	; 0x53c <__stop_program>
+	uint8_t command;
+
+	ScreenInit(SPI);
+ 72a:	80 e0       	ldi	r24, 0x00	; 0
+ 72c:	0e 94 b7 01 	call	0x36e	; 0x36e <ScreenInit>
+
+	/* Display ON, Cursor Blink */
+
+	command = LCD_DISP_ON_BLINK;
+	ScreenInstruction(command, SPI);
+ 730:	60 e0       	ldi	r22, 0x00	; 0
+ 732:	8d e0       	ldi	r24, 0x0D	; 13
+ 734:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
+
+	/* Print 'O' */
+
+	uint8_t string[] = "O Andre e gay!!";
+ 738:	80 e1       	ldi	r24, 0x10	; 16
+ 73a:	e0 e0       	ldi	r30, 0x00	; 0
+ 73c:	f1 e0       	ldi	r31, 0x01	; 1
+ 73e:	de 01       	movw	r26, r28
+ 740:	11 96       	adiw	r26, 0x01	; 1
+ 742:	01 90       	ld	r0, Z+
+ 744:	0d 92       	st	X+, r0
+ 746:	8a 95       	dec	r24
+ 748:	e1 f7       	brne	.-8      	; 0x742 <main+0x42>
+	PutString(string, sizeof(string) -1, SPI);
+ 74a:	40 e0       	ldi	r20, 0x00	; 0
+ 74c:	6f e0       	ldi	r22, 0x0F	; 15
+ 74e:	70 e0       	ldi	r23, 0x00	; 0
+ 750:	ce 01       	movw	r24, r28
+ 752:	01 96       	adiw	r24, 0x01	; 1
+ 754:	0e 94 88 02 	call	0x510	; 0x510 <PutString>
+ 758:	2f e3       	ldi	r18, 0x3F	; 63
+ 75a:	82 e4       	ldi	r24, 0x42	; 66
+ 75c:	9f e0       	ldi	r25, 0x0F	; 15
+ 75e:	21 50       	subi	r18, 0x01	; 1
+ 760:	80 40       	sbci	r24, 0x00	; 0
+ 762:	90 40       	sbci	r25, 0x00	; 0
+ 764:	e1 f7       	brne	.-8      	; 0x75e <main+0x5e>
+ 766:	00 c0       	rjmp	.+0      	; 0x768 <main+0x68>
+ 768:	00 00       	nop
+
+	_delay_ms(5000);
+
+	while (1) {
+		ScreenInstruction(LCD_MOVE_DISP_RIGHT, SPI);
+ 76a:	60 e0       	ldi	r22, 0x00	; 0
+ 76c:	8c e1       	ldi	r24, 0x1C	; 28
+ 76e:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
+ 772:	2f e7       	ldi	r18, 0x7F	; 127
+ 774:	84 e8       	ldi	r24, 0x84	; 132
+ 776:	9e e1       	ldi	r25, 0x1E	; 30
+ 778:	21 50       	subi	r18, 0x01	; 1
+ 77a:	80 40       	sbci	r24, 0x00	; 0
+ 77c:	90 40       	sbci	r25, 0x00	; 0
+ 77e:	e1 f7       	brne	.-8      	; 0x778 <main+0x78>
+ 780:	00 c0       	rjmp	.+0      	; 0x782 <main+0x82>
+ 782:	00 00       	nop
+ 784:	f2 cf       	rjmp	.-28     	; 0x76a <main+0x6a>
+
+00000786 <_exit>:
+ 786:	f8 94       	cli
+
+00000788 <__stop_program>:
+ 788:	ff cf       	rjmp	.-2      	; 0x788 <__stop_program>
