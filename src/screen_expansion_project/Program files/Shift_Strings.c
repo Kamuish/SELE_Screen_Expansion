@@ -6,13 +6,14 @@
  */
 
 
-void shift_str(char *string_1, char *string_2){
+
+void shift_str(uint8_t *string_1, uint8_t *string_2){
 	/*
 	 *
 	 * Important: Only works if string 1 has exactly 16 letters !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	 */
-    char new_string_1[16] = "";
-    char new_string_2[16] = "";
+    uint8_t new_string_1[16] = "";
+    uint8_t new_string_2[16] = "";
 
     new_string_1[0] = ' ';
     new_string_2[0] = ' ';
