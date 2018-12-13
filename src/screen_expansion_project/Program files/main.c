@@ -41,14 +41,11 @@
 //#define F_CPU 1600000UL
 
 int main(void) {
-	SPI_MasterInit();
-	_delay_ms(400);
-
-	uint8_t command;
-
 	ScreenInit(SPI);
 
 	/* Display ON, Cursor Blink */
+
+	uint8_t command;
 
 	command = LCD_DISP_ON_BLINK;
 	ScreenInstruction(command, SPI);
