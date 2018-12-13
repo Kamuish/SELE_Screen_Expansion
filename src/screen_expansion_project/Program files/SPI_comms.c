@@ -78,7 +78,7 @@ void FlushShiftRegister(void) {
 	 * Returns: void
 	 */
 
-	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
+	uint8_t NO_OF_BITS = 0; /* Number of bits of the shift register */
 
 	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
 		PORTB |= (1<<DD_SS);	/* Drive the latch to high */

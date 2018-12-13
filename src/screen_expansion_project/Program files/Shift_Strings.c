@@ -5,9 +5,9 @@
  *      Author: andre
  */
 
+#include <Shift_Strings.h>
 
-
-void shift_str(uint8_t *string_1, uint8_t *string_2){
+void ShiftString(uint8_t *string_1, uint8_t *string_2){
 	/*
 	 *
 	 * Important: Only works if string 1 has exactly 16 letters !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
