@@ -47,6 +47,10 @@ int main(void) {
 	ScreenInit(I2C);
 	_delay_ms(1);
 
+	_delay_ms(1);
+		ScreenInit(SPI);
+		_delay_ms(1);
+
 	/* Display ON, Cursor Blink */
 
 	uint8_t command;
@@ -55,26 +59,180 @@ int main(void) {
 	//ScreenInstruction(command, SPI);
 	_delay_ms(1);
 	ScreenInstruction(command, I2C);
-
+	_delay_ms(1);
+	ScreenInstruction(command, SPI);
+	_delay_ms(1);
 	/* Print a string */
+	uint8_t string1[] = "BaaAAAAAAAAAAAAA";
+	/* State machine INitialization */
+	uint8_t state = 'L';
+	// number of pixels
+	uint8_t screen_bits =16 ;
+	// how many shifts we can do on the first screen
+	uint8_t count_left = screen_bits - 16 + 1 ;
+	uint8_t count_right = screen_bits - 16 + 1 ;
 
-	uint8_t string1[16] = "ABCDEFGHIJKLMNOP";
-	uint8_t string2[16] = "";
+	// index of the first letter to be shifted to the string_1
+	uint8_t shift_middle = 16 - 2 ;
+	uint8_t shift_end = 16 - 2 ;
 
-	while (1) {
-		ShiftString(string1, string2);
+	uint8_t flag = 0;
+	PutString(string1, sizeof(string1) - 1, SPI);
+	_delay_ms(10);
 
-		//PutString(string1, sizeof(string1) - 1, SPI);
-		_delay_ms(1);
-		PutString(string1, sizeof(string1) - 1, I2C);
 
-		_delay_ms(10000);
-
-		//ScreenInstruction(LCD_DISP_CLEAR, SPI);
-		_delay_ms(1);
-		ScreenInstruction(LCD_DISP_CLEAR, I2C);
-		_delay_ms(1000);
+	int k = 0;
+	for (k = 0; k < 16; k++){
+		ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
+		_delay_ms(10);
 	}
+
+	//TODO: mudar todos os 16 para o numero de letras na palavra
+	while (1) {
+		_delay_ms(1000);
+
+		#if(DEBUG == 1)
+		ScreenInstruction(LCD_DISP_CLEAR,I2C);
+		PutChar(state, I2C);
+		#endif
+
+        switch(state){
+            case 'L':
+                /* ALl on left screen*/
+
+
+            	ScreenInstruction(LCD_MOVE_DISP_RIGHT,SPI);
+				_delay_ms(10);
+
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
+				_delay_ms(10);
+
+				if (flag == 0)
+				{
+
+					count_left--;
+					if (count_left == 0){
+					                    flag = 1;
+					  }
+				}
+                else
+                {
+                	state = 'M';
+                	flag = 0;
+					// reset the counter
+					count_left = screen_bits - 16+ 1 ;
+                }
+
+
+                break;
+
+            case 'M':
+
+                /* On the middle*/
+                /* Shift of the left screen */
+
+
+            	ScreenInstruction(LCD_MOVE_DISP_RIGHT,SPI);
+				_delay_ms(10);
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
+				_delay_ms(10);
+
+	        	ScreenInstruction(LCD_MOVE_DISP_RIGHT,I2C);
+				_delay_ms(10);
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
+				_delay_ms(10);
+                // Put character on the right screen
+				PutChar(string1[shift_middle],I2C);
+
+				_delay_ms(10);
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT,I2C);
+
+
+                if (0 == flag)
+                {
+                	shift_middle--;
+ 				   if (shift_middle == 0){
+ 							flag = 1;
+ 							// reset the counter
+ 				   }
+                }
+                else
+				{
+					state = 'R';
+					flag = 0;
+					// reset the counter
+					shift_middle = 16 - 2 ;
+				}
+
+
+
+                break;
+
+            case 'R':
+                /* All on the right screen */
+
+            	 ScreenInstruction(LCD_MOVE_DISP_RIGHT,I2C);
+				_delay_ms(10);
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
+				_delay_ms(10);
+				if  (0 == flag)
+				{
+					count_right--;
+					 if (count_right == 0){
+					                   flag = 1;
+					                    // reset the counter
+					 }
+				}
+				else
+				{
+					state = 'S';
+					flag = 0;
+					// reset the counter
+					count_right = screen_bits - 16 + 1 ;
+				}
+
+
+                break;
+
+            case 'S':
+
+                // shift screens
+                // putchar string_1[shift_end] no left screen
+
+            	ScreenInstruction(LCD_MOVE_DISP_RIGHT,I2C);
+				_delay_ms(10);
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
+
+				/* Shift on the right screen*/
+				ScreenInstruction(LCD_MOVE_DISP_RIGHT,SPI);
+				_delay_ms(10);
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
+				_delay_ms(10);
+				// Put character on the right screen
+				PutChar(string1[shift_end],SPI);
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
+
+				if  (0 == flag)
+				{
+					shift_end--;
+
+				if (shift_end == 0){
+						flag = 1;
+						 // reset the counter
+					 }
+				}
+	     		else
+				{
+					state = 'L';
+					flag = 0;
+					// reset the counter
+					shift_end = 16 - 2 ;
+				}
+
+                break;
+        }
+	}
+
 
 	return 0;
 }

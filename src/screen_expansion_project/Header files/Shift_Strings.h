@@ -39,6 +39,7 @@
 
 #include <avr/io.h>
 
+#define DEBUG 0
 void ShiftString(uint8_t *string_1, uint8_t *string_2);
 
 #endif /* HEADER_FILES_SHIFT_STRINGS_H_ */
