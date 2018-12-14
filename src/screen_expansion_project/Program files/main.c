@@ -63,18 +63,19 @@ int main(void) {
 	ScreenInstruction(command, SPI);
 	_delay_ms(1);
 	/* Print a string */
-	uint8_t string1[] = "BaaAAAAAAAAAAAAA";
+	//uint8_t string1[] = "BaaAAAAAAAAAAAAC";
+	uint8_t string1[] = "BaaA";
 	/* State machine INitialization */
 	uint8_t state = 'L';
 	// number of pixels
 	uint8_t screen_bits =16 ;
 	// how many shifts we can do on the first screen
-	uint8_t count_left = screen_bits - 16 + 1 ;
-	uint8_t count_right = screen_bits - 16 + 1 ;
+	uint8_t count_left = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
+	uint8_t count_right = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
 
 	// index of the first letter to be shifted to the string_1
-	uint8_t shift_middle = 16 - 2 ;
-	uint8_t shift_end = 16 - 2 ;
+	uint8_t shift_middle = (sizeof(string1)/sizeof(string1[0])-1)  - 2;
+	uint8_t shift_end = (sizeof(string1)/sizeof(string1[0])-1) - 2 ;
 
 	uint8_t flag = 0;
 	PutString(string1, sizeof(string1) - 1, SPI);
@@ -82,7 +83,7 @@ int main(void) {
 
 
 	int k = 0;
-	for (k = 0; k < 16; k++){
+	for (k = 0; k < (sizeof(string1)/sizeof(string1[0])-1) ; k++){
 		ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
 		_delay_ms(10);
 	}
@@ -103,7 +104,6 @@ int main(void) {
             case 'L':
                 /* ALl on left screen*/
 
-
             	ScreenInstruction(LCD_MOVE_DISP_RIGHT,SPI);
 				_delay_ms(10);
 
@@ -114,19 +114,21 @@ int main(void) {
 				if (count_left == 0)
                 {
                 	state = 'M';
-                	flag = 0;
 					// reset the counter
-					count_left = screen_bits - 16+ 1 ;
+					count_left = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
+
+					// Put character on the right screen
+					PutChar(string1[ (sizeof(string1)/sizeof(string1[0])-1) -1],I2C);
+
+					_delay_ms(10);
+					ScreenInstruction(LCD_MOVE_CURSOR_LEFT,I2C);
                 }
-
-
                 break;
 
             case 'M':
 
                 /* On the middle*/
                 /* Shift of the left screen */
-
 
             	ScreenInstruction(LCD_MOVE_DISP_RIGHT,SPI);
 				_delay_ms(10);
@@ -144,7 +146,6 @@ int main(void) {
 				_delay_ms(10);
 				ScreenInstruction(LCD_MOVE_CURSOR_LEFT,I2C);
 
-
                 if (0 == flag)
                 {
                 	shift_middle--;
@@ -158,7 +159,7 @@ int main(void) {
 					state = 'R';
 					flag = 0;
 					// reset the counter
-					shift_middle = 16 - 2 ;
+					shift_middle = (sizeof(string1)/sizeof(string1[0])-1)  - 2 ;
 				}
                 break;
 
@@ -169,23 +170,21 @@ int main(void) {
 				_delay_ms(10);
 				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
 				_delay_ms(10);
-				if  (0 == flag)
-				{
-					count_right--;
-					 if (count_right == 0){
-					                   flag = 1;
-					                    // reset the counter
-					 }
-				}
-				else
+
+				count_right--;
+
+				if ( 0 == count_right )
 				{
 					state = 'S';
-					flag = 0;
 					// reset the counter
-					count_right = screen_bits - 16 + 1 ;
+					count_right = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
+					// Put character on the right screen
+					PutChar(string1[(sizeof(string1)/sizeof(string1[0])-1)  -1 ],SPI);
+					_delay_ms(10);
+					ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
 				}
 
-                break;
+				break;
 
             case 'S':
             	/* Case in which the string is coming out of the right screen and entering the left one */
@@ -200,29 +199,28 @@ int main(void) {
 				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
 				_delay_ms(10);
 
-				// Put character on the right screen
+				// Put character on the left screen
 				PutChar(string1[shift_end],SPI);
 				ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
 
-				if  (0 == flag)
+				if (0 == flag)
 				{
 					shift_end--;
-
-				if (shift_end == 0){
-						flag = 1;
-						 // reset the counter
-					 }
+				   if (shift_end == 0){
+							flag = 1;
+							// reset the counter
+				   }
 				}
-	     		else
+				else
 				{
 					state = 'L';
 					flag = 0;
 					// reset the counter
-					shift_end = 16 - 2 ;
+					shift_end =  (sizeof(string1)/sizeof(string1[0])-1) -2  ;
 				}
+				break;
 
-                break;
-        }
+	}
 	}
 
 
