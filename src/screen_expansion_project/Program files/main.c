@@ -55,7 +55,7 @@ int main(void) {
 
 	uint8_t command;
 
-	command = LCD_DISP_ON_BLINK;
+	command = LCD_DISP_ON;
 	//ScreenInstruction(command, SPI);
 	_delay_ms(1);
 	ScreenInstruction(command, I2C);
@@ -63,7 +63,7 @@ int main(void) {
 	ScreenInstruction(command, SPI);
 	_delay_ms(1);
 	/* Print a string */
-	uint8_t string1[] = "BaaAAAAAAAAAAAAC";
+	uint8_t string1[] = "CHUPA, NOBREGA";
 	/* State machine INitialization */
 	uint8_t state = 'L';
 	// number of pixels
@@ -112,6 +112,9 @@ int main(void) {
 				count_left--;
 				if (0 == count_left)
                 {
+					ScreenInstruction(LCD_DISP_CLEAR,I2C);
+					_delay_ms(10);
+
                 	state = 'M';
 					// reset the counter
 					count_left = screen_bits - ( sizeof(string1) / sizeof(string1[0] ) -1) + 1 ;
@@ -174,6 +177,8 @@ int main(void) {
 
 				if ( 0 == count_right )
 				{
+					ScreenInstruction(LCD_DISP_CLEAR,SPI);
+					_delay_ms(10);
 					state = 'S';
 					// reset the counter
 					count_right = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
