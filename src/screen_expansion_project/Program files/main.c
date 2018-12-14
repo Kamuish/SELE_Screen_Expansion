@@ -55,7 +55,7 @@ int main(void) {
 
 	uint8_t command;
 
-	command = LCD_DISP_ON_BLINK;
+	command = LCD_DISP_ON;
 	//ScreenInstruction(command, SPI);
 	_delay_ms(1);
 	ScreenInstruction(command, I2C);
@@ -88,7 +88,10 @@ int main(void) {
 	}
 
 	//TODO: mudar todos os 16 para o numero de letras na palavra
+	// TODO: comply with JPL rule 15, 16, 25
 	while (1) {
+		/* @non-terminating@ */
+
 		_delay_ms(1000);
 
 		#if(DEBUG == 1)
@@ -107,15 +110,8 @@ int main(void) {
 				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
 				_delay_ms(10);
 
-				if (flag == 0)
-				{
-
-					count_left--;
-					if (count_left == 0){
-					                    flag = 1;
-					  }
-				}
-                else
+				count_left--;
+				if (count_left == 0)
                 {
                 	state = 'M';
                 	flag = 0;
@@ -141,6 +137,7 @@ int main(void) {
 				_delay_ms(10);
 				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
 				_delay_ms(10);
+
                 // Put character on the right screen
 				PutChar(string1[shift_middle],I2C);
 
@@ -163,9 +160,6 @@ int main(void) {
 					// reset the counter
 					shift_middle = 16 - 2 ;
 				}
-
-
-
                 break;
 
             case 'R':
@@ -191,13 +185,10 @@ int main(void) {
 					count_right = screen_bits - 16 + 1 ;
 				}
 
-
                 break;
 
             case 'S':
-
-                // shift screens
-                // putchar string_1[shift_end] no left screen
+            	/* Case in which the string is coming out of the right screen and entering the left one */
 
             	ScreenInstruction(LCD_MOVE_DISP_RIGHT,I2C);
 				_delay_ms(10);
@@ -208,6 +199,7 @@ int main(void) {
 				_delay_ms(10);
 				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
 				_delay_ms(10);
+
 				// Put character on the right screen
 				PutChar(string1[shift_end],SPI);
 				ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
