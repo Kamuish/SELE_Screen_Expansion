@@ -28,8 +28,8 @@
  * 		DEVELOPMENT HISTORY:											*
  *																		*
  *		Date	Author	Change ID	Release		Description of change	*
- *		Dec 11, 2018	joaorodrigues													*
- *																		*
+ *		Dec 11, 2018 	joaorodrigues													*
+ *		Dec 13, 2018 	André Silva                  State machine																*
  * 		ALGORITHM (PDL)													*
  *																		*
  ************************************************************************/
@@ -51,8 +51,6 @@ int main(void) {
 		ScreenInit(SPI);
 		_delay_ms(1);
 
-	/* Display ON, Cursor Blink */
-
 	uint8_t command;
 
 	command = LCD_DISP_ON;
@@ -62,20 +60,28 @@ int main(void) {
 	_delay_ms(1);
 	ScreenInstruction(command, SPI);
 	_delay_ms(1);
-	/* Print a string */
+
+	/***********************************/
+	/* Initializes State machine variables */
+	/*                                                                             */
+	/***********************************/
+
+	/* String to put on the screens */
 	uint8_t string1[] = "CHUPA, NOBREGA";
-	/* State machine INitialization */
+
 	uint8_t state = 'L';
-	// number of pixels
+	/*number of pixels */
 	uint8_t screen_bits = 16 ;
-	// how many shifts we can do on the first screen
+	/* number of allowed shifts won the right and left screen */
+
 	uint8_t count_left = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
 	uint8_t count_right = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
 
-	// index of the first letter to be shifted to the string_1
+	/* index of the first letter to change screens*/
 	uint8_t shift_middle = (sizeof(string1)/sizeof(string1[0])-1)  - 2;
 	uint8_t shift_end = (sizeof(string1)/sizeof(string1[0])-1) - 2 ;
 
+	/* Flag for the M and S state*/
 	uint8_t flag = 0;
 	PutString(string1, sizeof(string1) - 1, SPI);
 	_delay_ms(10);
@@ -87,8 +93,8 @@ int main(void) {
 		_delay_ms(10);
 	}
 
-	// TODO: comply with JPL rule 15, 16, 25
-	// TODO: limpar a RAM depois de uma volta completa, se nao vamos ter loop back da mensagem
+	/*  TODO: comply with JPL rule 15, 16, 25 */
+	/*  TODO: limpar a RAM depois de uma volta completa, se nao vamos ter loop back da mensagem */
 	while (1) {
 		/* @non-terminating@ */
 
