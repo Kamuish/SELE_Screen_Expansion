@@ -55,7 +55,7 @@ int main(void) {
 
 	uint8_t command;
 
-	command = LCD_DISP_ON;
+	command = LCD_DISP_ON_BLINK;
 	//ScreenInstruction(command, SPI);
 	_delay_ms(1);
 	ScreenInstruction(command, I2C);
@@ -63,12 +63,11 @@ int main(void) {
 	ScreenInstruction(command, SPI);
 	_delay_ms(1);
 	/* Print a string */
-	//uint8_t string1[] = "BaaAAAAAAAAAAAAC";
-	uint8_t string1[] = "BaaA";
+	uint8_t string1[] = "BaaAAAAAAAAAAAAC";
 	/* State machine INitialization */
 	uint8_t state = 'L';
 	// number of pixels
-	uint8_t screen_bits =16 ;
+	uint8_t screen_bits = 16 ;
 	// how many shifts we can do on the first screen
 	uint8_t count_left = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
 	uint8_t count_right = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
@@ -88,8 +87,8 @@ int main(void) {
 		_delay_ms(10);
 	}
 
-	//TODO: mudar todos os 16 para o numero de letras na palavra
 	// TODO: comply with JPL rule 15, 16, 25
+	// TODO: limpar a RAM depois de uma volta completa, se nao vamos ter loop back da mensagem
 	while (1) {
 		/* @non-terminating@ */
 
@@ -111,14 +110,14 @@ int main(void) {
 				_delay_ms(10);
 
 				count_left--;
-				if (count_left == 0)
+				if (0 == count_left)
                 {
                 	state = 'M';
 					// reset the counter
-					count_left = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
+					count_left = screen_bits - ( sizeof(string1) / sizeof(string1[0] ) -1) + 1 ;
 
 					// Put character on the right screen
-					PutChar(string1[ (sizeof(string1)/sizeof(string1[0])-1) -1],I2C);
+					PutChar(string1[ (sizeof(string1)/sizeof(string1[0]) - 1) -1 ],I2C);
 
 					_delay_ms(10);
 					ScreenInstruction(LCD_MOVE_CURSOR_LEFT,I2C);
@@ -179,7 +178,7 @@ int main(void) {
 					// reset the counter
 					count_right = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
 					// Put character on the right screen
-					PutChar(string1[(sizeof(string1)/sizeof(string1[0])-1)  -1 ],SPI);
+					PutChar(string1[(sizeof(string1)/sizeof(string1[0])-1)  - 1 ],SPI);
 					_delay_ms(10);
 					ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
 				}
@@ -206,21 +205,28 @@ int main(void) {
 				if (0 == flag)
 				{
 					shift_end--;
-				   if (shift_end == 0){
+				   if ( 0 == shift_end)
+				   {
 							flag = 1;
-							// reset the counter
 				   }
 				}
 				else
 				{
-					state = 'L';
+					state = 'I';
 					flag = 0;
 					// reset the counter
-					shift_end =  (sizeof(string1)/sizeof(string1[0])-1) -2  ;
+					shift_end =  ( sizeof(string1) / sizeof(string1[0] ) - 1 ) -2  ;
 				}
 				break;
 
+            case 'I':
+            	/* return to initial position */
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
+				ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
+
+				state = 'L';
 	}
+
 	}
 
 
