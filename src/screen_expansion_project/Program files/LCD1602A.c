@@ -47,7 +47,7 @@ void ScreenInit(uint8_t protocol_flag) {
 
 	/* Function Set */
 
-	ScreenInstruction(LCD_FUNCTION_4BIT_2LINES, protocol_flag);	/* 4Bit mode with 2Lines interface */
+	ScreenInstruction(LCD_FUNCTION_4BIT_1LINE, protocol_flag);	/* 4Bit mode with 2Lines interface */
 
 	/* Display OFF */
 
@@ -159,6 +159,7 @@ void ScreenInstruction(uint8_t instruction, uint8_t protocol_flag) {
 
 	uint8_t send_instruction;				/* Instruction to be sent */
 	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
+	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
 	send_instruction |= (1<<EN);			/* Enable pin high */
 	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
 
@@ -173,13 +174,14 @@ void ScreenInstruction(uint8_t instruction, uint8_t protocol_flag) {
 	/* Send low nibble */
 
 	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
+	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
 	send_instruction |= (1<<EN);			/* Same procedure as for high nibble */
 	send_instruction &= ~(1<<RS);
 
 	TransferData(send_instruction, protocol_flag);
 
 	send_instruction &= ~(1<<EN);
-	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
+
 
 	TransferData(send_instruction, protocol_flag);
 
