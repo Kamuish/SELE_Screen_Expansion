@@ -10,16 +10,18 @@
 
 // stores the variable in the eeprom
 
-uint16_t EEMEM eptr_eeprom_code_hash = 10;
 
-/*
+
 uint8_t  flash_teste(void){
-	// Hash of the flash
+	/* Compares the XOR hash of the flash memory with the one present on the eeprom memory
+	 * on the address 0x22
+	 * */
+
 	uint16_t hash = flash_test_calculate_xor();
 
-	// Previously written value
-	uint16_t true_hash = eeprom_read_word(&eptr_eeprom_code_hash);
-	return ( hash == true_hash) ? 0: 1;
+	/* Previously written hash value */
+	uint16_t true_hash = eeprom_read_word ((const uint16_t*)0x22);
+	return ( hash == true_hash);
 }
 
 uint16_t flash_test_calculate_xor(void) {
@@ -33,4 +35,4 @@ uint16_t flash_test_calculate_xor(void) {
     return hash;
 }
 
-*/
+
