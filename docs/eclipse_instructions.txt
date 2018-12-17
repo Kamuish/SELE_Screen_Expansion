@@ -1,8 +1,0 @@
-Como incluir ficheiros de diferentes diretorios/projetos:
-
-No ficheiro onde se quer dar include meter o path relativo para o header 
-file em questão
-
-De seguida, em cima do "main" project : rigth click -> properties -> 
-C/C++ general ->Paths and symbols -> meter o folder tanto na parte de 
-Include como na Source Location -> ?????? -> profit
