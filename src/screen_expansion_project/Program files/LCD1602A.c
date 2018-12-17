@@ -60,6 +60,9 @@ void ScreenInit(uint8_t protocol_flag) {
 	/* Mode Set */
 
 	ScreenInstruction(LCD_MODE_DEFAULT, protocol_flag);			/* Default entry mode. Shifts to the right */
+
+	/* Turn the display ON */
+	ScreenInstruction(LCD_DISP_ON, protocol_flag);
 }
 
 void I2C_InitScreen(void){

@@ -50,9 +50,10 @@
 
 #define DEBUG 0
 
-void StringOnLeftScreen(void);
-void StringOnMiddleLeft(uint8_t *string, uint8_t string_count);
-void StringOnRightScreen(void);
-void StringOnMiddleRight(uint8_t *string, uint8_t string_count);
+void InitStringLeft(uint8_t *string, uint8_t size);					/* Initializes the string on the left screen */
+void StringOnLeftScreen(void);										/* Implements the LEFT case */
+void StringOnMiddleLeft(uint8_t *string, uint8_t string_count);		/* Implements the MIDDLE_LEFT case */
+void StringOnRightScreen(void);										/* Implements the RIGHT case */
+void StringOnMiddleRight(uint8_t *string, uint8_t string_count);	/* Implements the RIGHT_MIDDLE case */
 
 #endif /* HEADER_FILES_SHIFT_STRINGS_H_ */

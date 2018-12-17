@@ -28,8 +28,8 @@
  * 		DEVELOPMENT HISTORY:											*
  *																		*
  *		Date	Author	Change ID	Release		Description of change	*
- *		Dec 11, 2018 	joaorodrigues													*
- *		Dec 13, 2018 	André Silva                  State machine																*
+ *		Dec 17, 2018 	joaorodrigues			State Machine improvements *
+ *		Dec 13, 2018 	André Silva             State machine			*
  * 		ALGORITHM (PDL)													*
  *																		*
  ************************************************************************/
@@ -45,116 +45,127 @@
 
 #define LEFT 0
 #define RIGHT 1
-#define MIDDLE 2
-#define END 3
+#define MIDDLE_LEFT 2
+#define MIDDLE_RIGHT 3
 
 int main(void) {
+
+	/* TODO:
+	 * - comply with JPL rule 15, 16, 25
+	 * - Maybe initialize SPI/I2C here, instead of in the ScreenInit(...) function */
+
+	/* Initialize the screen in SPI mode */
 	ScreenInit(SPI);
 	_delay_ms(1);
+
+	/* Initialize the screen in I2C mode */
 	ScreenInit(I2C);
-	_delay_ms(1);
-
-	uint8_t command;
-
-	command = LCD_DISP_ON;
-	_delay_ms(1);
-	ScreenInstruction(command, I2C);
-	_delay_ms(1);
-	ScreenInstruction(command, SPI);
 	_delay_ms(1);
 
 	/* String to put on the screens */
 	uint8_t string[] = "123456789";
-	uint8_t size = sizeof(string);
+	uint8_t size = sizeof(string);		/* Size of the string */
 
-	/*  TODO: comply with JPL rule 15, 16, 25 */
+	/* Display the string on the left screen */
+	InitStringLeft(string, size);
 
-	uint8_t lcd_count  = LCD_SIZE - (size/sizeof(string[0])-1);
-
-	/* index of the first letter to change screens*/
+	/* Initialize state machine on the LEFT state
+	 * (since string is fully  on the left screen)
+	 */
+	uint8_t state = LEFT;
+	uint8_t lcd_count = LCD_SIZE - ( size / sizeof(string[0] ) -1);
 	uint8_t string_count = (size/sizeof(string[0])-1);
 
-	/* Flag for the M and S state*/
-	PutString(string, size - 1, SPI);
-	_delay_ms(10);
-
-	ScreenInstruction(LCD_MOVE_CURSOR_HOME,SPI);
-	_delay_ms(10);
-
-	uint8_t state = LEFT;
-
 	while (1) {
+		/* Delay between shifts */
+		_delay_ms(1000);
 
 		/* Choose state */
 		switch (state) {
 			case LEFT:
+				/* String is completely on the left screen */
+
+				/* if lcd_count == 0, the string has reached the end of the left screen */
 				if (0 == lcd_count) {
-					ScreenInstruction(LCD_DISP_CLEAR,I2C);
+					/* Clear screen on the right */
+					ScreenInstruction(LCD_DISP_CLEAR, RIGHT_SCREEN_PROTOCOL);
 					_delay_ms(1);
 
-					/* Change state to middle */
-					state = MIDDLE;
+					/* Change state to MIDDLE_LEFT */
+					state = MIDDLE_LEFT;
 
-					/* reset the counter */
+					/* Reset screen counter */
 					lcd_count = LCD_SIZE - ( size / sizeof(string[0] ) -1);
 				}
+
 				break;
-			case MIDDLE:
+			case MIDDLE_LEFT:
+				/* String is leaving the left screen and entering the right one */
+
+				/* if string_count == 0, the string has completely left the left screen */
 				if (0 == string_count) {
+					/* Change state to RIGHT */
 					state = RIGHT;
 
-					/* reset the counter */
+					/* Reset string counter */
 					string_count = (size/sizeof(string[0])-1);
 				}
+
 				break;
 			case RIGHT:
+				/* String is completely on the right screen */
+
+				/* if lcd_count == 0, the string has reached the end of the right screen */
 				if (0 == lcd_count) {
-					ScreenInstruction(LCD_DISP_CLEAR, SPI);
+					/* Clear screen on the left */
+					ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
 					_delay_ms(1);
 
-					/* Change state to middle */
-					state = END;
-					/* reset the counter */
+					/* Change state to MIDDLE_RIGHT */
+					state = MIDDLE_RIGHT;
+
+					/* Reset screen counter */
 					lcd_count = LCD_SIZE - ( size / sizeof(string[0] ) -1);
 				}
+
 				break;
-			case END:
+			case MIDDLE_RIGHT:
+				/* String is leaving the right screen and entering the left one */
+
+				/* if string_count == 0, the string has completely left the right screen */
 				if (0 == string_count) {
+					/* Change state to LEFT */
 					state = LEFT;
 
-					/* reset the counter */
+					/* Reset string counter */
 					string_count = (size/sizeof(string[0])-1);
 				}
-				break;
 				break;
 		}
 
 		/* Operate on state */
 		switch (state) {
 			case LEFT:
+				/* String is completely on the left screen */
 				StringOnLeftScreen();
-
-				lcd_count--;
+				lcd_count--;			/* Decrease lcd_count */
 				break;
-			case MIDDLE:
+			case MIDDLE_LEFT:
+				/* String is leaving the left screen and entering the right one */
 				StringOnMiddleLeft(string, string_count);
-
-				string_count--;
+				string_count--;			/* Decrease string_count */
 				break;
 			case RIGHT:
+				/* String is completely on the right screen */
 				StringOnRightScreen();
-
-				lcd_count--;
+				lcd_count--;			/* Decrease lcd_count */
 				break;
-				break;
-			case END:
+			case MIDDLE_RIGHT:
+				/* String is leaving the right screen and entering the left one */
 				StringOnMiddleRight(string, string_count);
-
-				string_count--;
+				string_count--;			/* Decrease string_count */
 				break;
 		}
-
-		_delay_ms(100);
 
 	}
 
