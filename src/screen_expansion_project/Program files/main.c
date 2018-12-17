@@ -37,209 +37,126 @@
 #include <SPI_comms.h>
 #include <I2C_comms.h>
 #include <LCD1602A.h>
+#include <UART_comms.h>
+#include <util/delay.h>
 #include <Shift_Strings.h>
 
 #define F_CPU 16000000UL
 
+#define LEFT 0
+#define RIGHT 1
+#define MIDDLE 2
+#define END 3
+
 int main(void) {
-	//ScreenInit(SPI);
+	ScreenInit(SPI);
 	_delay_ms(1);
 	ScreenInit(I2C);
 	_delay_ms(1);
 
-	_delay_ms(1);
-		ScreenInit(SPI);
-		_delay_ms(1);
-
 	uint8_t command;
 
 	command = LCD_DISP_ON;
-	//ScreenInstruction(command, SPI);
 	_delay_ms(1);
 	ScreenInstruction(command, I2C);
 	_delay_ms(1);
 	ScreenInstruction(command, SPI);
 	_delay_ms(1);
 
-	/***********************************/
-	/* Initializes State machine variables */
-	/*                                                                             */
-	/***********************************/
-
 	/* String to put on the screens */
-	uint8_t string1[] = "CHUPA, NOBREGA";
-
-	uint8_t state = 'L';
-	/*number of pixels */
-	uint8_t screen_bits = 16 ;
-	/* number of allowed shifts won the right and left screen */
-
-	uint8_t count_left = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
-	uint8_t count_right = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
-
-	/* index of the first letter to change screens*/
-	uint8_t shift_middle = (sizeof(string1)/sizeof(string1[0])-1)  - 2;
-	uint8_t shift_end = (sizeof(string1)/sizeof(string1[0])-1) - 2 ;
-
-	/* Flag for the M and S state*/
-	uint8_t flag = 0;
-	PutString(string1, sizeof(string1) - 1, SPI);
-	_delay_ms(10);
-
-
-	int k = 0;
-	for (k = 0; k < (sizeof(string1)/sizeof(string1[0])-1) ; k++){
-		ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
-		_delay_ms(10);
-	}
+	uint8_t string[] = "123456789";
+	uint8_t size = sizeof(string);
 
 	/*  TODO: comply with JPL rule 15, 16, 25 */
-	/*  TODO: limpar a RAM depois de uma volta completa, se nao vamos ter loop back da mensagem */
+
+	uint8_t lcd_count  = LCD_SIZE - (size/sizeof(string[0])-1);
+
+	/* index of the first letter to change screens*/
+	uint8_t string_count = (size/sizeof(string[0])-1);
+
+	/* Flag for the M and S state*/
+	PutString(string, size - 1, SPI);
+	_delay_ms(10);
+
+	ScreenInstruction(LCD_MOVE_CURSOR_HOME,SPI);
+	_delay_ms(10);
+
+	uint8_t state = LEFT;
+
 	while (1) {
-		/* @non-terminating@ */
 
-		_delay_ms(1000);
-
-		#if(DEBUG == 1)
-		ScreenInstruction(LCD_DISP_CLEAR,I2C);
-		PutChar(state, I2C);
-		#endif
-
-        switch(state)
-        {
-            case 'L':
-                /* ALl on left screen*/
-
-            	ScreenInstruction(LCD_MOVE_DISP_RIGHT,SPI);
-				_delay_ms(10);
-
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
-				_delay_ms(10);
-
-				count_left--;
-				if (0 == count_left)
-                {
+		/* Choose state */
+		switch (state) {
+			case LEFT:
+				if (0 == lcd_count) {
 					ScreenInstruction(LCD_DISP_CLEAR,I2C);
-					_delay_ms(10);
+					_delay_ms(1);
 
 					/* Change state to middle */
-                	state = 'M';
+					state = MIDDLE;
+
 					/* reset the counter */
-					count_left = screen_bits - ( sizeof(string1) / sizeof(string1[0] ) -1) + 1 ;
-
-					/* Put character on the right screen */
-					PutChar(string1[ (sizeof(string1)/sizeof(string1[0]) - 1) -1 ],I2C);
-					_delay_ms(10);
-					ScreenInstruction(LCD_MOVE_CURSOR_LEFT,I2C);
-                }
-                break;
-
-            case 'M':
-
-                /* On the middle*/
-                /* Shift of the left screen */
-
-            	ScreenInstruction(LCD_MOVE_DISP_RIGHT,SPI);
-				_delay_ms(10);
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
-				_delay_ms(10);
-
-	        	ScreenInstruction(LCD_MOVE_DISP_RIGHT,I2C);
-				_delay_ms(10);
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
-				_delay_ms(10);
-
-                /* Put character on the right screen */
-				PutChar(string1[shift_middle],I2C);
-
-				_delay_ms(10);
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT,I2C);
-
-                if (0 == flag)
-                {
-                	shift_middle--;
- 				   if (shift_middle == 0)
- 				   {
- 							flag = 1;
- 				   }
-                }
-                else
-				{
-					state = 'R';
-					flag = 0;
-					/* reset the counter */
-					shift_middle = (sizeof(string1)/sizeof(string1[0])-1)  - 2 ;
+					lcd_count = LCD_SIZE - ( size / sizeof(string[0] ) -1);
 				}
-                break;
+				break;
+			case MIDDLE:
+				if (0 == string_count) {
+					state = RIGHT;
 
-            case 'R':
-                /* All on the right screen */
-
-            	 ScreenInstruction(LCD_MOVE_DISP_RIGHT,I2C);
-				_delay_ms(10);
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
-				_delay_ms(10);
-
-				count_right--;
-
-				if ( 0 == count_right )
-				{
+					/* reset the counter */
+					string_count = (size/sizeof(string[0])-1);
+				}
+				break;
+			case RIGHT:
+				if (0 == lcd_count) {
 					ScreenInstruction(LCD_DISP_CLEAR, SPI);
-					_delay_ms(10);
-					state = 'S';
+					_delay_ms(1);
+
+					/* Change state to middle */
+					state = END;
 					/* reset the counter */
-					count_right = screen_bits - (sizeof(string1)/sizeof(string1[0])-1) + 1 ;
-
-					PutChar(string1[( sizeof(string1) / sizeof(string1[0]) - 1)  - 1 ], SPI);
-					_delay_ms(10);
-					ScreenInstruction(LCD_MOVE_CURSOR_LEFT,SPI);
-				}
-
-				break;
-
-            case 'S':
-            	/* Case in which the string is coming out of the right screen and entering the left one */
-
-            	ScreenInstruction(LCD_MOVE_DISP_RIGHT, I2C);
-				_delay_ms(10);
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
-
-				/* Shift on the right screen*/
-				ScreenInstruction(LCD_MOVE_DISP_RIGHT, SPI);
-				_delay_ms(10);
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
-				_delay_ms(10);
-
-
-				PutChar(string1[shift_end], SPI);
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
-
-				if (0 == flag)
-				{
-					shift_end--;
-				   if ( 0 == shift_end)
-				   {
-							flag = 1;
-				   }
-				}
-				else
-				{
-					state = 'I';
-					flag = 0;
-					// reset the counter
-					shift_end =  ( sizeof(string1) / sizeof(string1[0] ) - 1 ) -2  ;
+					lcd_count = LCD_SIZE - ( size / sizeof(string[0] ) -1);
 				}
 				break;
+			case END:
+				if (0 == string_count) {
+					state = LEFT;
 
-            case 'I':
-            	/* return to initial position */
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
-				ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
-
-				state = 'L';
-        	}
-
+					/* reset the counter */
+					string_count = (size/sizeof(string[0])-1);
+				}
+				break;
+				break;
 		}
+
+		/* Operate on state */
+		switch (state) {
+			case LEFT:
+				StringOnLeftScreen();
+
+				lcd_count--;
+				break;
+			case MIDDLE:
+				StringOnMiddleLeft(string, string_count);
+
+				string_count--;
+				break;
+			case RIGHT:
+				StringOnRightScreen();
+
+				lcd_count--;
+				break;
+				break;
+			case END:
+				StringOnMiddleRight(string, string_count);
+
+				string_count--;
+				break;
+		}
+
+		_delay_ms(100);
+
+	}
 
 
 	return 0;

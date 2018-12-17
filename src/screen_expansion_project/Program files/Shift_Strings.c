@@ -7,32 +7,56 @@
 
 #include <Shift_Strings.h>
 
-void ShiftString(uint8_t *string_1, uint8_t *string_2){
-	/*
-	 *
-	 * Important: Only works if string 1 has exactly 16 letters !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	 */
-    uint8_t new_string_1[16] = "";
-    uint8_t new_string_2[16] = "";
+void StringOnLeftScreen() {
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT, LEFT_SCREEN_PROTOCOL);
+	_delay_ms(1);
 
-    new_string_1[0] = ' ';
-    new_string_2[0] = ' ';
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, LEFT_SCREEN_PROTOCOL);
+	_delay_ms(1);
+}
 
+void StringOnMiddleLeft(uint8_t *string, uint8_t string_count) {
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT,I2C);
+	_delay_ms(1);
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT,I2C);
+	_delay_ms(1);
 
+	/* Put character on the right screen */
+	PutChar(string[string_count-1],I2C);
+	_delay_ms(1);
 
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT,I2C);
+	_delay_ms(1);
 
-    int k = 0;
-    for (k = 1; k <16; k++){
-        new_string_1[k] = string_1[k-1];
-        new_string_2[k] = string_2[k-1];
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT,SPI);
+	_delay_ms(1);
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
+	_delay_ms(1);
+}
 
-    }
+void StringOnRightScreen(void) {
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT, RIGHT_SCREEN_PROTOCOL);
+	_delay_ms(1);
 
-    new_string_2[0] = string_1[2];
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, RIGHT_SCREEN_PROTOCOL);
+	_delay_ms(1);
+}
 
-    for (k = 0; k <16;  k++){
-        string_1[k] = new_string_1[k];
-        string_2[k] = new_string_2[k];
-    }
+void StringOnMiddleRight(uint8_t *string, uint8_t string_count) {
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT, SPI);
+	_delay_ms(1);
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
+	_delay_ms(1);
 
+	/* Put character on the right screen */
+	PutChar(string[string_count-1], SPI);
+	_delay_ms(1);
+
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, SPI);
+	_delay_ms(1);
+
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT, I2C);
+	_delay_ms(1);
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, I2C);
+	_delay_ms(1);
 }
