@@ -15,8 +15,7 @@
 
 #include "UART_comms.h"
 
-#define BYTES_FLASH (32000U)
-
+#define BYTES_FLASH (660U)
 
 /* Define the functions */
 
