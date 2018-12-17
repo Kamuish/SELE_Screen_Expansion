@@ -7,21 +7,27 @@ C_SRCS += \
 ../Program\ files/I2C_comms.c \
 ../Program\ files/LCD1602A.c \
 ../Program\ files/SPI_comms.c \
+../Program\ files/SRAM.c \
 ../Program\ files/Shift_Strings.c \
+../Program\ files/UART_comms.c \
 ../Program\ files/main.c 
 
 OBJS += \
 ./Program\ files/I2C_comms.o \
 ./Program\ files/LCD1602A.o \
 ./Program\ files/SPI_comms.o \
+./Program\ files/SRAM.o \
 ./Program\ files/Shift_Strings.o \
+./Program\ files/UART_comms.o \
 ./Program\ files/main.o 
 
 C_DEPS += \
 ./Program\ files/I2C_comms.d \
 ./Program\ files/LCD1602A.d \
 ./Program\ files/SPI_comms.d \
+./Program\ files/SRAM.d \
 ./Program\ files/Shift_Strings.d \
+./Program\ files/UART_comms.d \
 ./Program\ files/main.d 
 
 
@@ -47,10 +53,24 @@ Program\ files/SPI_comms.o: ../Program\ files/SPI_comms.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
+Program\ files/SRAM.o: ../Program\ files/SRAM.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: AVR Compiler'
+	avr-gcc -I"/home/joaorodrigues/Desktop/SELE/project_ICARUS/src/screen_expansion_project/Header files" -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Program files/SRAM.d" -MT"Program\ files/SRAM.d" -c -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 Program\ files/Shift_Strings.o: ../Program\ files/Shift_Strings.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR Compiler'
 	avr-gcc -I"/home/joaorodrigues/Desktop/SELE/project_ICARUS/src/screen_expansion_project/Header files" -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Program files/Shift_Strings.d" -MT"Program\ files/Shift_Strings.d" -c -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Program\ files/UART_comms.o: ../Program\ files/UART_comms.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: AVR Compiler'
+	avr-gcc -I"/home/joaorodrigues/Desktop/SELE/project_ICARUS/src/screen_expansion_project/Header files" -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Program files/UART_comms.d" -MT"Program\ files/UART_comms.d" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

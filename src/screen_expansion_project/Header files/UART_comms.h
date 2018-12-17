@@ -1,6 +1,6 @@
 /************************************************************************
  *																		*
- *		FILE NAME: Shift_Strings.h											*
+ *		FILE NAME: UART_comms.h											*
  *		PURPOSE:														*
  *		FILE REFERENCES:												*
  *																		*
@@ -28,31 +28,27 @@
  * 		DEVELOPMENT HISTORY:											*
  *																		*
  *		Date	Author	Change ID	Release		Description of change	*
- *		Dec 13, 2018	joaorodrigues													*
+ *		Dec 15, 2018	joaorodrigues													*
  *																		*
  * 		ALGORITHM (PDL)													*
  *																		*
  ************************************************************************/
 
-#ifndef HEADER_FILES_SHIFT_STRINGS_H_
-#define HEADER_FILES_SHIFT_STRINGS_H_
+#ifndef UART_COMMS_H_
+#define UART_COMMS_H_
 
+#define F_CPU 16000000UL
+#define BAUD 9600
+
+#include <stdio.h>
 #include <avr/io.h>
-#include <LCD1602A.h>
-#include <I2C_comms.h>
-#include <SPI_comms.h>
-#include <util/delay.h>
-#include <UART_comms.h>
+#include <util/setbaud.h>
 
-/* Define Screen protocol position */
-#define LEFT_SCREEN_PROTOCOL SPI
-#define RIGHT_SCREEN_PROTOCOL I2C
+FILE uart_output;
+FILE uart_input;
 
-#define DEBUG 0
+void uart_init(void);
+void uart_putchar(char c, FILE *stream);
+char uart_getchar(FILE *stream);
 
-void StringOnLeftScreen(void);
-void StringOnMiddleLeft(uint8_t *string, uint8_t string_count);
-void StringOnRightScreen(void);
-void StringOnMiddleRight(uint8_t *string, uint8_t string_count);
-
-#endif /* HEADER_FILES_SHIFT_STRINGS_H_ */
+#endif /* UART_COMMS_H_ */

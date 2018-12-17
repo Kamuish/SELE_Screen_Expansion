@@ -1,6 +1,6 @@
 /************************************************************************
  *																		*
- *		FILE NAME: Shift_Strings.h											*
+ *		FILE NAME: SRAM.h											*
  *		PURPOSE:														*
  *		FILE REFERENCES:												*
  *																		*
@@ -28,31 +28,35 @@
  * 		DEVELOPMENT HISTORY:											*
  *																		*
  *		Date	Author	Change ID	Release		Description of change	*
- *		Dec 13, 2018	joaorodrigues													*
+ *		Dec 15, 2018	joaorodrigues													*
  *																		*
  * 		ALGORITHM (PDL)													*
  *																		*
  ************************************************************************/
 
-#ifndef HEADER_FILES_SHIFT_STRINGS_H_
-#define HEADER_FILES_SHIFT_STRINGS_H_
+#ifndef SRAM_H_
+#define SRAM_H_
 
-#include <avr/io.h>
-#include <LCD1602A.h>
-#include <I2C_comms.h>
-#include <SPI_comms.h>
-#include <util/delay.h>
-#include <UART_comms.h>
+#include <stdint.h>
+#include <stdbool.h>
 
-/* Define Screen protocol position */
-#define LEFT_SCREEN_PROTOCOL SPI
-#define RIGHT_SCREEN_PROTOCOL I2C
+#define CLASSB_NSECS (8U)
+#define CLASSB_OVERLAP (25UL)
+#define CLASSB_SEC_SIZE (INTERNAL_SRAM_SIZE / CLASSB_NSECS)
+#define CLASSB_SEC_REM (INTERNAL_SRAM_SIZE % CLASSB_NSECS)
+#define CLASSB_OVERLAP_SIZE ((CLASSB_SEC_SIZE*CLASSB_OVERLAP)/100)
 
-#define DEBUG 0
+#if (CLASSB_SEC_REM == 0)
+#  define CLASSB_NSEC_TOTAL CLASSB_NSECS
+#else
+#  define CLASSB_NSEC_TOTAL CLASSB_NSECS + 1
+#endif
 
-void StringOnLeftScreen(void);
-void StringOnMiddleLeft(uint8_t *string, uint8_t string_count);
-void StringOnRightScreen(void);
-void StringOnMiddleRight(uint8_t *string, uint8_t string_count);
+#define INTERNAL_SRAM_START (0x0100)
+#define INTERNAL_SRAM_SIZE (2048U)
 
-#endif /* HEADER_FILES_SHIFT_STRINGS_H_ */
+bool SRAMTest(void);
+bool SRAMTestSection(register uint8_t current_section);
+bool MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size);
+
+#endif /* SRAM_H_ */

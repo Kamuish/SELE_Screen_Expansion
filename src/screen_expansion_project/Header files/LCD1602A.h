@@ -56,10 +56,12 @@
 #define LCD_DISP_ON_CURSOR_BLINK 0x0F   /* display on, cursor on, blink char      */
 
 /* move cursor/shift display */
-#define LCD_MOVE_CURSOR_LEFT     0x10   /* move cursor left  (decrement)          */
-#define LCD_MOVE_CURSOR_RIGHT    0x14   /* move cursor right (increment)          */
-#define LCD_MOVE_DISP_LEFT       0x18   /* shift display left                     */
-#define LCD_MOVE_DISP_RIGHT      0x1C   /* shift display right                    */
+#define LCD_MOVE_CURSOR_LEFT     0x10   		/* move cursor left  (decrement)   */
+#define LCD_MOVE_CURSOR_RIGHT    0x14   		/* move cursor right (increment)   */
+#define LCD_MOVE_CURSOR_HOME	 (1<<LCD_HOME) 	/* move cursor home 			   */
+#define LCD_MOVE_DISP_LEFT       0x18   		/* shift display left              */
+#define LCD_MOVE_DISP_RIGHT      0x1C   		/* shift display right             */
+
 
 /* function set: set interface data length and number of display lines */
 #define LCD_FUNCTION_4BIT_1LINE  0x20   /* 4-bit interface, single line, 5x7 dots */
@@ -69,6 +71,8 @@
 
 #define LCD_DISP_CLEAR			(1<<LCD_CLR)
 #define LCD_MODE_DEFAULT		((1<<LCD_ENTRY_MODE) | (1<<LCD_ENTRY_INC) )
+
+#define LCD_SIZE 16
 
 // Define the library functions
 
