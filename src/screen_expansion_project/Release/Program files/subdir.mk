@@ -10,6 +10,7 @@ C_SRCS += \
 ../Program\ files/SRAM.c \
 ../Program\ files/Shift_Strings.c \
 ../Program\ files/UART_comms.c \
+../Program\ files/flash.c \
 ../Program\ files/main.c 
 
 OBJS += \
@@ -19,6 +20,7 @@ OBJS += \
 ./Program\ files/SRAM.o \
 ./Program\ files/Shift_Strings.o \
 ./Program\ files/UART_comms.o \
+./Program\ files/flash.o \
 ./Program\ files/main.o 
 
 C_DEPS += \
@@ -28,6 +30,7 @@ C_DEPS += \
 ./Program\ files/SRAM.d \
 ./Program\ files/Shift_Strings.d \
 ./Program\ files/UART_comms.d \
+./Program\ files/flash.d \
 ./Program\ files/main.d 
 
 
@@ -71,6 +74,13 @@ Program\ files/UART_comms.o: ../Program\ files/UART_comms.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR Compiler'
 	avr-gcc -I"/home/joaorodrigues/Desktop/SELE/project_ICARUS/src/screen_expansion_project/Header files" -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Program files/UART_comms.d" -MT"Program\ files/UART_comms.d" -c -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Program\ files/flash.o: ../Program\ files/flash.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: AVR Compiler'
+	avr-gcc -I"/home/joaorodrigues/Desktop/SELE/project_ICARUS/src/screen_expansion_project/Header files" -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Program files/flash.d" -MT"Program\ files/flash.d" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
