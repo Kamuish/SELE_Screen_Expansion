@@ -61,10 +61,10 @@ void I2C_Start(unsigned char addr){
 }
 
 
-uint8_t I2C_Write( unsigned char data){
+uint8_t I2C_Write( unsigned char data_i2c){
 	/* Send command and wait for the flag and ACK
 	 */
-	TWDR = data;
+	TWDR = data_i2c;
 
 	TWCR = (1<<TWINT) | (1<<TWEN);
 

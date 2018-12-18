@@ -16,7 +16,7 @@ uint8_t  flash_teste(void){
 
 	/* Reads previously written hash value */
 	uint16_t true_hash = eeprom_read_word ((const uint16_t*)0x22);
-	return ( hash == true_hash);
+	return (hash == true_hash);
 }
 
 uint16_t calculate_hash_xor(void)
