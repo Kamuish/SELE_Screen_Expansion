@@ -38,7 +38,7 @@
 #define UART_COMMS_H_
 
 #define F_CPU 16000000UL
-#define BAUD 9600
+#define BAUD  9600U
 
 #include <stdio.h>
 #include <avr/io.h>
