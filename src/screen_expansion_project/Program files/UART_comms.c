@@ -40,6 +40,7 @@ FILE uart_output = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
 FILE uart_input = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
 
 void uart_init(void) {
+    /* Initializes the UART communication protocol */ 
     UBRR0H = UBRRH_VALUE;
     UBRR0L = UBRRL_VALUE;
 
@@ -54,7 +55,8 @@ void uart_init(void) {
 }
 
 void uart_putchar(char c, FILE *stream) {
-    if (c == '\n') {
+    /* Sends a character with the UART serial protocol*/
+    if ('\n' == c) {
         uart_putchar('\r', stream);
     }
     loop_until_bit_is_set(UCSR0A, UDRE0);
@@ -62,6 +64,7 @@ void uart_putchar(char c, FILE *stream) {
 }
 
 char uart_getchar(FILE *stream) {
+    /* Receives a character on the UART interface*/
     loop_until_bit_is_set(UCSR0A, RXC0); /* Wait until data exists. */
     return UDR0;
 }
