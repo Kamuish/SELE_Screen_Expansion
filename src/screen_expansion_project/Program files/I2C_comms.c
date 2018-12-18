@@ -40,7 +40,7 @@ void I2C_Init(void){
 	/* Sets up I2C communication
 	 */
 
-	 TWSR = 0;                         /* no prescaler */
+	 TWSR = 0;                            /* no prescaler */
 	 TWBR = ( (F_CPU/SCL_CLOCK )-16 )/2;  /* must be > 10 for stable operation */
 
 }
@@ -61,10 +61,10 @@ void I2C_Start(unsigned char addr){
 }
 
 
-uint8_t I2C_Write( unsigned char data){
+uint8_t I2C_Write( unsigned char data_i2c){
 	/* Send command and wait for the flag and ACK
 	 */
-	TWDR = data;
+	TWDR = data_i2c;
 
 	TWCR = (1<<TWINT) | (1<<TWEN);
 

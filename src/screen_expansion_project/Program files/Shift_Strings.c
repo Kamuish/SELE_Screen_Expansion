@@ -17,7 +17,7 @@ void InitStringLeft(uint8_t *string, uint8_t size) {
 	_delay_ms(10);
 }
 
-void StringOnLeftScreen() {
+void StringOnLeftScreen(void) {
 	/* Shift the left screen to the right */
 	ScreenInstruction(LCD_MOVE_DISP_RIGHT, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(1);

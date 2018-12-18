@@ -14,10 +14,10 @@
 /* Define SPI Data Direction Register and Bits */
 
 #define DDR_SPI DDRB	/* SPI Data Direction Register */
-#define DD_SS PB2		/* Slave Select bit - Shift register latch */
+#define DD_SS   PB2		/* Slave Select bit - Shift register latch */
 #define DD_MOSI PB3		/* SPI MOSI */
 #define DD_MISO PB4		/* SPI MISO */
-#define DD_SCK PB5		/* SPI Clock */
+#define DD_SCK  PB5		/* SPI Clock */
 
 /* SPI functions */
 

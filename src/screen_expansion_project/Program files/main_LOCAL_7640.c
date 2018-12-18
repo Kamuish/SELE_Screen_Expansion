@@ -50,16 +50,10 @@
 /* Define clock frequency */
 #define F_CPU 16000000UL
 
-<<<<<<< HEAD
 /* Define State Machine states */
 #define LEFT 0
 #define RIGHT 1
 #define MIDDLE_LEFT 2
-=======
-#define LEFT         0
-#define RIGHT        1
-#define MIDDLE_LEFT  2
->>>>>>> 57554efe33bb190005f4df115528c4de0b209372
 #define MIDDLE_RIGHT 3
 
 int main(void) {
@@ -176,10 +170,6 @@ int main(void) {
 					string_count = (size/sizeof(string[0])-1);
 				}
 				break;
-				
-			default:
-				/* The state machine should never reach this case */
-				break;
 		}
 
 		/* Operate on state */
@@ -203,10 +193,6 @@ int main(void) {
 				/* String is leaving the right screen and entering the left one */
 				StringOnMiddleRight(string, string_count);
 				string_count--;			/* Decrease string_count */
-				break;
-
-			default:
-				/* The state machine should never reach this case */
 				break;
 		}
 

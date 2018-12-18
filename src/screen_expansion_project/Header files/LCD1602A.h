@@ -80,14 +80,14 @@ void ScreenInit(uint8_t protocol_flag);		/* Initialize screen in either SPI or I
 void I2C_InitScreen(void);					/* Start instructions for the screen using the I2C interface */
 void SPI_InitScreen(void);  				/* Start instructions for the screen using the SPI interface */
 
-void ScreenInstruction(uint8_t instruction, uint8_t protocol_flag);
+void ScreenInstruction(uint8_t instruction, uint8_t protocol_flag); 
 void ScreenData(uint8_t data , uint8_t protocol_flag);		/* Sends an 8 bit data command (RS ==1) to the screen */
 void PutChar(uint8_t character, uint8_t protocol_flag);		/* Writes a single character to the screen */
 void PutString(uint8_t string[], uint16_t length, uint8_t protocol_flag);	/* Writes string to the screen */
 
 /* Utility functions */
 uint8_t ReverseNibble(uint8_t nibble);		/* Inverts a nibble of data */
-void TransferData(uint8_t data, uint8_t protocol_flag); 		/* Transfer data via I2C or SPI */
-void Send4BitCommand(uint8_t command, uint8_t protocol_flag);	/* Sends a 4 bit command to the screen */
+void    TransferData(uint8_t data, uint8_t protocol_flag); 		/* Transfer data via I2C or SPI */
+void    Send4BitCommand(uint8_t command, uint8_t protocol_flag);	/* Sends a 4 bit command to the screen */
 
 #endif /* LCD1602A_H_ */

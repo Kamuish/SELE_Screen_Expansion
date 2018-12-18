@@ -34,32 +34,18 @@
  *																		*
  ************************************************************************/
 
-#include <util/delay.h>
-
-/* Include communication libraries */
 #include <SPI_comms.h>
 #include <I2C_comms.h>
-
-/* Include screen related libraries */
 #include <LCD1602A.h>
+#include <UART_comms.h>
+#include <util/delay.h>
 #include <Shift_Strings.h>
 
-/* Include testing libraries */
-#include <SRAM.h>
-
-/* Define clock frequency */
 #define F_CPU 16000000UL
 
-<<<<<<< HEAD
-/* Define State Machine states */
 #define LEFT 0
 #define RIGHT 1
 #define MIDDLE_LEFT 2
-=======
-#define LEFT         0
-#define RIGHT        1
-#define MIDDLE_LEFT  2
->>>>>>> 57554efe33bb190005f4df115528c4de0b209372
 #define MIDDLE_RIGHT 3
 
 int main(void) {
@@ -76,29 +62,8 @@ int main(void) {
 	ScreenInit(I2C);
 	_delay_ms(1);
 
-
-	/* Display "Testing SRAM" information */
-	uint8_t info_string[] = "Testing SRAM";
-	PutString(info_string, sizeof(info_string) - 1, LEFT_SCREEN_PROTOCOL);
-	_delay_ms(1000);
-	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
-	_delay_ms(1);
-
-	/* Test the SRAM */
-	bool sram_test = SRAM_Test();
-	sram_test ? SRAM_NOK() : SRAM_OK();
-
-	/* Display the SRAM test result */
-	uint8_t SRAM_ok[] = "SRAM OK";
-	uint8_t SRAM_nok[] = "SRAM NOT OK";
-
-	PutString(sram_test ? SRAM_nok : SRAM_ok, sram_test ? sizeof(SRAM_nok) - 1 : sizeof(SRAM_ok) - 1, LEFT_SCREEN_PROTOCOL);
-	_delay_ms(1000);
-	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
-	_delay_ms(1);
-
 	/* String to put on the screens */
-	uint8_t string[] = "0123456789";
+	uint8_t string[] = "123456789";
 	uint8_t size = sizeof(string);		/* Size of the string */
 
 	/* Display the string on the left screen */
@@ -113,7 +78,7 @@ int main(void) {
 
 	while (1) {
 		/* Delay between shifts */
-		_delay_ms(250);
+		_delay_ms(1000);
 
 		/* Choose state */
 		switch (state) {
@@ -176,10 +141,6 @@ int main(void) {
 					string_count = (size/sizeof(string[0])-1);
 				}
 				break;
-				
-			default:
-				/* The state machine should never reach this case */
-				break;
 		}
 
 		/* Operate on state */
@@ -203,10 +164,6 @@ int main(void) {
 				/* String is leaving the right screen and entering the left one */
 				StringOnMiddleRight(string, string_count);
 				string_count--;			/* Decrease string_count */
-				break;
-
-			default:
-				/* The state machine should never reach this case */
 				break;
 		}
 
