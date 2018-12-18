@@ -45,7 +45,7 @@
 #include <UART_comms.h>
 
 /* Define Screen protocol position */
-#define LEFT_SCREEN_PROTOCOL SPI
+#define LEFT_SCREEN_PROTOCOL  SPI
 #define RIGHT_SCREEN_PROTOCOL I2C
 
 #define DEBUG 0

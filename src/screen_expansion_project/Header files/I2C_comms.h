@@ -11,7 +11,7 @@
 #include <avr/io.h>
 
 /* I2C clock in Hz */
-#define SCL_CLOCK  100000L
+#define SCL_CLOCK  100000UL
 
 #define I2C_ADDR 0x40
 
