@@ -39,12 +39,9 @@
 FILE uart_output = FDEV_SETUP_STREAM(UART_Putchar, NULL, _FDEV_SETUP_WRITE);
 FILE uart_input = FDEV_SETUP_STREAM(NULL, UART_Getchar, _FDEV_SETUP_READ);
 
-<<<<<<< HEAD
+
 void UART_Init(void) {
-=======
-void uart_init(void) {
     /* Initializes the UART communication protocol */ 
->>>>>>> 57554efe33bb190005f4df115528c4de0b209372
     UBRR0H = UBRRH_VALUE;
     UBRR0L = UBRRL_VALUE;
 
@@ -58,27 +55,16 @@ void uart_init(void) {
     UCSR0B = _BV(RXEN0) | _BV(TXEN0);   /* Enable RX and TX */
 }
 
-<<<<<<< HEAD
 void UART_Putchar(char c, FILE *stream) {
     if (c == '\n') {
         UART_Putchar('\r', stream);
-=======
-void uart_putchar(char c, FILE *stream) {
-    /* Sends a character with the UART serial protocol*/
-    if ('\n' == c) {
-        uart_putchar('\r', stream);
->>>>>>> 57554efe33bb190005f4df115528c4de0b209372
     }
     loop_until_bit_is_set(UCSR0A, UDRE0);
     UDR0 = c;
 }
 
-<<<<<<< HEAD
 char UART_Getchar(FILE *stream) {
-=======
-char uart_getchar(FILE *stream) {
     /* Receives a character on the UART interface*/
->>>>>>> 57554efe33bb190005f4df115528c4de0b209372
     loop_until_bit_is_set(UCSR0A, RXC0); /* Wait until data exists. */
     return UDR0;
 }

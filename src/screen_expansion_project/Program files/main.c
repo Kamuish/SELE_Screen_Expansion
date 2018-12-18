@@ -50,16 +50,10 @@
 /* Define clock frequency */
 #define F_CPU 16000000UL
 
-<<<<<<< HEAD
 /* Define State Machine states */
-#define LEFT 0
-#define RIGHT 1
-#define MIDDLE_LEFT 2
-=======
 #define LEFT         0
 #define RIGHT        1
 #define MIDDLE_LEFT  2
->>>>>>> 57554efe33bb190005f4df115528c4de0b209372
 #define MIDDLE_RIGHT 3
 
 int main(void) {
