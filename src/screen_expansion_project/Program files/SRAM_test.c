@@ -34,7 +34,7 @@
  *																		*
  ************************************************************************/
 
-#include <SRAM.h>
+#include <SRAM_test.h>
 
 static uint8_t classb_buffer[CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE] __attribute__((section(".classb_sram_buffer")));
 
@@ -146,14 +146,5 @@ void SRAM_OK() {
 }
 
 void SRAM_NOK() {
-	while (1) {
-		/* non-terminating */
-		PORTB |= (1<<SRAM_SIGNAL);
-
-		_delay_ms(100);
-
-		PORTB &= ~(1<<SRAM_SIGNAL);
-
-		_delay_ms(100);
-	}
+	PORTB |= (1<<SRAM_SIGNAL);
 }

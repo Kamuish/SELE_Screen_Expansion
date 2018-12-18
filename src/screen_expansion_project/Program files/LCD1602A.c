@@ -259,7 +259,7 @@ void PutString(uint8_t string[], uint16_t length, uint8_t protocol_flag) {
 	 */
 	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
 
-	for (int i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
+	for (uint8_t i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
 		uint8_t character = string[i];
 		PutChar(character, protocol_flag);						/* Put a char at a time on the screen */
 	}
@@ -276,7 +276,7 @@ uint8_t ReverseNibble(uint8_t nibble) {
 	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
 	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
 
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+	for (uint8_t i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
 		if((nibble & (1 << i)))
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
 	}

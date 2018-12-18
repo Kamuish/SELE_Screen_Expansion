@@ -74,17 +74,13 @@ void SPI_MasterTransmit(uint8_t data) {
 }
 
 void FlushShiftRegister(void) {
-	/* Flushes the shift register by switching the latch the appropriate number of times
+	/* Flushes the shift register by switching the latch
 	 * Returns: void
 	 */
 
-	uint8_t NO_OF_BITS = 0; /* Number of bits of the shift register */
-
-	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
-		PORTB |= (1<<DD_SS);	/* Drive the latch to high */
-		_delay_us(1);			/* Latch hold time */
-		PORTB &= ~(1<<DD_SS);	/* Drive the latch to low */
-	}
+	PORTB |= (1<<DD_SS);	/* Drive the latch to high */
+	_delay_us(1);			/* Latch hold time */
+	PORTB &= ~(1<<DD_SS);	/* Drive the latch to low */
 
 	_delay_us(1);
 }
