@@ -40,7 +40,7 @@ void I2C_Init(void){
 	/* Sets up I2C communication
 	 */
 
-	 TWSR = 0;                         /* no prescaler */
+	 TWSR = 0;                            /* no prescaler */
 	 TWBR = ( (F_CPU/SCL_CLOCK )-16 )/2;  /* must be > 10 for stable operation */
 
 }

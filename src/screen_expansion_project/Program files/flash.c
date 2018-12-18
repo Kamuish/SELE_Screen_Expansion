@@ -5,7 +5,7 @@
  *      Author: andre
  */
 
-#include "flash.h"
+#include <flash.h>
 
 uint8_t  flash_teste(void){
 	/* Compares the XOR hash of the flash memory with the one present on the eeprom memory
