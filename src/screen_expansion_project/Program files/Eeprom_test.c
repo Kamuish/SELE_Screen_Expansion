@@ -32,7 +32,6 @@ uint8_t Eeprom_test(void)
         }
     }
 
-
     for(int k = 0; k < N_BYTES_EEPROM ; k++)
     {
     	tmp=eeprom_read_byte((uint8_t*) k);
@@ -56,6 +55,7 @@ uint8_t Eeprom_test(void)
         }
     }
     eeprom_write_word(( uint16_t*) USED_ADDR, real_hash);
+
     if (0 == errors)
     {
     	return 0;
