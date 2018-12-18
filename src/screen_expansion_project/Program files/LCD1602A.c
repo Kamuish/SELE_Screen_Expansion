@@ -77,8 +77,8 @@ void I2C_InitScreen(void){
 	/* Initialize backpack */
 
 	_delay_ms(100);
-	/* COnfigures all  the pins as outputs*/
-	I2C_Start(I2C_ADDR);
+	
+	I2C_Start(I2C_ADDR); /* COnfigures all  the pins as outputs*/
 	_delay_ms(1);
 	I2C_Write(0x00); /* register I2C_ADDR */
 	_delay_ms(1);
@@ -94,7 +94,7 @@ void I2C_InitScreen(void){
 	I2C_Stop();
 
 	
-	I2C_Start(I2C_ADDR); / Prepares to write on the GPIO registers*/
+	I2C_Start(I2C_ADDR); /* Prepares to write on the GPIO registers*/
 	_delay_ms(100);
 	I2C_Write(0x09); /* gpio register */
 	_delay_ms(10);
@@ -161,7 +161,7 @@ void ScreenInstruction(uint8_t instruction, uint8_t protocol_flag) {
 	/* Send high nibble */
 
 	uint8_t send_instruction;				/* Instruction to be sent */
-	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
+	send_instruction  = high_nibble>>1;		/* Shift high nibble to correct position */
 	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
 	send_instruction |= (1<<EN);			/* Enable pin high */
 	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
