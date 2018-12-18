@@ -48,7 +48,7 @@
 #define LEFT_SCREEN_PROTOCOL  SPI
 #define RIGHT_SCREEN_PROTOCOL I2C
 
-#define DEBUG 0
+#define DEBUG 0U
 
 void InitStringLeft(uint8_t *string, uint8_t size);					/* Initializes the string on the left screen */
 void StringOnLeftScreen(void);										/* Implements the LEFT case */

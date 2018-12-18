@@ -21,9 +21,9 @@ uint8_t  flash_teste(void){
 
 uint16_t calculate_hash_xor(void)
 {
-	/*
+	/* 
 	 * Calculates 16 bit XOR hash of the utilized flash memory
-	 */
+	 */ 
 
     uint16_t hash = 0; /* Variable to hold the hash */
 
