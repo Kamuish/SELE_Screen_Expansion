@@ -11,7 +11,7 @@ uint8_t Eeprom_test(void)
 	 * Then we repeat the process for zeros.
 	 * After passing all tests we restore the previously stored data
 	 */
-    uint16_t real_hash = eeprom_read_word( (const uint16_t*) USED_ADDR); /* guardar a hash que está na eeprom */
+    uint16_t real_hash = eeprom_read_word( (const uint16_t*) USED_ADDR); /* Stores the real hash stored on Eeprom's addr*/
     uint8_t tmp = 0;
     uint8_t errors = 0;
     for (int k =0; k <N_BYTES_EEPROM ; k++)
