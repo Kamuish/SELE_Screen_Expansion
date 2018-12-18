@@ -13,7 +13,7 @@
 /* I2C clock in Hz */
 #define SCL_CLOCK  100000UL
 
-#define I2C_ADDR 0x40
+#define I2C_ADDR   0x40
 
 /* I2C functions  */
 void 	I2C_Init(void);					/* Set up I2C communication */
