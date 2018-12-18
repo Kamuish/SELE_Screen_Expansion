@@ -42,7 +42,6 @@
 #include <I2C_comms.h>
 #include <SPI_comms.h>
 #include <util/delay.h>
-#include <UART_comms.h>
 
 /* Define Screen protocol position */
 #define LEFT_SCREEN_PROTOCOL  SPI

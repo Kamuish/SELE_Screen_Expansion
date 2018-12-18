@@ -12,8 +12,6 @@
 #include <avr/pgmspace.h>
 #include <avr/eeprom.h>
 
-#include "UART_comms.h"
-
 #define BYTES_FLASH 660U
 
 

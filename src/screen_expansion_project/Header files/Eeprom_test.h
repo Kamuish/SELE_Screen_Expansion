@@ -12,7 +12,7 @@
 #include <avr/eeprom.h>
 #include <util/delay.h>
 
-#define N_BYTES_EEPROM 1024
+#define N_BYTES_EEPROM 1024  /* Eeprom memory size */
 #define USED_ADDR                0x22   /* Address used in the EEPROM memory */
 
 /* Function definition */
