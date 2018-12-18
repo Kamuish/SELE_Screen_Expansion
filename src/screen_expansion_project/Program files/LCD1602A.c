@@ -43,7 +43,7 @@ void ScreenInit(uint8_t protocol_flag) {
 
 	/* Initial commands */
 
-	I2C == protocol_flag ? I2C_InitScreen(): SPI_InitScreen();
+	(I2C == protocol_flag) ? I2C_InitScreen(): SPI_InitScreen();
 
 	/* Function Set */
 
@@ -74,32 +74,32 @@ void I2C_InitScreen(void){
 
 	uint8_t command;
 
-	// Initialize backpack
+	/* Initialize backpack */
 
 	_delay_ms(100);
-	// COnfigures all  the pins as outputs
+	/* COnfigures all  the pins as outputs*/
 	I2C_Start(I2C_ADDR);
 	_delay_ms(1);
-	I2C_Write(0x00); // register I2C_ADDR
+	I2C_Write(0x00); /* register I2C_ADDR */
 	_delay_ms(1);
-	I2C_Write(0x00); // clear all bits
+	I2C_Write(0x00); /* clear all bits */
 	I2C_Stop();
 	_delay_ms(100);
-	// set up internal register for continuous write to addrsess
-	I2C_Start(I2C_ADDR);
+	
+	I2C_Start(I2C_ADDR);  /* set up internal register for continuous write to address */
 	_delay_ms(100);
 	I2C_Write(0x05);
 	_delay_ms(10);
 	I2C_Write(0x20);
 	I2C_Stop();
 
-	// Prepares to write on the GPIO registers
-	I2C_Start(I2C_ADDR);
+	
+	I2C_Start(I2C_ADDR); / Prepares to write on the GPIO registers*/
 	_delay_ms(100);
-	I2C_Write(0x09); // gpio register
+	I2C_Write(0x09); /* gpio register */
 	_delay_ms(10);
 
-	// Screen init
+	/* Screen init */
 	command = 0x18;
 	Send4BitCommand(command, I2C);
 	_delay_ms(41);
