@@ -50,7 +50,7 @@ all: screen_expansion.elf secondary-outputs
 screen_expansion.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,screen_expansion.map -mmcu=atmega328p -o "screen_expansion.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,screen_expansion.map -Wl,--section-start=.classb_sram_buffer=0x800100,--section-start=.data=0x800240 -mmcu=atmega328p -o "screen_expansion.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -62,7 +62,7 @@ screen_expansion.lss: screen_expansion.elf
 
 screen_expansion.hex: screen_expansion.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex screen_expansion.elf  "screen_expansion.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -R .classb_sram_buffer -O ihex screen_expansion.elf  "screen_expansion.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 

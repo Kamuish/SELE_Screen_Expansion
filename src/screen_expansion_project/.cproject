@@ -97,6 +97,7 @@
 								<option id="de.innot.avreclipse.cppcompiler.option.optimize.1734484" name="Optimization Level" superClass="de.innot.avreclipse.cppcompiler.option.optimize" value="de.innot.avreclipse.cppcompiler.optimize.size" valueType="enumerated"/>
 							</tool>
 							<tool id="de.innot.avreclipse.tool.linker.winavr.app.release.1394722583" name="AVR C Linker" superClass="de.innot.avreclipse.tool.linker.winavr.app.release">
+								<option id="de.innot.avreclipse.linker.option.otherlinkargs.2126986023" name="Other Arguments" superClass="de.innot.avreclipse.linker.option.otherlinkargs" value="-Wl,--section-start=.classb_sram_buffer=0x800100,--section-start=.data=0x800240" valueType="string"/>
 								<inputType id="de.innot.avreclipse.tool.linker.input.2000301747" name="OBJ Files" superClass="de.innot.avreclipse.tool.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -105,7 +106,9 @@
 							<tool id="de.innot.avreclipse.tool.cpplinker.app.release.1736205281" name="AVR C++ Linker" superClass="de.innot.avreclipse.tool.cpplinker.app.release"/>
 							<tool id="de.innot.avreclipse.tool.archiver.winavr.base.1170376296" name="AVR Archiver" superClass="de.innot.avreclipse.tool.archiver.winavr.base"/>
 							<tool id="de.innot.avreclipse.tool.objdump.winavr.app.release.1994922146" name="AVR Create Extended Listing" superClass="de.innot.avreclipse.tool.objdump.winavr.app.release"/>
-							<tool id="de.innot.avreclipse.tool.objcopy.flash.winavr.app.release.463409074" name="AVR Create Flash image" superClass="de.innot.avreclipse.tool.objcopy.flash.winavr.app.release"/>
+							<tool id="de.innot.avreclipse.tool.objcopy.flash.winavr.app.release.463409074" name="AVR Create Flash image" superClass="de.innot.avreclipse.tool.objcopy.flash.winavr.app.release">
+								<option id="de.innot.avreclipse.objcopy.option.flash.stdopts.756732299" name="Options to create flash image" superClass="de.innot.avreclipse.objcopy.option.flash.stdopts" value="-R .eeprom -R .fuse -R .lock -R .signature -R .classb_sram_buffer -O ihex" valueType="string"/>
+							</tool>
 							<tool id="de.innot.avreclipse.tool.objcopy.eeprom.winavr.app.release.551499237" name="AVR Create EEPROM image" superClass="de.innot.avreclipse.tool.objcopy.eeprom.winavr.app.release"/>
 							<tool id="de.innot.avreclipse.tool.size.winavr.app.release.113695265" name="Print Size" superClass="de.innot.avreclipse.tool.size.winavr.app.release"/>
 							<tool id="de.innot.avreclipse.tool.avrdude.app.release.763329844" name="AVRDude" superClass="de.innot.avreclipse.tool.avrdude.app.release"/>
@@ -137,4 +140,5 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="de.innot.avreclipse.core.AVRGCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

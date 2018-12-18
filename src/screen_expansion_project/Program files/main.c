@@ -34,15 +34,23 @@
  *																		*
  ************************************************************************/
 
+#include <util/delay.h>
+
+/* Include communication libraries */
 #include <SPI_comms.h>
 #include <I2C_comms.h>
+
+/* Include screen related libraries */
 #include <LCD1602A.h>
-#include <UART_comms.h>
-#include <util/delay.h>
 #include <Shift_Strings.h>
 
+/* Include testing libraries */
+#include <SRAM.h>
+
+/* Define clock frequency */
 #define F_CPU 16000000UL
 
+/* Define State Machine states */
 #define LEFT 0
 #define RIGHT 1
 #define MIDDLE_LEFT 2
@@ -62,8 +70,29 @@ int main(void) {
 	ScreenInit(I2C);
 	_delay_ms(1);
 
+
+	/* Display "Testing SRAM" information */
+	uint8_t info_string[] = "Testing SRAM";
+	PutString(info_string, sizeof(info_string) - 1, LEFT_SCREEN_PROTOCOL);
+	_delay_ms(1000);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
+	_delay_ms(1);
+
+	/* Test the SRAM */
+	bool sram_test = SRAM_Test();
+	sram_test ? SRAM_NOK() : SRAM_OK();
+
+	/* Display the SRAM test result */
+	uint8_t SRAM_ok[] = "SRAM OK";
+	uint8_t SRAM_nok[] = "SRAM NOT OK";
+
+	PutString(sram_test ? SRAM_nok : SRAM_ok, sram_test ? sizeof(SRAM_nok) - 1 : sizeof(SRAM_ok) - 1, LEFT_SCREEN_PROTOCOL);
+	_delay_ms(1000);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
+	_delay_ms(1);
+
 	/* String to put on the screens */
-	uint8_t string[] = "123456789";
+	uint8_t string[] = "0123456789";
 	uint8_t size = sizeof(string);		/* Size of the string */
 
 	/* Display the string on the left screen */
@@ -78,7 +107,7 @@ int main(void) {
 
 	while (1) {
 		/* Delay between shifts */
-		_delay_ms(1000);
+		_delay_ms(250);
 
 		/* Choose state */
 		switch (state) {

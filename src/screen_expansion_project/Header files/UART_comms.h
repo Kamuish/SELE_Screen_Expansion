@@ -47,8 +47,8 @@
 FILE uart_output;
 FILE uart_input;
 
-void uart_init(void);
-void uart_putchar(char c, FILE *stream);
-char uart_getchar(FILE *stream);
+void UART_Init(void);
+void UART_Putchar(char c, FILE *stream);
+char UART_Getchar(FILE *stream);
 
 #endif /* UART_COMMS_H_ */

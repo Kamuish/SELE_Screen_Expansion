@@ -38,11 +38,11 @@
 
 static uint8_t classb_buffer[CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE] __attribute__((section(".classb_sram_buffer")));
 
-bool SRAMTest(void)  {
+bool SRAM_Test(void)  {
     register bool has_errors = 0;
 
     for (register uint8_t i = 0; i < CLASSB_NSEC_TOTAL - 1; i++) {
-        if (SRAMTestSection(i)) {
+        if (SRAM_TestSection(i)) {
             has_errors = 1;
             break;
         }
@@ -51,32 +51,32 @@ bool SRAMTest(void)  {
     return has_errors;
 }
 
-bool SRAMTestSection(register uint8_t current_section) {
+bool SRAM_TestSection(register uint8_t current_section) {
     register uint8_t error = 0;
 
     switch (current_section) {
     case 0:
         /* Test the buffer */
-        error = MarchCTest((uint8_t *)INTERNAL_SRAM_START, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
         break;
     case 1:
         /* Test the first section. */
-        error = MarchCTest((uint8_t *)INTERNAL_SRAM_START + CLASSB_SEC_SIZE, classb_buffer, CLASSB_SEC_SIZE);
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START + CLASSB_SEC_SIZE, classb_buffer, CLASSB_SEC_SIZE);
         break;
     case CLASSB_NSECS:
         /* Test the last section. */
-        error = MarchCTest((uint8_t *)INTERNAL_SRAM_START + CLASSB_NSECS * CLASSB_SEC_SIZE - CLASSB_OVERLAP_SIZE, classb_buffer, CLASSB_SEC_REM + CLASSB_OVERLAP_SIZE);
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START + CLASSB_NSECS * CLASSB_SEC_SIZE - CLASSB_OVERLAP_SIZE, classb_buffer, CLASSB_SEC_REM + CLASSB_OVERLAP_SIZE);
         break;
     default:
         /* Sections in the middle */
-        error = MarchCTest((uint8_t *)INTERNAL_SRAM_START + current_section * CLASSB_SEC_SIZE - CLASSB_OVERLAP_SIZE, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START + current_section * CLASSB_SEC_SIZE - CLASSB_OVERLAP_SIZE, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
         break;
     }
 
     return error;
 }
 
-bool MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size) {
+bool SRAM_MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size) {
 	/* Applies the March C test to the SRAM contents */
 
 	register uint16_t i = 0;
@@ -131,4 +131,29 @@ bool MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_
 	}
 
 	return error;
+}
+
+void SRAM_OK() {
+	for (uint8_t i = 0; i < 2; i++){
+		PORTB |= (1<<SRAM_SIGNAL);
+
+		_delay_ms(500);
+
+		PORTB &= ~(1<<SRAM_SIGNAL);
+
+		_delay_ms(500);
+	}
+}
+
+void SRAM_NOK() {
+	while (1) {
+		/* non-terminating */
+		PORTB |= (1<<SRAM_SIGNAL);
+
+		_delay_ms(100);
+
+		PORTB &= ~(1<<SRAM_SIGNAL);
+
+		_delay_ms(100);
+	}
 }

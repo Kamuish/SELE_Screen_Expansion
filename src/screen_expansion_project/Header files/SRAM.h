@@ -39,6 +39,8 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <avr/io.h>
+#include <util/delay.h>
 
 #define CLASSB_NSECS (8U)
 #define CLASSB_OVERLAP (25UL)
@@ -55,8 +57,12 @@
 #define INTERNAL_SRAM_START (0x0100)
 #define INTERNAL_SRAM_SIZE (2048U)
 
-bool SRAMTest(void);
-bool SRAMTestSection(register uint8_t current_section);
-bool MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size);
+#define SRAM_SIGNAL PB0
+
+bool SRAM_Test(void);
+bool SRAM_TestSection(register uint8_t current_section);
+bool SRAM_MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size);
+void SRAM_OK();
+void SRAM_NOK();
 
 #endif /* SRAM_H_ */
