@@ -1,4 +1,5 @@
-file_path = "/home/andre/eclipse-workspace/project_ICARUS/src/flash_tests/Release/flash_tests.hex"
+file_path = "../screen_expansion_project/Release/screen_expansion.hex"
+#file_path = "../SPI/atmega368p_SPI/Release/atmega368p_SPI.hex"
 
 
 def hex_to_hash():

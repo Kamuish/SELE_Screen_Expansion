@@ -16,7 +16,7 @@ bool  FLASH_Test(void)
 	uint16_t hash = FLASH_CalculateHashXOR();
 
 	/* Reads previously written hash value */
-	uint16_t true_hash = eeprom_read_word ((const uint16_t*)EEPROM_ADDR);
+	uint16_t true_hash = eeprom_read_word ((uint16_t *)EEPROM_ADDR);
 	return (bool)(hash != true_hash);
 }
 
