@@ -26,7 +26,7 @@ bool EEPROM_Test(void) {
         }
         else
         {
-        	errors++;
+        	errors = 1;
             eeprom_write_byte((uint8_t*) k , 0xFF);
         }
     }
@@ -41,7 +41,7 @@ bool EEPROM_Test(void) {
         }
         else
         {
-        	errors++;
+        	errors = 1;
             eeprom_write_byte((uint8_t*) k, 0x00);
         }
     }
@@ -51,7 +51,7 @@ bool EEPROM_Test(void) {
     	tmp =eeprom_read_byte((uint8_t*) k );
         if(0 != tmp)
         {
-        	errors++;
+        	errors = 1;
         }
     }
     eeprom_write_word(( uint16_t*) USED_ADDR, real_hash);
