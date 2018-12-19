@@ -1,30 +1,22 @@
 /*
  * main.c
  *
- *  Created on: Dec 11, 2018
+ *  Created on: Dec 19, 2018
  *      Author: andre
  */
 
-#include "../Screen/LCD.h"
 
-int main(void){
+#include "I2C_comms.h"
 
-	screen_init(0X40, I2C);
-	_delay_ms(10);
-	uint8_t command;
+uint8_t main(void){
+	I2C_Start(I2C_ADDR);
 
-	// Display ON
-	command = 0x00;
-	send_4_bit_command(command,  I2C);
+	uint8_t message = 0x00;
 
-	_delay_ms(1);
-	command = 0x70;
-	send_4_bit_command(command,  I2C);
-	_delay_ms(10);
-
-
-	uint8_t string[] = "Adeus";
-	put_string(string, sizeof(string) -1, I2C);
+	I2C_Write(message);
+	_delay_ms(1000);
+	I2C_Stop();
 
 	return 0;
+
 }

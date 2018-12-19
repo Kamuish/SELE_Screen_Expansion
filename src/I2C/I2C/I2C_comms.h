@@ -1,30 +1,28 @@
 /*
  * I2C_comms.h
  *
- *  Created on: Nov 25, 2018
- *      Author: andre
+ *  Created on: Dec 11, 2018
+ *      Author: joaorodrigues
  */
 
 #ifndef I2C_COMMS_H_
 #define I2C_COMMS_H_
 
-#include "avr/io.h"
-
-/* define CPU frequency in hz here if not defined in Makefile */
-#ifndef F_CPU
-#define F_CPU 1600000UL
-#endif
-
+#include <avr/io.h>
+#include <compat/twi.h>
+#include <stdbool.h>
 /* I2C clock in Hz */
-#define SCL_CLOCK  100000L
+#define SCL_CLOCK  100000UL
 
+#define I2C_ADDR   0x40
 
+/* I2C functions  */
+void 	I2C_Init(void);					    /* Set up I2C communication */
+bool 	I2C_Start(unsigned char addr);	    /* Starts I2C communication */
+bool  I2C_Write(unsigned char data_i2c);	/* Writes data through I2C */
+void  	I2C_Stop(void);					    /* Stops I2C communication */
 
-
-/* Define the functions  */
-void i2c_init(void);
-void i2c_start(unsigned char addr);
-uint8_t i2c_write(unsigned char data);
-void  i2c_stop(void);
+/* Utility functions */
+void I2C_WaitForTwint(void);
 
 #endif /* I2C_COMMS_H_ */
