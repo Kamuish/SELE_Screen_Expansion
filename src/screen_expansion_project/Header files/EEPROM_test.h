@@ -13,8 +13,8 @@
 #include <util/delay.h>
 #include <stdbool.h>
 
-#define N_BYTES_EEPROM 1024  /* Eeprom memory size */
-#define USED_ADDR                0x22   /* Address used in the EEPROM memory */
+#define N_BYTES_EEPROM 	2	  /* Eeprom memory size */
+#define USED_ADDR 	   	69	  /* Address used in the EEPROM memory */
 
 /* Function definition */
 bool EEPROM_Test(void);
