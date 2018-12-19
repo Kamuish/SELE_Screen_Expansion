@@ -1,7 +1,10 @@
 /************************************************************************
  *																		*
  *		FILE NAME: I2C_comms.c											*
- *		PURPOSE:														*
+ *		PURPOSE:
+ *			Implementation of the I2C protocol, using the ATMEGA328P. In this implementation
+ *			we have a continuous check of the data present on the status registers. If we detect anomalies
+ *			a LED connected to port B0 will be turned on and a STOP condition will be sent.										*
  *		FILE REFERENCES:												*
  *																		*
  *		Name			I/O			Description							*
@@ -50,7 +53,7 @@ void I2C_Start(unsigned char addr){
 	 * Also checks TWI status register for correct sending of start signal.
 	 * Afterwards chooses the slave, by setting the address to twdr and clearing the TWINT flag
 	 */
-
+	PORTB = ~ (1 <<PB0); /* turn off the LED */
 	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN);
 
 	I2C_WaitForTwint();
@@ -58,7 +61,8 @@ void I2C_Start(unsigned char addr){
 	if ( (TWSR & 0xF8)  != TW_START){
 		/* Did not receive slave ack*/
 		PORTB = (1 <<PB0);
-		while(1);  /* Does not allow the program to continue*/
+		I2C_Stop();  /* Does not allow to send more data*/
+
 	}
 
 	TWDR = addr ;
@@ -68,7 +72,7 @@ void I2C_Start(unsigned char addr){
 	if ( (TWSR & 0xF8)  != TW_MT_SLA_ACK){
 		/* Did not receive slave ack*/
 		PORTB = (1 <<PB0);
-		while(1);  /* Does not allow the program to continue*/
+		I2C_Stop();  /* Does not allow to send more data*/
 	}
 
 }
@@ -85,7 +89,8 @@ void I2C_Write( unsigned char data_i2c){
 
 	uint8_t status = (TWSR & 0xF8) ;
 	if ( status  != TW_MT_DATA_ACK){
-		while(1);  /* Does not allow the program to continue*/
+		PORTB = ( 1 << PB0);
+		I2C_Stop();  /* Does not allow to send more data*/
 		}
 }
 
