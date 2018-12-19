@@ -45,23 +45,34 @@ void I2C_Init(void){
 
 }
 
-void I2C_Start(unsigned char addr){
+bool I2C_Start(unsigned char addr){
 	/* Send start action  for I2C communication and wait untils the TWINT flag is set.
 	 * Also checks TWI status register for correct sending of start signal.
 	 * Afterwards chooses the slave, by setting the address to twdr and clearing the TWINT flag
 	 */
+
 	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN);
 
 	I2C_WaitForTwint();
+
+	if ( (TWSR & 0xF8)  != TW_START){
+		PORTB = (1 <<PB0);
+		return 1;
+	}
 
 	TWDR = addr ;
 
 	TWCR = (1<<TWINT) | (1<<TWEN);
 	I2C_WaitForTwint();
+	if ( (TWSR & 0xF8)  != TW_MT_SLA_ACK){
+		PORTB = (1 <<PB0);
+		return 1;
+	}
+	return 0;
 }
 
 
-uint8_t I2C_Write( unsigned char data_i2c){
+bool I2C_Write( unsigned char data_i2c){
 	/* Send command and wait for the flag and ACK
 	 */
 	TWDR = data_i2c;
@@ -70,6 +81,11 @@ uint8_t I2C_Write( unsigned char data_i2c){
 
 	I2C_WaitForTwint();
 
+	uint8_t status = (TWSR & 0xF8) ;
+	if ( status  != TW_MT_DATA_ACK){
+			PORTB = (1 <<PB0);
+			return 1;
+		}
 	return 0;
 }
 
