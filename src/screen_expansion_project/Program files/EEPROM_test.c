@@ -15,7 +15,7 @@ bool EEPROM_Test(void) {
     bool errors = 0;
     for (uint16_t k =0; k < N_BYTES_EEPROM ; k++)
     {
-        eeprom_write_byte((uint8_t *)k, 0x00);
+        eeprom_write_byte((uint8_t *) k, 0x00);
     }
     for(uint16_t k =0; k < N_BYTES_EEPROM; k++)
     {
