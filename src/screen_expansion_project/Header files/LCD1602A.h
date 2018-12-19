@@ -14,12 +14,12 @@
 
 /* SPI or I2C flags */
 #define SPI 0
-#define I2C 1
+#define I2C  1
 
 /* Screen RS, EN and BKL pins */
-#define RS 1
-#define EN 2
-#define BKL 7
+#define RS     1
+#define EN     2
+#define BKL  7
 
 /* Instruction register bit positions, see LCD1602A data sheet */
 #define LCD_CLR               						    0      /* DB0: clear display                  */
