@@ -50,7 +50,7 @@
 #include <EEPROM_test.h>
 
 /* Define clock frequency */
-#define F_CPU 16000000UL
+#define F_CPU 14745600UL
 
 /* Define State Machine states */
 #define LEFT         0
@@ -70,7 +70,11 @@ uint8_t main(void) {
 
 	/* Test the SRAM */
 	bool sram_test = SRAM_Test();
-
+/*
+	bool eeprom_test = 0;
+	bool flash_test = 0;
+	bool sram_test = 0;
+*/
 	/* Initialize the screen in SPI mode */
 	ScreenInit(SPI);
 	_delay_ms(1);
