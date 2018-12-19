@@ -37,9 +37,10 @@
 #include <avr/eeprom.h>
 #include <stdint.h>
 
-uint16_t  eeprom_addr = 22;
+#define eeprom_addr 70
+
 int main(void)
 {
 	uint16_t word = 55199;
-	eeprom_write_word((uint16_t *)eeprom_addr, word);
+	eeprom_write_word((uint16_t *)eeprom_addr, (uint16_t)word);
 }

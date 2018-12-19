@@ -14,7 +14,7 @@
 #include <stdbool.h>
 
 #define BYTES_FLASH 3204U
-#define EEPROM_ADDR 22
+#define EEPROM_ADDR 70
 
 /* Define the functions */
 
