@@ -13,8 +13,6 @@
 #include <avr/eeprom.h>
 //For the crc16 self test for the flash
 
-#include "UART_comms.h"
-
 #define BYTES_FLASH (660U)
 
 /* Define the functions */

@@ -9,7 +9,6 @@
 #define MAIN_H_
 
 #include <util/delay.h>
-#include "UART_comms.h"
 #include "flash.h"
 
 

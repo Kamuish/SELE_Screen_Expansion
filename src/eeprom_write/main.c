@@ -6,9 +6,11 @@
  */
 
 #include <avr/eeprom.h>
-uint16_t  eeprom_addr = 8056U;
+#include <stdint.h>
+
+uint16_t  eeprom_addr = 0x22U;
 int main(void)
 {
-	uint8_t word[] = "4751";
+	uint8_t word[] = "56794";
 	eeprom_write_word(word,eeprom_addr);
 }
