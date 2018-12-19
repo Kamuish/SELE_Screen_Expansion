@@ -45,7 +45,9 @@
 #include <Shift_Strings.h>
 
 /* Include testing libraries */
-#include <SRAM.h>
+#include <SRAM_test.h>
+#include <FLASH_test.h>
+#include <EEPROM_test.h>
 
 /* Define clock frequency */
 #define F_CPU 16000000UL
@@ -56,11 +58,18 @@
 #define MIDDLE_LEFT  2
 #define MIDDLE_RIGHT 3
 
-int main(void) {
+uint8_t main(void) {
 
-	/* TODO:
-	 * - comply with JPL rule 15, 16, 25
-	 * - Maybe initialize SPI/I2C here, instead of in the ScreenInit(...) function */
+	bool memory_tests_error = 0; /* Global memory tests error flag */
+
+	/* Test the EEPROM */
+	bool eeprom_test = EEPROM_Test();
+
+	/* Test the FLASH */
+	bool flash_test = FLASH_Test();
+
+	/* Test the SRAM */
+	bool sram_test = SRAM_Test();
 
 	/* Initialize the screen in SPI mode */
 	ScreenInit(SPI);
@@ -70,17 +79,23 @@ int main(void) {
 	ScreenInit(I2C);
 	_delay_ms(1);
 
+	/* Display the EEPROM test result */
+	uint8_t EEPROM_ok[] = "EEPROM OK";
+	uint8_t EEPROM_nok[] = "EEPROM NOT OK";
 
-	/* Display "Testing SRAM" information */
-	uint8_t info_string[] = "Testing SRAM";
-	PutString(info_string, sizeof(info_string) - 1, LEFT_SCREEN_PROTOCOL);
+	PutString(eeprom_test ? EEPROM_nok : EEPROM_ok, eeprom_test ? sizeof(EEPROM_nok) - 1 : sizeof(EEPROM_ok) - 1, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(1000);
 	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
-	_delay_ms(1);
+	_delay_ms(10);
 
-	/* Test the SRAM */
-	bool sram_test = SRAM_Test();
-	sram_test ? SRAM_NOK() : SRAM_OK();
+	/* Display the FLASH test result */
+	uint8_t FLASH_ok[] = "FLASH OK";
+	uint8_t FLASH_nok[] = "FLASH NOT OK";
+
+	PutString(flash_test ? FLASH_nok : FLASH_ok, flash_test ? sizeof(FLASH_nok) - 1 : sizeof(FLASH_ok) - 1, LEFT_SCREEN_PROTOCOL);
+	_delay_ms(1000);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
+	_delay_ms(10);
 
 	/* Display the SRAM test result */
 	uint8_t SRAM_ok[] = "SRAM OK";
@@ -89,7 +104,19 @@ int main(void) {
 	PutString(sram_test ? SRAM_nok : SRAM_ok, sram_test ? sizeof(SRAM_nok) - 1 : sizeof(SRAM_ok) - 1, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(1000);
 	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
-	_delay_ms(1);
+	_delay_ms(10);
+
+	memory_tests_error |= (sram_test)|(flash_test)|(eeprom_test);
+
+	/* If one of the tests did not pass, return */
+	if (memory_tests_error)
+	{
+		uint8_t mem_test_error_msg[] = "MEM ERROR. EXIT.";
+		PutString(mem_test_error_msg, sizeof(mem_test_error_msg) - 1, LEFT_SCREEN_PROTOCOL);
+		_delay_ms(1000);
+
+		return 1;
+	}
 
 	/* String to put on the screens */
 	uint8_t string[] = "0123456789";

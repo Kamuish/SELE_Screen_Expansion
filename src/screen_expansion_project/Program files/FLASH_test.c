@@ -5,21 +5,22 @@
  *      Author: andre
  */
 
-#include <flash.h>
+#include <FLASH_test.h>
 
-uint8_t  flash_teste(void){
+bool  FLASH_Test(void)
+{
 	/* Compares the XOR hash of the flash memory with the one present on the eeprom memory
 	 * on the address 0x22
 	 * */
 
-	uint16_t hash = calculate_hash_xor();
+	uint16_t hash = FLASH_CalculateHashXOR();
 
 	/* Reads previously written hash value */
-	uint16_t true_hash = eeprom_read_word ((const uint16_t*)0x22);
-	return (hash != true_hash);
+	uint16_t true_hash = eeprom_read_word ((const uint16_t*)EEPROM_ADDR);
+	return (bool)(hash != true_hash);
 }
 
-uint16_t calculate_hash_xor(void)
+uint16_t FLASH_CalculateHashXOR(void)
 {
 	/* 
 	 * Calculates 16 bit XOR hash of the utilized flash memory
