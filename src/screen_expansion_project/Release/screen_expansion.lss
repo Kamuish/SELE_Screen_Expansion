@@ -3,15 +3,15 @@ screen_expansion.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000005e  00800240  00000c54  00000ce8  2**0
+  0 .data         0000005e  00800240  00000c26  00000cba  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .classb_sram_buffer 00000140  00800100  00800100  00000d46  2**0
+  1 .classb_sram_buffer 00000140  00800100  00800100  00000d18  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .text         00000c54  00000000  00000000  00000094  2**1
+  2 .text         00000c26  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .comment      00000011  00000000  00000000  00000e86  2**0
+  3 .comment      00000011  00000000  00000000  00000e58  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000e98  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000e6c  2**2
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -56,7 +56,7 @@ Disassembly of section .text:
   74:	12 e0       	ldi	r17, 0x02	; 2
   76:	a0 e4       	ldi	r26, 0x40	; 64
   78:	b2 e0       	ldi	r27, 0x02	; 2
-  7a:	e4 e5       	ldi	r30, 0x54	; 84
+  7a:	e6 e2       	ldi	r30, 0x26	; 38
   7c:	fc e0       	ldi	r31, 0x0C	; 12
   7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
   80:	05 90       	lpm	r0, Z+
@@ -64,8 +64,8 @@ Disassembly of section .text:
   84:	ae 39       	cpi	r26, 0x9E	; 158
   86:	b1 07       	cpc	r27, r17
   88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
-  8a:	0e 94 a2 04 	call	0x944	; 0x944 <main>
-  8e:	0c 94 28 06 	jmp	0xc50	; 0xc50 <_exit>
+  8a:	0e 94 8a 04 	call	0x914	; 0x914 <main>
+  8e:	0c 94 11 06 	jmp	0xc22	; 0xc22 <_exit>
 
 00000092 <__bad_interrupt>:
   92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -78,13 +78,13 @@ Disassembly of section .text:
   9e:	df 93       	push	r29
   a0:	82 e2       	ldi	r24, 0x22	; 34
   a2:	90 e0       	ldi	r25, 0x00	; 0
-  a4:	0e 94 ff 05 	call	0xbfe	; 0xbfe <eeprom_read_word>
+  a4:	0e 94 e8 05 	call	0xbd0	; 0xbd0 <eeprom_read_word>
   a8:	7c 01       	movw	r14, r24
   aa:	c0 e0       	ldi	r28, 0x00	; 0
   ac:	d0 e0       	ldi	r29, 0x00	; 0
   ae:	60 e0       	ldi	r22, 0x00	; 0
   b0:	ce 01       	movw	r24, r28
-  b2:	0e 94 05 06 	call	0xc0a	; 0xc0a <eeprom_write_byte>
+  b2:	0e 94 ee 05 	call	0xbdc	; 0xbdc <eeprom_write_byte>
   b6:	21 96       	adiw	r28, 0x01	; 1
   b8:	c1 15       	cp	r28, r1
   ba:	84 e0       	ldi	r24, 0x04	; 4
@@ -94,15 +94,15 @@ Disassembly of section .text:
   c2:	d0 e0       	ldi	r29, 0x00	; 0
   c4:	10 e0       	ldi	r17, 0x00	; 0
   c6:	ce 01       	movw	r24, r28
-  c8:	0e 94 f7 05 	call	0xbee	; 0xbee <eeprom_read_byte>
+  c8:	0e 94 e0 05 	call	0xbc0	; 0xbc0 <eeprom_read_byte>
   cc:	6f ef       	ldi	r22, 0xFF	; 255
   ce:	81 11       	cpse	r24, r1
   d0:	04 c0       	rjmp	.+8      	; 0xda <EEPROM_Test+0x44>
   d2:	ce 01       	movw	r24, r28
-  d4:	0e 94 05 06 	call	0xc0a	; 0xc0a <eeprom_write_byte>
+  d4:	0e 94 ee 05 	call	0xbdc	; 0xbdc <eeprom_write_byte>
   d8:	04 c0       	rjmp	.+8      	; 0xe2 <EEPROM_Test+0x4c>
   da:	ce 01       	movw	r24, r28
-  dc:	0e 94 05 06 	call	0xc0a	; 0xc0a <eeprom_write_byte>
+  dc:	0e 94 ee 05 	call	0xbdc	; 0xbdc <eeprom_write_byte>
   e0:	11 e0       	ldi	r17, 0x01	; 1
   e2:	21 96       	adiw	r28, 0x01	; 1
   e4:	c1 15       	cp	r28, r1
@@ -112,15 +112,15 @@ Disassembly of section .text:
   ec:	c0 e0       	ldi	r28, 0x00	; 0
   ee:	d0 e0       	ldi	r29, 0x00	; 0
   f0:	ce 01       	movw	r24, r28
-  f2:	0e 94 f7 05 	call	0xbee	; 0xbee <eeprom_read_byte>
+  f2:	0e 94 e0 05 	call	0xbc0	; 0xbc0 <eeprom_read_byte>
   f6:	60 e0       	ldi	r22, 0x00	; 0
   f8:	8f 3f       	cpi	r24, 0xFF	; 255
   fa:	21 f4       	brne	.+8      	; 0x104 <EEPROM_Test+0x6e>
   fc:	ce 01       	movw	r24, r28
-  fe:	0e 94 05 06 	call	0xc0a	; 0xc0a <eeprom_write_byte>
+  fe:	0e 94 ee 05 	call	0xbdc	; 0xbdc <eeprom_write_byte>
  102:	04 c0       	rjmp	.+8      	; 0x10c <EEPROM_Test+0x76>
  104:	ce 01       	movw	r24, r28
- 106:	0e 94 05 06 	call	0xc0a	; 0xc0a <eeprom_write_byte>
+ 106:	0e 94 ee 05 	call	0xbdc	; 0xbdc <eeprom_write_byte>
  10a:	11 e0       	ldi	r17, 0x01	; 1
  10c:	21 96       	adiw	r28, 0x01	; 1
  10e:	c1 15       	cp	r28, r1
@@ -130,7 +130,7 @@ Disassembly of section .text:
  116:	c0 e0       	ldi	r28, 0x00	; 0
  118:	d0 e0       	ldi	r29, 0x00	; 0
  11a:	ce 01       	movw	r24, r28
- 11c:	0e 94 f7 05 	call	0xbee	; 0xbee <eeprom_read_byte>
+ 11c:	0e 94 e0 05 	call	0xbc0	; 0xbc0 <eeprom_read_byte>
  120:	81 11       	cpse	r24, r1
  122:	11 e0       	ldi	r17, 0x01	; 1
  124:	21 96       	adiw	r28, 0x01	; 1
@@ -141,7 +141,7 @@ Disassembly of section .text:
  12e:	b7 01       	movw	r22, r14
  130:	82 e2       	ldi	r24, 0x22	; 34
  132:	90 e0       	ldi	r25, 0x00	; 0
- 134:	0e 94 13 06 	call	0xc26	; 0xc26 <eeprom_write_word>
+ 134:	0e 94 fc 05 	call	0xbf8	; 0xbf8 <eeprom_write_word>
  138:	81 2f       	mov	r24, r17
  13a:	df 91       	pop	r29
  13c:	cf 91       	pop	r28
@@ -162,8 +162,8 @@ Disassembly of section .text:
  156:	95 27       	eor	r25, r21
  158:	2e 5f       	subi	r18, 0xFE	; 254
  15a:	3f 4f       	sbci	r19, 0xFF	; 255
- 15c:	24 39       	cpi	r18, 0x94	; 148
- 15e:	42 e0       	ldi	r20, 0x02	; 2
+ 15c:	24 38       	cpi	r18, 0x84	; 132
+ 15e:	4c e0       	ldi	r20, 0x0C	; 12
  160:	34 07       	cpc	r19, r20
  162:	a9 f7       	brne	.-22     	; 0x14e <FLASH_CalculateHashXOR+0x8>
  164:	08 95       	ret
@@ -175,7 +175,7 @@ Disassembly of section .text:
  16e:	ec 01       	movw	r28, r24
  170:	82 e2       	ldi	r24, 0x22	; 34
  172:	90 e0       	ldi	r25, 0x00	; 0
- 174:	0e 94 ff 05 	call	0xbfe	; 0xbfe <eeprom_read_word>
+ 174:	0e 94 e8 05 	call	0xbd0	; 0xbd0 <eeprom_read_word>
  178:	21 e0       	ldi	r18, 0x01	; 1
  17a:	c8 17       	cp	r28, r24
  17c:	d9 07       	cpc	r29, r25
@@ -188,7 +188,7 @@ Disassembly of section .text:
 
 0000018a <I2C_Init>:
  18a:	10 92 b9 00 	sts	0x00B9, r1
- 18e:	88 e4       	ldi	r24, 0x48	; 72
+ 18e:	81 e4       	ldi	r24, 0x41	; 65
  190:	80 93 b8 00 	sts	0x00B8, r24
  194:	08 95       	ret
 
@@ -286,7 +286,7 @@ Disassembly of section .text:
  248:	61 30       	cpi	r22, 0x01	; 1
  24a:	11 f4       	brne	.+4      	; 0x250 <TransferData+0x8>
  24c:	0c 94 f4 00 	jmp	0x1e8	; 0x1e8 <I2C_Write>
- 250:	0c 94 e5 02 	jmp	0x5ca	; 0x5ca <SPI_MasterTransmit>
+ 250:	0c 94 dd 02 	jmp	0x5ba	; 0x5ba <SPI_MasterTransmit>
 
 00000254 <ScreenInstruction>:
  254:	1f 93       	push	r17
@@ -320,8 +320,8 @@ Disassembly of section .text:
  292:	61 2f       	mov	r22, r17
  294:	80 68       	ori	r24, 0x80	; 128
  296:	0e 94 24 01 	call	0x248	; 0x248 <TransferData>
- 29a:	8f e3       	ldi	r24, 0x3F	; 63
- 29c:	9c e9       	ldi	r25, 0x9C	; 156
+ 29a:	8f ef       	ldi	r24, 0xFF	; 255
+ 29c:	9f e8       	ldi	r25, 0x8F	; 143
  29e:	01 97       	sbiw	r24, 0x01	; 1
  2a0:	f1 f7       	brne	.-4      	; 0x29e <ScreenInstruction+0x4a>
  2a2:	00 c0       	rjmp	.+0      	; 0x2a4 <ScreenInstruction+0x50>
@@ -337,8 +337,8 @@ Disassembly of section .text:
  2b8:	8c 2f       	mov	r24, r28
  2ba:	80 68       	ori	r24, 0x80	; 128
  2bc:	0e 94 24 01 	call	0x248	; 0x248 <TransferData>
- 2c0:	8f e3       	ldi	r24, 0x3F	; 63
- 2c2:	9c e9       	ldi	r25, 0x9C	; 156
+ 2c0:	8f ef       	ldi	r24, 0xFF	; 255
+ 2c2:	9f e8       	ldi	r25, 0x8F	; 143
  2c4:	01 97       	sbiw	r24, 0x01	; 1
  2c6:	f1 f7       	brne	.-4      	; 0x2c4 <ScreenInstruction+0x70>
  2c8:	00 c0       	rjmp	.+0      	; 0x2ca <ScreenInstruction+0x76>
@@ -364,8 +364,8 @@ Disassembly of section .text:
  2ee:	81 2f       	mov	r24, r17
  2f0:	82 68       	ori	r24, 0x82	; 130
  2f2:	0e 94 24 01 	call	0x248	; 0x248 <TransferData>
- 2f6:	8f e3       	ldi	r24, 0x3F	; 63
- 2f8:	9c e9       	ldi	r25, 0x9C	; 156
+ 2f6:	8f ef       	ldi	r24, 0xFF	; 255
+ 2f8:	9f e8       	ldi	r25, 0x8F	; 143
  2fa:	01 97       	sbiw	r24, 0x01	; 1
  2fc:	f1 f7       	brne	.-4      	; 0x2fa <ScreenData+0x26>
  2fe:	00 c0       	rjmp	.+0      	; 0x300 <ScreenData+0x2c>
@@ -382,8 +382,8 @@ Disassembly of section .text:
  316:	8c 2f       	mov	r24, r28
  318:	82 68       	ori	r24, 0x82	; 130
  31a:	0e 94 24 01 	call	0x248	; 0x248 <TransferData>
- 31e:	8f e3       	ldi	r24, 0x3F	; 63
- 320:	9c e9       	ldi	r25, 0x9C	; 156
+ 31e:	8f ef       	ldi	r24, 0xFF	; 255
+ 320:	9f e8       	ldi	r25, 0x8F	; 143
  322:	01 97       	sbiw	r24, 0x01	; 1
  324:	f1 f7       	brne	.-4      	; 0x322 <ScreenData+0x4e>
  326:	00 c0       	rjmp	.+0      	; 0x328 <ScreenData+0x54>
@@ -478,7 +478,7 @@ Disassembly of section .text:
 000003d6 <I2C_InitScreen>:
  3d6:	0e 94 c5 00 	call	0x18a	; 0x18a <I2C_Init>
  3da:	2f ef       	ldi	r18, 0xFF	; 255
- 3dc:	81 ee       	ldi	r24, 0xE1	; 225
+ 3dc:	8f e7       	ldi	r24, 0x7F	; 127
  3de:	94 e0       	ldi	r25, 0x04	; 4
  3e0:	21 50       	subi	r18, 0x01	; 1
  3e2:	80 40       	sbci	r24, 0x00	; 0
@@ -487,7 +487,7 @@ Disassembly of section .text:
  3e8:	00 c0       	rjmp	.+0      	; 0x3ea <I2C_InitScreen+0x14>
  3ea:	00 00       	nop
  3ec:	2f ef       	ldi	r18, 0xFF	; 255
- 3ee:	81 ee       	ldi	r24, 0xE1	; 225
+ 3ee:	8f e7       	ldi	r24, 0x7F	; 127
  3f0:	94 e0       	ldi	r25, 0x04	; 4
  3f2:	21 50       	subi	r18, 0x01	; 1
  3f4:	80 40       	sbci	r24, 0x00	; 0
@@ -497,1049 +497,1026 @@ Disassembly of section .text:
  3fc:	00 00       	nop
  3fe:	80 e4       	ldi	r24, 0x40	; 64
  400:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <I2C_Start>
- 404:	8f e9       	ldi	r24, 0x9F	; 159
- 406:	9f e0       	ldi	r25, 0x0F	; 15
+ 404:	86 e6       	ldi	r24, 0x66	; 102
+ 406:	9e e0       	ldi	r25, 0x0E	; 14
  408:	01 97       	sbiw	r24, 0x01	; 1
  40a:	f1 f7       	brne	.-4      	; 0x408 <I2C_InitScreen+0x32>
- 40c:	00 c0       	rjmp	.+0      	; 0x40e <I2C_InitScreen+0x38>
- 40e:	00 00       	nop
- 410:	80 e0       	ldi	r24, 0x00	; 0
- 412:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
- 416:	8f e9       	ldi	r24, 0x9F	; 159
- 418:	9f e0       	ldi	r25, 0x0F	; 15
- 41a:	01 97       	sbiw	r24, 0x01	; 1
- 41c:	f1 f7       	brne	.-4      	; 0x41a <I2C_InitScreen+0x44>
- 41e:	00 c0       	rjmp	.+0      	; 0x420 <I2C_InitScreen+0x4a>
- 420:	00 00       	nop
- 422:	80 e0       	ldi	r24, 0x00	; 0
- 424:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
- 428:	0e 94 cb 00 	call	0x196	; 0x196 <I2C_Stop>
- 42c:	9f ef       	ldi	r25, 0xFF	; 255
- 42e:	21 ee       	ldi	r18, 0xE1	; 225
- 430:	84 e0       	ldi	r24, 0x04	; 4
- 432:	91 50       	subi	r25, 0x01	; 1
- 434:	20 40       	sbci	r18, 0x00	; 0
- 436:	80 40       	sbci	r24, 0x00	; 0
- 438:	e1 f7       	brne	.-8      	; 0x432 <I2C_InitScreen+0x5c>
- 43a:	00 c0       	rjmp	.+0      	; 0x43c <I2C_InitScreen+0x66>
- 43c:	00 00       	nop
- 43e:	80 e4       	ldi	r24, 0x40	; 64
- 440:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <I2C_Start>
- 444:	9f ef       	ldi	r25, 0xFF	; 255
- 446:	21 ee       	ldi	r18, 0xE1	; 225
- 448:	84 e0       	ldi	r24, 0x04	; 4
- 44a:	91 50       	subi	r25, 0x01	; 1
- 44c:	20 40       	sbci	r18, 0x00	; 0
- 44e:	80 40       	sbci	r24, 0x00	; 0
- 450:	e1 f7       	brne	.-8      	; 0x44a <I2C_InitScreen+0x74>
- 452:	00 c0       	rjmp	.+0      	; 0x454 <I2C_InitScreen+0x7e>
- 454:	00 00       	nop
- 456:	85 e0       	ldi	r24, 0x05	; 5
- 458:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
- 45c:	8f e3       	ldi	r24, 0x3F	; 63
- 45e:	9c e9       	ldi	r25, 0x9C	; 156
- 460:	01 97       	sbiw	r24, 0x01	; 1
- 462:	f1 f7       	brne	.-4      	; 0x460 <I2C_InitScreen+0x8a>
- 464:	00 c0       	rjmp	.+0      	; 0x466 <I2C_InitScreen+0x90>
- 466:	00 00       	nop
- 468:	80 e2       	ldi	r24, 0x20	; 32
- 46a:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
- 46e:	0e 94 cb 00 	call	0x196	; 0x196 <I2C_Stop>
- 472:	80 e4       	ldi	r24, 0x40	; 64
- 474:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <I2C_Start>
- 478:	9f ef       	ldi	r25, 0xFF	; 255
- 47a:	21 ee       	ldi	r18, 0xE1	; 225
- 47c:	84 e0       	ldi	r24, 0x04	; 4
- 47e:	91 50       	subi	r25, 0x01	; 1
- 480:	20 40       	sbci	r18, 0x00	; 0
- 482:	80 40       	sbci	r24, 0x00	; 0
- 484:	e1 f7       	brne	.-8      	; 0x47e <I2C_InitScreen+0xa8>
- 486:	00 c0       	rjmp	.+0      	; 0x488 <I2C_InitScreen+0xb2>
- 488:	00 00       	nop
- 48a:	89 e0       	ldi	r24, 0x09	; 9
- 48c:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
- 490:	8f e3       	ldi	r24, 0x3F	; 63
- 492:	9c e9       	ldi	r25, 0x9C	; 156
- 494:	01 97       	sbiw	r24, 0x01	; 1
- 496:	f1 f7       	brne	.-4      	; 0x494 <I2C_InitScreen+0xbe>
- 498:	00 c0       	rjmp	.+0      	; 0x49a <I2C_InitScreen+0xc4>
- 49a:	00 00       	nop
- 49c:	61 e0       	ldi	r22, 0x01	; 1
- 49e:	88 e1       	ldi	r24, 0x18	; 24
- 4a0:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
- 4a4:	9f e7       	ldi	r25, 0x7F	; 127
- 4a6:	20 e0       	ldi	r18, 0x00	; 0
- 4a8:	82 e0       	ldi	r24, 0x02	; 2
- 4aa:	91 50       	subi	r25, 0x01	; 1
- 4ac:	20 40       	sbci	r18, 0x00	; 0
- 4ae:	80 40       	sbci	r24, 0x00	; 0
- 4b0:	e1 f7       	brne	.-8      	; 0x4aa <I2C_InitScreen+0xd4>
- 4b2:	00 c0       	rjmp	.+0      	; 0x4b4 <I2C_InitScreen+0xde>
- 4b4:	00 00       	nop
- 4b6:	61 e0       	ldi	r22, 0x01	; 1
- 4b8:	88 e1       	ldi	r24, 0x18	; 24
- 4ba:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
- 4be:	8f e9       	ldi	r24, 0x9F	; 159
- 4c0:	9f e0       	ldi	r25, 0x0F	; 15
- 4c2:	01 97       	sbiw	r24, 0x01	; 1
- 4c4:	f1 f7       	brne	.-4      	; 0x4c2 <I2C_InitScreen+0xec>
- 4c6:	00 c0       	rjmp	.+0      	; 0x4c8 <I2C_InitScreen+0xf2>
- 4c8:	00 00       	nop
- 4ca:	61 e0       	ldi	r22, 0x01	; 1
- 4cc:	88 e1       	ldi	r24, 0x18	; 24
- 4ce:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
- 4d2:	8f e9       	ldi	r24, 0x9F	; 159
- 4d4:	9f e0       	ldi	r25, 0x0F	; 15
- 4d6:	01 97       	sbiw	r24, 0x01	; 1
- 4d8:	f1 f7       	brne	.-4      	; 0x4d6 <I2C_InitScreen+0x100>
- 4da:	00 c0       	rjmp	.+0      	; 0x4dc <I2C_InitScreen+0x106>
- 4dc:	00 00       	nop
- 4de:	61 e0       	ldi	r22, 0x01	; 1
- 4e0:	80 e1       	ldi	r24, 0x10	; 16
- 4e2:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
- 4e6:	8f e3       	ldi	r24, 0x3F	; 63
- 4e8:	9c e9       	ldi	r25, 0x9C	; 156
- 4ea:	01 97       	sbiw	r24, 0x01	; 1
- 4ec:	f1 f7       	brne	.-4      	; 0x4ea <I2C_InitScreen+0x114>
- 4ee:	00 c0       	rjmp	.+0      	; 0x4f0 <I2C_InitScreen+0x11a>
- 4f0:	00 00       	nop
- 4f2:	08 95       	ret
+ 40c:	00 00       	nop
+ 40e:	80 e0       	ldi	r24, 0x00	; 0
+ 410:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
+ 414:	86 e6       	ldi	r24, 0x66	; 102
+ 416:	9e e0       	ldi	r25, 0x0E	; 14
+ 418:	01 97       	sbiw	r24, 0x01	; 1
+ 41a:	f1 f7       	brne	.-4      	; 0x418 <I2C_InitScreen+0x42>
+ 41c:	00 00       	nop
+ 41e:	80 e0       	ldi	r24, 0x00	; 0
+ 420:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
+ 424:	0e 94 cb 00 	call	0x196	; 0x196 <I2C_Stop>
+ 428:	9f ef       	ldi	r25, 0xFF	; 255
+ 42a:	2f e7       	ldi	r18, 0x7F	; 127
+ 42c:	84 e0       	ldi	r24, 0x04	; 4
+ 42e:	91 50       	subi	r25, 0x01	; 1
+ 430:	20 40       	sbci	r18, 0x00	; 0
+ 432:	80 40       	sbci	r24, 0x00	; 0
+ 434:	e1 f7       	brne	.-8      	; 0x42e <I2C_InitScreen+0x58>
+ 436:	00 c0       	rjmp	.+0      	; 0x438 <I2C_InitScreen+0x62>
+ 438:	00 00       	nop
+ 43a:	80 e4       	ldi	r24, 0x40	; 64
+ 43c:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <I2C_Start>
+ 440:	9f ef       	ldi	r25, 0xFF	; 255
+ 442:	2f e7       	ldi	r18, 0x7F	; 127
+ 444:	84 e0       	ldi	r24, 0x04	; 4
+ 446:	91 50       	subi	r25, 0x01	; 1
+ 448:	20 40       	sbci	r18, 0x00	; 0
+ 44a:	80 40       	sbci	r24, 0x00	; 0
+ 44c:	e1 f7       	brne	.-8      	; 0x446 <I2C_InitScreen+0x70>
+ 44e:	00 c0       	rjmp	.+0      	; 0x450 <I2C_InitScreen+0x7a>
+ 450:	00 00       	nop
+ 452:	85 e0       	ldi	r24, 0x05	; 5
+ 454:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
+ 458:	8f ef       	ldi	r24, 0xFF	; 255
+ 45a:	9f e8       	ldi	r25, 0x8F	; 143
+ 45c:	01 97       	sbiw	r24, 0x01	; 1
+ 45e:	f1 f7       	brne	.-4      	; 0x45c <I2C_InitScreen+0x86>
+ 460:	00 c0       	rjmp	.+0      	; 0x462 <I2C_InitScreen+0x8c>
+ 462:	00 00       	nop
+ 464:	80 e2       	ldi	r24, 0x20	; 32
+ 466:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
+ 46a:	0e 94 cb 00 	call	0x196	; 0x196 <I2C_Stop>
+ 46e:	80 e4       	ldi	r24, 0x40	; 64
+ 470:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <I2C_Start>
+ 474:	9f ef       	ldi	r25, 0xFF	; 255
+ 476:	2f e7       	ldi	r18, 0x7F	; 127
+ 478:	84 e0       	ldi	r24, 0x04	; 4
+ 47a:	91 50       	subi	r25, 0x01	; 1
+ 47c:	20 40       	sbci	r18, 0x00	; 0
+ 47e:	80 40       	sbci	r24, 0x00	; 0
+ 480:	e1 f7       	brne	.-8      	; 0x47a <I2C_InitScreen+0xa4>
+ 482:	00 c0       	rjmp	.+0      	; 0x484 <I2C_InitScreen+0xae>
+ 484:	00 00       	nop
+ 486:	89 e0       	ldi	r24, 0x09	; 9
+ 488:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <I2C_Write>
+ 48c:	8f ef       	ldi	r24, 0xFF	; 255
+ 48e:	9f e8       	ldi	r25, 0x8F	; 143
+ 490:	01 97       	sbiw	r24, 0x01	; 1
+ 492:	f1 f7       	brne	.-4      	; 0x490 <I2C_InitScreen+0xba>
+ 494:	00 c0       	rjmp	.+0      	; 0x496 <I2C_InitScreen+0xc0>
+ 496:	00 00       	nop
+ 498:	61 e0       	ldi	r22, 0x01	; 1
+ 49a:	88 e1       	ldi	r24, 0x18	; 24
+ 49c:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
+ 4a0:	91 e5       	ldi	r25, 0x51	; 81
+ 4a2:	28 ed       	ldi	r18, 0xD8	; 216
+ 4a4:	81 e0       	ldi	r24, 0x01	; 1
+ 4a6:	91 50       	subi	r25, 0x01	; 1
+ 4a8:	20 40       	sbci	r18, 0x00	; 0
+ 4aa:	80 40       	sbci	r24, 0x00	; 0
+ 4ac:	e1 f7       	brne	.-8      	; 0x4a6 <I2C_InitScreen+0xd0>
+ 4ae:	00 c0       	rjmp	.+0      	; 0x4b0 <I2C_InitScreen+0xda>
+ 4b0:	00 00       	nop
+ 4b2:	61 e0       	ldi	r22, 0x01	; 1
+ 4b4:	88 e1       	ldi	r24, 0x18	; 24
+ 4b6:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
+ 4ba:	86 e6       	ldi	r24, 0x66	; 102
+ 4bc:	9e e0       	ldi	r25, 0x0E	; 14
+ 4be:	01 97       	sbiw	r24, 0x01	; 1
+ 4c0:	f1 f7       	brne	.-4      	; 0x4be <I2C_InitScreen+0xe8>
+ 4c2:	00 00       	nop
+ 4c4:	61 e0       	ldi	r22, 0x01	; 1
+ 4c6:	88 e1       	ldi	r24, 0x18	; 24
+ 4c8:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
+ 4cc:	86 e6       	ldi	r24, 0x66	; 102
+ 4ce:	9e e0       	ldi	r25, 0x0E	; 14
+ 4d0:	01 97       	sbiw	r24, 0x01	; 1
+ 4d2:	f1 f7       	brne	.-4      	; 0x4d0 <I2C_InitScreen+0xfa>
+ 4d4:	00 00       	nop
+ 4d6:	61 e0       	ldi	r22, 0x01	; 1
+ 4d8:	80 e1       	ldi	r24, 0x10	; 16
+ 4da:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
+ 4de:	8f ef       	ldi	r24, 0xFF	; 255
+ 4e0:	9f e8       	ldi	r25, 0x8F	; 143
+ 4e2:	01 97       	sbiw	r24, 0x01	; 1
+ 4e4:	f1 f7       	brne	.-4      	; 0x4e2 <I2C_InitScreen+0x10c>
+ 4e6:	00 c0       	rjmp	.+0      	; 0x4e8 <I2C_InitScreen+0x112>
+ 4e8:	00 00       	nop
+ 4ea:	08 95       	ret
 
-000004f4 <SPI_InitScreen>:
- 4f4:	0e 94 cf 02 	call	0x59e	; 0x59e <SPI_MasterInit>
- 4f8:	2f ef       	ldi	r18, 0xFF	; 255
- 4fa:	87 e8       	ldi	r24, 0x87	; 135
- 4fc:	93 e1       	ldi	r25, 0x13	; 19
- 4fe:	21 50       	subi	r18, 0x01	; 1
- 500:	80 40       	sbci	r24, 0x00	; 0
- 502:	90 40       	sbci	r25, 0x00	; 0
- 504:	e1 f7       	brne	.-8      	; 0x4fe <SPI_InitScreen+0xa>
- 506:	00 c0       	rjmp	.+0      	; 0x508 <SPI_InitScreen+0x14>
- 508:	00 00       	nop
- 50a:	60 e0       	ldi	r22, 0x00	; 0
- 50c:	80 e6       	ldi	r24, 0x60	; 96
- 50e:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
- 512:	2f e7       	ldi	r18, 0x7F	; 127
- 514:	80 e0       	ldi	r24, 0x00	; 0
- 516:	92 e0       	ldi	r25, 0x02	; 2
- 518:	21 50       	subi	r18, 0x01	; 1
- 51a:	80 40       	sbci	r24, 0x00	; 0
- 51c:	90 40       	sbci	r25, 0x00	; 0
- 51e:	e1 f7       	brne	.-8      	; 0x518 <SPI_InitScreen+0x24>
- 520:	00 c0       	rjmp	.+0      	; 0x522 <SPI_InitScreen+0x2e>
- 522:	00 00       	nop
- 524:	60 e0       	ldi	r22, 0x00	; 0
- 526:	80 e6       	ldi	r24, 0x60	; 96
- 528:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
- 52c:	8f e9       	ldi	r24, 0x9F	; 159
- 52e:	9f e0       	ldi	r25, 0x0F	; 15
- 530:	01 97       	sbiw	r24, 0x01	; 1
- 532:	f1 f7       	brne	.-4      	; 0x530 <SPI_InitScreen+0x3c>
- 534:	00 c0       	rjmp	.+0      	; 0x536 <SPI_InitScreen+0x42>
- 536:	00 00       	nop
- 538:	60 e0       	ldi	r22, 0x00	; 0
- 53a:	80 e6       	ldi	r24, 0x60	; 96
- 53c:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
- 540:	8f e9       	ldi	r24, 0x9F	; 159
- 542:	9f e0       	ldi	r25, 0x0F	; 15
- 544:	01 97       	sbiw	r24, 0x01	; 1
- 546:	f1 f7       	brne	.-4      	; 0x544 <SPI_InitScreen+0x50>
- 548:	00 c0       	rjmp	.+0      	; 0x54a <SPI_InitScreen+0x56>
- 54a:	00 00       	nop
- 54c:	60 e0       	ldi	r22, 0x00	; 0
- 54e:	80 e2       	ldi	r24, 0x20	; 32
- 550:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
- 554:	8f e3       	ldi	r24, 0x3F	; 63
- 556:	9c e9       	ldi	r25, 0x9C	; 156
- 558:	01 97       	sbiw	r24, 0x01	; 1
- 55a:	f1 f7       	brne	.-4      	; 0x558 <SPI_InitScreen+0x64>
- 55c:	00 c0       	rjmp	.+0      	; 0x55e <SPI_InitScreen+0x6a>
- 55e:	00 00       	nop
- 560:	08 95       	ret
+000004ec <SPI_InitScreen>:
+ 4ec:	0e 94 c9 02 	call	0x592	; 0x592 <SPI_MasterInit>
+ 4f0:	2f ef       	ldi	r18, 0xFF	; 255
+ 4f2:	8f ef       	ldi	r24, 0xFF	; 255
+ 4f4:	91 e1       	ldi	r25, 0x11	; 17
+ 4f6:	21 50       	subi	r18, 0x01	; 1
+ 4f8:	80 40       	sbci	r24, 0x00	; 0
+ 4fa:	90 40       	sbci	r25, 0x00	; 0
+ 4fc:	e1 f7       	brne	.-8      	; 0x4f6 <SPI_InitScreen+0xa>
+ 4fe:	00 c0       	rjmp	.+0      	; 0x500 <SPI_InitScreen+0x14>
+ 500:	00 00       	nop
+ 502:	60 e0       	ldi	r22, 0x00	; 0
+ 504:	80 e6       	ldi	r24, 0x60	; 96
+ 506:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
+ 50a:	21 e5       	ldi	r18, 0x51	; 81
+ 50c:	88 ed       	ldi	r24, 0xD8	; 216
+ 50e:	91 e0       	ldi	r25, 0x01	; 1
+ 510:	21 50       	subi	r18, 0x01	; 1
+ 512:	80 40       	sbci	r24, 0x00	; 0
+ 514:	90 40       	sbci	r25, 0x00	; 0
+ 516:	e1 f7       	brne	.-8      	; 0x510 <SPI_InitScreen+0x24>
+ 518:	00 c0       	rjmp	.+0      	; 0x51a <SPI_InitScreen+0x2e>
+ 51a:	00 00       	nop
+ 51c:	60 e0       	ldi	r22, 0x00	; 0
+ 51e:	80 e6       	ldi	r24, 0x60	; 96
+ 520:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
+ 524:	86 e6       	ldi	r24, 0x66	; 102
+ 526:	9e e0       	ldi	r25, 0x0E	; 14
+ 528:	01 97       	sbiw	r24, 0x01	; 1
+ 52a:	f1 f7       	brne	.-4      	; 0x528 <SPI_InitScreen+0x3c>
+ 52c:	00 00       	nop
+ 52e:	60 e0       	ldi	r22, 0x00	; 0
+ 530:	80 e6       	ldi	r24, 0x60	; 96
+ 532:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
+ 536:	86 e6       	ldi	r24, 0x66	; 102
+ 538:	9e e0       	ldi	r25, 0x0E	; 14
+ 53a:	01 97       	sbiw	r24, 0x01	; 1
+ 53c:	f1 f7       	brne	.-4      	; 0x53a <SPI_InitScreen+0x4e>
+ 53e:	00 00       	nop
+ 540:	60 e0       	ldi	r22, 0x00	; 0
+ 542:	80 e2       	ldi	r24, 0x20	; 32
+ 544:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <Send4BitCommand>
+ 548:	8f ef       	ldi	r24, 0xFF	; 255
+ 54a:	9f e8       	ldi	r25, 0x8F	; 143
+ 54c:	01 97       	sbiw	r24, 0x01	; 1
+ 54e:	f1 f7       	brne	.-4      	; 0x54c <SPI_InitScreen+0x60>
+ 550:	00 c0       	rjmp	.+0      	; 0x552 <SPI_InitScreen+0x66>
+ 552:	00 00       	nop
+ 554:	08 95       	ret
 
-00000562 <ScreenInit>:
- 562:	cf 93       	push	r28
- 564:	c8 2f       	mov	r28, r24
- 566:	81 30       	cpi	r24, 0x01	; 1
- 568:	19 f4       	brne	.+6      	; 0x570 <ScreenInit+0xe>
- 56a:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <I2C_InitScreen>
- 56e:	02 c0       	rjmp	.+4      	; 0x574 <ScreenInit+0x12>
- 570:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <SPI_InitScreen>
- 574:	6c 2f       	mov	r22, r28
- 576:	80 e2       	ldi	r24, 0x20	; 32
- 578:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 57c:	6c 2f       	mov	r22, r28
- 57e:	88 e0       	ldi	r24, 0x08	; 8
- 580:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 584:	6c 2f       	mov	r22, r28
- 586:	81 e0       	ldi	r24, 0x01	; 1
- 588:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 58c:	6c 2f       	mov	r22, r28
- 58e:	86 e0       	ldi	r24, 0x06	; 6
- 590:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 594:	6c 2f       	mov	r22, r28
- 596:	8c e0       	ldi	r24, 0x0C	; 12
- 598:	cf 91       	pop	r28
- 59a:	0c 94 2a 01 	jmp	0x254	; 0x254 <ScreenInstruction>
+00000556 <ScreenInit>:
+ 556:	cf 93       	push	r28
+ 558:	c8 2f       	mov	r28, r24
+ 55a:	81 30       	cpi	r24, 0x01	; 1
+ 55c:	19 f4       	brne	.+6      	; 0x564 <ScreenInit+0xe>
+ 55e:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <I2C_InitScreen>
+ 562:	02 c0       	rjmp	.+4      	; 0x568 <ScreenInit+0x12>
+ 564:	0e 94 76 02 	call	0x4ec	; 0x4ec <SPI_InitScreen>
+ 568:	6c 2f       	mov	r22, r28
+ 56a:	80 e2       	ldi	r24, 0x20	; 32
+ 56c:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 570:	6c 2f       	mov	r22, r28
+ 572:	88 e0       	ldi	r24, 0x08	; 8
+ 574:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 578:	6c 2f       	mov	r22, r28
+ 57a:	81 e0       	ldi	r24, 0x01	; 1
+ 57c:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 580:	6c 2f       	mov	r22, r28
+ 582:	86 e0       	ldi	r24, 0x06	; 6
+ 584:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 588:	6c 2f       	mov	r22, r28
+ 58a:	8c e0       	ldi	r24, 0x0C	; 12
+ 58c:	cf 91       	pop	r28
+ 58e:	0c 94 2a 01 	jmp	0x254	; 0x254 <ScreenInstruction>
 
-0000059e <SPI_MasterInit>:
- 59e:	84 b1       	in	r24, 0x04	; 4
- 5a0:	8c 62       	ori	r24, 0x2C	; 44
- 5a2:	84 b9       	out	0x04, r24	; 4
- 5a4:	24 98       	cbi	0x04, 4	; 4
- 5a6:	2a 9a       	sbi	0x05, 2	; 5
- 5a8:	82 e5       	ldi	r24, 0x52	; 82
- 5aa:	8c bd       	out	0x2c, r24	; 44
- 5ac:	8d b5       	in	r24, 0x2d	; 45
- 5ae:	8e 7f       	andi	r24, 0xFE	; 254
- 5b0:	8d bd       	out	0x2d, r24	; 45
- 5b2:	08 95       	ret
+00000592 <SPI_MasterInit>:
+ 592:	84 b1       	in	r24, 0x04	; 4
+ 594:	8c 62       	ori	r24, 0x2C	; 44
+ 596:	84 b9       	out	0x04, r24	; 4
+ 598:	24 98       	cbi	0x04, 4	; 4
+ 59a:	2a 9a       	sbi	0x05, 2	; 5
+ 59c:	82 e5       	ldi	r24, 0x52	; 82
+ 59e:	8c bd       	out	0x2c, r24	; 44
+ 5a0:	8d b5       	in	r24, 0x2d	; 45
+ 5a2:	8e 7f       	andi	r24, 0xFE	; 254
+ 5a4:	8d bd       	out	0x2d, r24	; 45
+ 5a6:	08 95       	ret
 
-000005b4 <FlushShiftRegister>:
- 5b4:	2a 9a       	sbi	0x05, 2	; 5
- 5b6:	85 e0       	ldi	r24, 0x05	; 5
- 5b8:	8a 95       	dec	r24
- 5ba:	f1 f7       	brne	.-4      	; 0x5b8 <FlushShiftRegister+0x4>
- 5bc:	00 00       	nop
- 5be:	2a 98       	cbi	0x05, 2	; 5
- 5c0:	85 e0       	ldi	r24, 0x05	; 5
- 5c2:	8a 95       	dec	r24
- 5c4:	f1 f7       	brne	.-4      	; 0x5c2 <FlushShiftRegister+0xe>
- 5c6:	00 00       	nop
+000005a8 <FlushShiftRegister>:
+ 5a8:	2a 9a       	sbi	0x05, 2	; 5
+ 5aa:	85 e0       	ldi	r24, 0x05	; 5
+ 5ac:	8a 95       	dec	r24
+ 5ae:	f1 f7       	brne	.-4      	; 0x5ac <FlushShiftRegister+0x4>
+ 5b0:	2a 98       	cbi	0x05, 2	; 5
+ 5b2:	85 e0       	ldi	r24, 0x05	; 5
+ 5b4:	8a 95       	dec	r24
+ 5b6:	f1 f7       	brne	.-4      	; 0x5b4 <FlushShiftRegister+0xc>
+ 5b8:	08 95       	ret
+
+000005ba <SPI_MasterTransmit>:
+ 5ba:	8e bd       	out	0x2e, r24	; 46
+ 5bc:	0d b4       	in	r0, 0x2d	; 45
+ 5be:	07 fe       	sbrs	r0, 7
+ 5c0:	fd cf       	rjmp	.-6      	; 0x5bc <SPI_MasterTransmit+0x2>
+ 5c2:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <FlushShiftRegister>
+ 5c6:	8e b5       	in	r24, 0x2e	; 46
  5c8:	08 95       	ret
 
-000005ca <SPI_MasterTransmit>:
- 5ca:	8e bd       	out	0x2e, r24	; 46
- 5cc:	0d b4       	in	r0, 0x2d	; 45
- 5ce:	07 fe       	sbrs	r0, 7
- 5d0:	fd cf       	rjmp	.-6      	; 0x5cc <SPI_MasterTransmit+0x2>
- 5d2:	0e 94 da 02 	call	0x5b4	; 0x5b4 <FlushShiftRegister>
- 5d6:	8e b5       	in	r24, 0x2e	; 46
- 5d8:	08 95       	ret
+000005ca <SRAM_MarchCTest>:
+ 5ca:	1f 93       	push	r17
+ 5cc:	cf 93       	push	r28
+ 5ce:	df 93       	push	r29
+ 5d0:	fa 01       	movw	r30, r20
+ 5d2:	68 17       	cp	r22, r24
+ 5d4:	79 07       	cpc	r23, r25
+ 5d6:	19 f4       	brne	.+6      	; 0x5de <SRAM_MarchCTest+0x14>
+ 5d8:	20 e0       	ldi	r18, 0x00	; 0
+ 5da:	30 e0       	ldi	r19, 0x00	; 0
+ 5dc:	10 c0       	rjmp	.+32     	; 0x5fe <SRAM_MarchCTest+0x34>
+ 5de:	20 e0       	ldi	r18, 0x00	; 0
+ 5e0:	30 e0       	ldi	r19, 0x00	; 0
+ 5e2:	2e 17       	cp	r18, r30
+ 5e4:	3f 07       	cpc	r19, r31
+ 5e6:	c1 f3       	breq	.-16     	; 0x5d8 <SRAM_MarchCTest+0xe>
+ 5e8:	db 01       	movw	r26, r22
+ 5ea:	a2 0f       	add	r26, r18
+ 5ec:	b3 1f       	adc	r27, r19
+ 5ee:	ec 01       	movw	r28, r24
+ 5f0:	c2 0f       	add	r28, r18
+ 5f2:	d3 1f       	adc	r29, r19
+ 5f4:	48 81       	ld	r20, Y
+ 5f6:	4c 93       	st	X, r20
+ 5f8:	2f 5f       	subi	r18, 0xFF	; 255
+ 5fa:	3f 4f       	sbci	r19, 0xFF	; 255
+ 5fc:	f2 cf       	rjmp	.-28     	; 0x5e2 <SRAM_MarchCTest+0x18>
+ 5fe:	2e 17       	cp	r18, r30
+ 600:	3f 07       	cpc	r19, r31
+ 602:	39 f0       	breq	.+14     	; 0x612 <SRAM_MarchCTest+0x48>
+ 604:	dc 01       	movw	r26, r24
+ 606:	a2 0f       	add	r26, r18
+ 608:	b3 1f       	adc	r27, r19
+ 60a:	1c 92       	st	X, r1
+ 60c:	2f 5f       	subi	r18, 0xFF	; 255
+ 60e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 610:	f6 cf       	rjmp	.-20     	; 0x5fe <SRAM_MarchCTest+0x34>
+ 612:	50 e0       	ldi	r21, 0x00	; 0
+ 614:	20 e0       	ldi	r18, 0x00	; 0
+ 616:	30 e0       	ldi	r19, 0x00	; 0
+ 618:	4f ef       	ldi	r20, 0xFF	; 255
+ 61a:	2e 17       	cp	r18, r30
+ 61c:	3f 07       	cpc	r19, r31
+ 61e:	51 f0       	breq	.+20     	; 0x634 <SRAM_MarchCTest+0x6a>
+ 620:	dc 01       	movw	r26, r24
+ 622:	a2 0f       	add	r26, r18
+ 624:	b3 1f       	adc	r27, r19
+ 626:	cc 91       	ld	r28, X
+ 628:	c1 11       	cpse	r28, r1
+ 62a:	51 e0       	ldi	r21, 0x01	; 1
+ 62c:	4c 93       	st	X, r20
+ 62e:	2f 5f       	subi	r18, 0xFF	; 255
+ 630:	3f 4f       	sbci	r19, 0xFF	; 255
+ 632:	f3 cf       	rjmp	.-26     	; 0x61a <SRAM_MarchCTest+0x50>
+ 634:	20 e0       	ldi	r18, 0x00	; 0
+ 636:	30 e0       	ldi	r19, 0x00	; 0
+ 638:	2e 17       	cp	r18, r30
+ 63a:	3f 07       	cpc	r19, r31
+ 63c:	59 f0       	breq	.+22     	; 0x654 <SRAM_MarchCTest+0x8a>
+ 63e:	dc 01       	movw	r26, r24
+ 640:	a2 0f       	add	r26, r18
+ 642:	b3 1f       	adc	r27, r19
+ 644:	4c 91       	ld	r20, X
+ 646:	4f 3f       	cpi	r20, 0xFF	; 255
+ 648:	09 f0       	breq	.+2      	; 0x64c <SRAM_MarchCTest+0x82>
+ 64a:	51 e0       	ldi	r21, 0x01	; 1
+ 64c:	1c 92       	st	X, r1
+ 64e:	2f 5f       	subi	r18, 0xFF	; 255
+ 650:	3f 4f       	sbci	r19, 0xFF	; 255
+ 652:	f2 cf       	rjmp	.-28     	; 0x638 <SRAM_MarchCTest+0x6e>
+ 654:	9f 01       	movw	r18, r30
+ 656:	21 50       	subi	r18, 0x01	; 1
+ 658:	31 09       	sbc	r19, r1
+ 65a:	d9 01       	movw	r26, r18
+ 65c:	4f ef       	ldi	r20, 0xFF	; 255
+ 65e:	10 97       	sbiw	r26, 0x00	; 0
+ 660:	49 f0       	breq	.+18     	; 0x674 <SRAM_MarchCTest+0xaa>
+ 662:	ec 01       	movw	r28, r24
+ 664:	ca 0f       	add	r28, r26
+ 666:	db 1f       	adc	r29, r27
+ 668:	18 81       	ld	r17, Y
+ 66a:	11 11       	cpse	r17, r1
+ 66c:	51 e0       	ldi	r21, 0x01	; 1
+ 66e:	48 83       	st	Y, r20
+ 670:	11 97       	sbiw	r26, 0x01	; 1
+ 672:	f5 cf       	rjmp	.-22     	; 0x65e <SRAM_MarchCTest+0x94>
+ 674:	d9 01       	movw	r26, r18
+ 676:	10 97       	sbiw	r26, 0x00	; 0
+ 678:	91 f0       	breq	.+36     	; 0x69e <SRAM_MarchCTest+0xd4>
+ 67a:	ec 01       	movw	r28, r24
+ 67c:	ca 0f       	add	r28, r26
+ 67e:	db 1f       	adc	r29, r27
+ 680:	48 81       	ld	r20, Y
+ 682:	4f 3f       	cpi	r20, 0xFF	; 255
+ 684:	09 f0       	breq	.+2      	; 0x688 <SRAM_MarchCTest+0xbe>
+ 686:	51 e0       	ldi	r21, 0x01	; 1
+ 688:	18 82       	st	Y, r1
+ 68a:	11 97       	sbiw	r26, 0x01	; 1
+ 68c:	f4 cf       	rjmp	.-24     	; 0x676 <SRAM_MarchCTest+0xac>
+ 68e:	dc 01       	movw	r26, r24
+ 690:	a2 0f       	add	r26, r18
+ 692:	b3 1f       	adc	r27, r19
+ 694:	4c 91       	ld	r20, X
+ 696:	41 11       	cpse	r20, r1
+ 698:	51 e0       	ldi	r21, 0x01	; 1
+ 69a:	21 50       	subi	r18, 0x01	; 1
+ 69c:	31 09       	sbc	r19, r1
+ 69e:	21 15       	cp	r18, r1
+ 6a0:	31 05       	cpc	r19, r1
+ 6a2:	a9 f7       	brne	.-22     	; 0x68e <SRAM_MarchCTest+0xc4>
+ 6a4:	68 17       	cp	r22, r24
+ 6a6:	79 07       	cpc	r23, r25
+ 6a8:	31 f4       	brne	.+12     	; 0x6b6 <SRAM_MarchCTest+0xec>
+ 6aa:	85 2f       	mov	r24, r21
+ 6ac:	81 70       	andi	r24, 0x01	; 1
+ 6ae:	df 91       	pop	r29
+ 6b0:	cf 91       	pop	r28
+ 6b2:	1f 91       	pop	r17
+ 6b4:	08 95       	ret
+ 6b6:	2e 17       	cp	r18, r30
+ 6b8:	3f 07       	cpc	r19, r31
+ 6ba:	b9 f3       	breq	.-18     	; 0x6aa <SRAM_MarchCTest+0xe0>
+ 6bc:	dc 01       	movw	r26, r24
+ 6be:	a2 0f       	add	r26, r18
+ 6c0:	b3 1f       	adc	r27, r19
+ 6c2:	eb 01       	movw	r28, r22
+ 6c4:	c2 0f       	add	r28, r18
+ 6c6:	d3 1f       	adc	r29, r19
+ 6c8:	48 81       	ld	r20, Y
+ 6ca:	4c 93       	st	X, r20
+ 6cc:	2f 5f       	subi	r18, 0xFF	; 255
+ 6ce:	3f 4f       	sbci	r19, 0xFF	; 255
+ 6d0:	f2 cf       	rjmp	.-28     	; 0x6b6 <SRAM_MarchCTest+0xec>
 
-000005da <SRAM_MarchCTest>:
- 5da:	1f 93       	push	r17
- 5dc:	cf 93       	push	r28
- 5de:	df 93       	push	r29
- 5e0:	fa 01       	movw	r30, r20
- 5e2:	68 17       	cp	r22, r24
- 5e4:	79 07       	cpc	r23, r25
- 5e6:	19 f4       	brne	.+6      	; 0x5ee <SRAM_MarchCTest+0x14>
- 5e8:	20 e0       	ldi	r18, 0x00	; 0
- 5ea:	30 e0       	ldi	r19, 0x00	; 0
- 5ec:	10 c0       	rjmp	.+32     	; 0x60e <SRAM_MarchCTest+0x34>
- 5ee:	20 e0       	ldi	r18, 0x00	; 0
- 5f0:	30 e0       	ldi	r19, 0x00	; 0
- 5f2:	2e 17       	cp	r18, r30
- 5f4:	3f 07       	cpc	r19, r31
- 5f6:	c1 f3       	breq	.-16     	; 0x5e8 <SRAM_MarchCTest+0xe>
- 5f8:	db 01       	movw	r26, r22
- 5fa:	a2 0f       	add	r26, r18
- 5fc:	b3 1f       	adc	r27, r19
- 5fe:	ec 01       	movw	r28, r24
- 600:	c2 0f       	add	r28, r18
- 602:	d3 1f       	adc	r29, r19
- 604:	48 81       	ld	r20, Y
- 606:	4c 93       	st	X, r20
- 608:	2f 5f       	subi	r18, 0xFF	; 255
- 60a:	3f 4f       	sbci	r19, 0xFF	; 255
- 60c:	f2 cf       	rjmp	.-28     	; 0x5f2 <SRAM_MarchCTest+0x18>
- 60e:	2e 17       	cp	r18, r30
- 610:	3f 07       	cpc	r19, r31
- 612:	39 f0       	breq	.+14     	; 0x622 <SRAM_MarchCTest+0x48>
- 614:	dc 01       	movw	r26, r24
- 616:	a2 0f       	add	r26, r18
- 618:	b3 1f       	adc	r27, r19
- 61a:	1c 92       	st	X, r1
- 61c:	2f 5f       	subi	r18, 0xFF	; 255
- 61e:	3f 4f       	sbci	r19, 0xFF	; 255
- 620:	f6 cf       	rjmp	.-20     	; 0x60e <SRAM_MarchCTest+0x34>
- 622:	50 e0       	ldi	r21, 0x00	; 0
- 624:	20 e0       	ldi	r18, 0x00	; 0
- 626:	30 e0       	ldi	r19, 0x00	; 0
- 628:	4f ef       	ldi	r20, 0xFF	; 255
- 62a:	2e 17       	cp	r18, r30
- 62c:	3f 07       	cpc	r19, r31
- 62e:	51 f0       	breq	.+20     	; 0x644 <SRAM_MarchCTest+0x6a>
- 630:	dc 01       	movw	r26, r24
- 632:	a2 0f       	add	r26, r18
- 634:	b3 1f       	adc	r27, r19
- 636:	cc 91       	ld	r28, X
- 638:	c1 11       	cpse	r28, r1
- 63a:	51 e0       	ldi	r21, 0x01	; 1
- 63c:	4c 93       	st	X, r20
- 63e:	2f 5f       	subi	r18, 0xFF	; 255
- 640:	3f 4f       	sbci	r19, 0xFF	; 255
- 642:	f3 cf       	rjmp	.-26     	; 0x62a <SRAM_MarchCTest+0x50>
- 644:	20 e0       	ldi	r18, 0x00	; 0
- 646:	30 e0       	ldi	r19, 0x00	; 0
- 648:	2e 17       	cp	r18, r30
- 64a:	3f 07       	cpc	r19, r31
- 64c:	59 f0       	breq	.+22     	; 0x664 <SRAM_MarchCTest+0x8a>
- 64e:	dc 01       	movw	r26, r24
- 650:	a2 0f       	add	r26, r18
- 652:	b3 1f       	adc	r27, r19
- 654:	4c 91       	ld	r20, X
- 656:	4f 3f       	cpi	r20, 0xFF	; 255
- 658:	09 f0       	breq	.+2      	; 0x65c <SRAM_MarchCTest+0x82>
- 65a:	51 e0       	ldi	r21, 0x01	; 1
- 65c:	1c 92       	st	X, r1
- 65e:	2f 5f       	subi	r18, 0xFF	; 255
- 660:	3f 4f       	sbci	r19, 0xFF	; 255
- 662:	f2 cf       	rjmp	.-28     	; 0x648 <SRAM_MarchCTest+0x6e>
- 664:	9f 01       	movw	r18, r30
- 666:	21 50       	subi	r18, 0x01	; 1
- 668:	31 09       	sbc	r19, r1
- 66a:	d9 01       	movw	r26, r18
- 66c:	4f ef       	ldi	r20, 0xFF	; 255
- 66e:	10 97       	sbiw	r26, 0x00	; 0
- 670:	49 f0       	breq	.+18     	; 0x684 <SRAM_MarchCTest+0xaa>
- 672:	ec 01       	movw	r28, r24
- 674:	ca 0f       	add	r28, r26
- 676:	db 1f       	adc	r29, r27
- 678:	18 81       	ld	r17, Y
- 67a:	11 11       	cpse	r17, r1
- 67c:	51 e0       	ldi	r21, 0x01	; 1
- 67e:	48 83       	st	Y, r20
- 680:	11 97       	sbiw	r26, 0x01	; 1
- 682:	f5 cf       	rjmp	.-22     	; 0x66e <SRAM_MarchCTest+0x94>
- 684:	d9 01       	movw	r26, r18
- 686:	10 97       	sbiw	r26, 0x00	; 0
- 688:	91 f0       	breq	.+36     	; 0x6ae <SRAM_MarchCTest+0xd4>
- 68a:	ec 01       	movw	r28, r24
- 68c:	ca 0f       	add	r28, r26
- 68e:	db 1f       	adc	r29, r27
- 690:	48 81       	ld	r20, Y
- 692:	4f 3f       	cpi	r20, 0xFF	; 255
- 694:	09 f0       	breq	.+2      	; 0x698 <SRAM_MarchCTest+0xbe>
- 696:	51 e0       	ldi	r21, 0x01	; 1
- 698:	18 82       	st	Y, r1
- 69a:	11 97       	sbiw	r26, 0x01	; 1
- 69c:	f4 cf       	rjmp	.-24     	; 0x686 <SRAM_MarchCTest+0xac>
- 69e:	dc 01       	movw	r26, r24
- 6a0:	a2 0f       	add	r26, r18
- 6a2:	b3 1f       	adc	r27, r19
- 6a4:	4c 91       	ld	r20, X
- 6a6:	41 11       	cpse	r20, r1
- 6a8:	51 e0       	ldi	r21, 0x01	; 1
- 6aa:	21 50       	subi	r18, 0x01	; 1
- 6ac:	31 09       	sbc	r19, r1
- 6ae:	21 15       	cp	r18, r1
- 6b0:	31 05       	cpc	r19, r1
- 6b2:	a9 f7       	brne	.-22     	; 0x69e <SRAM_MarchCTest+0xc4>
- 6b4:	68 17       	cp	r22, r24
- 6b6:	79 07       	cpc	r23, r25
- 6b8:	31 f4       	brne	.+12     	; 0x6c6 <SRAM_MarchCTest+0xec>
- 6ba:	85 2f       	mov	r24, r21
- 6bc:	81 70       	andi	r24, 0x01	; 1
- 6be:	df 91       	pop	r29
- 6c0:	cf 91       	pop	r28
- 6c2:	1f 91       	pop	r17
- 6c4:	08 95       	ret
- 6c6:	2e 17       	cp	r18, r30
- 6c8:	3f 07       	cpc	r19, r31
- 6ca:	b9 f3       	breq	.-18     	; 0x6ba <SRAM_MarchCTest+0xe0>
- 6cc:	dc 01       	movw	r26, r24
- 6ce:	a2 0f       	add	r26, r18
- 6d0:	b3 1f       	adc	r27, r19
- 6d2:	eb 01       	movw	r28, r22
- 6d4:	c2 0f       	add	r28, r18
- 6d6:	d3 1f       	adc	r29, r19
- 6d8:	48 81       	ld	r20, Y
- 6da:	4c 93       	st	X, r20
- 6dc:	2f 5f       	subi	r18, 0xFF	; 255
- 6de:	3f 4f       	sbci	r19, 0xFF	; 255
- 6e0:	f2 cf       	rjmp	.-28     	; 0x6c6 <SRAM_MarchCTest+0xec>
+000006d2 <SRAM_TestSection>:
+ 6d2:	81 30       	cpi	r24, 0x01	; 1
+ 6d4:	89 f0       	breq	.+34     	; 0x6f8 <SRAM_TestSection+0x26>
+ 6d6:	48 f0       	brcs	.+18     	; 0x6ea <SRAM_TestSection+0x18>
+ 6d8:	88 30       	cpi	r24, 0x08	; 8
+ 6da:	a9 f4       	brne	.+42     	; 0x706 <SRAM_TestSection+0x34>
+ 6dc:	40 e4       	ldi	r20, 0x40	; 64
+ 6de:	50 e0       	ldi	r21, 0x00	; 0
+ 6e0:	60 e0       	ldi	r22, 0x00	; 0
+ 6e2:	71 e0       	ldi	r23, 0x01	; 1
+ 6e4:	80 ec       	ldi	r24, 0xC0	; 192
+ 6e6:	98 e0       	ldi	r25, 0x08	; 8
+ 6e8:	17 c0       	rjmp	.+46     	; 0x718 <SRAM_TestSection+0x46>
+ 6ea:	40 e4       	ldi	r20, 0x40	; 64
+ 6ec:	51 e0       	ldi	r21, 0x01	; 1
+ 6ee:	60 e0       	ldi	r22, 0x00	; 0
+ 6f0:	71 e0       	ldi	r23, 0x01	; 1
+ 6f2:	80 e0       	ldi	r24, 0x00	; 0
+ 6f4:	91 e0       	ldi	r25, 0x01	; 1
+ 6f6:	10 c0       	rjmp	.+32     	; 0x718 <SRAM_TestSection+0x46>
+ 6f8:	40 e0       	ldi	r20, 0x00	; 0
+ 6fa:	51 e0       	ldi	r21, 0x01	; 1
+ 6fc:	60 e0       	ldi	r22, 0x00	; 0
+ 6fe:	71 e0       	ldi	r23, 0x01	; 1
+ 700:	80 e0       	ldi	r24, 0x00	; 0
+ 702:	92 e0       	ldi	r25, 0x02	; 2
+ 704:	09 c0       	rjmp	.+18     	; 0x718 <SRAM_TestSection+0x46>
+ 706:	90 e0       	ldi	r25, 0x00	; 0
+ 708:	98 2f       	mov	r25, r24
+ 70a:	88 27       	eor	r24, r24
+ 70c:	40 e4       	ldi	r20, 0x40	; 64
+ 70e:	51 e0       	ldi	r21, 0x01	; 1
+ 710:	60 e0       	ldi	r22, 0x00	; 0
+ 712:	71 e0       	ldi	r23, 0x01	; 1
+ 714:	80 54       	subi	r24, 0x40	; 64
+ 716:	9f 4f       	sbci	r25, 0xFF	; 255
+ 718:	0e 94 e5 02 	call	0x5ca	; 0x5ca <SRAM_MarchCTest>
+ 71c:	81 70       	andi	r24, 0x01	; 1
+ 71e:	08 95       	ret
 
-000006e2 <SRAM_TestSection>:
- 6e2:	81 30       	cpi	r24, 0x01	; 1
- 6e4:	89 f0       	breq	.+34     	; 0x708 <SRAM_TestSection+0x26>
- 6e6:	48 f0       	brcs	.+18     	; 0x6fa <SRAM_TestSection+0x18>
- 6e8:	88 30       	cpi	r24, 0x08	; 8
- 6ea:	a9 f4       	brne	.+42     	; 0x716 <SRAM_TestSection+0x34>
- 6ec:	40 e4       	ldi	r20, 0x40	; 64
- 6ee:	50 e0       	ldi	r21, 0x00	; 0
- 6f0:	60 e0       	ldi	r22, 0x00	; 0
- 6f2:	71 e0       	ldi	r23, 0x01	; 1
- 6f4:	80 ec       	ldi	r24, 0xC0	; 192
- 6f6:	98 e0       	ldi	r25, 0x08	; 8
- 6f8:	17 c0       	rjmp	.+46     	; 0x728 <SRAM_TestSection+0x46>
- 6fa:	40 e4       	ldi	r20, 0x40	; 64
- 6fc:	51 e0       	ldi	r21, 0x01	; 1
- 6fe:	60 e0       	ldi	r22, 0x00	; 0
- 700:	71 e0       	ldi	r23, 0x01	; 1
- 702:	80 e0       	ldi	r24, 0x00	; 0
- 704:	91 e0       	ldi	r25, 0x01	; 1
- 706:	10 c0       	rjmp	.+32     	; 0x728 <SRAM_TestSection+0x46>
- 708:	40 e0       	ldi	r20, 0x00	; 0
- 70a:	51 e0       	ldi	r21, 0x01	; 1
- 70c:	60 e0       	ldi	r22, 0x00	; 0
- 70e:	71 e0       	ldi	r23, 0x01	; 1
- 710:	80 e0       	ldi	r24, 0x00	; 0
- 712:	92 e0       	ldi	r25, 0x02	; 2
- 714:	09 c0       	rjmp	.+18     	; 0x728 <SRAM_TestSection+0x46>
- 716:	90 e0       	ldi	r25, 0x00	; 0
- 718:	98 2f       	mov	r25, r24
- 71a:	88 27       	eor	r24, r24
- 71c:	40 e4       	ldi	r20, 0x40	; 64
- 71e:	51 e0       	ldi	r21, 0x01	; 1
- 720:	60 e0       	ldi	r22, 0x00	; 0
- 722:	71 e0       	ldi	r23, 0x01	; 1
- 724:	80 54       	subi	r24, 0x40	; 64
- 726:	9f 4f       	sbci	r25, 0xFF	; 255
- 728:	0e 94 ed 02 	call	0x5da	; 0x5da <SRAM_MarchCTest>
- 72c:	81 70       	andi	r24, 0x01	; 1
- 72e:	08 95       	ret
+00000720 <SRAM_Test>:
+ 720:	cf 93       	push	r28
+ 722:	c0 e0       	ldi	r28, 0x00	; 0
+ 724:	8c 2f       	mov	r24, r28
+ 726:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SRAM_TestSection>
+ 72a:	81 11       	cpse	r24, r1
+ 72c:	04 c0       	rjmp	.+8      	; 0x736 <SRAM_Test+0x16>
+ 72e:	cf 5f       	subi	r28, 0xFF	; 255
+ 730:	c7 30       	cpi	r28, 0x07	; 7
+ 732:	c1 f7       	brne	.-16     	; 0x724 <SRAM_Test+0x4>
+ 734:	01 c0       	rjmp	.+2      	; 0x738 <SRAM_Test+0x18>
+ 736:	81 e0       	ldi	r24, 0x01	; 1
+ 738:	cf 91       	pop	r28
+ 73a:	08 95       	ret
 
-00000730 <SRAM_Test>:
- 730:	cf 93       	push	r28
- 732:	c0 e0       	ldi	r28, 0x00	; 0
- 734:	8c 2f       	mov	r24, r28
- 736:	0e 94 71 03 	call	0x6e2	; 0x6e2 <SRAM_TestSection>
- 73a:	81 11       	cpse	r24, r1
- 73c:	04 c0       	rjmp	.+8      	; 0x746 <SRAM_Test+0x16>
- 73e:	cf 5f       	subi	r28, 0xFF	; 255
- 740:	c7 30       	cpi	r28, 0x07	; 7
- 742:	c1 f7       	brne	.-16     	; 0x734 <SRAM_Test+0x4>
- 744:	01 c0       	rjmp	.+2      	; 0x748 <SRAM_Test+0x18>
- 746:	81 e0       	ldi	r24, 0x01	; 1
- 748:	cf 91       	pop	r28
- 74a:	08 95       	ret
+0000073c <SRAM_OK>:
+ 73c:	28 9a       	sbi	0x05, 0	; 5
+ 73e:	2f ef       	ldi	r18, 0xFF	; 255
+ 740:	8f e7       	ldi	r24, 0x7F	; 127
+ 742:	96 e1       	ldi	r25, 0x16	; 22
+ 744:	21 50       	subi	r18, 0x01	; 1
+ 746:	80 40       	sbci	r24, 0x00	; 0
+ 748:	90 40       	sbci	r25, 0x00	; 0
+ 74a:	e1 f7       	brne	.-8      	; 0x744 <SRAM_OK+0x8>
+ 74c:	00 c0       	rjmp	.+0      	; 0x74e <SRAM_OK+0x12>
+ 74e:	00 00       	nop
+ 750:	28 98       	cbi	0x05, 0	; 5
+ 752:	2f ef       	ldi	r18, 0xFF	; 255
+ 754:	8f e7       	ldi	r24, 0x7F	; 127
+ 756:	96 e1       	ldi	r25, 0x16	; 22
+ 758:	21 50       	subi	r18, 0x01	; 1
+ 75a:	80 40       	sbci	r24, 0x00	; 0
+ 75c:	90 40       	sbci	r25, 0x00	; 0
+ 75e:	e1 f7       	brne	.-8      	; 0x758 <SRAM_OK+0x1c>
+ 760:	00 c0       	rjmp	.+0      	; 0x762 <SRAM_OK+0x26>
+ 762:	00 00       	nop
+ 764:	28 9a       	sbi	0x05, 0	; 5
+ 766:	2f ef       	ldi	r18, 0xFF	; 255
+ 768:	8f e7       	ldi	r24, 0x7F	; 127
+ 76a:	96 e1       	ldi	r25, 0x16	; 22
+ 76c:	21 50       	subi	r18, 0x01	; 1
+ 76e:	80 40       	sbci	r24, 0x00	; 0
+ 770:	90 40       	sbci	r25, 0x00	; 0
+ 772:	e1 f7       	brne	.-8      	; 0x76c <SRAM_OK+0x30>
+ 774:	00 c0       	rjmp	.+0      	; 0x776 <SRAM_OK+0x3a>
+ 776:	00 00       	nop
+ 778:	28 98       	cbi	0x05, 0	; 5
+ 77a:	2f ef       	ldi	r18, 0xFF	; 255
+ 77c:	8f e7       	ldi	r24, 0x7F	; 127
+ 77e:	96 e1       	ldi	r25, 0x16	; 22
+ 780:	21 50       	subi	r18, 0x01	; 1
+ 782:	80 40       	sbci	r24, 0x00	; 0
+ 784:	90 40       	sbci	r25, 0x00	; 0
+ 786:	e1 f7       	brne	.-8      	; 0x780 <SRAM_OK+0x44>
+ 788:	00 c0       	rjmp	.+0      	; 0x78a <SRAM_OK+0x4e>
+ 78a:	00 00       	nop
+ 78c:	08 95       	ret
 
-0000074c <SRAM_OK>:
- 74c:	28 9a       	sbi	0x05, 0	; 5
- 74e:	2f ef       	ldi	r18, 0xFF	; 255
- 750:	89 e6       	ldi	r24, 0x69	; 105
- 752:	98 e1       	ldi	r25, 0x18	; 24
- 754:	21 50       	subi	r18, 0x01	; 1
- 756:	80 40       	sbci	r24, 0x00	; 0
- 758:	90 40       	sbci	r25, 0x00	; 0
- 75a:	e1 f7       	brne	.-8      	; 0x754 <SRAM_OK+0x8>
- 75c:	00 c0       	rjmp	.+0      	; 0x75e <SRAM_OK+0x12>
- 75e:	00 00       	nop
- 760:	28 98       	cbi	0x05, 0	; 5
- 762:	2f ef       	ldi	r18, 0xFF	; 255
- 764:	89 e6       	ldi	r24, 0x69	; 105
- 766:	98 e1       	ldi	r25, 0x18	; 24
- 768:	21 50       	subi	r18, 0x01	; 1
- 76a:	80 40       	sbci	r24, 0x00	; 0
- 76c:	90 40       	sbci	r25, 0x00	; 0
- 76e:	e1 f7       	brne	.-8      	; 0x768 <SRAM_OK+0x1c>
- 770:	00 c0       	rjmp	.+0      	; 0x772 <SRAM_OK+0x26>
- 772:	00 00       	nop
- 774:	28 9a       	sbi	0x05, 0	; 5
- 776:	2f ef       	ldi	r18, 0xFF	; 255
- 778:	89 e6       	ldi	r24, 0x69	; 105
- 77a:	98 e1       	ldi	r25, 0x18	; 24
- 77c:	21 50       	subi	r18, 0x01	; 1
- 77e:	80 40       	sbci	r24, 0x00	; 0
- 780:	90 40       	sbci	r25, 0x00	; 0
- 782:	e1 f7       	brne	.-8      	; 0x77c <SRAM_OK+0x30>
- 784:	00 c0       	rjmp	.+0      	; 0x786 <SRAM_OK+0x3a>
- 786:	00 00       	nop
- 788:	28 98       	cbi	0x05, 0	; 5
- 78a:	2f ef       	ldi	r18, 0xFF	; 255
- 78c:	89 e6       	ldi	r24, 0x69	; 105
- 78e:	98 e1       	ldi	r25, 0x18	; 24
- 790:	21 50       	subi	r18, 0x01	; 1
- 792:	80 40       	sbci	r24, 0x00	; 0
- 794:	90 40       	sbci	r25, 0x00	; 0
- 796:	e1 f7       	brne	.-8      	; 0x790 <SRAM_OK+0x44>
- 798:	00 c0       	rjmp	.+0      	; 0x79a <SRAM_OK+0x4e>
- 79a:	00 00       	nop
- 79c:	08 95       	ret
+0000078e <SRAM_NOK>:
+ 78e:	28 9a       	sbi	0x05, 0	; 5
+ 790:	08 95       	ret
 
-0000079e <SRAM_NOK>:
- 79e:	28 9a       	sbi	0x05, 0	; 5
- 7a0:	08 95       	ret
+00000792 <InitStringLeft>:
+ 792:	70 e0       	ldi	r23, 0x00	; 0
+ 794:	61 50       	subi	r22, 0x01	; 1
+ 796:	71 09       	sbc	r23, r1
+ 798:	40 e0       	ldi	r20, 0x00	; 0
+ 79a:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
+ 79e:	8f ef       	ldi	r24, 0xFF	; 255
+ 7a0:	9f e8       	ldi	r25, 0x8F	; 143
+ 7a2:	01 97       	sbiw	r24, 0x01	; 1
+ 7a4:	f1 f7       	brne	.-4      	; 0x7a2 <InitStringLeft+0x10>
+ 7a6:	00 c0       	rjmp	.+0      	; 0x7a8 <InitStringLeft+0x16>
+ 7a8:	00 00       	nop
+ 7aa:	60 e0       	ldi	r22, 0x00	; 0
+ 7ac:	82 e0       	ldi	r24, 0x02	; 2
+ 7ae:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 7b2:	8f ef       	ldi	r24, 0xFF	; 255
+ 7b4:	9f e8       	ldi	r25, 0x8F	; 143
+ 7b6:	01 97       	sbiw	r24, 0x01	; 1
+ 7b8:	f1 f7       	brne	.-4      	; 0x7b6 <InitStringLeft+0x24>
+ 7ba:	00 c0       	rjmp	.+0      	; 0x7bc <InitStringLeft+0x2a>
+ 7bc:	00 00       	nop
+ 7be:	08 95       	ret
 
-000007a2 <InitStringLeft>:
- 7a2:	70 e0       	ldi	r23, 0x00	; 0
- 7a4:	61 50       	subi	r22, 0x01	; 1
- 7a6:	71 09       	sbc	r23, r1
- 7a8:	40 e0       	ldi	r20, 0x00	; 0
- 7aa:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
- 7ae:	8f e3       	ldi	r24, 0x3F	; 63
- 7b0:	9c e9       	ldi	r25, 0x9C	; 156
- 7b2:	01 97       	sbiw	r24, 0x01	; 1
- 7b4:	f1 f7       	brne	.-4      	; 0x7b2 <InitStringLeft+0x10>
- 7b6:	00 c0       	rjmp	.+0      	; 0x7b8 <InitStringLeft+0x16>
- 7b8:	00 00       	nop
- 7ba:	60 e0       	ldi	r22, 0x00	; 0
- 7bc:	82 e0       	ldi	r24, 0x02	; 2
- 7be:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 7c2:	8f e3       	ldi	r24, 0x3F	; 63
- 7c4:	9c e9       	ldi	r25, 0x9C	; 156
- 7c6:	01 97       	sbiw	r24, 0x01	; 1
- 7c8:	f1 f7       	brne	.-4      	; 0x7c6 <InitStringLeft+0x24>
- 7ca:	00 c0       	rjmp	.+0      	; 0x7cc <InitStringLeft+0x2a>
- 7cc:	00 00       	nop
- 7ce:	08 95       	ret
-
-000007d0 <StringOnLeftScreen>:
- 7d0:	60 e0       	ldi	r22, 0x00	; 0
- 7d2:	8c e1       	ldi	r24, 0x1C	; 28
- 7d4:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 7d8:	8f e9       	ldi	r24, 0x9F	; 159
- 7da:	9f e0       	ldi	r25, 0x0F	; 15
- 7dc:	01 97       	sbiw	r24, 0x01	; 1
- 7de:	f1 f7       	brne	.-4      	; 0x7dc <StringOnLeftScreen+0xc>
- 7e0:	00 c0       	rjmp	.+0      	; 0x7e2 <StringOnLeftScreen+0x12>
+000007c0 <StringOnLeftScreen>:
+ 7c0:	60 e0       	ldi	r22, 0x00	; 0
+ 7c2:	8c e1       	ldi	r24, 0x1C	; 28
+ 7c4:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 7c8:	86 e6       	ldi	r24, 0x66	; 102
+ 7ca:	9e e0       	ldi	r25, 0x0E	; 14
+ 7cc:	01 97       	sbiw	r24, 0x01	; 1
+ 7ce:	f1 f7       	brne	.-4      	; 0x7cc <StringOnLeftScreen+0xc>
+ 7d0:	00 00       	nop
+ 7d2:	60 e0       	ldi	r22, 0x00	; 0
+ 7d4:	80 e1       	ldi	r24, 0x10	; 16
+ 7d6:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 7da:	86 e6       	ldi	r24, 0x66	; 102
+ 7dc:	9e e0       	ldi	r25, 0x0E	; 14
+ 7de:	01 97       	sbiw	r24, 0x01	; 1
+ 7e0:	f1 f7       	brne	.-4      	; 0x7de <StringOnLeftScreen+0x1e>
  7e2:	00 00       	nop
- 7e4:	60 e0       	ldi	r22, 0x00	; 0
- 7e6:	80 e1       	ldi	r24, 0x10	; 16
- 7e8:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 7ec:	8f e9       	ldi	r24, 0x9F	; 159
- 7ee:	9f e0       	ldi	r25, 0x0F	; 15
- 7f0:	01 97       	sbiw	r24, 0x01	; 1
- 7f2:	f1 f7       	brne	.-4      	; 0x7f0 <StringOnLeftScreen+0x20>
- 7f4:	00 c0       	rjmp	.+0      	; 0x7f6 <StringOnLeftScreen+0x26>
- 7f6:	00 00       	nop
- 7f8:	08 95       	ret
+ 7e4:	08 95       	ret
 
-000007fa <StringOnMiddleLeft>:
- 7fa:	1f 93       	push	r17
- 7fc:	cf 93       	push	r28
- 7fe:	df 93       	push	r29
- 800:	ec 01       	movw	r28, r24
- 802:	16 2f       	mov	r17, r22
- 804:	61 e0       	ldi	r22, 0x01	; 1
- 806:	8c e1       	ldi	r24, 0x1C	; 28
- 808:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 80c:	8f e9       	ldi	r24, 0x9F	; 159
- 80e:	9f e0       	ldi	r25, 0x0F	; 15
- 810:	01 97       	sbiw	r24, 0x01	; 1
- 812:	f1 f7       	brne	.-4      	; 0x810 <StringOnMiddleLeft+0x16>
- 814:	00 c0       	rjmp	.+0      	; 0x816 <StringOnMiddleLeft+0x1c>
- 816:	00 00       	nop
- 818:	61 e0       	ldi	r22, 0x01	; 1
- 81a:	80 e1       	ldi	r24, 0x10	; 16
- 81c:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 820:	8f e9       	ldi	r24, 0x9F	; 159
- 822:	9f e0       	ldi	r25, 0x0F	; 15
- 824:	01 97       	sbiw	r24, 0x01	; 1
- 826:	f1 f7       	brne	.-4      	; 0x824 <StringOnMiddleLeft+0x2a>
- 828:	00 c0       	rjmp	.+0      	; 0x82a <StringOnMiddleLeft+0x30>
+000007e6 <StringOnMiddleLeft>:
+ 7e6:	1f 93       	push	r17
+ 7e8:	cf 93       	push	r28
+ 7ea:	df 93       	push	r29
+ 7ec:	ec 01       	movw	r28, r24
+ 7ee:	16 2f       	mov	r17, r22
+ 7f0:	61 e0       	ldi	r22, 0x01	; 1
+ 7f2:	8c e1       	ldi	r24, 0x1C	; 28
+ 7f4:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 7f8:	86 e6       	ldi	r24, 0x66	; 102
+ 7fa:	9e e0       	ldi	r25, 0x0E	; 14
+ 7fc:	01 97       	sbiw	r24, 0x01	; 1
+ 7fe:	f1 f7       	brne	.-4      	; 0x7fc <StringOnMiddleLeft+0x16>
+ 800:	00 00       	nop
+ 802:	61 e0       	ldi	r22, 0x01	; 1
+ 804:	80 e1       	ldi	r24, 0x10	; 16
+ 806:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 80a:	86 e6       	ldi	r24, 0x66	; 102
+ 80c:	9e e0       	ldi	r25, 0x0E	; 14
+ 80e:	01 97       	sbiw	r24, 0x01	; 1
+ 810:	f1 f7       	brne	.-4      	; 0x80e <StringOnMiddleLeft+0x28>
+ 812:	00 00       	nop
+ 814:	c1 0f       	add	r28, r17
+ 816:	d1 1d       	adc	r29, r1
+ 818:	21 97       	sbiw	r28, 0x01	; 1
+ 81a:	61 e0       	ldi	r22, 0x01	; 1
+ 81c:	88 81       	ld	r24, Y
+ 81e:	0e 94 99 01 	call	0x332	; 0x332 <PutChar>
+ 822:	86 e6       	ldi	r24, 0x66	; 102
+ 824:	9e e0       	ldi	r25, 0x0E	; 14
+ 826:	01 97       	sbiw	r24, 0x01	; 1
+ 828:	f1 f7       	brne	.-4      	; 0x826 <StringOnMiddleLeft+0x40>
  82a:	00 00       	nop
- 82c:	c1 0f       	add	r28, r17
- 82e:	d1 1d       	adc	r29, r1
- 830:	21 97       	sbiw	r28, 0x01	; 1
- 832:	61 e0       	ldi	r22, 0x01	; 1
- 834:	88 81       	ld	r24, Y
- 836:	0e 94 99 01 	call	0x332	; 0x332 <PutChar>
- 83a:	8f e9       	ldi	r24, 0x9F	; 159
- 83c:	9f e0       	ldi	r25, 0x0F	; 15
- 83e:	01 97       	sbiw	r24, 0x01	; 1
- 840:	f1 f7       	brne	.-4      	; 0x83e <StringOnMiddleLeft+0x44>
- 842:	00 c0       	rjmp	.+0      	; 0x844 <StringOnMiddleLeft+0x4a>
- 844:	00 00       	nop
- 846:	61 e0       	ldi	r22, 0x01	; 1
- 848:	80 e1       	ldi	r24, 0x10	; 16
- 84a:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 84e:	8f e9       	ldi	r24, 0x9F	; 159
- 850:	9f e0       	ldi	r25, 0x0F	; 15
- 852:	01 97       	sbiw	r24, 0x01	; 1
- 854:	f1 f7       	brne	.-4      	; 0x852 <StringOnMiddleLeft+0x58>
- 856:	00 c0       	rjmp	.+0      	; 0x858 <StringOnMiddleLeft+0x5e>
- 858:	00 00       	nop
- 85a:	60 e0       	ldi	r22, 0x00	; 0
- 85c:	8c e1       	ldi	r24, 0x1C	; 28
- 85e:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 862:	8f e9       	ldi	r24, 0x9F	; 159
- 864:	9f e0       	ldi	r25, 0x0F	; 15
- 866:	01 97       	sbiw	r24, 0x01	; 1
- 868:	f1 f7       	brne	.-4      	; 0x866 <StringOnMiddleLeft+0x6c>
- 86a:	00 c0       	rjmp	.+0      	; 0x86c <StringOnMiddleLeft+0x72>
- 86c:	00 00       	nop
- 86e:	60 e0       	ldi	r22, 0x00	; 0
- 870:	80 e1       	ldi	r24, 0x10	; 16
- 872:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 876:	8f e9       	ldi	r24, 0x9F	; 159
- 878:	9f e0       	ldi	r25, 0x0F	; 15
- 87a:	01 97       	sbiw	r24, 0x01	; 1
- 87c:	f1 f7       	brne	.-4      	; 0x87a <StringOnMiddleLeft+0x80>
- 87e:	00 c0       	rjmp	.+0      	; 0x880 <StringOnMiddleLeft+0x86>
- 880:	00 00       	nop
- 882:	df 91       	pop	r29
- 884:	cf 91       	pop	r28
- 886:	1f 91       	pop	r17
- 888:	08 95       	ret
+ 82c:	61 e0       	ldi	r22, 0x01	; 1
+ 82e:	80 e1       	ldi	r24, 0x10	; 16
+ 830:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 834:	86 e6       	ldi	r24, 0x66	; 102
+ 836:	9e e0       	ldi	r25, 0x0E	; 14
+ 838:	01 97       	sbiw	r24, 0x01	; 1
+ 83a:	f1 f7       	brne	.-4      	; 0x838 <StringOnMiddleLeft+0x52>
+ 83c:	00 00       	nop
+ 83e:	60 e0       	ldi	r22, 0x00	; 0
+ 840:	8c e1       	ldi	r24, 0x1C	; 28
+ 842:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 846:	86 e6       	ldi	r24, 0x66	; 102
+ 848:	9e e0       	ldi	r25, 0x0E	; 14
+ 84a:	01 97       	sbiw	r24, 0x01	; 1
+ 84c:	f1 f7       	brne	.-4      	; 0x84a <StringOnMiddleLeft+0x64>
+ 84e:	00 00       	nop
+ 850:	60 e0       	ldi	r22, 0x00	; 0
+ 852:	80 e1       	ldi	r24, 0x10	; 16
+ 854:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 858:	86 e6       	ldi	r24, 0x66	; 102
+ 85a:	9e e0       	ldi	r25, 0x0E	; 14
+ 85c:	01 97       	sbiw	r24, 0x01	; 1
+ 85e:	f1 f7       	brne	.-4      	; 0x85c <StringOnMiddleLeft+0x76>
+ 860:	00 00       	nop
+ 862:	df 91       	pop	r29
+ 864:	cf 91       	pop	r28
+ 866:	1f 91       	pop	r17
+ 868:	08 95       	ret
 
-0000088a <StringOnRightScreen>:
- 88a:	61 e0       	ldi	r22, 0x01	; 1
- 88c:	8c e1       	ldi	r24, 0x1C	; 28
- 88e:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 892:	8f e9       	ldi	r24, 0x9F	; 159
- 894:	9f e0       	ldi	r25, 0x0F	; 15
- 896:	01 97       	sbiw	r24, 0x01	; 1
- 898:	f1 f7       	brne	.-4      	; 0x896 <StringOnRightScreen+0xc>
- 89a:	00 c0       	rjmp	.+0      	; 0x89c <StringOnRightScreen+0x12>
- 89c:	00 00       	nop
- 89e:	61 e0       	ldi	r22, 0x01	; 1
- 8a0:	80 e1       	ldi	r24, 0x10	; 16
- 8a2:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 8a6:	8f e9       	ldi	r24, 0x9F	; 159
- 8a8:	9f e0       	ldi	r25, 0x0F	; 15
- 8aa:	01 97       	sbiw	r24, 0x01	; 1
- 8ac:	f1 f7       	brne	.-4      	; 0x8aa <StringOnRightScreen+0x20>
- 8ae:	00 c0       	rjmp	.+0      	; 0x8b0 <StringOnRightScreen+0x26>
- 8b0:	00 00       	nop
- 8b2:	08 95       	ret
+0000086a <StringOnRightScreen>:
+ 86a:	61 e0       	ldi	r22, 0x01	; 1
+ 86c:	8c e1       	ldi	r24, 0x1C	; 28
+ 86e:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 872:	86 e6       	ldi	r24, 0x66	; 102
+ 874:	9e e0       	ldi	r25, 0x0E	; 14
+ 876:	01 97       	sbiw	r24, 0x01	; 1
+ 878:	f1 f7       	brne	.-4      	; 0x876 <StringOnRightScreen+0xc>
+ 87a:	00 00       	nop
+ 87c:	61 e0       	ldi	r22, 0x01	; 1
+ 87e:	80 e1       	ldi	r24, 0x10	; 16
+ 880:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 884:	86 e6       	ldi	r24, 0x66	; 102
+ 886:	9e e0       	ldi	r25, 0x0E	; 14
+ 888:	01 97       	sbiw	r24, 0x01	; 1
+ 88a:	f1 f7       	brne	.-4      	; 0x888 <StringOnRightScreen+0x1e>
+ 88c:	00 00       	nop
+ 88e:	08 95       	ret
 
-000008b4 <StringOnMiddleRight>:
- 8b4:	1f 93       	push	r17
- 8b6:	cf 93       	push	r28
- 8b8:	df 93       	push	r29
- 8ba:	ec 01       	movw	r28, r24
- 8bc:	16 2f       	mov	r17, r22
- 8be:	60 e0       	ldi	r22, 0x00	; 0
- 8c0:	8c e1       	ldi	r24, 0x1C	; 28
- 8c2:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 8c6:	8f e9       	ldi	r24, 0x9F	; 159
- 8c8:	9f e0       	ldi	r25, 0x0F	; 15
- 8ca:	01 97       	sbiw	r24, 0x01	; 1
- 8cc:	f1 f7       	brne	.-4      	; 0x8ca <StringOnMiddleRight+0x16>
- 8ce:	00 c0       	rjmp	.+0      	; 0x8d0 <StringOnMiddleRight+0x1c>
- 8d0:	00 00       	nop
- 8d2:	60 e0       	ldi	r22, 0x00	; 0
- 8d4:	80 e1       	ldi	r24, 0x10	; 16
- 8d6:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 8da:	8f e9       	ldi	r24, 0x9F	; 159
- 8dc:	9f e0       	ldi	r25, 0x0F	; 15
- 8de:	01 97       	sbiw	r24, 0x01	; 1
- 8e0:	f1 f7       	brne	.-4      	; 0x8de <StringOnMiddleRight+0x2a>
- 8e2:	00 c0       	rjmp	.+0      	; 0x8e4 <StringOnMiddleRight+0x30>
- 8e4:	00 00       	nop
- 8e6:	c1 0f       	add	r28, r17
- 8e8:	d1 1d       	adc	r29, r1
- 8ea:	21 97       	sbiw	r28, 0x01	; 1
- 8ec:	60 e0       	ldi	r22, 0x00	; 0
- 8ee:	88 81       	ld	r24, Y
- 8f0:	0e 94 99 01 	call	0x332	; 0x332 <PutChar>
- 8f4:	8f e9       	ldi	r24, 0x9F	; 159
- 8f6:	9f e0       	ldi	r25, 0x0F	; 15
- 8f8:	01 97       	sbiw	r24, 0x01	; 1
- 8fa:	f1 f7       	brne	.-4      	; 0x8f8 <StringOnMiddleRight+0x44>
- 8fc:	00 c0       	rjmp	.+0      	; 0x8fe <StringOnMiddleRight+0x4a>
- 8fe:	00 00       	nop
- 900:	60 e0       	ldi	r22, 0x00	; 0
- 902:	80 e1       	ldi	r24, 0x10	; 16
- 904:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 908:	8f e9       	ldi	r24, 0x9F	; 159
- 90a:	9f e0       	ldi	r25, 0x0F	; 15
- 90c:	01 97       	sbiw	r24, 0x01	; 1
- 90e:	f1 f7       	brne	.-4      	; 0x90c <__stack+0xd>
- 910:	00 c0       	rjmp	.+0      	; 0x912 <__stack+0x13>
- 912:	00 00       	nop
- 914:	61 e0       	ldi	r22, 0x01	; 1
- 916:	8c e1       	ldi	r24, 0x1C	; 28
- 918:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 91c:	8f e9       	ldi	r24, 0x9F	; 159
- 91e:	9f e0       	ldi	r25, 0x0F	; 15
- 920:	01 97       	sbiw	r24, 0x01	; 1
- 922:	f1 f7       	brne	.-4      	; 0x920 <__stack+0x21>
- 924:	00 c0       	rjmp	.+0      	; 0x926 <__stack+0x27>
- 926:	00 00       	nop
- 928:	61 e0       	ldi	r22, 0x01	; 1
- 92a:	80 e1       	ldi	r24, 0x10	; 16
- 92c:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 930:	8f e9       	ldi	r24, 0x9F	; 159
- 932:	9f e0       	ldi	r25, 0x0F	; 15
- 934:	01 97       	sbiw	r24, 0x01	; 1
- 936:	f1 f7       	brne	.-4      	; 0x934 <__stack+0x35>
- 938:	00 c0       	rjmp	.+0      	; 0x93a <__stack+0x3b>
- 93a:	00 00       	nop
- 93c:	df 91       	pop	r29
- 93e:	cf 91       	pop	r28
- 940:	1f 91       	pop	r17
- 942:	08 95       	ret
+00000890 <StringOnMiddleRight>:
+ 890:	1f 93       	push	r17
+ 892:	cf 93       	push	r28
+ 894:	df 93       	push	r29
+ 896:	ec 01       	movw	r28, r24
+ 898:	16 2f       	mov	r17, r22
+ 89a:	60 e0       	ldi	r22, 0x00	; 0
+ 89c:	8c e1       	ldi	r24, 0x1C	; 28
+ 89e:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 8a2:	86 e6       	ldi	r24, 0x66	; 102
+ 8a4:	9e e0       	ldi	r25, 0x0E	; 14
+ 8a6:	01 97       	sbiw	r24, 0x01	; 1
+ 8a8:	f1 f7       	brne	.-4      	; 0x8a6 <StringOnMiddleRight+0x16>
+ 8aa:	00 00       	nop
+ 8ac:	60 e0       	ldi	r22, 0x00	; 0
+ 8ae:	80 e1       	ldi	r24, 0x10	; 16
+ 8b0:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 8b4:	86 e6       	ldi	r24, 0x66	; 102
+ 8b6:	9e e0       	ldi	r25, 0x0E	; 14
+ 8b8:	01 97       	sbiw	r24, 0x01	; 1
+ 8ba:	f1 f7       	brne	.-4      	; 0x8b8 <StringOnMiddleRight+0x28>
+ 8bc:	00 00       	nop
+ 8be:	c1 0f       	add	r28, r17
+ 8c0:	d1 1d       	adc	r29, r1
+ 8c2:	21 97       	sbiw	r28, 0x01	; 1
+ 8c4:	60 e0       	ldi	r22, 0x00	; 0
+ 8c6:	88 81       	ld	r24, Y
+ 8c8:	0e 94 99 01 	call	0x332	; 0x332 <PutChar>
+ 8cc:	86 e6       	ldi	r24, 0x66	; 102
+ 8ce:	9e e0       	ldi	r25, 0x0E	; 14
+ 8d0:	01 97       	sbiw	r24, 0x01	; 1
+ 8d2:	f1 f7       	brne	.-4      	; 0x8d0 <StringOnMiddleRight+0x40>
+ 8d4:	00 00       	nop
+ 8d6:	60 e0       	ldi	r22, 0x00	; 0
+ 8d8:	80 e1       	ldi	r24, 0x10	; 16
+ 8da:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 8de:	86 e6       	ldi	r24, 0x66	; 102
+ 8e0:	9e e0       	ldi	r25, 0x0E	; 14
+ 8e2:	01 97       	sbiw	r24, 0x01	; 1
+ 8e4:	f1 f7       	brne	.-4      	; 0x8e2 <StringOnMiddleRight+0x52>
+ 8e6:	00 00       	nop
+ 8e8:	61 e0       	ldi	r22, 0x01	; 1
+ 8ea:	8c e1       	ldi	r24, 0x1C	; 28
+ 8ec:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 8f0:	86 e6       	ldi	r24, 0x66	; 102
+ 8f2:	9e e0       	ldi	r25, 0x0E	; 14
+ 8f4:	01 97       	sbiw	r24, 0x01	; 1
+ 8f6:	f1 f7       	brne	.-4      	; 0x8f4 <StringOnMiddleRight+0x64>
+ 8f8:	00 00       	nop
+ 8fa:	61 e0       	ldi	r22, 0x01	; 1
+ 8fc:	80 e1       	ldi	r24, 0x10	; 16
+ 8fe:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 902:	86 e6       	ldi	r24, 0x66	; 102
+ 904:	9e e0       	ldi	r25, 0x0E	; 14
+ 906:	01 97       	sbiw	r24, 0x01	; 1
+ 908:	f1 f7       	brne	.-4      	; 0x906 <__stack+0x7>
+ 90a:	00 00       	nop
+ 90c:	df 91       	pop	r29
+ 90e:	cf 91       	pop	r28
+ 910:	1f 91       	pop	r17
+ 912:	08 95       	ret
 
-00000944 <main>:
- 944:	ff 92       	push	r15
- 946:	0f 93       	push	r16
- 948:	1f 93       	push	r17
- 94a:	cf 93       	push	r28
- 94c:	df 93       	push	r29
- 94e:	cd b7       	in	r28, 0x3d	; 61
- 950:	de b7       	in	r29, 0x3e	; 62
- 952:	c3 55       	subi	r28, 0x53	; 83
- 954:	d1 09       	sbc	r29, r1
- 956:	0f b6       	in	r0, 0x3f	; 63
- 958:	f8 94       	cli
- 95a:	de bf       	out	0x3e, r29	; 62
- 95c:	0f be       	out	0x3f, r0	; 63
- 95e:	cd bf       	out	0x3d, r28	; 61
- 960:	0e 94 4b 00 	call	0x96	; 0x96 <EEPROM_Test>
- 964:	18 2f       	mov	r17, r24
- 966:	0e 94 b3 00 	call	0x166	; 0x166 <FLASH_Test>
- 96a:	f8 2e       	mov	r15, r24
- 96c:	0e 94 98 03 	call	0x730	; 0x730 <SRAM_Test>
- 970:	08 2f       	mov	r16, r24
- 972:	80 e0       	ldi	r24, 0x00	; 0
- 974:	0e 94 b1 02 	call	0x562	; 0x562 <ScreenInit>
- 978:	86 e6       	ldi	r24, 0x66	; 102
- 97a:	9e e0       	ldi	r25, 0x0E	; 14
- 97c:	01 97       	sbiw	r24, 0x01	; 1
- 97e:	f1 f7       	brne	.-4      	; 0x97c <main+0x38>
- 980:	00 00       	nop
- 982:	81 e0       	ldi	r24, 0x01	; 1
- 984:	0e 94 b1 02 	call	0x562	; 0x562 <ScreenInit>
- 988:	86 e6       	ldi	r24, 0x66	; 102
- 98a:	9e e0       	ldi	r25, 0x0E	; 14
- 98c:	01 97       	sbiw	r24, 0x01	; 1
- 98e:	f1 f7       	brne	.-4      	; 0x98c <main+0x48>
- 990:	00 00       	nop
- 992:	8a e0       	ldi	r24, 0x0A	; 10
- 994:	e0 e4       	ldi	r30, 0x40	; 64
- 996:	f2 e0       	ldi	r31, 0x02	; 2
- 998:	de 01       	movw	r26, r28
- 99a:	d9 96       	adiw	r26, 0x39	; 57
- 99c:	01 90       	ld	r0, Z+
- 99e:	0d 92       	st	X+, r0
- 9a0:	8a 95       	dec	r24
- 9a2:	e1 f7       	brne	.-8      	; 0x99c <main+0x58>
- 9a4:	8e e0       	ldi	r24, 0x0E	; 14
- 9a6:	ea e4       	ldi	r30, 0x4A	; 74
- 9a8:	f2 e0       	ldi	r31, 0x02	; 2
- 9aa:	de 01       	movw	r26, r28
- 9ac:	52 96       	adiw	r26, 0x12	; 18
- 9ae:	01 90       	ld	r0, Z+
- 9b0:	0d 92       	st	X+, r0
- 9b2:	8a 95       	dec	r24
- 9b4:	e1 f7       	brne	.-8      	; 0x9ae <main+0x6a>
- 9b6:	11 11       	cpse	r17, r1
- 9b8:	05 c0       	rjmp	.+10     	; 0x9c4 <main+0x80>
- 9ba:	69 e0       	ldi	r22, 0x09	; 9
- 9bc:	70 e0       	ldi	r23, 0x00	; 0
- 9be:	ce 01       	movw	r24, r28
- 9c0:	c9 96       	adiw	r24, 0x39	; 57
- 9c2:	04 c0       	rjmp	.+8      	; 0x9cc <main+0x88>
- 9c4:	6d e0       	ldi	r22, 0x0D	; 13
- 9c6:	70 e0       	ldi	r23, 0x00	; 0
- 9c8:	ce 01       	movw	r24, r28
- 9ca:	42 96       	adiw	r24, 0x12	; 18
- 9cc:	40 e0       	ldi	r20, 0x00	; 0
- 9ce:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
- 9d2:	9f ef       	ldi	r25, 0xFF	; 255
- 9d4:	2f ef       	ldi	r18, 0xFF	; 255
- 9d6:	3c e2       	ldi	r19, 0x2C	; 44
- 9d8:	91 50       	subi	r25, 0x01	; 1
- 9da:	20 40       	sbci	r18, 0x00	; 0
- 9dc:	30 40       	sbci	r19, 0x00	; 0
- 9de:	e1 f7       	brne	.-8      	; 0x9d8 <main+0x94>
- 9e0:	00 c0       	rjmp	.+0      	; 0x9e2 <main+0x9e>
- 9e2:	00 00       	nop
- 9e4:	60 e0       	ldi	r22, 0x00	; 0
- 9e6:	81 e0       	ldi	r24, 0x01	; 1
- 9e8:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- 9ec:	8f ef       	ldi	r24, 0xFF	; 255
- 9ee:	9f e8       	ldi	r25, 0x8F	; 143
- 9f0:	01 97       	sbiw	r24, 0x01	; 1
- 9f2:	f1 f7       	brne	.-4      	; 0x9f0 <main+0xac>
- 9f4:	00 c0       	rjmp	.+0      	; 0x9f6 <main+0xb2>
- 9f6:	00 00       	nop
- 9f8:	89 e0       	ldi	r24, 0x09	; 9
- 9fa:	e8 e5       	ldi	r30, 0x58	; 88
- 9fc:	f2 e0       	ldi	r31, 0x02	; 2
- 9fe:	de 01       	movw	r26, r28
- a00:	ad 5b       	subi	r26, 0xBD	; 189
- a02:	bf 4f       	sbci	r27, 0xFF	; 255
- a04:	01 90       	ld	r0, Z+
- a06:	0d 92       	st	X+, r0
- a08:	8a 95       	dec	r24
- a0a:	e1 f7       	brne	.-8      	; 0xa04 <main+0xc0>
- a0c:	8d e0       	ldi	r24, 0x0D	; 13
- a0e:	e1 e6       	ldi	r30, 0x61	; 97
- a10:	f2 e0       	ldi	r31, 0x02	; 2
- a12:	de 01       	movw	r26, r28
- a14:	90 96       	adiw	r26, 0x20	; 32
- a16:	01 90       	ld	r0, Z+
- a18:	0d 92       	st	X+, r0
- a1a:	8a 95       	dec	r24
- a1c:	e1 f7       	brne	.-8      	; 0xa16 <main+0xd2>
- a1e:	ff 20       	and	r15, r15
- a20:	29 f0       	breq	.+10     	; 0xa2c <main+0xe8>
- a22:	6c e0       	ldi	r22, 0x0C	; 12
- a24:	70 e0       	ldi	r23, 0x00	; 0
- a26:	ce 01       	movw	r24, r28
- a28:	80 96       	adiw	r24, 0x20	; 32
- a2a:	05 c0       	rjmp	.+10     	; 0xa36 <main+0xf2>
- a2c:	68 e0       	ldi	r22, 0x08	; 8
- a2e:	70 e0       	ldi	r23, 0x00	; 0
- a30:	ce 01       	movw	r24, r28
- a32:	8d 5b       	subi	r24, 0xBD	; 189
- a34:	9f 4f       	sbci	r25, 0xFF	; 255
- a36:	40 e0       	ldi	r20, 0x00	; 0
- a38:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
- a3c:	9f ef       	ldi	r25, 0xFF	; 255
- a3e:	2f ef       	ldi	r18, 0xFF	; 255
- a40:	3c e2       	ldi	r19, 0x2C	; 44
- a42:	91 50       	subi	r25, 0x01	; 1
- a44:	20 40       	sbci	r18, 0x00	; 0
- a46:	30 40       	sbci	r19, 0x00	; 0
- a48:	e1 f7       	brne	.-8      	; 0xa42 <main+0xfe>
- a4a:	00 c0       	rjmp	.+0      	; 0xa4c <main+0x108>
- a4c:	00 00       	nop
- a4e:	60 e0       	ldi	r22, 0x00	; 0
- a50:	81 e0       	ldi	r24, 0x01	; 1
- a52:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- a56:	8f ef       	ldi	r24, 0xFF	; 255
- a58:	9f e8       	ldi	r25, 0x8F	; 143
- a5a:	01 97       	sbiw	r24, 0x01	; 1
- a5c:	f1 f7       	brne	.-4      	; 0xa5a <main+0x116>
- a5e:	00 c0       	rjmp	.+0      	; 0xa60 <main+0x11c>
- a60:	00 00       	nop
- a62:	88 e0       	ldi	r24, 0x08	; 8
- a64:	ee e6       	ldi	r30, 0x6E	; 110
- a66:	f2 e0       	ldi	r31, 0x02	; 2
- a68:	de 01       	movw	r26, r28
- a6a:	a4 5b       	subi	r26, 0xB4	; 180
- a6c:	bf 4f       	sbci	r27, 0xFF	; 255
- a6e:	01 90       	ld	r0, Z+
- a70:	0d 92       	st	X+, r0
- a72:	8a 95       	dec	r24
- a74:	e1 f7       	brne	.-8      	; 0xa6e <main+0x12a>
- a76:	8c e0       	ldi	r24, 0x0C	; 12
- a78:	e6 e7       	ldi	r30, 0x76	; 118
- a7a:	f2 e0       	ldi	r31, 0x02	; 2
- a7c:	de 01       	movw	r26, r28
- a7e:	9d 96       	adiw	r26, 0x2d	; 45
- a80:	01 90       	ld	r0, Z+
- a82:	0d 92       	st	X+, r0
- a84:	8a 95       	dec	r24
- a86:	e1 f7       	brne	.-8      	; 0xa80 <main+0x13c>
- a88:	00 23       	and	r16, r16
- a8a:	29 f0       	breq	.+10     	; 0xa96 <main+0x152>
- a8c:	6b e0       	ldi	r22, 0x0B	; 11
- a8e:	70 e0       	ldi	r23, 0x00	; 0
- a90:	ce 01       	movw	r24, r28
- a92:	8d 96       	adiw	r24, 0x2d	; 45
- a94:	05 c0       	rjmp	.+10     	; 0xaa0 <main+0x15c>
- a96:	67 e0       	ldi	r22, 0x07	; 7
- a98:	70 e0       	ldi	r23, 0x00	; 0
- a9a:	ce 01       	movw	r24, r28
- a9c:	84 5b       	subi	r24, 0xB4	; 180
- a9e:	9f 4f       	sbci	r25, 0xFF	; 255
- aa0:	40 e0       	ldi	r20, 0x00	; 0
- aa2:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
- aa6:	9f ef       	ldi	r25, 0xFF	; 255
- aa8:	2f ef       	ldi	r18, 0xFF	; 255
- aaa:	3c e2       	ldi	r19, 0x2C	; 44
- aac:	91 50       	subi	r25, 0x01	; 1
- aae:	20 40       	sbci	r18, 0x00	; 0
- ab0:	30 40       	sbci	r19, 0x00	; 0
- ab2:	e1 f7       	brne	.-8      	; 0xaac <main+0x168>
- ab4:	00 c0       	rjmp	.+0      	; 0xab6 <main+0x172>
- ab6:	00 00       	nop
- ab8:	60 e0       	ldi	r22, 0x00	; 0
- aba:	81 e0       	ldi	r24, 0x01	; 1
- abc:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- ac0:	8f ef       	ldi	r24, 0xFF	; 255
- ac2:	9f e8       	ldi	r25, 0x8F	; 143
- ac4:	01 97       	sbiw	r24, 0x01	; 1
- ac6:	f1 f7       	brne	.-4      	; 0xac4 <main+0x180>
- ac8:	00 c0       	rjmp	.+0      	; 0xaca <main+0x186>
- aca:	00 00       	nop
- acc:	1f 29       	or	r17, r15
- ace:	09 f0       	breq	.+2      	; 0xad2 <main+0x18e>
- ad0:	67 c0       	rjmp	.+206    	; 0xba0 <main+0x25c>
- ad2:	01 11       	cpse	r16, r1
- ad4:	65 c0       	rjmp	.+202    	; 0xba0 <main+0x25c>
- ad6:	8b e0       	ldi	r24, 0x0B	; 11
- ad8:	e2 e8       	ldi	r30, 0x82	; 130
- ada:	f2 e0       	ldi	r31, 0x02	; 2
- adc:	de 01       	movw	r26, r28
- ade:	11 96       	adiw	r26, 0x01	; 1
- ae0:	01 90       	ld	r0, Z+
- ae2:	0d 92       	st	X+, r0
- ae4:	8a 95       	dec	r24
- ae6:	e1 f7       	brne	.-8      	; 0xae0 <main+0x19c>
- ae8:	6b e0       	ldi	r22, 0x0B	; 11
- aea:	ce 01       	movw	r24, r28
- aec:	01 96       	adiw	r24, 0x01	; 1
- aee:	0e 94 d1 03 	call	0x7a2	; 0x7a2 <InitStringLeft>
- af2:	1a e0       	ldi	r17, 0x0A	; 10
- af4:	06 e0       	ldi	r16, 0x06	; 6
- af6:	80 e0       	ldi	r24, 0x00	; 0
- af8:	9f ef       	ldi	r25, 0xFF	; 255
- afa:	2f e3       	ldi	r18, 0x3F	; 63
- afc:	3b e0       	ldi	r19, 0x0B	; 11
- afe:	91 50       	subi	r25, 0x01	; 1
- b00:	20 40       	sbci	r18, 0x00	; 0
- b02:	30 40       	sbci	r19, 0x00	; 0
- b04:	e1 f7       	brne	.-8      	; 0xafe <main+0x1ba>
- b06:	00 c0       	rjmp	.+0      	; 0xb08 <main+0x1c4>
- b08:	00 00       	nop
- b0a:	81 30       	cpi	r24, 0x01	; 1
- b0c:	b1 f0       	breq	.+44     	; 0xb3a <main+0x1f6>
- b0e:	28 f0       	brcs	.+10     	; 0xb1a <main+0x1d6>
- b10:	82 30       	cpi	r24, 0x02	; 2
- b12:	81 f0       	breq	.+32     	; 0xb34 <main+0x1f0>
- b14:	83 30       	cpi	r24, 0x03	; 3
- b16:	f1 f0       	breq	.+60     	; 0xb54 <main+0x210>
- b18:	20 c0       	rjmp	.+64     	; 0xb5a <main+0x216>
- b1a:	01 11       	cpse	r16, r1
- b1c:	27 c0       	rjmp	.+78     	; 0xb6c <main+0x228>
- b1e:	61 e0       	ldi	r22, 0x01	; 1
- b20:	81 e0       	ldi	r24, 0x01	; 1
- b22:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- b26:	86 e6       	ldi	r24, 0x66	; 102
- b28:	9e e0       	ldi	r25, 0x0E	; 14
- b2a:	01 97       	sbiw	r24, 0x01	; 1
- b2c:	f1 f7       	brne	.-4      	; 0xb2a <main+0x1e6>
- b2e:	00 00       	nop
- b30:	06 e0       	ldi	r16, 0x06	; 6
- b32:	20 c0       	rjmp	.+64     	; 0xb74 <main+0x230>
- b34:	11 23       	and	r17, r17
- b36:	31 f1       	breq	.+76     	; 0xb84 <main+0x240>
- b38:	1d c0       	rjmp	.+58     	; 0xb74 <main+0x230>
- b3a:	01 11       	cpse	r16, r1
- b3c:	24 c0       	rjmp	.+72     	; 0xb86 <main+0x242>
- b3e:	60 e0       	ldi	r22, 0x00	; 0
- b40:	81 e0       	ldi	r24, 0x01	; 1
- b42:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
- b46:	86 e6       	ldi	r24, 0x66	; 102
- b48:	9e e0       	ldi	r25, 0x0E	; 14
- b4a:	01 97       	sbiw	r24, 0x01	; 1
- b4c:	f1 f7       	brne	.-4      	; 0xb4a <main+0x206>
- b4e:	00 00       	nop
- b50:	06 e0       	ldi	r16, 0x06	; 6
- b52:	1e c0       	rjmp	.+60     	; 0xb90 <main+0x24c>
- b54:	11 23       	and	r17, r17
- b56:	49 f0       	breq	.+18     	; 0xb6a <main+0x226>
- b58:	1b c0       	rjmp	.+54     	; 0xb90 <main+0x24c>
- b5a:	81 30       	cpi	r24, 0x01	; 1
- b5c:	a1 f0       	breq	.+40     	; 0xb86 <main+0x242>
- b5e:	30 f0       	brcs	.+12     	; 0xb6c <main+0x228>
- b60:	82 30       	cpi	r24, 0x02	; 2
- b62:	41 f0       	breq	.+16     	; 0xb74 <main+0x230>
- b64:	83 30       	cpi	r24, 0x03	; 3
- b66:	41 f6       	brne	.-112    	; 0xaf8 <main+0x1b4>
- b68:	13 c0       	rjmp	.+38     	; 0xb90 <main+0x24c>
- b6a:	1a e0       	ldi	r17, 0x0A	; 10
- b6c:	0e 94 e8 03 	call	0x7d0	; 0x7d0 <StringOnLeftScreen>
- b70:	01 50       	subi	r16, 0x01	; 1
- b72:	c1 cf       	rjmp	.-126    	; 0xaf6 <main+0x1b2>
- b74:	61 2f       	mov	r22, r17
- b76:	ce 01       	movw	r24, r28
- b78:	01 96       	adiw	r24, 0x01	; 1
- b7a:	0e 94 fd 03 	call	0x7fa	; 0x7fa <StringOnMiddleLeft>
- b7e:	11 50       	subi	r17, 0x01	; 1
- b80:	82 e0       	ldi	r24, 0x02	; 2
- b82:	ba cf       	rjmp	.-140    	; 0xaf8 <main+0x1b4>
- b84:	1a e0       	ldi	r17, 0x0A	; 10
- b86:	0e 94 45 04 	call	0x88a	; 0x88a <StringOnRightScreen>
- b8a:	01 50       	subi	r16, 0x01	; 1
- b8c:	81 e0       	ldi	r24, 0x01	; 1
- b8e:	b4 cf       	rjmp	.-152    	; 0xaf8 <main+0x1b4>
- b90:	61 2f       	mov	r22, r17
- b92:	ce 01       	movw	r24, r28
- b94:	01 96       	adiw	r24, 0x01	; 1
- b96:	0e 94 5a 04 	call	0x8b4	; 0x8b4 <StringOnMiddleRight>
- b9a:	11 50       	subi	r17, 0x01	; 1
- b9c:	83 e0       	ldi	r24, 0x03	; 3
- b9e:	ac cf       	rjmp	.-168    	; 0xaf8 <main+0x1b4>
- ba0:	81 e1       	ldi	r24, 0x11	; 17
- ba2:	ed e8       	ldi	r30, 0x8D	; 141
- ba4:	f2 e0       	ldi	r31, 0x02	; 2
- ba6:	de 01       	movw	r26, r28
- ba8:	11 96       	adiw	r26, 0x01	; 1
- baa:	01 90       	ld	r0, Z+
- bac:	0d 92       	st	X+, r0
- bae:	8a 95       	dec	r24
- bb0:	e1 f7       	brne	.-8      	; 0xbaa <main+0x266>
- bb2:	40 e0       	ldi	r20, 0x00	; 0
- bb4:	60 e1       	ldi	r22, 0x10	; 16
- bb6:	70 e0       	ldi	r23, 0x00	; 0
- bb8:	ce 01       	movw	r24, r28
- bba:	01 96       	adiw	r24, 0x01	; 1
- bbc:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
- bc0:	9f ef       	ldi	r25, 0xFF	; 255
- bc2:	2f ef       	ldi	r18, 0xFF	; 255
- bc4:	3c e2       	ldi	r19, 0x2C	; 44
- bc6:	91 50       	subi	r25, 0x01	; 1
- bc8:	20 40       	sbci	r18, 0x00	; 0
- bca:	30 40       	sbci	r19, 0x00	; 0
- bcc:	e1 f7       	brne	.-8      	; 0xbc6 <main+0x282>
- bce:	00 c0       	rjmp	.+0      	; 0xbd0 <main+0x28c>
- bd0:	00 00       	nop
- bd2:	81 e0       	ldi	r24, 0x01	; 1
- bd4:	cd 5a       	subi	r28, 0xAD	; 173
- bd6:	df 4f       	sbci	r29, 0xFF	; 255
- bd8:	0f b6       	in	r0, 0x3f	; 63
- bda:	f8 94       	cli
- bdc:	de bf       	out	0x3e, r29	; 62
- bde:	0f be       	out	0x3f, r0	; 63
- be0:	cd bf       	out	0x3d, r28	; 61
- be2:	df 91       	pop	r29
- be4:	cf 91       	pop	r28
- be6:	1f 91       	pop	r17
- be8:	0f 91       	pop	r16
- bea:	ff 90       	pop	r15
- bec:	08 95       	ret
+00000914 <main>:
+ 914:	ff 92       	push	r15
+ 916:	0f 93       	push	r16
+ 918:	1f 93       	push	r17
+ 91a:	cf 93       	push	r28
+ 91c:	df 93       	push	r29
+ 91e:	cd b7       	in	r28, 0x3d	; 61
+ 920:	de b7       	in	r29, 0x3e	; 62
+ 922:	c3 55       	subi	r28, 0x53	; 83
+ 924:	d1 09       	sbc	r29, r1
+ 926:	0f b6       	in	r0, 0x3f	; 63
+ 928:	f8 94       	cli
+ 92a:	de bf       	out	0x3e, r29	; 62
+ 92c:	0f be       	out	0x3f, r0	; 63
+ 92e:	cd bf       	out	0x3d, r28	; 61
+ 930:	0e 94 4b 00 	call	0x96	; 0x96 <EEPROM_Test>
+ 934:	18 2f       	mov	r17, r24
+ 936:	0e 94 b3 00 	call	0x166	; 0x166 <FLASH_Test>
+ 93a:	f8 2e       	mov	r15, r24
+ 93c:	0e 94 90 03 	call	0x720	; 0x720 <SRAM_Test>
+ 940:	08 2f       	mov	r16, r24
+ 942:	80 e0       	ldi	r24, 0x00	; 0
+ 944:	0e 94 ab 02 	call	0x556	; 0x556 <ScreenInit>
+ 948:	86 e6       	ldi	r24, 0x66	; 102
+ 94a:	9e e0       	ldi	r25, 0x0E	; 14
+ 94c:	01 97       	sbiw	r24, 0x01	; 1
+ 94e:	f1 f7       	brne	.-4      	; 0x94c <main+0x38>
+ 950:	00 00       	nop
+ 952:	81 e0       	ldi	r24, 0x01	; 1
+ 954:	0e 94 ab 02 	call	0x556	; 0x556 <ScreenInit>
+ 958:	86 e6       	ldi	r24, 0x66	; 102
+ 95a:	9e e0       	ldi	r25, 0x0E	; 14
+ 95c:	01 97       	sbiw	r24, 0x01	; 1
+ 95e:	f1 f7       	brne	.-4      	; 0x95c <main+0x48>
+ 960:	00 00       	nop
+ 962:	8a e0       	ldi	r24, 0x0A	; 10
+ 964:	e0 e4       	ldi	r30, 0x40	; 64
+ 966:	f2 e0       	ldi	r31, 0x02	; 2
+ 968:	de 01       	movw	r26, r28
+ 96a:	d9 96       	adiw	r26, 0x39	; 57
+ 96c:	01 90       	ld	r0, Z+
+ 96e:	0d 92       	st	X+, r0
+ 970:	8a 95       	dec	r24
+ 972:	e1 f7       	brne	.-8      	; 0x96c <main+0x58>
+ 974:	8e e0       	ldi	r24, 0x0E	; 14
+ 976:	ea e4       	ldi	r30, 0x4A	; 74
+ 978:	f2 e0       	ldi	r31, 0x02	; 2
+ 97a:	de 01       	movw	r26, r28
+ 97c:	52 96       	adiw	r26, 0x12	; 18
+ 97e:	01 90       	ld	r0, Z+
+ 980:	0d 92       	st	X+, r0
+ 982:	8a 95       	dec	r24
+ 984:	e1 f7       	brne	.-8      	; 0x97e <main+0x6a>
+ 986:	11 11       	cpse	r17, r1
+ 988:	05 c0       	rjmp	.+10     	; 0x994 <main+0x80>
+ 98a:	69 e0       	ldi	r22, 0x09	; 9
+ 98c:	70 e0       	ldi	r23, 0x00	; 0
+ 98e:	ce 01       	movw	r24, r28
+ 990:	c9 96       	adiw	r24, 0x39	; 57
+ 992:	04 c0       	rjmp	.+8      	; 0x99c <main+0x88>
+ 994:	6d e0       	ldi	r22, 0x0D	; 13
+ 996:	70 e0       	ldi	r23, 0x00	; 0
+ 998:	ce 01       	movw	r24, r28
+ 99a:	42 96       	adiw	r24, 0x12	; 18
+ 99c:	40 e0       	ldi	r20, 0x00	; 0
+ 99e:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
+ 9a2:	9f ef       	ldi	r25, 0xFF	; 255
+ 9a4:	2f ef       	ldi	r18, 0xFF	; 255
+ 9a6:	3c e2       	ldi	r19, 0x2C	; 44
+ 9a8:	91 50       	subi	r25, 0x01	; 1
+ 9aa:	20 40       	sbci	r18, 0x00	; 0
+ 9ac:	30 40       	sbci	r19, 0x00	; 0
+ 9ae:	e1 f7       	brne	.-8      	; 0x9a8 <main+0x94>
+ 9b0:	00 c0       	rjmp	.+0      	; 0x9b2 <main+0x9e>
+ 9b2:	00 00       	nop
+ 9b4:	60 e0       	ldi	r22, 0x00	; 0
+ 9b6:	81 e0       	ldi	r24, 0x01	; 1
+ 9b8:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ 9bc:	8f ef       	ldi	r24, 0xFF	; 255
+ 9be:	9f e8       	ldi	r25, 0x8F	; 143
+ 9c0:	01 97       	sbiw	r24, 0x01	; 1
+ 9c2:	f1 f7       	brne	.-4      	; 0x9c0 <main+0xac>
+ 9c4:	00 c0       	rjmp	.+0      	; 0x9c6 <main+0xb2>
+ 9c6:	00 00       	nop
+ 9c8:	89 e0       	ldi	r24, 0x09	; 9
+ 9ca:	e8 e5       	ldi	r30, 0x58	; 88
+ 9cc:	f2 e0       	ldi	r31, 0x02	; 2
+ 9ce:	de 01       	movw	r26, r28
+ 9d0:	ad 5b       	subi	r26, 0xBD	; 189
+ 9d2:	bf 4f       	sbci	r27, 0xFF	; 255
+ 9d4:	01 90       	ld	r0, Z+
+ 9d6:	0d 92       	st	X+, r0
+ 9d8:	8a 95       	dec	r24
+ 9da:	e1 f7       	brne	.-8      	; 0x9d4 <main+0xc0>
+ 9dc:	8d e0       	ldi	r24, 0x0D	; 13
+ 9de:	e1 e6       	ldi	r30, 0x61	; 97
+ 9e0:	f2 e0       	ldi	r31, 0x02	; 2
+ 9e2:	de 01       	movw	r26, r28
+ 9e4:	90 96       	adiw	r26, 0x20	; 32
+ 9e6:	01 90       	ld	r0, Z+
+ 9e8:	0d 92       	st	X+, r0
+ 9ea:	8a 95       	dec	r24
+ 9ec:	e1 f7       	brne	.-8      	; 0x9e6 <main+0xd2>
+ 9ee:	ff 20       	and	r15, r15
+ 9f0:	29 f0       	breq	.+10     	; 0x9fc <main+0xe8>
+ 9f2:	6c e0       	ldi	r22, 0x0C	; 12
+ 9f4:	70 e0       	ldi	r23, 0x00	; 0
+ 9f6:	ce 01       	movw	r24, r28
+ 9f8:	80 96       	adiw	r24, 0x20	; 32
+ 9fa:	05 c0       	rjmp	.+10     	; 0xa06 <main+0xf2>
+ 9fc:	68 e0       	ldi	r22, 0x08	; 8
+ 9fe:	70 e0       	ldi	r23, 0x00	; 0
+ a00:	ce 01       	movw	r24, r28
+ a02:	8d 5b       	subi	r24, 0xBD	; 189
+ a04:	9f 4f       	sbci	r25, 0xFF	; 255
+ a06:	40 e0       	ldi	r20, 0x00	; 0
+ a08:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
+ a0c:	9f ef       	ldi	r25, 0xFF	; 255
+ a0e:	2f ef       	ldi	r18, 0xFF	; 255
+ a10:	3c e2       	ldi	r19, 0x2C	; 44
+ a12:	91 50       	subi	r25, 0x01	; 1
+ a14:	20 40       	sbci	r18, 0x00	; 0
+ a16:	30 40       	sbci	r19, 0x00	; 0
+ a18:	e1 f7       	brne	.-8      	; 0xa12 <main+0xfe>
+ a1a:	00 c0       	rjmp	.+0      	; 0xa1c <main+0x108>
+ a1c:	00 00       	nop
+ a1e:	60 e0       	ldi	r22, 0x00	; 0
+ a20:	81 e0       	ldi	r24, 0x01	; 1
+ a22:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ a26:	8f ef       	ldi	r24, 0xFF	; 255
+ a28:	9f e8       	ldi	r25, 0x8F	; 143
+ a2a:	01 97       	sbiw	r24, 0x01	; 1
+ a2c:	f1 f7       	brne	.-4      	; 0xa2a <main+0x116>
+ a2e:	00 c0       	rjmp	.+0      	; 0xa30 <main+0x11c>
+ a30:	00 00       	nop
+ a32:	88 e0       	ldi	r24, 0x08	; 8
+ a34:	ee e6       	ldi	r30, 0x6E	; 110
+ a36:	f2 e0       	ldi	r31, 0x02	; 2
+ a38:	de 01       	movw	r26, r28
+ a3a:	a4 5b       	subi	r26, 0xB4	; 180
+ a3c:	bf 4f       	sbci	r27, 0xFF	; 255
+ a3e:	01 90       	ld	r0, Z+
+ a40:	0d 92       	st	X+, r0
+ a42:	8a 95       	dec	r24
+ a44:	e1 f7       	brne	.-8      	; 0xa3e <main+0x12a>
+ a46:	8c e0       	ldi	r24, 0x0C	; 12
+ a48:	e6 e7       	ldi	r30, 0x76	; 118
+ a4a:	f2 e0       	ldi	r31, 0x02	; 2
+ a4c:	de 01       	movw	r26, r28
+ a4e:	9d 96       	adiw	r26, 0x2d	; 45
+ a50:	01 90       	ld	r0, Z+
+ a52:	0d 92       	st	X+, r0
+ a54:	8a 95       	dec	r24
+ a56:	e1 f7       	brne	.-8      	; 0xa50 <main+0x13c>
+ a58:	00 23       	and	r16, r16
+ a5a:	29 f0       	breq	.+10     	; 0xa66 <main+0x152>
+ a5c:	6b e0       	ldi	r22, 0x0B	; 11
+ a5e:	70 e0       	ldi	r23, 0x00	; 0
+ a60:	ce 01       	movw	r24, r28
+ a62:	8d 96       	adiw	r24, 0x2d	; 45
+ a64:	05 c0       	rjmp	.+10     	; 0xa70 <main+0x15c>
+ a66:	67 e0       	ldi	r22, 0x07	; 7
+ a68:	70 e0       	ldi	r23, 0x00	; 0
+ a6a:	ce 01       	movw	r24, r28
+ a6c:	84 5b       	subi	r24, 0xB4	; 180
+ a6e:	9f 4f       	sbci	r25, 0xFF	; 255
+ a70:	40 e0       	ldi	r20, 0x00	; 0
+ a72:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
+ a76:	9f ef       	ldi	r25, 0xFF	; 255
+ a78:	2f ef       	ldi	r18, 0xFF	; 255
+ a7a:	3c e2       	ldi	r19, 0x2C	; 44
+ a7c:	91 50       	subi	r25, 0x01	; 1
+ a7e:	20 40       	sbci	r18, 0x00	; 0
+ a80:	30 40       	sbci	r19, 0x00	; 0
+ a82:	e1 f7       	brne	.-8      	; 0xa7c <main+0x168>
+ a84:	00 c0       	rjmp	.+0      	; 0xa86 <main+0x172>
+ a86:	00 00       	nop
+ a88:	60 e0       	ldi	r22, 0x00	; 0
+ a8a:	81 e0       	ldi	r24, 0x01	; 1
+ a8c:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ a90:	8f ef       	ldi	r24, 0xFF	; 255
+ a92:	9f e8       	ldi	r25, 0x8F	; 143
+ a94:	01 97       	sbiw	r24, 0x01	; 1
+ a96:	f1 f7       	brne	.-4      	; 0xa94 <main+0x180>
+ a98:	00 c0       	rjmp	.+0      	; 0xa9a <main+0x186>
+ a9a:	00 00       	nop
+ a9c:	1f 29       	or	r17, r15
+ a9e:	09 f0       	breq	.+2      	; 0xaa2 <main+0x18e>
+ aa0:	67 c0       	rjmp	.+206    	; 0xb70 <main+0x25c>
+ aa2:	01 11       	cpse	r16, r1
+ aa4:	65 c0       	rjmp	.+202    	; 0xb70 <main+0x25c>
+ aa6:	8b e0       	ldi	r24, 0x0B	; 11
+ aa8:	e2 e8       	ldi	r30, 0x82	; 130
+ aaa:	f2 e0       	ldi	r31, 0x02	; 2
+ aac:	de 01       	movw	r26, r28
+ aae:	11 96       	adiw	r26, 0x01	; 1
+ ab0:	01 90       	ld	r0, Z+
+ ab2:	0d 92       	st	X+, r0
+ ab4:	8a 95       	dec	r24
+ ab6:	e1 f7       	brne	.-8      	; 0xab0 <main+0x19c>
+ ab8:	6b e0       	ldi	r22, 0x0B	; 11
+ aba:	ce 01       	movw	r24, r28
+ abc:	01 96       	adiw	r24, 0x01	; 1
+ abe:	0e 94 c9 03 	call	0x792	; 0x792 <InitStringLeft>
+ ac2:	1a e0       	ldi	r17, 0x0A	; 10
+ ac4:	06 e0       	ldi	r16, 0x06	; 6
+ ac6:	80 e0       	ldi	r24, 0x00	; 0
+ ac8:	9f ef       	ldi	r25, 0xFF	; 255
+ aca:	2f e3       	ldi	r18, 0x3F	; 63
+ acc:	3b e0       	ldi	r19, 0x0B	; 11
+ ace:	91 50       	subi	r25, 0x01	; 1
+ ad0:	20 40       	sbci	r18, 0x00	; 0
+ ad2:	30 40       	sbci	r19, 0x00	; 0
+ ad4:	e1 f7       	brne	.-8      	; 0xace <main+0x1ba>
+ ad6:	00 c0       	rjmp	.+0      	; 0xad8 <main+0x1c4>
+ ad8:	00 00       	nop
+ ada:	81 30       	cpi	r24, 0x01	; 1
+ adc:	b1 f0       	breq	.+44     	; 0xb0a <main+0x1f6>
+ ade:	28 f0       	brcs	.+10     	; 0xaea <main+0x1d6>
+ ae0:	82 30       	cpi	r24, 0x02	; 2
+ ae2:	81 f0       	breq	.+32     	; 0xb04 <main+0x1f0>
+ ae4:	83 30       	cpi	r24, 0x03	; 3
+ ae6:	f1 f0       	breq	.+60     	; 0xb24 <main+0x210>
+ ae8:	20 c0       	rjmp	.+64     	; 0xb2a <main+0x216>
+ aea:	01 11       	cpse	r16, r1
+ aec:	27 c0       	rjmp	.+78     	; 0xb3c <main+0x228>
+ aee:	61 e0       	ldi	r22, 0x01	; 1
+ af0:	81 e0       	ldi	r24, 0x01	; 1
+ af2:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ af6:	86 e6       	ldi	r24, 0x66	; 102
+ af8:	9e e0       	ldi	r25, 0x0E	; 14
+ afa:	01 97       	sbiw	r24, 0x01	; 1
+ afc:	f1 f7       	brne	.-4      	; 0xafa <main+0x1e6>
+ afe:	00 00       	nop
+ b00:	06 e0       	ldi	r16, 0x06	; 6
+ b02:	20 c0       	rjmp	.+64     	; 0xb44 <main+0x230>
+ b04:	11 23       	and	r17, r17
+ b06:	31 f1       	breq	.+76     	; 0xb54 <main+0x240>
+ b08:	1d c0       	rjmp	.+58     	; 0xb44 <main+0x230>
+ b0a:	01 11       	cpse	r16, r1
+ b0c:	24 c0       	rjmp	.+72     	; 0xb56 <main+0x242>
+ b0e:	60 e0       	ldi	r22, 0x00	; 0
+ b10:	81 e0       	ldi	r24, 0x01	; 1
+ b12:	0e 94 2a 01 	call	0x254	; 0x254 <ScreenInstruction>
+ b16:	86 e6       	ldi	r24, 0x66	; 102
+ b18:	9e e0       	ldi	r25, 0x0E	; 14
+ b1a:	01 97       	sbiw	r24, 0x01	; 1
+ b1c:	f1 f7       	brne	.-4      	; 0xb1a <main+0x206>
+ b1e:	00 00       	nop
+ b20:	06 e0       	ldi	r16, 0x06	; 6
+ b22:	1e c0       	rjmp	.+60     	; 0xb60 <main+0x24c>
+ b24:	11 23       	and	r17, r17
+ b26:	49 f0       	breq	.+18     	; 0xb3a <main+0x226>
+ b28:	1b c0       	rjmp	.+54     	; 0xb60 <main+0x24c>
+ b2a:	81 30       	cpi	r24, 0x01	; 1
+ b2c:	a1 f0       	breq	.+40     	; 0xb56 <main+0x242>
+ b2e:	30 f0       	brcs	.+12     	; 0xb3c <main+0x228>
+ b30:	82 30       	cpi	r24, 0x02	; 2
+ b32:	41 f0       	breq	.+16     	; 0xb44 <main+0x230>
+ b34:	83 30       	cpi	r24, 0x03	; 3
+ b36:	41 f6       	brne	.-112    	; 0xac8 <main+0x1b4>
+ b38:	13 c0       	rjmp	.+38     	; 0xb60 <main+0x24c>
+ b3a:	1a e0       	ldi	r17, 0x0A	; 10
+ b3c:	0e 94 e0 03 	call	0x7c0	; 0x7c0 <StringOnLeftScreen>
+ b40:	01 50       	subi	r16, 0x01	; 1
+ b42:	c1 cf       	rjmp	.-126    	; 0xac6 <main+0x1b2>
+ b44:	61 2f       	mov	r22, r17
+ b46:	ce 01       	movw	r24, r28
+ b48:	01 96       	adiw	r24, 0x01	; 1
+ b4a:	0e 94 f3 03 	call	0x7e6	; 0x7e6 <StringOnMiddleLeft>
+ b4e:	11 50       	subi	r17, 0x01	; 1
+ b50:	82 e0       	ldi	r24, 0x02	; 2
+ b52:	ba cf       	rjmp	.-140    	; 0xac8 <main+0x1b4>
+ b54:	1a e0       	ldi	r17, 0x0A	; 10
+ b56:	0e 94 35 04 	call	0x86a	; 0x86a <StringOnRightScreen>
+ b5a:	01 50       	subi	r16, 0x01	; 1
+ b5c:	81 e0       	ldi	r24, 0x01	; 1
+ b5e:	b4 cf       	rjmp	.-152    	; 0xac8 <main+0x1b4>
+ b60:	61 2f       	mov	r22, r17
+ b62:	ce 01       	movw	r24, r28
+ b64:	01 96       	adiw	r24, 0x01	; 1
+ b66:	0e 94 48 04 	call	0x890	; 0x890 <StringOnMiddleRight>
+ b6a:	11 50       	subi	r17, 0x01	; 1
+ b6c:	83 e0       	ldi	r24, 0x03	; 3
+ b6e:	ac cf       	rjmp	.-168    	; 0xac8 <main+0x1b4>
+ b70:	81 e1       	ldi	r24, 0x11	; 17
+ b72:	ed e8       	ldi	r30, 0x8D	; 141
+ b74:	f2 e0       	ldi	r31, 0x02	; 2
+ b76:	de 01       	movw	r26, r28
+ b78:	11 96       	adiw	r26, 0x01	; 1
+ b7a:	01 90       	ld	r0, Z+
+ b7c:	0d 92       	st	X+, r0
+ b7e:	8a 95       	dec	r24
+ b80:	e1 f7       	brne	.-8      	; 0xb7a <main+0x266>
+ b82:	40 e0       	ldi	r20, 0x00	; 0
+ b84:	60 e1       	ldi	r22, 0x10	; 16
+ b86:	70 e0       	ldi	r23, 0x00	; 0
+ b88:	ce 01       	movw	r24, r28
+ b8a:	01 96       	adiw	r24, 0x01	; 1
+ b8c:	0e 94 bb 01 	call	0x376	; 0x376 <PutString>
+ b90:	9f ef       	ldi	r25, 0xFF	; 255
+ b92:	2f ef       	ldi	r18, 0xFF	; 255
+ b94:	3c e2       	ldi	r19, 0x2C	; 44
+ b96:	91 50       	subi	r25, 0x01	; 1
+ b98:	20 40       	sbci	r18, 0x00	; 0
+ b9a:	30 40       	sbci	r19, 0x00	; 0
+ b9c:	e1 f7       	brne	.-8      	; 0xb96 <main+0x282>
+ b9e:	00 c0       	rjmp	.+0      	; 0xba0 <main+0x28c>
+ ba0:	00 00       	nop
+ ba2:	81 e0       	ldi	r24, 0x01	; 1
+ ba4:	90 e0       	ldi	r25, 0x00	; 0
+ ba6:	cd 5a       	subi	r28, 0xAD	; 173
+ ba8:	df 4f       	sbci	r29, 0xFF	; 255
+ baa:	0f b6       	in	r0, 0x3f	; 63
+ bac:	f8 94       	cli
+ bae:	de bf       	out	0x3e, r29	; 62
+ bb0:	0f be       	out	0x3f, r0	; 63
+ bb2:	cd bf       	out	0x3d, r28	; 61
+ bb4:	df 91       	pop	r29
+ bb6:	cf 91       	pop	r28
+ bb8:	1f 91       	pop	r17
+ bba:	0f 91       	pop	r16
+ bbc:	ff 90       	pop	r15
+ bbe:	08 95       	ret
 
-00000bee <eeprom_read_byte>:
- bee:	f9 99       	sbic	0x1f, 1	; 31
- bf0:	fe cf       	rjmp	.-4      	; 0xbee <eeprom_read_byte>
- bf2:	92 bd       	out	0x22, r25	; 34
- bf4:	81 bd       	out	0x21, r24	; 33
- bf6:	f8 9a       	sbi	0x1f, 0	; 31
- bf8:	99 27       	eor	r25, r25
- bfa:	80 b5       	in	r24, 0x20	; 32
- bfc:	08 95       	ret
+00000bc0 <eeprom_read_byte>:
+ bc0:	f9 99       	sbic	0x1f, 1	; 31
+ bc2:	fe cf       	rjmp	.-4      	; 0xbc0 <eeprom_read_byte>
+ bc4:	92 bd       	out	0x22, r25	; 34
+ bc6:	81 bd       	out	0x21, r24	; 33
+ bc8:	f8 9a       	sbi	0x1f, 0	; 31
+ bca:	99 27       	eor	r25, r25
+ bcc:	80 b5       	in	r24, 0x20	; 32
+ bce:	08 95       	ret
 
-00000bfe <eeprom_read_word>:
- bfe:	a8 e1       	ldi	r26, 0x18	; 24
- c00:	b0 e0       	ldi	r27, 0x00	; 0
- c02:	42 e0       	ldi	r20, 0x02	; 2
- c04:	50 e0       	ldi	r21, 0x00	; 0
- c06:	0c 94 1a 06 	jmp	0xc34	; 0xc34 <eeprom_read_blraw>
+00000bd0 <eeprom_read_word>:
+ bd0:	a8 e1       	ldi	r26, 0x18	; 24
+ bd2:	b0 e0       	ldi	r27, 0x00	; 0
+ bd4:	42 e0       	ldi	r20, 0x02	; 2
+ bd6:	50 e0       	ldi	r21, 0x00	; 0
+ bd8:	0c 94 03 06 	jmp	0xc06	; 0xc06 <eeprom_read_blraw>
 
-00000c0a <eeprom_write_byte>:
- c0a:	26 2f       	mov	r18, r22
+00000bdc <eeprom_write_byte>:
+ bdc:	26 2f       	mov	r18, r22
 
-00000c0c <eeprom_write_r18>:
- c0c:	f9 99       	sbic	0x1f, 1	; 31
- c0e:	fe cf       	rjmp	.-4      	; 0xc0c <eeprom_write_r18>
- c10:	1f ba       	out	0x1f, r1	; 31
- c12:	92 bd       	out	0x22, r25	; 34
- c14:	81 bd       	out	0x21, r24	; 33
- c16:	20 bd       	out	0x20, r18	; 32
- c18:	0f b6       	in	r0, 0x3f	; 63
- c1a:	f8 94       	cli
- c1c:	fa 9a       	sbi	0x1f, 2	; 31
- c1e:	f9 9a       	sbi	0x1f, 1	; 31
- c20:	0f be       	out	0x3f, r0	; 63
- c22:	01 96       	adiw	r24, 0x01	; 1
- c24:	08 95       	ret
+00000bde <eeprom_write_r18>:
+ bde:	f9 99       	sbic	0x1f, 1	; 31
+ be0:	fe cf       	rjmp	.-4      	; 0xbde <eeprom_write_r18>
+ be2:	1f ba       	out	0x1f, r1	; 31
+ be4:	92 bd       	out	0x22, r25	; 34
+ be6:	81 bd       	out	0x21, r24	; 33
+ be8:	20 bd       	out	0x20, r18	; 32
+ bea:	0f b6       	in	r0, 0x3f	; 63
+ bec:	f8 94       	cli
+ bee:	fa 9a       	sbi	0x1f, 2	; 31
+ bf0:	f9 9a       	sbi	0x1f, 1	; 31
+ bf2:	0f be       	out	0x3f, r0	; 63
+ bf4:	01 96       	adiw	r24, 0x01	; 1
+ bf6:	08 95       	ret
 
-00000c26 <eeprom_write_word>:
- c26:	0e 94 05 06 	call	0xc0a	; 0xc0a <eeprom_write_byte>
- c2a:	27 2f       	mov	r18, r23
- c2c:	0c 94 06 06 	jmp	0xc0c	; 0xc0c <eeprom_write_r18>
+00000bf8 <eeprom_write_word>:
+ bf8:	0e 94 ee 05 	call	0xbdc	; 0xbdc <eeprom_write_byte>
+ bfc:	27 2f       	mov	r18, r23
+ bfe:	0c 94 ef 05 	jmp	0xbde	; 0xbde <eeprom_write_r18>
 
-00000c30 <eeprom_read_block>:
- c30:	dc 01       	movw	r26, r24
- c32:	cb 01       	movw	r24, r22
+00000c02 <eeprom_read_block>:
+ c02:	dc 01       	movw	r26, r24
+ c04:	cb 01       	movw	r24, r22
 
-00000c34 <eeprom_read_blraw>:
- c34:	fc 01       	movw	r30, r24
- c36:	f9 99       	sbic	0x1f, 1	; 31
- c38:	fe cf       	rjmp	.-4      	; 0xc36 <eeprom_read_blraw+0x2>
- c3a:	06 c0       	rjmp	.+12     	; 0xc48 <eeprom_read_blraw+0x14>
- c3c:	f2 bd       	out	0x22, r31	; 34
- c3e:	e1 bd       	out	0x21, r30	; 33
- c40:	f8 9a       	sbi	0x1f, 0	; 31
- c42:	31 96       	adiw	r30, 0x01	; 1
- c44:	00 b4       	in	r0, 0x20	; 32
- c46:	0d 92       	st	X+, r0
- c48:	41 50       	subi	r20, 0x01	; 1
- c4a:	50 40       	sbci	r21, 0x00	; 0
- c4c:	b8 f7       	brcc	.-18     	; 0xc3c <eeprom_read_blraw+0x8>
- c4e:	08 95       	ret
+00000c06 <eeprom_read_blraw>:
+ c06:	fc 01       	movw	r30, r24
+ c08:	f9 99       	sbic	0x1f, 1	; 31
+ c0a:	fe cf       	rjmp	.-4      	; 0xc08 <eeprom_read_blraw+0x2>
+ c0c:	06 c0       	rjmp	.+12     	; 0xc1a <eeprom_read_blraw+0x14>
+ c0e:	f2 bd       	out	0x22, r31	; 34
+ c10:	e1 bd       	out	0x21, r30	; 33
+ c12:	f8 9a       	sbi	0x1f, 0	; 31
+ c14:	31 96       	adiw	r30, 0x01	; 1
+ c16:	00 b4       	in	r0, 0x20	; 32
+ c18:	0d 92       	st	X+, r0
+ c1a:	41 50       	subi	r20, 0x01	; 1
+ c1c:	50 40       	sbci	r21, 0x00	; 0
+ c1e:	b8 f7       	brcc	.-18     	; 0xc0e <eeprom_read_blraw+0x8>
+ c20:	08 95       	ret
 
-00000c50 <_exit>:
- c50:	f8 94       	cli
+00000c22 <_exit>:
+ c22:	f8 94       	cli
 
-00000c52 <__stop_program>:
- c52:	ff cf       	rjmp	.-2      	; 0xc52 <__stop_program>
+00000c24 <__stop_program>:
+ c24:	ff cf       	rjmp	.-2      	; 0xc24 <__stop_program>

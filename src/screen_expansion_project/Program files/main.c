@@ -58,7 +58,7 @@
 #define MIDDLE_LEFT  2
 #define MIDDLE_RIGHT 3
 
-uint8_t main(void) {
+int main(void) {
 
 	bool memory_tests_error = 0; /* Global memory tests error flag */
 
@@ -70,11 +70,7 @@ uint8_t main(void) {
 
 	/* Test the SRAM */
 	bool sram_test = SRAM_Test();
-/*
-	bool eeprom_test = 0;
-	bool flash_test = 0;
-	bool sram_test = 0;
-*/
+
 	/* Initialize the screen in SPI mode */
 	ScreenInit(SPI);
 	_delay_ms(1);
