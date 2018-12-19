@@ -42,7 +42,7 @@ void I2C_Init(void){
 
 	 TWSR = 0;                            /* no prescaler */
 	 TWBR = ( (F_CPU/SCL_CLOCK )-16 )/2;  /* must be > 10 for stable operation */
-
+	 DDRB = (1 <<PB0);
 }
 
 void I2C_Start(unsigned char addr){
