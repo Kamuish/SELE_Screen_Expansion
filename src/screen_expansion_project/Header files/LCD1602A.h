@@ -38,9 +38,9 @@
 #define LCD_FUNCTION_8BIT     	   4      /* DB4: set 8BIT mode (0->4BIT mode) 	*/
 #define LCD_FUNCTION_2LINES     3      /* DB3: two lines (0->one line)      	*/
 #define LCD_FUNCTION_10DOTS   2      /* DB2: 5x10 font (0->5x7 font)      	*/
-#define LCD_CGRAM             6      /* DB6: set CG RAM address             */
-#define LCD_DDRAM             7      /* DB7: set DD RAM address             */
-#define LCD_BUSY              7      /* DB7: LCD is busy                    */
+#define LCD_CGRAM                               6      /* DB6: set CG RAM address             */
+#define LCD_DDRAM                              7      /* DB7: set DD RAM address             */
+#define LCD_BUSY                                    7      /* DB7: LCD is busy                    */
 
 /* set entry mode: display shift on/off, dec/inc cursor move direction */
 #define LCD_ENTRY_DEC                       0x04   /* display shift off, dec cursor move dir */
