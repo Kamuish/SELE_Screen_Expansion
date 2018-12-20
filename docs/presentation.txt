@@ -20,7 +20,8 @@ Functionalities to show:
             - FLASH : change a line of code and compile it
 
     - Talk about the NASA coding standards and what we did not implement
-
+        - We sometimes have warnings in the compilation, because we do not use int as 
+        the type of the main function. Instead we use uint8_t
     - Show the schematic of the circuit
 
 
@@ -28,3 +29,4 @@ What we should prepare better:
     
     - Defend our choice of the MARCH C memory test
     - Problems in the EEMEM
+
