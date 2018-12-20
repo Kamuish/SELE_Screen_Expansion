@@ -2,7 +2,13 @@
  *																		*
  *		FILE NAME: EEPROM_test.c											*
  *		PURPOSE:
- *											*
+ *							Performs a validity test on the used bytes of the EEPROM memory. IN the first place
+ *							we save the used memory on the flash, to avoid losing information with the test.
+ *							Afterwards, we write 1 on all the locations and try to read a one. We repeat the process
+ *							with zero.
+ *
+ *							IN the end, we restore the data previously stored on the flash memory back to the original position
+ *							in the eeprom memory				*
  *		FILE REFERENCES:												*
  *																		*
  *		Name			I/O			Description							*
