@@ -4,7 +4,10 @@
  *		PURPOSE:
  *				Main program of the project. IMplements a state machine to shift the
  *				string between both screens.
- *																				                                		                                 				*
+ *				Before executing the code, we test 3 memories: FLASH, EEPROM and
+ *				SRAM. If either one of these tests fails, a message is displayed and the code
+ *				execution is halted.
+ *								                                		                                 				*
  *		FILE REFERENCES:																			                                 			*
  *																																		                                *
  *		Name			I/O			Description																		   						*
@@ -32,7 +35,7 @@
  *																		*
  *		Date	Author	Change ID	Release		Description of change	*
  *		Dec 17, 2018 	joaorodrigues			State Machine improvements *
- *		Dec 13, 2018 	André Silva             State machine			*
+ *		Dec 13, 2018 	André Silva               State machine			*
  * 		ALGORITHM (PDL)													*
  *																		*
  ************************************************************************/

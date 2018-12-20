@@ -1,7 +1,8 @@
 /************************************************************************
  *																		*
  *		FILE NAME: SPI_comms.c											*
- *		PURPOSE:														*
+ *		PURPOSE:									7
+ *			Implementation of the SPI protocol using the ATMEGA328P					*
  *		FILE REFERENCES:												*
  *																		*
  *		Name			I/O			Description							*
