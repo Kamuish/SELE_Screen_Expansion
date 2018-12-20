@@ -62,6 +62,7 @@ void I2C_Start(unsigned char addr){
 		/* Did not receive slave ack*/
 		PORTB |= (1 <<PB0);
 		I2C_Stop();  /* Does not allow to send more data*/
+		return;
 
 	}
 
@@ -73,6 +74,7 @@ void I2C_Start(unsigned char addr){
 		/* Did not receive slave ack*/
 		PORTB |= (1 <<PB0);
 		I2C_Stop();  /* Does not allow to send more data*/
+		return;
 	}
 
 }
