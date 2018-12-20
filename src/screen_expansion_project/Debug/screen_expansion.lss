@@ -3,1620 +3,3062 @@ screen_expansion.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000010  00800100  0000078a  000007fe  2**0
+  0 .data         0000005e  00800100  00001230  000012a4  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000078a  00000000  00000000  00000074  2**1
+  1 .classb_sram_buffer 00000140  0080015e  0000128e  00001302  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .text         00001230  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .stab         00001ca4  00000000  00000000  00000810  2**2
+  3 .stab         000049bc  00000000  00000000  00001444  2**2
                   CONTENTS, READONLY, DEBUGGING
-  3 .stabstr      00000f73  00000000  00000000  000024b4  2**0
+  4 .stabstr      00001731  00000000  00000000  00005e00  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .comment      00000011  00000000  00000000  00003427  2**0
+  5 .comment      00000011  00000000  00000000  00007531  2**0
                   CONTENTS, READONLY
-  5 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00003438  2**2
+  6 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00007544  2**2
                   CONTENTS, READONLY
+  7 .debug_info   000005f4  00000000  00000000  00007584  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000005a2  00000000  00000000  00007b78  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   0000001d  00000000  00000000  0000811a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000208  00000000  00000000  00008137  2**0
+                  CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
-   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
-   4:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-   8:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-   c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
-  64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+       0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+       4:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+       8:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+       c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+      64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
 
 00000068 <__ctors_end>:
-  68:	11 24       	eor	r1, r1
-  6a:	1f be       	out	0x3f, r1	; 63
-  6c:	cf ef       	ldi	r28, 0xFF	; 255
-  6e:	d8 e0       	ldi	r29, 0x08	; 8
-  70:	de bf       	out	0x3e, r29	; 62
-  72:	cd bf       	out	0x3d, r28	; 61
+      68:	11 24       	eor	r1, r1
+      6a:	1f be       	out	0x3f, r1	; 63
+      6c:	cf ef       	ldi	r28, 0xFF	; 255
+      6e:	d8 e0       	ldi	r29, 0x08	; 8
+      70:	de bf       	out	0x3e, r29	; 62
+      72:	cd bf       	out	0x3d, r28	; 61
 
 00000074 <__do_copy_data>:
-  74:	11 e0       	ldi	r17, 0x01	; 1
-  76:	a0 e0       	ldi	r26, 0x00	; 0
-  78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	ea e8       	ldi	r30, 0x8A	; 138
-  7c:	f7 e0       	ldi	r31, 0x07	; 7
-  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
-  80:	05 90       	lpm	r0, Z+
-  82:	0d 92       	st	X+, r0
-  84:	a0 31       	cpi	r26, 0x10	; 16
-  86:	b1 07       	cpc	r27, r17
-  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
-  8a:	0e 94 80 03 	call	0x700	; 0x700 <main>
-  8e:	0c 94 c3 03 	jmp	0x786	; 0x786 <_exit>
+      74:	11 e0       	ldi	r17, 0x01	; 1
+      76:	a0 e0       	ldi	r26, 0x00	; 0
+      78:	b1 e0       	ldi	r27, 0x01	; 1
+      7a:	e0 e3       	ldi	r30, 0x30	; 48
+      7c:	f2 e1       	ldi	r31, 0x12	; 18
+      7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+      80:	05 90       	lpm	r0, Z+
+      82:	0d 92       	st	X+, r0
+      84:	ae 35       	cpi	r26, 0x5E	; 94
+      86:	b1 07       	cpc	r27, r17
+      88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+      8a:	0e 94 8f 07 	call	0xf1e	; 0xf1e <main>
+      8e:	0c 94 16 09 	jmp	0x122c	; 0x122c <_exit>
 
 00000092 <__bad_interrupt>:
-  92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+      92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-00000096 <I2C_Init>:
+00000096 <EEPROM_Test>:
+
+#include <EEPROM_test.h>
+
+
+bool EEPROM_Test(void) {
+      96:	ef 92       	push	r14
+      98:	ff 92       	push	r15
+      9a:	1f 93       	push	r17
+      9c:	cf 93       	push	r28
+      9e:	df 93       	push	r29
+	 * First we write zero to all bytes, to ensure that there is no data in the eeprom
+	 * Afterwards, we write one to all bytes and, if the memory is working properly, we should read 1's on all
+	 * Then we repeat the process for zeros.
+	 * After passing all tests we restore the previously stored data
+	 */
+    uint16_t real_hash = eeprom_read_word( (const uint16_t*) USED_ADDR); /* Stores the real hash stored on Eeprom's addr*/
+      a0:	82 e2       	ldi	r24, 0x22	; 34
+      a2:	90 e0       	ldi	r25, 0x00	; 0
+      a4:	0e 94 ed 08 	call	0x11da	; 0x11da <eeprom_read_word>
+      a8:	7c 01       	movw	r14, r24
+    uint8_t tmp = 0;
+    bool errors = 0;
+    for (uint16_t k =0; k < N_BYTES_EEPROM ; k++)
+      aa:	d0 e0       	ldi	r29, 0x00	; 0
+      ac:	c0 e0       	ldi	r28, 0x00	; 0
+    {
+        eeprom_write_byte((uint8_t *)k, 0x00);
+      ae:	60 e0       	ldi	r22, 0x00	; 0
+      b0:	ce 01       	movw	r24, r28
+      b2:	0e 94 f3 08 	call	0x11e6	; 0x11e6 <eeprom_write_byte>
+    for (uint16_t k =0; k < N_BYTES_EEPROM ; k++)
+      b6:	21 96       	adiw	r28, 0x01	; 1
+      b8:	c1 15       	cp	r28, r1
+      ba:	84 e0       	ldi	r24, 0x04	; 4
+      bc:	d8 07       	cpc	r29, r24
+      be:	b9 f7       	brne	.-18     	; 0xae <EEPROM_Test+0x18>
+    }
+    for(uint16_t k =0; k < N_BYTES_EEPROM; k++)
+      c0:	d0 e0       	ldi	r29, 0x00	; 0
+      c2:	c0 e0       	ldi	r28, 0x00	; 0
+    bool errors = 0;
+      c4:	10 e0       	ldi	r17, 0x00	; 0
+      c6:	08 c0       	rjmp	.+16     	; 0xd8 <EEPROM_Test+0x42>
+    {
+    	tmp = eeprom_read_byte((uint8_t*) k);
+        if (0 == tmp)
+        {
+            eeprom_write_byte((uint8_t*) k ,0xFF);
+      c8:	ce 01       	movw	r24, r28
+      ca:	0e 94 f3 08 	call	0x11e6	; 0x11e6 <eeprom_write_byte>
+    for(uint16_t k =0; k < N_BYTES_EEPROM; k++)
+      ce:	21 96       	adiw	r28, 0x01	; 1
+      d0:	c1 15       	cp	r28, r1
+      d2:	84 e0       	ldi	r24, 0x04	; 4
+      d4:	d8 07       	cpc	r29, r24
+      d6:	79 f0       	breq	.+30     	; 0xf6 <EEPROM_Test+0x60>
+    	tmp = eeprom_read_byte((uint8_t*) k);
+      d8:	ce 01       	movw	r24, r28
+      da:	0e 94 e5 08 	call	0x11ca	; 0x11ca <eeprom_read_byte>
+            eeprom_write_byte((uint8_t*) k ,0xFF);
+      de:	6f ef       	ldi	r22, 0xFF	; 255
+        if (0 == tmp)
+      e0:	88 23       	and	r24, r24
+      e2:	91 f3       	breq	.-28     	; 0xc8 <EEPROM_Test+0x32>
+        }
+        else
+        {
+        	errors = 1;
+            eeprom_write_byte((uint8_t*) k , 0xFF);
+      e4:	ce 01       	movw	r24, r28
+      e6:	0e 94 f3 08 	call	0x11e6	; 0x11e6 <eeprom_write_byte>
+        	errors = 1;
+      ea:	11 e0       	ldi	r17, 0x01	; 1
+    for(uint16_t k =0; k < N_BYTES_EEPROM; k++)
+      ec:	21 96       	adiw	r28, 0x01	; 1
+      ee:	c1 15       	cp	r28, r1
+      f0:	84 e0       	ldi	r24, 0x04	; 4
+      f2:	d8 07       	cpc	r29, r24
+      f4:	89 f7       	brne	.-30     	; 0xd8 <EEPROM_Test+0x42>
+        }
+    }
+
+
+    for(uint16_t k = 0; k < N_BYTES_EEPROM ; k++)
+      f6:	d0 e0       	ldi	r29, 0x00	; 0
+      f8:	c0 e0       	ldi	r28, 0x00	; 0
+      fa:	09 c0       	rjmp	.+18     	; 0x10e <EEPROM_Test+0x78>
+            eeprom_write_byte((uint8_t*) k ,0x00);
+        }
+        else
+        {
+        	errors = 1;
+            eeprom_write_byte((uint8_t*) k, 0x00);
+      fc:	ce 01       	movw	r24, r28
+      fe:	0e 94 f3 08 	call	0x11e6	; 0x11e6 <eeprom_write_byte>
+        	errors = 1;
+     102:	11 e0       	ldi	r17, 0x01	; 1
+    for(uint16_t k = 0; k < N_BYTES_EEPROM ; k++)
+     104:	21 96       	adiw	r28, 0x01	; 1
+     106:	c1 15       	cp	r28, r1
+     108:	84 e0       	ldi	r24, 0x04	; 4
+     10a:	d8 07       	cpc	r29, r24
+     10c:	71 f0       	breq	.+28     	; 0x12a <EEPROM_Test+0x94>
+    	tmp=eeprom_read_byte((uint8_t*) k);
+     10e:	ce 01       	movw	r24, r28
+     110:	0e 94 e5 08 	call	0x11ca	; 0x11ca <eeprom_read_byte>
+            eeprom_write_byte((uint8_t*) k ,0x00);
+     114:	60 e0       	ldi	r22, 0x00	; 0
+        if (0xFF == tmp)
+     116:	8f 3f       	cpi	r24, 0xFF	; 255
+     118:	89 f7       	brne	.-30     	; 0xfc <EEPROM_Test+0x66>
+            eeprom_write_byte((uint8_t*) k ,0x00);
+     11a:	ce 01       	movw	r24, r28
+     11c:	0e 94 f3 08 	call	0x11e6	; 0x11e6 <eeprom_write_byte>
+    for(uint16_t k = 0; k < N_BYTES_EEPROM ; k++)
+     120:	21 96       	adiw	r28, 0x01	; 1
+     122:	c1 15       	cp	r28, r1
+     124:	84 e0       	ldi	r24, 0x04	; 4
+     126:	d8 07       	cpc	r29, r24
+     128:	91 f7       	brne	.-28     	; 0x10e <EEPROM_Test+0x78>
+        }
+    }
+
+    for (uint16_t k =0; k < N_BYTES_EEPROM; k++)
+     12a:	d0 e0       	ldi	r29, 0x00	; 0
+     12c:	c0 e0       	ldi	r28, 0x00	; 0
+    {
+    	tmp =eeprom_read_byte((uint8_t*) k );
+     12e:	ce 01       	movw	r24, r28
+     130:	0e 94 e5 08 	call	0x11ca	; 0x11ca <eeprom_read_byte>
+        if(0 != tmp)
+     134:	81 11       	cpse	r24, r1
+        {
+        	errors = 1;
+     136:	11 e0       	ldi	r17, 0x01	; 1
+    for (uint16_t k =0; k < N_BYTES_EEPROM; k++)
+     138:	21 96       	adiw	r28, 0x01	; 1
+     13a:	c1 15       	cp	r28, r1
+     13c:	84 e0       	ldi	r24, 0x04	; 4
+     13e:	d8 07       	cpc	r29, r24
+     140:	b1 f7       	brne	.-20     	; 0x12e <EEPROM_Test+0x98>
+        }
+    }
+    eeprom_write_word(( uint16_t*) USED_ADDR, real_hash);
+     142:	b7 01       	movw	r22, r14
+     144:	82 e2       	ldi	r24, 0x22	; 34
+     146:	90 e0       	ldi	r25, 0x00	; 0
+     148:	0e 94 01 09 	call	0x1202	; 0x1202 <eeprom_write_word>
+    else
+    {
+    	return 1;
+    }
+
+}
+     14c:	81 2f       	mov	r24, r17
+     14e:	df 91       	pop	r29
+     150:	cf 91       	pop	r28
+     152:	1f 91       	pop	r17
+     154:	ff 90       	pop	r15
+     156:	ef 90       	pop	r14
+     158:	08 95       	ret
+
+0000015a <FLASH_Test>:
+ */
+
+#include <FLASH_test.h>
+
+bool  FLASH_Test(void)
+{
+     15a:	cf 93       	push	r28
+     15c:	df 93       	push	r29
+{
+	/* 
+	 * Calculates 16 bit XOR hash of the utilized flash memory
+	 */ 
+
+    uint16_t hash = 0; /* Variable to hold the hash */
+     15e:	d0 e0       	ldi	r29, 0x00	; 0
+     160:	c0 e0       	ldi	r28, 0x00	; 0
+
+    for (uint16_t k = 0; k < BYTES_FLASH - 1; k += 2) {
+     162:	90 e0       	ldi	r25, 0x00	; 0
+     164:	80 e0       	ldi	r24, 0x00	; 0
+        uint16_t value = pgm_read_word_near(k);
+     166:	fc 01       	movw	r30, r24
+     168:	25 91       	lpm	r18, Z+
+     16a:	34 91       	lpm	r19, Z
+        hash ^= value;
+     16c:	c2 27       	eor	r28, r18
+     16e:	d3 27       	eor	r29, r19
+    for (uint16_t k = 0; k < BYTES_FLASH - 1; k += 2) {
+     170:	02 96       	adiw	r24, 0x02	; 2
+     172:	84 38       	cpi	r24, 0x84	; 132
+     174:	2c e0       	ldi	r18, 0x0C	; 12
+     176:	92 07       	cpc	r25, r18
+     178:	b1 f7       	brne	.-20     	; 0x166 <FLASH_Test+0xc>
+	uint16_t true_hash = eeprom_read_word ((const uint16_t*)EEPROM_ADDR);
+     17a:	86 e4       	ldi	r24, 0x46	; 70
+     17c:	90 e0       	ldi	r25, 0x00	; 0
+     17e:	0e 94 ed 08 	call	0x11da	; 0x11da <eeprom_read_word>
+	return (bool)(hash != true_hash);
+     182:	21 e0       	ldi	r18, 0x01	; 1
+     184:	8c 17       	cp	r24, r28
+     186:	9d 07       	cpc	r25, r29
+     188:	09 f4       	brne	.+2      	; 0x18c <FLASH_Test+0x32>
+     18a:	20 e0       	ldi	r18, 0x00	; 0
+}
+     18c:	82 2f       	mov	r24, r18
+     18e:	df 91       	pop	r29
+     190:	cf 91       	pop	r28
+     192:	08 95       	ret
+
+00000194 <FLASH_CalculateHashXOR>:
+    for (uint16_t k = 0; k < BYTES_FLASH - 1; k += 2) {
+     194:	30 e0       	ldi	r19, 0x00	; 0
+     196:	20 e0       	ldi	r18, 0x00	; 0
+    uint16_t hash = 0; /* Variable to hold the hash */
+     198:	90 e0       	ldi	r25, 0x00	; 0
+     19a:	80 e0       	ldi	r24, 0x00	; 0
+        uint16_t value = pgm_read_word_near(k);
+     19c:	f9 01       	movw	r30, r18
+     19e:	45 91       	lpm	r20, Z+
+     1a0:	54 91       	lpm	r21, Z
+        hash ^= value;
+     1a2:	84 27       	eor	r24, r20
+     1a4:	95 27       	eor	r25, r21
+    for (uint16_t k = 0; k < BYTES_FLASH - 1; k += 2) {
+     1a6:	2e 5f       	subi	r18, 0xFE	; 254
+     1a8:	3f 4f       	sbci	r19, 0xFF	; 255
+     1aa:	24 38       	cpi	r18, 0x84	; 132
+     1ac:	4c e0       	ldi	r20, 0x0C	; 12
+     1ae:	34 07       	cpc	r19, r20
+     1b0:	a9 f7       	brne	.-22     	; 0x19c <FLASH_CalculateHashXOR+0x8>
+    }
+
+    return hash;
+}
+     1b2:	08 95       	ret
+
+000001b4 <I2C_Init>:
 
 void I2C_Init(void){
 	/* Sets up I2C communication
 	 */
 
-	 TWSR = 0;                         /* no prescaler */
-  96:	10 92 b9 00 	sts	0x00B9, r1
+	 TWSR = 0;                            /* no prescaler */
+     1b4:	10 92 b9 00 	sts	0x00B9, r1	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
 	 TWBR = ( (F_CPU/SCL_CLOCK )-16 )/2;  /* must be > 10 for stable operation */
-  9a:	8d ef       	ldi	r24, 0xFD	; 253
-  9c:	80 93 b8 00 	sts	0x00B8, r24
-  a0:	08 95       	ret
+     1b8:	81 e4       	ldi	r24, 0x41	; 65
+     1ba:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <__TEXT_REGION_LENGTH__+0x7e00b8>
 
-000000a2 <I2C_Start>:
-void I2C_Start(unsigned char addr){
+}
+     1be:	08 95       	ret
+
+000001c0 <I2C_Start>:
 	/* Send start action  for I2C communication and wait untils the TWINT flag is set.
 	 * Also checks TWI status register for correct sending of start signal.
 	 * Afterwards chooses the slave, by setting the address to twdr and clearing the TWINT flag
 	 */
+
 	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN);
-  a2:	94 ea       	ldi	r25, 0xA4	; 164
-  a4:	90 93 bc 00 	sts	0x00BC, r25
+     1c0:	94 ea       	ldi	r25, 0xA4	; 164
+     1c2:	90 93 bc 00 	sts	0x00BC, r25	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
 
 void I2C_WaitForTwint(void) {
 	/*
 	 * Waits for the TWINT flag to set
 	 */
 	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
-  a8:	90 91 bc 00 	lds	r25, 0x00BC
-  ac:	97 ff       	sbrs	r25, 7
-  ae:	fc cf       	rjmp	.-8      	; 0xa8 <I2C_Start+0x6>
-	 */
-	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN);
-
-	I2C_WaitForTwint();
-
+     1c6:	90 91 bc 00 	lds	r25, 0x00BC	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+     1ca:	97 ff       	sbrs	r25, 7
+     1cc:	fc cf       	rjmp	.-8      	; 0x1c6 <I2C_Start+0x6>
+	if ( (TWSR & 0xF8)  != TW_START){
+     1ce:	90 91 b9 00 	lds	r25, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+     1d2:	98 7f       	andi	r25, 0xF8	; 248
+     1d4:	98 30       	cpi	r25, 0x08	; 8
+     1d6:	81 f4       	brne	.+32     	; 0x1f8 <I2C_Start+0x38>
 	TWDR = addr ;
-  b0:	80 93 bb 00 	sts	0x00BB, r24
-
+     1d8:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
 	TWCR = (1<<TWINT) | (1<<TWEN);
-  b4:	84 e8       	ldi	r24, 0x84	; 132
-  b6:	80 93 bc 00 	sts	0x00BC, r24
-
-void I2C_WaitForTwint(void) {
-	/*
-	 * Waits for the TWINT flag to set
-	 */
+     1dc:	84 e8       	ldi	r24, 0x84	; 132
+     1de:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
 	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
-  ba:	80 91 bc 00 	lds	r24, 0x00BC
-  be:	87 ff       	sbrs	r24, 7
-  c0:	fc cf       	rjmp	.-8      	; 0xba <I2C_Start+0x18>
-
-	TWDR = addr ;
-
-	TWCR = (1<<TWINT) | (1<<TWEN);
-	I2C_WaitForTwint();
-}
-  c2:	08 95       	ret
-
-000000c4 <I2C_Write>:
-
-
-uint8_t I2C_Write( unsigned char data){
-	/* Send command and wait for the flag and ACK
-	 */
-	TWDR = data;
-  c4:	80 93 bb 00 	sts	0x00BB, r24
-
-	TWCR = (1<<TWINT) | (1<<TWEN);
-  c8:	84 e8       	ldi	r24, 0x84	; 132
-  ca:	80 93 bc 00 	sts	0x00BC, r24
-
-void I2C_WaitForTwint(void) {
-	/*
-	 * Waits for the TWINT flag to set
-	 */
-	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
-  ce:	80 91 bc 00 	lds	r24, 0x00BC
-  d2:	87 ff       	sbrs	r24, 7
-  d4:	fc cf       	rjmp	.-8      	; 0xce <I2C_Write+0xa>
-	TWCR = (1<<TWINT) | (1<<TWEN);
-
-	I2C_WaitForTwint();
-
+     1e2:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+     1e6:	87 ff       	sbrs	r24, 7
+     1e8:	fc cf       	rjmp	.-8      	; 0x1e2 <I2C_Start+0x22>
+	if ( (TWSR & 0xF8)  != TW_MT_SLA_ACK){
+     1ea:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+     1ee:	88 7f       	andi	r24, 0xF8	; 248
+     1f0:	88 31       	cpi	r24, 0x18	; 24
+     1f2:	11 f4       	brne	.+4      	; 0x1f8 <I2C_Start+0x38>
 	return 0;
+     1f4:	80 e0       	ldi	r24, 0x00	; 0
 }
-  d6:	80 e0       	ldi	r24, 0x00	; 0
-  d8:	08 95       	ret
+     1f6:	08 95       	ret
+		PORTB = (1 <<PB0);
+     1f8:	81 e0       	ldi	r24, 0x01	; 1
+     1fa:	85 b9       	out	0x05, r24	; 5
+		return 1;
+     1fc:	08 95       	ret
 
-000000da <I2C_Stop>:
-
-void  I2C_Stop(void){
-	/* Sends I2C stop action
-	 */
-	TWCR =  ( 1 << TWINT ) | ( 1 << TWEN ) | (1 << TWSTO ) ;
-  da:	84 e9       	ldi	r24, 0x94	; 148
-  dc:	80 93 bc 00 	sts	0x00BC, r24
-	while(TWCR & (1<<TWSTO));                                                   // waits for TWSTO to set
-  e0:	80 91 bc 00 	lds	r24, 0x00BC
-  e4:	84 fd       	sbrc	r24, 4
-  e6:	fc cf       	rjmp	.-8      	; 0xe0 <I2C_Stop+0x6>
-}
-  e8:	08 95       	ret
-
-000000ea <I2C_WaitForTwint>:
-
-void I2C_WaitForTwint(void) {
-	/*
-	 * Waits for the TWINT flag to set
-	 */
+000001fe <I2C_Write>:
+	TWDR = data_i2c;
+     1fe:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__TEXT_REGION_LENGTH__+0x7e00bb>
+	TWCR = (1<<TWINT) | (1<<TWEN);
+     202:	84 e8       	ldi	r24, 0x84	; 132
+     204:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
 	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
-  ea:	80 91 bc 00 	lds	r24, 0x00BC
-  ee:	87 ff       	sbrs	r24, 7
-  f0:	fc cf       	rjmp	.-8      	; 0xea <I2C_WaitForTwint>
+     208:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+     20c:	87 ff       	sbrs	r24, 7
+     20e:	fc cf       	rjmp	.-8      	; 0x208 <I2C_Write+0xa>
+	uint8_t status = (TWSR & 0xF8) ;
+     210:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <__TEXT_REGION_LENGTH__+0x7e00b9>
+     214:	88 7f       	andi	r24, 0xF8	; 248
+	if ( status  != TW_MT_DATA_ACK){
+     216:	88 32       	cpi	r24, 0x28	; 40
+     218:	19 f0       	breq	.+6      	; 0x220 <I2C_Write+0x22>
+			PORTB = (1 <<PB0);
+     21a:	81 e0       	ldi	r24, 0x01	; 1
+     21c:	85 b9       	out	0x05, r24	; 5
+			return 1;
+     21e:	08 95       	ret
+	return 0;
+     220:	80 e0       	ldi	r24, 0x00	; 0
 }
-  f2:	08 95       	ret
+     222:	08 95       	ret
 
-000000f4 <I2C_InitScreen>:
-
-	ScreenInstruction(LCD_MODE_DEFAULT, protocol_flag);			/* Default entry mode. Shifts to the right */
+00000224 <I2C_Stop>:
+	TWCR =  ( 1 << TWINT ) | ( 1 << TWEN ) | (1 << TWSTO ) ;
+     224:	84 e9       	ldi	r24, 0x94	; 148
+     226:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+	while(TWCR & (1<<TWSTO));                                                   // waits for TWSTO to set
+     22a:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+     22e:	84 fd       	sbrc	r24, 4
+     230:	fc cf       	rjmp	.-8      	; 0x22a <I2C_Stop+0x6>
 }
+     232:	08 95       	ret
+
+00000234 <I2C_WaitForTwint>:
+	while (  ! ( TWCR  &  ( 1 << TWINT )));                                                    // waits for TWINT to set
+     234:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__TEXT_REGION_LENGTH__+0x7e00bc>
+     238:	87 ff       	sbrs	r24, 7
+     23a:	fc cf       	rjmp	.-8      	; 0x234 <I2C_WaitForTwint>
+}
+     23c:	08 95       	ret
+
+0000023e <I2C_InitScreen>:
 
 void I2C_InitScreen(void){
+	/* Initializes the I2C interface and sends the necessary commands to initialize the MCP23008
+	 * on the backpack and, afterwards, initializes the screen.
+	 */
 	I2C_Init();
-  f4:	0e 94 4b 00 	call	0x96	; 0x96 <I2C_Init>
+     23e:	0e 94 da 00 	call	0x1b4	; 0x1b4 <I2C_Init>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  f8:	87 ea       	ldi	r24, 0xA7	; 167
-  fa:	91 e6       	ldi	r25, 0x61	; 97
-  fc:	01 97       	sbiw	r24, 0x01	; 1
-  fe:	f1 f7       	brne	.-4      	; 0xfc <I2C_InitScreen+0x8>
- 100:	00 c0       	rjmp	.+0      	; 0x102 <I2C_InitScreen+0xe>
- 102:	00 00       	nop
- 104:	87 ea       	ldi	r24, 0xA7	; 167
- 106:	91 e6       	ldi	r25, 0x61	; 97
- 108:	01 97       	sbiw	r24, 0x01	; 1
- 10a:	f1 f7       	brne	.-4      	; 0x108 <I2C_InitScreen+0x14>
- 10c:	00 c0       	rjmp	.+0      	; 0x10e <I2C_InitScreen+0x1a>
- 10e:	00 00       	nop
+     242:	2f ef       	ldi	r18, 0xFF	; 255
+     244:	8f e7       	ldi	r24, 0x7F	; 127
+     246:	94 e0       	ldi	r25, 0x04	; 4
+     248:	21 50       	subi	r18, 0x01	; 1
+     24a:	80 40       	sbci	r24, 0x00	; 0
+     24c:	90 40       	sbci	r25, 0x00	; 0
+     24e:	e1 f7       	brne	.-8      	; 0x248 <I2C_InitScreen+0xa>
+     250:	00 c0       	rjmp	.+0      	; 0x252 <I2C_InitScreen+0x14>
+     252:	00 00       	nop
+     254:	2f ef       	ldi	r18, 0xFF	; 255
+     256:	8f e7       	ldi	r24, 0x7F	; 127
+     258:	94 e0       	ldi	r25, 0x04	; 4
+     25a:	21 50       	subi	r18, 0x01	; 1
+     25c:	80 40       	sbci	r24, 0x00	; 0
+     25e:	90 40       	sbci	r25, 0x00	; 0
+     260:	e1 f7       	brne	.-8      	; 0x25a <I2C_InitScreen+0x1c>
+     262:	00 c0       	rjmp	.+0      	; 0x264 <I2C_InitScreen+0x26>
+     264:	00 00       	nop
 
-	// Initialize backpack
+	/* Initialize backpack */
 
 	_delay_ms(100);
-	// COnfigures all  the pins as outputs
-	I2C_Start(I2C_ADDR);
- 110:	80 e4       	ldi	r24, 0x40	; 64
- 112:	0e 94 51 00 	call	0xa2	; 0xa2 <I2C_Start>
- 116:	89 ef       	ldi	r24, 0xF9	; 249
- 118:	90 e0       	ldi	r25, 0x00	; 0
- 11a:	01 97       	sbiw	r24, 0x01	; 1
- 11c:	f1 f7       	brne	.-4      	; 0x11a <I2C_InitScreen+0x26>
- 11e:	00 c0       	rjmp	.+0      	; 0x120 <I2C_InitScreen+0x2c>
- 120:	00 00       	nop
+	
+	I2C_Start(I2C_ADDR); /* COnfigures all  the pins as outputs*/
+     266:	80 e4       	ldi	r24, 0x40	; 64
+     268:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <I2C_Start>
+     26c:	86 e6       	ldi	r24, 0x66	; 102
+     26e:	9e e0       	ldi	r25, 0x0E	; 14
+     270:	01 97       	sbiw	r24, 0x01	; 1
+     272:	f1 f7       	brne	.-4      	; 0x270 <I2C_InitScreen+0x32>
+     274:	00 00       	nop
 	_delay_ms(1);
-	I2C_Write(0x00); // register I2C_ADDR
- 122:	80 e0       	ldi	r24, 0x00	; 0
- 124:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 128:	89 ef       	ldi	r24, 0xF9	; 249
- 12a:	90 e0       	ldi	r25, 0x00	; 0
- 12c:	01 97       	sbiw	r24, 0x01	; 1
- 12e:	f1 f7       	brne	.-4      	; 0x12c <I2C_InitScreen+0x38>
- 130:	00 c0       	rjmp	.+0      	; 0x132 <I2C_InitScreen+0x3e>
- 132:	00 00       	nop
+	I2C_Write(0x00); /* register I2C_ADDR */
+     276:	80 e0       	ldi	r24, 0x00	; 0
+     278:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     27c:	86 e6       	ldi	r24, 0x66	; 102
+     27e:	9e e0       	ldi	r25, 0x0E	; 14
+     280:	01 97       	sbiw	r24, 0x01	; 1
+     282:	f1 f7       	brne	.-4      	; 0x280 <I2C_InitScreen+0x42>
+     284:	00 00       	nop
 	_delay_ms(1);
-	I2C_Write(0x00); // clear all bits
- 134:	80 e0       	ldi	r24, 0x00	; 0
- 136:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+	I2C_Write(0x00); /* clear all bits */
+     286:	80 e0       	ldi	r24, 0x00	; 0
+     288:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
 	I2C_Stop();
- 13a:	0e 94 6d 00 	call	0xda	; 0xda <I2C_Stop>
- 13e:	87 ea       	ldi	r24, 0xA7	; 167
- 140:	91 e6       	ldi	r25, 0x61	; 97
- 142:	01 97       	sbiw	r24, 0x01	; 1
- 144:	f1 f7       	brne	.-4      	; 0x142 <I2C_InitScreen+0x4e>
- 146:	00 c0       	rjmp	.+0      	; 0x148 <I2C_InitScreen+0x54>
- 148:	00 00       	nop
+     28c:	0e 94 12 01 	call	0x224	; 0x224 <I2C_Stop>
+     290:	9f ef       	ldi	r25, 0xFF	; 255
+     292:	2f e7       	ldi	r18, 0x7F	; 127
+     294:	84 e0       	ldi	r24, 0x04	; 4
+     296:	91 50       	subi	r25, 0x01	; 1
+     298:	20 40       	sbci	r18, 0x00	; 0
+     29a:	80 40       	sbci	r24, 0x00	; 0
+     29c:	e1 f7       	brne	.-8      	; 0x296 <I2C_InitScreen+0x58>
+     29e:	00 c0       	rjmp	.+0      	; 0x2a0 <I2C_InitScreen+0x62>
+     2a0:	00 00       	nop
 	_delay_ms(100);
-	// set up internal register for continuous write to addrsess
-	I2C_Start(I2C_ADDR);
- 14a:	80 e4       	ldi	r24, 0x40	; 64
- 14c:	0e 94 51 00 	call	0xa2	; 0xa2 <I2C_Start>
- 150:	87 ea       	ldi	r24, 0xA7	; 167
- 152:	91 e6       	ldi	r25, 0x61	; 97
- 154:	01 97       	sbiw	r24, 0x01	; 1
- 156:	f1 f7       	brne	.-4      	; 0x154 <I2C_InitScreen+0x60>
- 158:	00 c0       	rjmp	.+0      	; 0x15a <I2C_InitScreen+0x66>
- 15a:	00 00       	nop
+	
+	I2C_Start(I2C_ADDR);  /* set up internal register for continuous write to address */
+     2a2:	80 e4       	ldi	r24, 0x40	; 64
+     2a4:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <I2C_Start>
+     2a8:	9f ef       	ldi	r25, 0xFF	; 255
+     2aa:	2f e7       	ldi	r18, 0x7F	; 127
+     2ac:	84 e0       	ldi	r24, 0x04	; 4
+     2ae:	91 50       	subi	r25, 0x01	; 1
+     2b0:	20 40       	sbci	r18, 0x00	; 0
+     2b2:	80 40       	sbci	r24, 0x00	; 0
+     2b4:	e1 f7       	brne	.-8      	; 0x2ae <I2C_InitScreen+0x70>
+     2b6:	00 c0       	rjmp	.+0      	; 0x2b8 <I2C_InitScreen+0x7a>
+     2b8:	00 00       	nop
 	_delay_ms(100);
 	I2C_Write(0x05);
- 15c:	85 e0       	ldi	r24, 0x05	; 5
- 15e:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 162:	83 ec       	ldi	r24, 0xC3	; 195
- 164:	99 e0       	ldi	r25, 0x09	; 9
- 166:	01 97       	sbiw	r24, 0x01	; 1
- 168:	f1 f7       	brne	.-4      	; 0x166 <I2C_InitScreen+0x72>
- 16a:	00 c0       	rjmp	.+0      	; 0x16c <I2C_InitScreen+0x78>
- 16c:	00 00       	nop
+     2ba:	85 e0       	ldi	r24, 0x05	; 5
+     2bc:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     2c0:	8f ef       	ldi	r24, 0xFF	; 255
+     2c2:	9f e8       	ldi	r25, 0x8F	; 143
+     2c4:	01 97       	sbiw	r24, 0x01	; 1
+     2c6:	f1 f7       	brne	.-4      	; 0x2c4 <I2C_InitScreen+0x86>
+     2c8:	00 c0       	rjmp	.+0      	; 0x2ca <I2C_InitScreen+0x8c>
+     2ca:	00 00       	nop
 	_delay_ms(10);
 	I2C_Write(0x20);
- 16e:	80 e2       	ldi	r24, 0x20	; 32
- 170:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
+     2cc:	80 e2       	ldi	r24, 0x20	; 32
+     2ce:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
 	I2C_Stop();
- 174:	0e 94 6d 00 	call	0xda	; 0xda <I2C_Stop>
+     2d2:	0e 94 12 01 	call	0x224	; 0x224 <I2C_Stop>
 
-	// Prepares to write on the GPIO registers
-	I2C_Start(I2C_ADDR);
- 178:	80 e4       	ldi	r24, 0x40	; 64
- 17a:	0e 94 51 00 	call	0xa2	; 0xa2 <I2C_Start>
- 17e:	87 ea       	ldi	r24, 0xA7	; 167
- 180:	91 e6       	ldi	r25, 0x61	; 97
- 182:	01 97       	sbiw	r24, 0x01	; 1
- 184:	f1 f7       	brne	.-4      	; 0x182 <I2C_InitScreen+0x8e>
- 186:	00 c0       	rjmp	.+0      	; 0x188 <I2C_InitScreen+0x94>
- 188:	00 00       	nop
+	
+	I2C_Start(I2C_ADDR); /* Prepares to write on the GPIO registers*/
+     2d6:	80 e4       	ldi	r24, 0x40	; 64
+     2d8:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <I2C_Start>
+     2dc:	9f ef       	ldi	r25, 0xFF	; 255
+     2de:	2f e7       	ldi	r18, 0x7F	; 127
+     2e0:	84 e0       	ldi	r24, 0x04	; 4
+     2e2:	91 50       	subi	r25, 0x01	; 1
+     2e4:	20 40       	sbci	r18, 0x00	; 0
+     2e6:	80 40       	sbci	r24, 0x00	; 0
+     2e8:	e1 f7       	brne	.-8      	; 0x2e2 <I2C_InitScreen+0xa4>
+     2ea:	00 c0       	rjmp	.+0      	; 0x2ec <I2C_InitScreen+0xae>
+     2ec:	00 00       	nop
 	_delay_ms(100);
-	I2C_Write(0x09); // gpio register
- 18a:	89 e0       	ldi	r24, 0x09	; 9
- 18c:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 190:	83 ec       	ldi	r24, 0xC3	; 195
- 192:	99 e0       	ldi	r25, 0x09	; 9
- 194:	01 97       	sbiw	r24, 0x01	; 1
- 196:	f1 f7       	brne	.-4      	; 0x194 <I2C_InitScreen+0xa0>
- 198:	00 c0       	rjmp	.+0      	; 0x19a <I2C_InitScreen+0xa6>
- 19a:	00 00       	nop
+	I2C_Write(0x09); /* gpio register */
+     2ee:	89 e0       	ldi	r24, 0x09	; 9
+     2f0:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     2f4:	8f ef       	ldi	r24, 0xFF	; 255
+     2f6:	9f e8       	ldi	r25, 0x8F	; 143
+     2f8:	01 97       	sbiw	r24, 0x01	; 1
+     2fa:	f1 f7       	brne	.-4      	; 0x2f8 <I2C_InitScreen+0xba>
+     2fc:	00 c0       	rjmp	.+0      	; 0x2fe <I2C_InitScreen+0xc0>
+     2fe:	00 00       	nop
+	 * uint8_t data - data to send
+	 * uint8_t protocol_flag - Chooses the protocol to use. Can be SPI or I2C
+	 * Returns: void
+	 */
 
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 19c:	8c e1       	ldi	r24, 0x1C	; 28
- 19e:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 1a2:	88 e1       	ldi	r24, 0x18	; 24
- 1a4:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 1a8:	89 e0       	ldi	r24, 0x09	; 9
- 1aa:	98 e2       	ldi	r25, 0x28	; 40
- 1ac:	01 97       	sbiw	r24, 0x01	; 1
- 1ae:	f1 f7       	brne	.-4      	; 0x1ac <I2C_InitScreen+0xb8>
- 1b0:	00 c0       	rjmp	.+0      	; 0x1b2 <I2C_InitScreen+0xbe>
- 1b2:	00 00       	nop
- 1b4:	8c e1       	ldi	r24, 0x1C	; 28
- 1b6:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 1ba:	88 e1       	ldi	r24, 0x18	; 24
- 1bc:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 1c0:	89 ef       	ldi	r24, 0xF9	; 249
- 1c2:	90 e0       	ldi	r25, 0x00	; 0
- 1c4:	01 97       	sbiw	r24, 0x01	; 1
- 1c6:	f1 f7       	brne	.-4      	; 0x1c4 <I2C_InitScreen+0xd0>
- 1c8:	00 c0       	rjmp	.+0      	; 0x1ca <I2C_InitScreen+0xd6>
- 1ca:	00 00       	nop
- 1cc:	8c e1       	ldi	r24, 0x1C	; 28
- 1ce:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 1d2:	88 e1       	ldi	r24, 0x18	; 24
- 1d4:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 1d8:	89 ef       	ldi	r24, 0xF9	; 249
- 1da:	90 e0       	ldi	r25, 0x00	; 0
- 1dc:	01 97       	sbiw	r24, 0x01	; 1
- 1de:	f1 f7       	brne	.-4      	; 0x1dc <I2C_InitScreen+0xe8>
- 1e0:	00 c0       	rjmp	.+0      	; 0x1e2 <I2C_InitScreen+0xee>
- 1e2:	00 00       	nop
- 1e4:	84 e1       	ldi	r24, 0x14	; 20
- 1e6:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 1ea:	80 e1       	ldi	r24, 0x10	; 16
- 1ec:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 1f0:	83 ec       	ldi	r24, 0xC3	; 195
- 1f2:	99 e0       	ldi	r25, 0x09	; 9
- 1f4:	01 97       	sbiw	r24, 0x01	; 1
- 1f6:	f1 f7       	brne	.-4      	; 0x1f4 <I2C_InitScreen+0x100>
- 1f8:	00 c0       	rjmp	.+0      	; 0x1fa <I2C_InitScreen+0x106>
- 1fa:	00 00       	nop
- 1fc:	08 95       	ret
-
-000001fe <SPI_InitScreen>:
-	Send4BitCommand(command, I2C);
-	_delay_ms(10);
+     300:	8c e1       	ldi	r24, 0x1C	; 28
+     302:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     306:	88 e1       	ldi	r24, 0x18	; 24
+     308:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     30c:	91 e5       	ldi	r25, 0x51	; 81
+     30e:	28 ed       	ldi	r18, 0xD8	; 216
+     310:	81 e0       	ldi	r24, 0x01	; 1
+     312:	91 50       	subi	r25, 0x01	; 1
+     314:	20 40       	sbci	r18, 0x00	; 0
+     316:	80 40       	sbci	r24, 0x00	; 0
+     318:	e1 f7       	brne	.-8      	; 0x312 <I2C_InitScreen+0xd4>
+     31a:	00 c0       	rjmp	.+0      	; 0x31c <I2C_InitScreen+0xde>
+     31c:	00 00       	nop
+     31e:	8c e1       	ldi	r24, 0x1C	; 28
+     320:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     324:	88 e1       	ldi	r24, 0x18	; 24
+     326:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     32a:	86 e6       	ldi	r24, 0x66	; 102
+     32c:	9e e0       	ldi	r25, 0x0E	; 14
+     32e:	01 97       	sbiw	r24, 0x01	; 1
+     330:	f1 f7       	brne	.-4      	; 0x32e <I2C_InitScreen+0xf0>
+     332:	00 00       	nop
+     334:	8c e1       	ldi	r24, 0x1C	; 28
+     336:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     33a:	88 e1       	ldi	r24, 0x18	; 24
+     33c:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     340:	86 e6       	ldi	r24, 0x66	; 102
+     342:	9e e0       	ldi	r25, 0x0E	; 14
+     344:	01 97       	sbiw	r24, 0x01	; 1
+     346:	f1 f7       	brne	.-4      	; 0x344 <I2C_InitScreen+0x106>
+     348:	00 00       	nop
+     34a:	84 e1       	ldi	r24, 0x14	; 20
+     34c:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     350:	80 e1       	ldi	r24, 0x10	; 16
+     352:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     356:	8f ef       	ldi	r24, 0xFF	; 255
+     358:	9f e8       	ldi	r25, 0x8F	; 143
+     35a:	01 97       	sbiw	r24, 0x01	; 1
+     35c:	f1 f7       	brne	.-4      	; 0x35a <I2C_InitScreen+0x11c>
+     35e:	00 c0       	rjmp	.+0      	; 0x360 <I2C_InitScreen+0x122>
+     360:	00 00       	nop
 }
+     362:	08 95       	ret
 
-void SPI_InitScreen(void){
+00000364 <SPI_InitScreen>:
 	SPI_MasterInit();
- 1fe:	0e 94 5e 03 	call	0x6bc	; 0x6bc <SPI_MasterInit>
- 202:	2f e7       	ldi	r18, 0x7F	; 127
- 204:	88 e3       	ldi	r24, 0x38	; 56
- 206:	91 e0       	ldi	r25, 0x01	; 1
- 208:	21 50       	subi	r18, 0x01	; 1
- 20a:	80 40       	sbci	r24, 0x00	; 0
- 20c:	90 40       	sbci	r25, 0x00	; 0
- 20e:	e1 f7       	brne	.-8      	; 0x208 <SPI_InitScreen+0xa>
- 210:	00 c0       	rjmp	.+0      	; 0x212 <SPI_InitScreen+0x14>
- 212:	00 00       	nop
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     364:	0e 94 12 04 	call	0x824	; 0x824 <SPI_MasterInit>
+     368:	2f ef       	ldi	r18, 0xFF	; 255
+     36a:	8f ef       	ldi	r24, 0xFF	; 255
+     36c:	91 e1       	ldi	r25, 0x11	; 17
+     36e:	21 50       	subi	r18, 0x01	; 1
+     370:	80 40       	sbci	r24, 0x00	; 0
+     372:	90 40       	sbci	r25, 0x00	; 0
+     374:	e1 f7       	brne	.-8      	; 0x36e <SPI_InitScreen+0xa>
+     376:	00 c0       	rjmp	.+0      	; 0x378 <SPI_InitScreen+0x14>
+     378:	00 00       	nop
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 214:	84 e6       	ldi	r24, 0x64	; 100
- 216:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 21a:	80 e6       	ldi	r24, 0x60	; 96
- 21c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 220:	89 e0       	ldi	r24, 0x09	; 9
- 222:	98 e2       	ldi	r25, 0x28	; 40
- 224:	01 97       	sbiw	r24, 0x01	; 1
- 226:	f1 f7       	brne	.-4      	; 0x224 <SPI_InitScreen+0x26>
- 228:	00 c0       	rjmp	.+0      	; 0x22a <SPI_InitScreen+0x2c>
- 22a:	00 00       	nop
- 22c:	84 e6       	ldi	r24, 0x64	; 100
- 22e:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 232:	80 e6       	ldi	r24, 0x60	; 96
- 234:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 238:	89 ef       	ldi	r24, 0xF9	; 249
- 23a:	90 e0       	ldi	r25, 0x00	; 0
- 23c:	01 97       	sbiw	r24, 0x01	; 1
- 23e:	f1 f7       	brne	.-4      	; 0x23c <SPI_InitScreen+0x3e>
- 240:	00 c0       	rjmp	.+0      	; 0x242 <SPI_InitScreen+0x44>
- 242:	00 00       	nop
- 244:	84 e6       	ldi	r24, 0x64	; 100
- 246:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 24a:	80 e6       	ldi	r24, 0x60	; 96
- 24c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 250:	89 ef       	ldi	r24, 0xF9	; 249
- 252:	90 e0       	ldi	r25, 0x00	; 0
- 254:	01 97       	sbiw	r24, 0x01	; 1
- 256:	f1 f7       	brne	.-4      	; 0x254 <SPI_InitScreen+0x56>
- 258:	00 c0       	rjmp	.+0      	; 0x25a <SPI_InitScreen+0x5c>
- 25a:	00 00       	nop
- 25c:	84 e2       	ldi	r24, 0x24	; 36
- 25e:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 262:	80 e2       	ldi	r24, 0x20	; 32
- 264:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 268:	83 ec       	ldi	r24, 0xC3	; 195
- 26a:	99 e0       	ldi	r25, 0x09	; 9
- 26c:	01 97       	sbiw	r24, 0x01	; 1
- 26e:	f1 f7       	brne	.-4      	; 0x26c <SPI_InitScreen+0x6e>
- 270:	00 c0       	rjmp	.+0      	; 0x272 <SPI_InitScreen+0x74>
- 272:	00 00       	nop
- 274:	08 95       	ret
-
-00000276 <ScreenInstruction>:
-	command = 0x20;
-	Send4BitCommand(command, SPI);
-	_delay_ms(10);
+     37a:	84 e6       	ldi	r24, 0x64	; 100
+     37c:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     380:	80 e6       	ldi	r24, 0x60	; 96
+     382:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     386:	21 e5       	ldi	r18, 0x51	; 81
+     388:	88 ed       	ldi	r24, 0xD8	; 216
+     38a:	91 e0       	ldi	r25, 0x01	; 1
+     38c:	21 50       	subi	r18, 0x01	; 1
+     38e:	80 40       	sbci	r24, 0x00	; 0
+     390:	90 40       	sbci	r25, 0x00	; 0
+     392:	e1 f7       	brne	.-8      	; 0x38c <SPI_InitScreen+0x28>
+     394:	00 c0       	rjmp	.+0      	; 0x396 <SPI_InitScreen+0x32>
+     396:	00 00       	nop
+     398:	84 e6       	ldi	r24, 0x64	; 100
+     39a:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     39e:	80 e6       	ldi	r24, 0x60	; 96
+     3a0:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     3a4:	86 e6       	ldi	r24, 0x66	; 102
+     3a6:	9e e0       	ldi	r25, 0x0E	; 14
+     3a8:	01 97       	sbiw	r24, 0x01	; 1
+     3aa:	f1 f7       	brne	.-4      	; 0x3a8 <SPI_InitScreen+0x44>
+     3ac:	00 00       	nop
+     3ae:	84 e6       	ldi	r24, 0x64	; 100
+     3b0:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     3b4:	80 e6       	ldi	r24, 0x60	; 96
+     3b6:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     3ba:	86 e6       	ldi	r24, 0x66	; 102
+     3bc:	9e e0       	ldi	r25, 0x0E	; 14
+     3be:	01 97       	sbiw	r24, 0x01	; 1
+     3c0:	f1 f7       	brne	.-4      	; 0x3be <SPI_InitScreen+0x5a>
+     3c2:	00 00       	nop
+     3c4:	84 e2       	ldi	r24, 0x24	; 36
+     3c6:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     3ca:	80 e2       	ldi	r24, 0x20	; 32
+     3cc:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     3d0:	8f ef       	ldi	r24, 0xFF	; 255
+     3d2:	9f e8       	ldi	r25, 0x8F	; 143
+     3d4:	01 97       	sbiw	r24, 0x01	; 1
+     3d6:	f1 f7       	brne	.-4      	; 0x3d4 <SPI_InitScreen+0x70>
+     3d8:	00 c0       	rjmp	.+0      	; 0x3da <SPI_InitScreen+0x76>
+     3da:	00 00       	nop
 }
+     3dc:	08 95       	ret
 
+000003de <ScreenInstruction>:
 void ScreenInstruction(uint8_t instruction, uint8_t protocol_flag) {
- 276:	cf 93       	push	r28
- 278:	df 93       	push	r29
-	/* Sends an instruction to the screen
-	 * uint8_t instruction - instruction to be sent
-	 * Returns: void.
-	 */
-
+     3de:	1f 93       	push	r17
+     3e0:	cf 93       	push	r28
+     3e2:	df 93       	push	r29
 	uint8_t high_nibble = (instruction)&0xF0;	/* High 4bit nibble of the character */
- 27a:	c8 2f       	mov	r28, r24
- 27c:	c0 7f       	andi	r28, 0xF0	; 240
+     3e4:	98 2f       	mov	r25, r24
+     3e6:	90 7f       	andi	r25, 0xF0	; 240
 	uint8_t low_nibble  = (instruction)&0x0F;	/* Low 4bit nibble of the character */
- 27e:	d8 2f       	mov	r29, r24
- 280:	df 70       	andi	r29, 0x0F	; 15
-
-	/* if (SPI) reverse the instruction before sending */
+     3e8:	28 2f       	mov	r18, r24
+     3ea:	2f 70       	andi	r18, 0x0F	; 15
 	if (SPI == protocol_flag) {
- 282:	61 11       	cpse	r22, r1
- 284:	56 c0       	rjmp	.+172    	; 0x332 <ScreenInstruction+0xbc>
- 286:	4c 2f       	mov	r20, r28
- 288:	50 e0       	ldi	r21, 0x00	; 0
- 28a:	90 e0       	ldi	r25, 0x00	; 0
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     3ec:	61 11       	cpse	r22, r1
+     3ee:	4b c0       	rjmp	.+150    	; 0x486 <__FUSE_REGION_LENGTH__+0x86>
 		if((nibble & (1 << i)))
+     3f0:	49 2f       	mov	r20, r25
+     3f2:	50 e0       	ldi	r21, 0x00	; 0
+	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
+     3f4:	90 e0       	ldi	r25, 0x00	; 0
+		if((nibble & (1 << i)))
+     3f6:	44 fd       	sbrc	r20, 4
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 28c:	29 2f       	mov	r18, r25
- 28e:	28 60       	ori	r18, 0x08	; 8
- 290:	c4 fd       	sbrc	r28, 4
- 292:	92 2f       	mov	r25, r18
- 294:	29 2f       	mov	r18, r25
- 296:	24 60       	ori	r18, 0x04	; 4
- 298:	45 fd       	sbrc	r20, 5
- 29a:	92 2f       	mov	r25, r18
- 29c:	29 2f       	mov	r18, r25
- 29e:	22 60       	ori	r18, 0x02	; 2
- 2a0:	46 fd       	sbrc	r20, 6
- 2a2:	92 2f       	mov	r25, r18
- 2a4:	c9 2f       	mov	r28, r25
- 2a6:	c1 60       	ori	r28, 0x01	; 1
- 2a8:	2d 2f       	mov	r18, r29
- 2aa:	30 e0       	ldi	r19, 0x00	; 0
- 2ac:	80 ff       	sbrs	r24, 0
- 2ae:	5d c0       	rjmp	.+186    	; 0x36a <ScreenInstruction+0xf4>
- 2b0:	80 e8       	ldi	r24, 0x80	; 128
- 2b2:	d8 2f       	mov	r29, r24
- 2b4:	d0 64       	ori	r29, 0x40	; 64
- 2b6:	21 ff       	sbrs	r18, 1
- 2b8:	d8 2f       	mov	r29, r24
- 2ba:	8d 2f       	mov	r24, r29
- 2bc:	80 62       	ori	r24, 0x20	; 32
- 2be:	22 fd       	sbrc	r18, 2
- 2c0:	d8 2f       	mov	r29, r24
- 2c2:	8d 2f       	mov	r24, r29
- 2c4:	80 61       	ori	r24, 0x10	; 16
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     3f8:	98 60       	ori	r25, 0x08	; 8
 		if((nibble & (1 << i)))
- 2c6:	35 95       	asr	r19
- 2c8:	27 95       	ror	r18
- 2ca:	35 95       	asr	r19
- 2cc:	27 95       	ror	r18
- 2ce:	35 95       	asr	r19
- 2d0:	27 95       	ror	r18
- 2d2:	23 2b       	or	r18, r19
- 2d4:	09 f0       	breq	.+2      	; 0x2d8 <ScreenInstruction+0x62>
- 2d6:	d8 2f       	mov	r29, r24
-	uint8_t low_nibble  = (instruction)&0x0F;	/* Low 4bit nibble of the character */
-
-	/* if (SPI) reverse the instruction before sending */
-	if (SPI == protocol_flag) {
-		high_nibble = ReverseNibble(high_nibble)<<4;
-		low_nibble 	= ReverseNibble(low_nibble)>>4;
- 2d8:	d2 95       	swap	r29
- 2da:	df 70       	andi	r29, 0x0F	; 15
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     3fa:	45 fd       	sbrc	r20, 5
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     3fc:	94 60       	ori	r25, 0x04	; 4
 		if((nibble & (1 << i)))
- 2dc:	44 0f       	add	r20, r20
- 2de:	45 2f       	mov	r20, r21
- 2e0:	44 1f       	adc	r20, r20
- 2e2:	55 0b       	sbc	r21, r21
- 2e4:	45 2b       	or	r20, r21
- 2e6:	09 f4       	brne	.+2      	; 0x2ea <ScreenInstruction+0x74>
- 2e8:	c9 2f       	mov	r28, r25
-	uint8_t high_nibble = (instruction)&0xF0;	/* High 4bit nibble of the character */
-	uint8_t low_nibble  = (instruction)&0x0F;	/* Low 4bit nibble of the character */
-
-	/* if (SPI) reverse the instruction before sending */
-	if (SPI == protocol_flag) {
+     3fe:	46 fd       	sbrc	r20, 6
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     400:	92 60       	ori	r25, 0x02	; 2
+		if((nibble & (1 << i)))
+     402:	44 0f       	add	r20, r20
+     404:	45 2f       	mov	r20, r21
+     406:	44 1f       	adc	r20, r20
+     408:	55 0b       	sbc	r21, r21
+     40a:	45 2b       	or	r20, r21
+     40c:	09 f0       	breq	.+2      	; 0x410 <__FUSE_REGION_LENGTH__+0x10>
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     40e:	91 60       	ori	r25, 0x01	; 1
 		high_nibble = ReverseNibble(high_nibble)<<4;
- 2ea:	c2 95       	swap	r28
- 2ec:	c0 7f       	andi	r28, 0xF0	; 240
-	}
-
-	/* Send high nibble */
-
-	uint8_t send_instruction;				/* Instruction to be sent */
-	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
- 2ee:	c6 95       	lsr	r28
-	send_instruction |= (1<<EN);			/* Enable pin high */
-	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
- 2f0:	8c 2f       	mov	r24, r28
- 2f2:	84 60       	ori	r24, 0x04	; 4
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 2f4:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 2f8:	8c 2f       	mov	r24, r28
- 2fa:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 2fe:	83 ec       	ldi	r24, 0xC3	; 195
- 300:	99 e0       	ldi	r25, 0x09	; 9
- 302:	01 97       	sbiw	r24, 0x01	; 1
- 304:	f1 f7       	brne	.-4      	; 0x302 <ScreenInstruction+0x8c>
- 306:	00 c0       	rjmp	.+0      	; 0x308 <ScreenInstruction+0x92>
- 308:	00 00       	nop
-
-	_delay_ms(10);							/* Delay between screen writes */
-
-	/* Send low nibble */
-
-	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
- 30a:	dd 0f       	add	r29, r29
- 30c:	dd 0f       	add	r29, r29
- 30e:	dd 0f       	add	r29, r29
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 310:	8d 2f       	mov	r24, r29
- 312:	84 60       	ori	r24, 0x04	; 4
- 314:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 318:	8d 2f       	mov	r24, r29
- 31a:	80 68       	ori	r24, 0x80	; 128
- 31c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 320:	83 ec       	ldi	r24, 0xC3	; 195
- 322:	99 e0       	ldi	r25, 0x09	; 9
- 324:	01 97       	sbiw	r24, 0x01	; 1
- 326:	f1 f7       	brne	.-4      	; 0x324 <ScreenInstruction+0xae>
- 328:	00 c0       	rjmp	.+0      	; 0x32a <ScreenInstruction+0xb4>
- 32a:	00 00       	nop
+     410:	92 95       	swap	r25
+     412:	90 7f       	andi	r25, 0xF0	; 240
+     414:	30 e0       	ldi	r19, 0x00	; 0
+		if((nibble & (1 << i)))
+     416:	80 fd       	sbrc	r24, 0
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     418:	60 e8       	ldi	r22, 0x80	; 128
+		if((nibble & (1 << i)))
+     41a:	21 fd       	sbrc	r18, 1
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     41c:	60 64       	ori	r22, 0x40	; 64
+		if((nibble & (1 << i)))
+     41e:	22 fd       	sbrc	r18, 2
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     420:	60 62       	ori	r22, 0x20	; 32
+		if((nibble & (1 << i)))
+     422:	35 95       	asr	r19
+     424:	27 95       	ror	r18
+     426:	35 95       	asr	r19
+     428:	27 95       	ror	r18
+     42a:	35 95       	asr	r19
+     42c:	27 95       	ror	r18
+     42e:	23 2b       	or	r18, r19
+     430:	09 f0       	breq	.+2      	; 0x434 <__FUSE_REGION_LENGTH__+0x34>
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     432:	60 61       	ori	r22, 0x10	; 16
+	send_instruction  = high_nibble>>1;		/* Shift high nibble to correct position */
+     434:	89 2f       	mov	r24, r25
+     436:	86 95       	lsr	r24
 	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
-
-	TransferData(send_instruction, protocol_flag);
-
-	_delay_ms(10);
-}
- 32c:	df 91       	pop	r29
- 32e:	cf 91       	pop	r28
- 330:	08 95       	ret
-	}
-
-	/* Send high nibble */
-
-	uint8_t send_instruction;				/* Instruction to be sent */
-	send_instruction = high_nibble>>1;		/* Shift high nibble to correct position */
- 332:	c6 95       	lsr	r28
+     438:	18 2f       	mov	r17, r24
+     43a:	10 68       	ori	r17, 0x80	; 128
 	send_instruction |= (1<<EN);			/* Enable pin high */
-	send_instruction &= ~(1<<RS);			/* RS pin low for instruction */
- 334:	8c 2f       	mov	r24, r28
- 336:	84 60       	ori	r24, 0x04	; 4
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     43c:	84 68       	ori	r24, 0x84	; 132
+		low_nibble 	= ReverseNibble(low_nibble)>>4;
+     43e:	c6 2f       	mov	r28, r22
+     440:	c2 95       	swap	r28
+     442:	cf 70       	andi	r28, 0x0F	; 15
+     444:	cc 0f       	add	r28, r28
+     446:	cc 0f       	add	r28, r28
+     448:	cc 0f       	add	r28, r28
+     44a:	dc 2f       	mov	r29, r28
+     44c:	d0 68       	ori	r29, 0x80	; 128
+     44e:	c4 68       	ori	r28, 0x84	; 132
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 338:	61 30       	cpi	r22, 0x01	; 1
- 33a:	e1 f6       	brne	.-72     	; 0x2f4 <ScreenInstruction+0x7e>
- 33c:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 340:	8c 2f       	mov	r24, r28
- 342:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 346:	83 ec       	ldi	r24, 0xC3	; 195
- 348:	99 e0       	ldi	r25, 0x09	; 9
- 34a:	01 97       	sbiw	r24, 0x01	; 1
- 34c:	f1 f7       	brne	.-4      	; 0x34a <ScreenInstruction+0xd4>
- 34e:	00 c0       	rjmp	.+0      	; 0x350 <ScreenInstruction+0xda>
- 350:	00 00       	nop
-
-	_delay_ms(10);							/* Delay between screen writes */
-
-	/* Send low nibble */
-
-	send_instruction = low_nibble<<3;		/* Shift low nibble to correct position */
- 352:	dd 0f       	add	r29, r29
- 354:	dd 0f       	add	r29, r29
- 356:	dd 0f       	add	r29, r29
-
-	return rev_nibble;
+     450:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     454:	81 2f       	mov	r24, r17
+     456:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     45a:	8f ef       	ldi	r24, 0xFF	; 255
+     45c:	9f e8       	ldi	r25, 0x8F	; 143
+     45e:	01 97       	sbiw	r24, 0x01	; 1
+     460:	f1 f7       	brne	.-4      	; 0x45e <__FUSE_REGION_LENGTH__+0x5e>
+     462:	00 c0       	rjmp	.+0      	; 0x464 <__FUSE_REGION_LENGTH__+0x64>
+     464:	00 00       	nop
+     466:	8c 2f       	mov	r24, r28
+     468:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     46c:	8d 2f       	mov	r24, r29
+     46e:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     472:	8f ef       	ldi	r24, 0xFF	; 255
+     474:	9f e8       	ldi	r25, 0x8F	; 143
+     476:	01 97       	sbiw	r24, 0x01	; 1
+     478:	f1 f7       	brne	.-4      	; 0x476 <__FUSE_REGION_LENGTH__+0x76>
+     47a:	00 c0       	rjmp	.+0      	; 0x47c <__FUSE_REGION_LENGTH__+0x7c>
+     47c:	00 00       	nop
 }
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     47e:	df 91       	pop	r29
+     480:	cf 91       	pop	r28
+     482:	1f 91       	pop	r17
+     484:	08 95       	ret
+	send_instruction  = high_nibble>>1;		/* Shift high nibble to correct position */
+     486:	96 95       	lsr	r25
+	send_instruction |= (1<<BKL);			/* Backlight pin high to enable baklight */
+     488:	19 2f       	mov	r17, r25
+     48a:	10 68       	ori	r17, 0x80	; 128
+	send_instruction |= (1<<EN);			/* Enable pin high */
+     48c:	89 2f       	mov	r24, r25
+     48e:	84 68       	ori	r24, 0x84	; 132
+     490:	22 0f       	add	r18, r18
+     492:	22 0f       	add	r18, r18
+     494:	22 0f       	add	r18, r18
+     496:	d2 2f       	mov	r29, r18
+     498:	d0 68       	ori	r29, 0x80	; 128
+     49a:	c2 2f       	mov	r28, r18
+     49c:	c4 68       	ori	r28, 0x84	; 132
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 358:	8d 2f       	mov	r24, r29
- 35a:	84 60       	ori	r24, 0x04	; 4
- 35c:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 360:	8d 2f       	mov	r24, r29
- 362:	80 68       	ori	r24, 0x80	; 128
- 364:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 368:	db cf       	rjmp	.-74     	; 0x320 <ScreenInstruction+0xaa>
- 36a:	80 e0       	ldi	r24, 0x00	; 0
- 36c:	a2 cf       	rjmp	.-188    	; 0x2b2 <ScreenInstruction+0x3c>
+     49e:	61 30       	cpi	r22, 0x01	; 1
+     4a0:	b9 f6       	brne	.-82     	; 0x450 <__FUSE_REGION_LENGTH__+0x50>
+     4a2:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     4a6:	81 2f       	mov	r24, r17
+     4a8:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     4ac:	8f ef       	ldi	r24, 0xFF	; 255
+     4ae:	9f e8       	ldi	r25, 0x8F	; 143
+     4b0:	01 97       	sbiw	r24, 0x01	; 1
+     4b2:	f1 f7       	brne	.-4      	; 0x4b0 <__FUSE_REGION_LENGTH__+0xb0>
+     4b4:	00 c0       	rjmp	.+0      	; 0x4b6 <__FUSE_REGION_LENGTH__+0xb6>
+     4b6:	00 00       	nop
+     4b8:	8c 2f       	mov	r24, r28
+     4ba:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     4be:	8d 2f       	mov	r24, r29
+     4c0:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     4c4:	d6 cf       	rjmp	.-84     	; 0x472 <__FUSE_REGION_LENGTH__+0x72>
 
-0000036e <ScreenInit>:
- *																		*
- ************************************************************************/
-
-#include <LCD1602A.h>
-
+000004c6 <ScreenInit>:
 void ScreenInit(uint8_t protocol_flag) {
- 36e:	cf 93       	push	r28
- 370:	c8 2f       	mov	r28, r24
-	/* Initializes the screen according to the datasheet.
-	 */
-
-	/* Initial commands */
-
-	I2C == protocol_flag ? I2C_InitScreen(): SPI_InitScreen();
- 372:	81 30       	cpi	r24, 0x01	; 1
- 374:	09 f4       	brne	.+2      	; 0x378 <ScreenInit+0xa>
- 376:	4c c0       	rjmp	.+152    	; 0x410 <ScreenInit+0xa2>
-	Send4BitCommand(command, I2C);
-	_delay_ms(10);
-}
-
-void SPI_InitScreen(void){
+     4c6:	cf 93       	push	r28
+     4c8:	c8 2f       	mov	r28, r24
+	(I2C == protocol_flag) ? I2C_InitScreen(): SPI_InitScreen();
+     4ca:	81 30       	cpi	r24, 0x01	; 1
+     4cc:	09 f4       	brne	.+2      	; 0x4d0 <ScreenInit+0xa>
+     4ce:	51 c0       	rjmp	.+162    	; 0x572 <ScreenInit+0xac>
 	SPI_MasterInit();
- 378:	0e 94 5e 03 	call	0x6bc	; 0x6bc <SPI_MasterInit>
- 37c:	2f e7       	ldi	r18, 0x7F	; 127
- 37e:	88 e3       	ldi	r24, 0x38	; 56
- 380:	91 e0       	ldi	r25, 0x01	; 1
- 382:	21 50       	subi	r18, 0x01	; 1
- 384:	80 40       	sbci	r24, 0x00	; 0
- 386:	90 40       	sbci	r25, 0x00	; 0
- 388:	e1 f7       	brne	.-8      	; 0x382 <ScreenInit+0x14>
- 38a:	00 c0       	rjmp	.+0      	; 0x38c <ScreenInit+0x1e>
- 38c:	00 00       	nop
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     4d0:	0e 94 12 04 	call	0x824	; 0x824 <SPI_MasterInit>
+     4d4:	2f ef       	ldi	r18, 0xFF	; 255
+     4d6:	8f ef       	ldi	r24, 0xFF	; 255
+     4d8:	91 e1       	ldi	r25, 0x11	; 17
+     4da:	21 50       	subi	r18, 0x01	; 1
+     4dc:	80 40       	sbci	r24, 0x00	; 0
+     4de:	90 40       	sbci	r25, 0x00	; 0
+     4e0:	e1 f7       	brne	.-8      	; 0x4da <ScreenInit+0x14>
+     4e2:	00 c0       	rjmp	.+0      	; 0x4e4 <ScreenInit+0x1e>
+     4e4:	00 00       	nop
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 38e:	84 e6       	ldi	r24, 0x64	; 100
- 390:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 394:	80 e6       	ldi	r24, 0x60	; 96
- 396:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 39a:	89 e0       	ldi	r24, 0x09	; 9
- 39c:	98 e2       	ldi	r25, 0x28	; 40
- 39e:	01 97       	sbiw	r24, 0x01	; 1
- 3a0:	f1 f7       	brne	.-4      	; 0x39e <ScreenInit+0x30>
- 3a2:	00 c0       	rjmp	.+0      	; 0x3a4 <ScreenInit+0x36>
- 3a4:	00 00       	nop
- 3a6:	84 e6       	ldi	r24, 0x64	; 100
- 3a8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 3ac:	80 e6       	ldi	r24, 0x60	; 96
- 3ae:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 3b2:	89 ef       	ldi	r24, 0xF9	; 249
- 3b4:	90 e0       	ldi	r25, 0x00	; 0
- 3b6:	01 97       	sbiw	r24, 0x01	; 1
- 3b8:	f1 f7       	brne	.-4      	; 0x3b6 <ScreenInit+0x48>
- 3ba:	00 c0       	rjmp	.+0      	; 0x3bc <ScreenInit+0x4e>
- 3bc:	00 00       	nop
- 3be:	84 e6       	ldi	r24, 0x64	; 100
- 3c0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 3c4:	80 e6       	ldi	r24, 0x60	; 96
- 3c6:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 3ca:	89 ef       	ldi	r24, 0xF9	; 249
- 3cc:	90 e0       	ldi	r25, 0x00	; 0
- 3ce:	01 97       	sbiw	r24, 0x01	; 1
- 3d0:	f1 f7       	brne	.-4      	; 0x3ce <ScreenInit+0x60>
- 3d2:	00 c0       	rjmp	.+0      	; 0x3d4 <ScreenInit+0x66>
- 3d4:	00 00       	nop
- 3d6:	84 e2       	ldi	r24, 0x24	; 36
- 3d8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 3dc:	80 e2       	ldi	r24, 0x20	; 32
- 3de:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 3e2:	83 ec       	ldi	r24, 0xC3	; 195
- 3e4:	99 e0       	ldi	r25, 0x09	; 9
- 3e6:	01 97       	sbiw	r24, 0x01	; 1
- 3e8:	f1 f7       	brne	.-4      	; 0x3e6 <ScreenInit+0x78>
- 3ea:	00 c0       	rjmp	.+0      	; 0x3ec <ScreenInit+0x7e>
- 3ec:	00 00       	nop
-
-	I2C == protocol_flag ? I2C_InitScreen(): SPI_InitScreen();
-
-	/* Function Set */
-
-	ScreenInstruction(LCD_FUNCTION_4BIT_2LINES, protocol_flag);	/* 4Bit mode with 2Lines interface */
- 3ee:	6c 2f       	mov	r22, r28
- 3f0:	88 e2       	ldi	r24, 0x28	; 40
- 3f2:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
-
-	/* Display OFF */
-
+     4e6:	84 e6       	ldi	r24, 0x64	; 100
+     4e8:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     4ec:	80 e6       	ldi	r24, 0x60	; 96
+     4ee:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     4f2:	21 e5       	ldi	r18, 0x51	; 81
+     4f4:	88 ed       	ldi	r24, 0xD8	; 216
+     4f6:	91 e0       	ldi	r25, 0x01	; 1
+     4f8:	21 50       	subi	r18, 0x01	; 1
+     4fa:	80 40       	sbci	r24, 0x00	; 0
+     4fc:	90 40       	sbci	r25, 0x00	; 0
+     4fe:	e1 f7       	brne	.-8      	; 0x4f8 <ScreenInit+0x32>
+     500:	00 c0       	rjmp	.+0      	; 0x502 <ScreenInit+0x3c>
+     502:	00 00       	nop
+     504:	84 e6       	ldi	r24, 0x64	; 100
+     506:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     50a:	80 e6       	ldi	r24, 0x60	; 96
+     50c:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     510:	86 e6       	ldi	r24, 0x66	; 102
+     512:	9e e0       	ldi	r25, 0x0E	; 14
+     514:	01 97       	sbiw	r24, 0x01	; 1
+     516:	f1 f7       	brne	.-4      	; 0x514 <ScreenInit+0x4e>
+     518:	00 00       	nop
+     51a:	84 e6       	ldi	r24, 0x64	; 100
+     51c:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     520:	80 e6       	ldi	r24, 0x60	; 96
+     522:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     526:	86 e6       	ldi	r24, 0x66	; 102
+     528:	9e e0       	ldi	r25, 0x0E	; 14
+     52a:	01 97       	sbiw	r24, 0x01	; 1
+     52c:	f1 f7       	brne	.-4      	; 0x52a <ScreenInit+0x64>
+     52e:	00 00       	nop
+     530:	84 e2       	ldi	r24, 0x24	; 36
+     532:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     536:	80 e2       	ldi	r24, 0x20	; 32
+     538:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     53c:	8f ef       	ldi	r24, 0xFF	; 255
+     53e:	9f e8       	ldi	r25, 0x8F	; 143
+     540:	01 97       	sbiw	r24, 0x01	; 1
+     542:	f1 f7       	brne	.-4      	; 0x540 <ScreenInit+0x7a>
+     544:	00 c0       	rjmp	.+0      	; 0x546 <ScreenInit+0x80>
+     546:	00 00       	nop
+	ScreenInstruction(LCD_FUNCTION_4BIT_1LINE, protocol_flag);	/* 4Bit mode with 2Lines interface */
+     548:	6c 2f       	mov	r22, r28
+     54a:	80 e2       	ldi	r24, 0x20	; 32
+     54c:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
 	ScreenInstruction(LCD_DISP_OFF, protocol_flag);
- 3f6:	6c 2f       	mov	r22, r28
- 3f8:	88 e0       	ldi	r24, 0x08	; 8
- 3fa:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
-
-	/* Display Clear */
-
+     550:	6c 2f       	mov	r22, r28
+     552:	88 e0       	ldi	r24, 0x08	; 8
+     554:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
 	ScreenInstruction(LCD_DISP_CLEAR, protocol_flag);
- 3fe:	6c 2f       	mov	r22, r28
- 400:	81 e0       	ldi	r24, 0x01	; 1
- 402:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
-
-	/* Mode Set */
-
+     558:	6c 2f       	mov	r22, r28
+     55a:	81 e0       	ldi	r24, 0x01	; 1
+     55c:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
 	ScreenInstruction(LCD_MODE_DEFAULT, protocol_flag);			/* Default entry mode. Shifts to the right */
- 406:	6c 2f       	mov	r22, r28
- 408:	86 e0       	ldi	r24, 0x06	; 6
+     560:	6c 2f       	mov	r22, r28
+     562:	86 e0       	ldi	r24, 0x06	; 6
+     564:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+	ScreenInstruction(LCD_DISP_ON, protocol_flag);
+     568:	6c 2f       	mov	r22, r28
+     56a:	8c e0       	ldi	r24, 0x0C	; 12
 }
- 40a:	cf 91       	pop	r28
+     56c:	cf 91       	pop	r28
+	ScreenInstruction(LCD_DISP_ON, protocol_flag);
+     56e:	0c 94 ef 01 	jmp	0x3de	; 0x3de <ScreenInstruction>
+	(I2C == protocol_flag) ? I2C_InitScreen(): SPI_InitScreen();
+     572:	0e 94 1f 01 	call	0x23e	; 0x23e <I2C_InitScreen>
+     576:	e8 cf       	rjmp	.-48     	; 0x548 <ScreenInit+0x82>
 
-	ScreenInstruction(LCD_DISP_CLEAR, protocol_flag);
-
-	/* Mode Set */
-
-	ScreenInstruction(LCD_MODE_DEFAULT, protocol_flag);			/* Default entry mode. Shifts to the right */
- 40c:	0c 94 3b 01 	jmp	0x276	; 0x276 <ScreenInstruction>
-	/* Initializes the screen according to the datasheet.
-	 */
-
-	/* Initial commands */
-
-	I2C == protocol_flag ? I2C_InitScreen(): SPI_InitScreen();
- 410:	0e 94 7a 00 	call	0xf4	; 0xf4 <I2C_InitScreen>
- 414:	ec cf       	rjmp	.-40     	; 0x3ee <ScreenInit+0x80>
-
-00000416 <ScreenData>:
-	TransferData(send_instruction, protocol_flag);
-
-	_delay_ms(10);
-}
-
+00000578 <ScreenData>:
 void ScreenData(uint8_t data, uint8_t protocol_flag) {
- 416:	cf 93       	push	r28
- 418:	df 93       	push	r29
-	/* Sends data to the screen.
-	 * uint8_t data - data to be displayed
-	 * Returns: void.
-	 */
+     578:	1f 93       	push	r17
+     57a:	cf 93       	push	r28
+     57c:	df 93       	push	r29
+     57e:	98 2f       	mov	r25, r24
+	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
+     580:	28 2f       	mov	r18, r24
+     582:	26 95       	lsr	r18
+     584:	28 77       	andi	r18, 0x78	; 120
+	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
+     586:	82 2f       	mov	r24, r18
+     588:	86 68       	ori	r24, 0x86	; 134
+     58a:	99 0f       	add	r25, r25
+     58c:	99 0f       	add	r25, r25
+     58e:	99 0f       	add	r25, r25
+     590:	98 77       	andi	r25, 0x78	; 120
+     592:	19 2f       	mov	r17, r25
+     594:	12 68       	ori	r17, 0x82	; 130
+     596:	c9 2f       	mov	r28, r25
+     598:	c6 68       	ori	r28, 0x86	; 134
+     59a:	d2 2f       	mov	r29, r18
+     59c:	d2 68       	ori	r29, 0x82	; 130
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+     59e:	61 30       	cpi	r22, 0x01	; 1
+     5a0:	d9 f0       	breq	.+54     	; 0x5d8 <ScreenData+0x60>
+     5a2:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     5a6:	8d 2f       	mov	r24, r29
+     5a8:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     5ac:	8f ef       	ldi	r24, 0xFF	; 255
+     5ae:	9f e8       	ldi	r25, 0x8F	; 143
+     5b0:	01 97       	sbiw	r24, 0x01	; 1
+     5b2:	f1 f7       	brne	.-4      	; 0x5b0 <ScreenData+0x38>
+     5b4:	00 c0       	rjmp	.+0      	; 0x5b6 <ScreenData+0x3e>
+     5b6:	00 00       	nop
+     5b8:	8c 2f       	mov	r24, r28
+     5ba:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     5be:	81 2f       	mov	r24, r17
+     5c0:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     5c4:	8f ef       	ldi	r24, 0xFF	; 255
+     5c6:	9f e8       	ldi	r25, 0x8F	; 143
+     5c8:	01 97       	sbiw	r24, 0x01	; 1
+     5ca:	f1 f7       	brne	.-4      	; 0x5c8 <ScreenData+0x50>
+     5cc:	00 c0       	rjmp	.+0      	; 0x5ce <ScreenData+0x56>
+     5ce:	00 00       	nop
+}
+     5d0:	df 91       	pop	r29
+     5d2:	cf 91       	pop	r28
+     5d4:	1f 91       	pop	r17
+     5d6:	08 95       	ret
+    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
+     5d8:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     5dc:	8d 2f       	mov	r24, r29
+     5de:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     5e2:	8f ef       	ldi	r24, 0xFF	; 255
+     5e4:	9f e8       	ldi	r25, 0x8F	; 143
+     5e6:	01 97       	sbiw	r24, 0x01	; 1
+     5e8:	f1 f7       	brne	.-4      	; 0x5e6 <ScreenData+0x6e>
+     5ea:	00 c0       	rjmp	.+0      	; 0x5ec <ScreenData+0x74>
+     5ec:	00 00       	nop
+     5ee:	8c 2f       	mov	r24, r28
+     5f0:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     5f4:	81 2f       	mov	r24, r17
+     5f6:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     5fa:	e4 cf       	rjmp	.-56     	; 0x5c4 <ScreenData+0x4c>
 
-	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
- 41a:	c8 2f       	mov	r28, r24
- 41c:	c0 7f       	andi	r28, 0xF0	; 240
-	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
- 41e:	d8 2f       	mov	r29, r24
- 420:	df 70       	andi	r29, 0x0F	; 15
-
-	/* if (SPI) reverse the data before sending */
+000005fc <PutChar>:
 	if (SPI == protocol_flag){
- 422:	61 11       	cpse	r22, r1
- 424:	54 c0       	rjmp	.+168    	; 0x4ce <ScreenData+0xb8>
- 426:	4c 2f       	mov	r20, r28
- 428:	50 e0       	ldi	r21, 0x00	; 0
- 42a:	90 e0       	ldi	r25, 0x00	; 0
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     5fc:	61 11       	cpse	r22, r1
+     5fe:	2c c0       	rjmp	.+88     	; 0x658 <PutChar+0x5c>
+		uint8_t low_nibble = (character)&0x0F;
+     600:	98 2f       	mov	r25, r24
+     602:	9f 70       	andi	r25, 0x0F	; 15
+		uint8_t high_nibble = (character)&0xF0;
+     604:	28 2f       	mov	r18, r24
+     606:	20 7f       	andi	r18, 0xF0	; 240
 		if((nibble & (1 << i)))
+     608:	30 e0       	ldi	r19, 0x00	; 0
+	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
+     60a:	40 e0       	ldi	r20, 0x00	; 0
+		if((nibble & (1 << i)))
+     60c:	24 fd       	sbrc	r18, 4
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 42c:	c9 2f       	mov	r28, r25
- 42e:	c8 60       	ori	r28, 0x08	; 8
- 430:	44 fd       	sbrc	r20, 4
- 432:	9c 2f       	mov	r25, r28
- 434:	29 2f       	mov	r18, r25
- 436:	24 60       	ori	r18, 0x04	; 4
- 438:	45 fd       	sbrc	r20, 5
- 43a:	92 2f       	mov	r25, r18
- 43c:	29 2f       	mov	r18, r25
- 43e:	22 60       	ori	r18, 0x02	; 2
- 440:	46 fd       	sbrc	r20, 6
- 442:	92 2f       	mov	r25, r18
- 444:	c9 2f       	mov	r28, r25
- 446:	c1 60       	ori	r28, 0x01	; 1
- 448:	6d 2f       	mov	r22, r29
- 44a:	70 e0       	ldi	r23, 0x00	; 0
- 44c:	80 ff       	sbrs	r24, 0
- 44e:	5c c0       	rjmp	.+184    	; 0x508 <ScreenData+0xf2>
- 450:	20 e8       	ldi	r18, 0x80	; 128
- 452:	d2 2f       	mov	r29, r18
- 454:	d0 64       	ori	r29, 0x40	; 64
- 456:	61 ff       	sbrs	r22, 1
- 458:	d2 2f       	mov	r29, r18
- 45a:	2d 2f       	mov	r18, r29
- 45c:	20 62       	ori	r18, 0x20	; 32
- 45e:	62 fd       	sbrc	r22, 2
- 460:	d2 2f       	mov	r29, r18
- 462:	2d 2f       	mov	r18, r29
- 464:	20 61       	ori	r18, 0x10	; 16
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     60e:	48 60       	ori	r20, 0x08	; 8
 		if((nibble & (1 << i)))
- 466:	75 95       	asr	r23
- 468:	67 95       	ror	r22
- 46a:	75 95       	asr	r23
- 46c:	67 95       	ror	r22
- 46e:	75 95       	asr	r23
- 470:	67 95       	ror	r22
- 472:	67 2b       	or	r22, r23
- 474:	09 f0       	breq	.+2      	; 0x478 <ScreenData+0x62>
- 476:	d2 2f       	mov	r29, r18
- 478:	44 0f       	add	r20, r20
- 47a:	45 2f       	mov	r20, r21
- 47c:	44 1f       	adc	r20, r20
- 47e:	55 0b       	sbc	r21, r21
- 480:	45 2b       	or	r20, r21
- 482:	09 f4       	brne	.+2      	; 0x486 <ScreenData+0x70>
- 484:	c9 2f       	mov	r28, r25
-	}
-
-	/* Send high nibble */
-
-	uint8_t send_data;							/* Data to be sent */
-	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
- 486:	c6 95       	lsr	r28
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
- 488:	8c 2f       	mov	r24, r28
- 48a:	86 68       	ori	r24, 0x86	; 134
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 48c:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
-	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
-
-	TransferData(send_data, protocol_flag);	/* Send data */
-
-	send_data &= ~(1<<EN);						/* Enable low */
- 490:	8c 2f       	mov	r24, r28
- 492:	8b 7f       	andi	r24, 0xFB	; 251
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 494:	82 68       	ori	r24, 0x82	; 130
- 496:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 49a:	83 ec       	ldi	r24, 0xC3	; 195
- 49c:	99 e0       	ldi	r25, 0x09	; 9
- 49e:	01 97       	sbiw	r24, 0x01	; 1
- 4a0:	f1 f7       	brne	.-4      	; 0x49e <ScreenData+0x88>
- 4a2:	00 c0       	rjmp	.+0      	; 0x4a4 <ScreenData+0x8e>
- 4a4:	00 00       	nop
-
-	_delay_ms(10);
-
-	/* Send low nibble */
-
-	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
- 4a6:	dd 0f       	add	r29, r29
- 4a8:	dd 0f       	add	r29, r29
- 4aa:	dd 0f       	add	r29, r29
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 4ac:	8d 2f       	mov	r24, r29
- 4ae:	86 68       	ori	r24, 0x86	; 134
- 4b0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 4b4:	8d 2f       	mov	r24, r29
- 4b6:	82 68       	ori	r24, 0x82	; 130
- 4b8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 4bc:	83 ec       	ldi	r24, 0xC3	; 195
- 4be:	99 e0       	ldi	r25, 0x09	; 9
- 4c0:	01 97       	sbiw	r24, 0x01	; 1
- 4c2:	f1 f7       	brne	.-4      	; 0x4c0 <ScreenData+0xaa>
- 4c4:	00 c0       	rjmp	.+0      	; 0x4c6 <ScreenData+0xb0>
- 4c6:	00 00       	nop
-	send_data &= ~(1<<EN);
-
-	TransferData(send_data, protocol_flag);
-
-	_delay_ms(10);
-}
- 4c8:	df 91       	pop	r29
- 4ca:	cf 91       	pop	r28
- 4cc:	08 95       	ret
-	}
-
-	/* Send high nibble */
-
-	uint8_t send_data;							/* Data to be sent */
-	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
- 4ce:	c6 95       	lsr	r28
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
- 4d0:	8c 2f       	mov	r24, r28
- 4d2:	86 68       	ori	r24, 0x86	; 134
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 4d4:	61 30       	cpi	r22, 0x01	; 1
- 4d6:	d1 f6       	brne	.-76     	; 0x48c <ScreenData+0x76>
- 4d8:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 4dc:	8c 2f       	mov	r24, r28
- 4de:	82 68       	ori	r24, 0x82	; 130
- 4e0:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 4e4:	83 ec       	ldi	r24, 0xC3	; 195
- 4e6:	99 e0       	ldi	r25, 0x09	; 9
- 4e8:	01 97       	sbiw	r24, 0x01	; 1
- 4ea:	f1 f7       	brne	.-4      	; 0x4e8 <ScreenData+0xd2>
- 4ec:	00 c0       	rjmp	.+0      	; 0x4ee <ScreenData+0xd8>
- 4ee:	00 00       	nop
-
-	_delay_ms(10);
-
-	/* Send low nibble */
-
-	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
- 4f0:	dd 0f       	add	r29, r29
- 4f2:	dd 0f       	add	r29, r29
- 4f4:	dd 0f       	add	r29, r29
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 4f6:	8d 2f       	mov	r24, r29
- 4f8:	86 68       	ori	r24, 0x86	; 134
- 4fa:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 4fe:	8d 2f       	mov	r24, r29
- 500:	82 68       	ori	r24, 0x82	; 130
- 502:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 506:	da cf       	rjmp	.-76     	; 0x4bc <ScreenData+0xa6>
- 508:	20 e0       	ldi	r18, 0x00	; 0
- 50a:	a3 cf       	rjmp	.-186    	; 0x452 <ScreenData+0x3c>
-
-0000050c <PutChar>:
-	/* Writes a character to the screen on the cursor current position.
-	 * uint8_t character - the character to write
-	 * Returns: void.
-	 */
-
+     610:	25 fd       	sbrc	r18, 5
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     612:	44 60       	ori	r20, 0x04	; 4
+		if((nibble & (1 << i)))
+     614:	26 fd       	sbrc	r18, 6
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     616:	42 60       	ori	r20, 0x02	; 2
+		if((nibble & (1 << i)))
+     618:	22 0f       	add	r18, r18
+     61a:	23 2f       	mov	r18, r19
+     61c:	22 1f       	adc	r18, r18
+     61e:	33 0b       	sbc	r19, r19
+     620:	23 2b       	or	r18, r19
+     622:	09 f0       	breq	.+2      	; 0x626 <PutChar+0x2a>
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     624:	41 60       	ori	r20, 0x01	; 1
+     626:	29 2f       	mov	r18, r25
+     628:	30 e0       	ldi	r19, 0x00	; 0
+		if((nibble & (1 << i)))
+     62a:	80 ff       	sbrs	r24, 0
+     62c:	17 c0       	rjmp	.+46     	; 0x65c <PutChar+0x60>
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     62e:	80 e8       	ldi	r24, 0x80	; 128
+		if((nibble & (1 << i)))
+     630:	21 fd       	sbrc	r18, 1
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     632:	80 64       	ori	r24, 0x40	; 64
+		if((nibble & (1 << i)))
+     634:	22 fd       	sbrc	r18, 2
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     636:	80 62       	ori	r24, 0x20	; 32
+		if((nibble & (1 << i)))
+     638:	35 95       	asr	r19
+     63a:	27 95       	ror	r18
+     63c:	35 95       	asr	r19
+     63e:	27 95       	ror	r18
+     640:	35 95       	asr	r19
+     642:	27 95       	ror	r18
+     644:	23 2b       	or	r18, r19
+     646:	09 f0       	breq	.+2      	; 0x64a <PutChar+0x4e>
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     648:	80 61       	ori	r24, 0x10	; 16
+		character = (high_nibble<<4)|(low_nibble>>4);
+     64a:	90 e1       	ldi	r25, 0x10	; 16
+     64c:	49 9f       	mul	r20, r25
+     64e:	a0 01       	movw	r20, r0
+     650:	11 24       	eor	r1, r1
+     652:	82 95       	swap	r24
+     654:	8f 70       	andi	r24, 0x0F	; 15
+     656:	84 2b       	or	r24, r20
 	ScreenData(character, protocol_flag);		/* Send data to screen */
- 50c:	0c 94 0b 02 	jmp	0x416	; 0x416 <ScreenData>
+     658:	0c 94 bc 02 	jmp	0x578	; 0x578 <ScreenData>
+	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
+     65c:	80 e0       	ldi	r24, 0x00	; 0
+     65e:	e8 cf       	rjmp	.-48     	; 0x630 <PutChar+0x34>
 
-00000510 <PutString>:
-}
-
+00000660 <PutString>:
 void PutString(uint8_t string[], uint16_t length, uint8_t protocol_flag) {
- 510:	df 92       	push	r13
- 512:	ef 92       	push	r14
- 514:	ff 92       	push	r15
- 516:	0f 93       	push	r16
- 518:	1f 93       	push	r17
- 51a:	cf 93       	push	r28
- 51c:	df 93       	push	r29
- 51e:	8b 01       	movw	r16, r22
- 520:	11 27       	eor	r17, r17
-	 * uint16_t length - size of the character array obtained from sizeof(string)
-	 * Returns: void.
-	 */
-	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
-
-	for (int i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
- 522:	01 15       	cp	r16, r1
- 524:	11 05       	cpc	r17, r1
- 526:	09 f4       	brne	.+2      	; 0x52a <PutString+0x1a>
- 528:	7c c0       	rjmp	.+248    	; 0x622 <PutString+0x112>
- 52a:	d4 2e       	mov	r13, r20
- 52c:	7c 01       	movw	r14, r24
- 52e:	08 0f       	add	r16, r24
- 530:	19 1f       	adc	r17, r25
- 532:	49 c0       	rjmp	.+146    	; 0x5c6 <PutString+0xb6>
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     660:	cf 92       	push	r12
+     662:	df 92       	push	r13
+     664:	ef 92       	push	r14
+     666:	ff 92       	push	r15
+     668:	0f 93       	push	r16
+     66a:	1f 93       	push	r17
+     66c:	cf 93       	push	r28
+     66e:	df 93       	push	r29
+     670:	d4 2e       	mov	r13, r20
+	for (uint8_t i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
+     672:	66 23       	and	r22, r22
+     674:	09 f4       	brne	.+2      	; 0x678 <PutString+0x18>
+     676:	99 c0       	rjmp	.+306    	; 0x7aa <PutString+0x14a>
+     678:	7c 01       	movw	r14, r24
+     67a:	8c 01       	movw	r16, r24
+     67c:	0f 5f       	subi	r16, 0xFF	; 255
+     67e:	1f 4f       	sbci	r17, 0xFF	; 255
+     680:	61 50       	subi	r22, 0x01	; 1
+     682:	06 0f       	add	r16, r22
+     684:	11 1d       	adc	r17, r1
+     686:	5e c0       	rjmp	.+188    	; 0x744 <PutString+0xe4>
+		uint8_t high_nibble = (character)&0xF0;
+     688:	3c 2f       	mov	r19, r28
+     68a:	30 7f       	andi	r19, 0xF0	; 240
+		uint8_t low_nibble = (character)&0x0F;
+     68c:	2c 2f       	mov	r18, r28
+     68e:	2f 70       	andi	r18, 0x0F	; 15
 		if((nibble & (1 << i)))
- 534:	2c 2f       	mov	r18, r28
- 536:	30 e0       	ldi	r19, 0x00	; 0
- 538:	94 fd       	sbrc	r25, 4
- 53a:	70 c0       	rjmp	.+224    	; 0x61c <PutString+0x10c>
- 53c:	84 e0       	ldi	r24, 0x04	; 4
- 53e:	c0 e0       	ldi	r28, 0x00	; 0
- 540:	95 fd       	sbrc	r25, 5
+     690:	c4 fd       	sbrc	r28, 4
+     692:	86 c0       	rjmp	.+268    	; 0x7a0 <PutString+0x140>
+     694:	40 e0       	ldi	r20, 0x00	; 0
+     696:	94 e0       	ldi	r25, 0x04	; 4
+     698:	84 e0       	ldi	r24, 0x04	; 4
+     69a:	50 e0       	ldi	r21, 0x00	; 0
+     69c:	c5 fd       	sbrc	r28, 5
+     69e:	02 c0       	rjmp	.+4      	; 0x6a4 <PutString+0x44>
+     6a0:	85 2f       	mov	r24, r21
+     6a2:	94 2f       	mov	r25, r20
+     6a4:	c6 ff       	sbrs	r28, 6
+     6a6:	02 c0       	rjmp	.+4      	; 0x6ac <PutString+0x4c>
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 542:	c8 2f       	mov	r28, r24
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     6a8:	82 60       	ori	r24, 0x02	; 2
+     6aa:	98 2f       	mov	r25, r24
 		if((nibble & (1 << i)))
- 544:	96 fd       	sbrc	r25, 6
+     6ac:	37 ff       	sbrs	r19, 7
+     6ae:	02 c0       	rjmp	.+4      	; 0x6b4 <PutString+0x54>
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 546:	c2 60       	ori	r28, 0x02	; 2
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     6b0:	98 2f       	mov	r25, r24
+     6b2:	91 60       	ori	r25, 0x01	; 1
 		if((nibble & (1 << i)))
- 548:	22 0f       	add	r18, r18
- 54a:	23 2f       	mov	r18, r19
- 54c:	22 1f       	adc	r18, r18
- 54e:	33 0b       	sbc	r19, r19
- 550:	23 2b       	or	r18, r19
- 552:	09 f0       	breq	.+2      	; 0x556 <PutString+0x46>
+     6b4:	30 e0       	ldi	r19, 0x00	; 0
+     6b6:	c0 fd       	sbrc	r28, 0
+     6b8:	6e c0       	rjmp	.+220    	; 0x796 <PutString+0x136>
+	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
+     6ba:	50 e0       	ldi	r21, 0x00	; 0
+		if((nibble & (1 << i)))
+     6bc:	80 e4       	ldi	r24, 0x40	; 64
+     6be:	40 e4       	ldi	r20, 0x40	; 64
+     6c0:	60 e0       	ldi	r22, 0x00	; 0
+     6c2:	c1 fd       	sbrc	r28, 1
+     6c4:	02 c0       	rjmp	.+4      	; 0x6ca <PutString+0x6a>
+     6c6:	46 2f       	mov	r20, r22
+     6c8:	85 2f       	mov	r24, r21
+     6ca:	c2 ff       	sbrs	r28, 2
+     6cc:	02 c0       	rjmp	.+4      	; 0x6d2 <PutString+0x72>
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 554:	c1 60       	ori	r28, 0x01	; 1
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     6ce:	40 62       	ori	r20, 0x20	; 32
+     6d0:	84 2f       	mov	r24, r20
 		if((nibble & (1 << i)))
- 556:	2d 2f       	mov	r18, r29
- 558:	30 e0       	ldi	r19, 0x00	; 0
- 55a:	90 fd       	sbrc	r25, 0
- 55c:	5c c0       	rjmp	.+184    	; 0x616 <PutString+0x106>
- 55e:	80 e4       	ldi	r24, 0x40	; 64
-	 * uint8_t nibble - nibble to reverse
-	 * Returns: inverted nibble.
-	 */
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
- 560:	d0 e0       	ldi	r29, 0x00	; 0
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
- 562:	91 fd       	sbrc	r25, 1
+     6d2:	35 95       	asr	r19
+     6d4:	27 95       	ror	r18
+     6d6:	35 95       	asr	r19
+     6d8:	27 95       	ror	r18
+     6da:	35 95       	asr	r19
+     6dc:	27 95       	ror	r18
+     6de:	23 2b       	or	r18, r19
+     6e0:	11 f0       	breq	.+4      	; 0x6e6 <PutString+0x86>
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 564:	d8 2f       	mov	r29, r24
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
- 566:	92 fd       	sbrc	r25, 2
-		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 568:	d0 62       	ori	r29, 0x20	; 32
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
-		if((nibble & (1 << i)))
- 56a:	c9 01       	movw	r24, r18
- 56c:	95 95       	asr	r25
- 56e:	87 95       	ror	r24
- 570:	95 95       	asr	r25
- 572:	87 95       	ror	r24
- 574:	95 95       	asr	r25
- 576:	87 95       	ror	r24
- 578:	89 2b       	or	r24, r25
- 57a:	09 f0       	breq	.+2      	; 0x57e <PutString+0x6e>
-		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 57c:	d0 61       	ori	r29, 0x10	; 16
-	}
-
-	/* Send high nibble */
-
-	uint8_t send_data;							/* Data to be sent */
+     6e2:	84 2f       	mov	r24, r20
+     6e4:	80 61       	ori	r24, 0x10	; 16
+		character = (high_nibble<<4)|(low_nibble>>4);
+     6e6:	e0 e1       	ldi	r30, 0x10	; 16
+     6e8:	9e 9f       	mul	r25, r30
+     6ea:	e0 01       	movw	r28, r0
+     6ec:	11 24       	eor	r1, r1
+     6ee:	82 95       	swap	r24
+     6f0:	8f 70       	andi	r24, 0x0F	; 15
+     6f2:	c8 2b       	or	r28, r24
 	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
- 57e:	c6 95       	lsr	r28
+     6f4:	dc 2f       	mov	r29, r28
+     6f6:	d6 95       	lsr	r29
+     6f8:	d8 77       	andi	r29, 0x78	; 120
 	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
- 580:	8c 2f       	mov	r24, r28
- 582:	86 68       	ori	r24, 0x86	; 134
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     6fa:	8d 2f       	mov	r24, r29
+     6fc:	86 68       	ori	r24, 0x86	; 134
+     6fe:	cc 0f       	add	r28, r28
+     700:	cc 0f       	add	r28, r28
+     702:	cc 0f       	add	r28, r28
+     704:	c8 77       	andi	r28, 0x78	; 120
+     706:	fc 2f       	mov	r31, r28
+     708:	f2 68       	ori	r31, 0x82	; 130
+     70a:	cf 2e       	mov	r12, r31
+     70c:	d2 68       	ori	r29, 0x82	; 130
+     70e:	c6 68       	ori	r28, 0x86	; 134
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 584:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
-	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
-	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
-
-	TransferData(send_data, protocol_flag);	/* Send data */
-
-	send_data &= ~(1<<EN);						/* Enable low */
- 588:	8c 2f       	mov	r24, r28
- 58a:	8b 7f       	andi	r24, 0xFB	; 251
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 58c:	82 68       	ori	r24, 0x82	; 130
- 58e:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 592:	e3 ec       	ldi	r30, 0xC3	; 195
- 594:	f9 e0       	ldi	r31, 0x09	; 9
- 596:	31 97       	sbiw	r30, 0x01	; 1
- 598:	f1 f7       	brne	.-4      	; 0x596 <PutString+0x86>
- 59a:	00 c0       	rjmp	.+0      	; 0x59c <PutString+0x8c>
- 59c:	00 00       	nop
-
-	_delay_ms(10);
-
-	/* Send low nibble */
-
-	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
- 59e:	dd 0f       	add	r29, r29
- 5a0:	dd 0f       	add	r29, r29
- 5a2:	dd 0f       	add	r29, r29
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 5a4:	8d 2f       	mov	r24, r29
- 5a6:	86 68       	ori	r24, 0x86	; 134
- 5a8:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 5ac:	8d 2f       	mov	r24, r29
- 5ae:	82 68       	ori	r24, 0x82	; 130
- 5b0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 5b4:	83 ec       	ldi	r24, 0xC3	; 195
- 5b6:	99 e0       	ldi	r25, 0x09	; 9
- 5b8:	01 97       	sbiw	r24, 0x01	; 1
- 5ba:	f1 f7       	brne	.-4      	; 0x5b8 <PutString+0xa8>
- 5bc:	00 c0       	rjmp	.+0      	; 0x5be <PutString+0xae>
- 5be:	00 00       	nop
-	 * uint16_t length - size of the character array obtained from sizeof(string)
-	 * Returns: void.
-	 */
-	uint8_t NO_OF_CHARS = length / sizeof(uint8_t);
-
-	for (int i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
- 5c0:	e0 16       	cp	r14, r16
- 5c2:	f1 06       	cpc	r15, r17
- 5c4:	71 f1       	breq	.+92     	; 0x622 <PutString+0x112>
+     710:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     714:	8d 2f       	mov	r24, r29
+     716:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     71a:	ef ef       	ldi	r30, 0xFF	; 255
+     71c:	ff e8       	ldi	r31, 0x8F	; 143
+     71e:	31 97       	sbiw	r30, 0x01	; 1
+     720:	f1 f7       	brne	.-4      	; 0x71e <PutString+0xbe>
+     722:	00 c0       	rjmp	.+0      	; 0x724 <PutString+0xc4>
+     724:	00 00       	nop
+     726:	8c 2f       	mov	r24, r28
+     728:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     72c:	8c 2d       	mov	r24, r12
+     72e:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     732:	8f ef       	ldi	r24, 0xFF	; 255
+     734:	9f e8       	ldi	r25, 0x8F	; 143
+     736:	01 97       	sbiw	r24, 0x01	; 1
+     738:	f1 f7       	brne	.-4      	; 0x736 <PutString+0xd6>
+     73a:	00 c0       	rjmp	.+0      	; 0x73c <PutString+0xdc>
+     73c:	00 00       	nop
+	for (uint8_t i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
+     73e:	e0 16       	cp	r14, r16
+     740:	f1 06       	cpc	r15, r17
+     742:	99 f1       	breq	.+102    	; 0x7aa <PutString+0x14a>
 		uint8_t character = string[i];
- 5c6:	f7 01       	movw	r30, r14
- 5c8:	91 91       	ld	r25, Z+
- 5ca:	7f 01       	movw	r14, r30
-	/* Sends data to the screen.
-	 * uint8_t data - data to be displayed
-	 * Returns: void.
-	 */
-
-	uint8_t high_nibble = (data)&0xF0;	/* High 4bit nibble of the character */
- 5cc:	c9 2f       	mov	r28, r25
- 5ce:	c0 7f       	andi	r28, 0xF0	; 240
-	uint8_t low_nibble  = (data)&0x0F;	/* Low 4bit nibble of the character */
- 5d0:	d9 2f       	mov	r29, r25
- 5d2:	df 70       	andi	r29, 0x0F	; 15
-
-	/* if (SPI) reverse the data before sending */
+     744:	f7 01       	movw	r30, r14
+     746:	c1 91       	ld	r28, Z+
+     748:	7f 01       	movw	r14, r30
 	if (SPI == protocol_flag){
- 5d4:	dd 20       	and	r13, r13
- 5d6:	09 f4       	brne	.+2      	; 0x5da <PutString+0xca>
- 5d8:	ad cf       	rjmp	.-166    	; 0x534 <PutString+0x24>
-	}
-
-	/* Send high nibble */
-
-	uint8_t send_data;							/* Data to be sent */
+     74a:	dd 20       	and	r13, r13
+     74c:	09 f4       	brne	.+2      	; 0x750 <PutString+0xf0>
+     74e:	9c cf       	rjmp	.-200    	; 0x688 <PutString+0x28>
 	send_data = high_nibble>>1;					/* Shift high nibble to correct position */
- 5da:	c6 95       	lsr	r28
+     750:	dc 2f       	mov	r29, r28
+     752:	d6 95       	lsr	r29
+     754:	d8 77       	andi	r29, 0x78	; 120
 	send_data |= (1<<RS)|(1<<EN)|(1<<BKL);		/* RS high for data, EN high, BKL high */
- 5dc:	8c 2f       	mov	r24, r28
- 5de:	86 68       	ori	r24, 0x86	; 134
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     756:	8d 2f       	mov	r24, r29
+     758:	86 68       	ori	r24, 0x86	; 134
+     75a:	cc 0f       	add	r28, r28
+     75c:	cc 0f       	add	r28, r28
+     75e:	cc 0f       	add	r28, r28
+     760:	c8 77       	andi	r28, 0x78	; 120
+     762:	fc 2f       	mov	r31, r28
+     764:	f2 68       	ori	r31, 0x82	; 130
+     766:	cf 2e       	mov	r12, r31
+     768:	d2 68       	ori	r29, 0x82	; 130
+     76a:	c6 68       	ori	r28, 0x86	; 134
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 5e0:	f1 e0       	ldi	r31, 0x01	; 1
- 5e2:	df 12       	cpse	r13, r31
- 5e4:	cf cf       	rjmp	.-98     	; 0x584 <PutString+0x74>
- 5e6:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 5ea:	8c 2f       	mov	r24, r28
- 5ec:	82 68       	ori	r24, 0x82	; 130
- 5ee:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 5f2:	83 ec       	ldi	r24, 0xC3	; 195
- 5f4:	99 e0       	ldi	r25, 0x09	; 9
- 5f6:	01 97       	sbiw	r24, 0x01	; 1
- 5f8:	f1 f7       	brne	.-4      	; 0x5f6 <PutString+0xe6>
- 5fa:	00 c0       	rjmp	.+0      	; 0x5fc <PutString+0xec>
- 5fc:	00 00       	nop
-
-	_delay_ms(10);
-
-	/* Send low nibble */
-
-	send_data = low_nibble<<3;					/* Shift low nibble to correct position */
- 5fe:	dd 0f       	add	r29, r29
- 600:	dd 0f       	add	r29, r29
- 602:	dd 0f       	add	r29, r29
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
-    I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 604:	8d 2f       	mov	r24, r29
- 606:	86 68       	ori	r24, 0x86	; 134
- 608:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 60c:	8d 2f       	mov	r24, r29
- 60e:	82 68       	ori	r24, 0x82	; 130
- 610:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 614:	cf cf       	rjmp	.-98     	; 0x5b4 <PutString+0xa4>
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     76c:	21 e0       	ldi	r18, 0x01	; 1
+     76e:	d2 12       	cpse	r13, r18
+     770:	cf cf       	rjmp	.-98     	; 0x710 <PutString+0xb0>
+     772:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     776:	8d 2f       	mov	r24, r29
+     778:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     77c:	8f ef       	ldi	r24, 0xFF	; 255
+     77e:	9f e8       	ldi	r25, 0x8F	; 143
+     780:	01 97       	sbiw	r24, 0x01	; 1
+     782:	f1 f7       	brne	.-4      	; 0x780 <PutString+0x120>
+     784:	00 c0       	rjmp	.+0      	; 0x786 <PutString+0x126>
+     786:	00 00       	nop
+     788:	8c 2f       	mov	r24, r28
+     78a:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     78e:	8c 2d       	mov	r24, r12
+     790:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     794:	ce cf       	rjmp	.-100    	; 0x732 <PutString+0xd2>
 		if((nibble & (1 << i)))
- 616:	80 ec       	ldi	r24, 0xC0	; 192
+     796:	80 ec       	ldi	r24, 0xC0	; 192
+     798:	40 ec       	ldi	r20, 0xC0	; 192
+     79a:	60 e8       	ldi	r22, 0x80	; 128
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 618:	d0 e8       	ldi	r29, 0x80	; 128
- 61a:	a3 cf       	rjmp	.-186    	; 0x562 <PutString+0x52>
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     79c:	50 e8       	ldi	r21, 0x80	; 128
+     79e:	91 cf       	rjmp	.-222    	; 0x6c2 <PutString+0x62>
 		if((nibble & (1 << i)))
- 61c:	8c e0       	ldi	r24, 0x0C	; 12
+     7a0:	9c e0       	ldi	r25, 0x0C	; 12
+     7a2:	8c e0       	ldi	r24, 0x0C	; 12
+     7a4:	58 e0       	ldi	r21, 0x08	; 8
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 61e:	c8 e0       	ldi	r28, 0x08	; 8
- 620:	8f cf       	rjmp	.-226    	; 0x540 <PutString+0x30>
-
-	for (int i = 0; i < NO_OF_CHARS; i++) { 	/* Iterate through the char array */
-		uint8_t character = string[i];
-		PutChar(character, protocol_flag);						/* Put a char at a time on the screen */
-	}
+     7a6:	48 e0       	ldi	r20, 0x08	; 8
+     7a8:	79 cf       	rjmp	.-270    	; 0x69c <PutString+0x3c>
 }
- 622:	df 91       	pop	r29
- 624:	cf 91       	pop	r28
- 626:	1f 91       	pop	r17
- 628:	0f 91       	pop	r16
- 62a:	ff 90       	pop	r15
- 62c:	ef 90       	pop	r14
- 62e:	df 90       	pop	r13
- 630:	08 95       	ret
+     7aa:	df 91       	pop	r29
+     7ac:	cf 91       	pop	r28
+     7ae:	1f 91       	pop	r17
+     7b0:	0f 91       	pop	r16
+     7b2:	ff 90       	pop	r15
+     7b4:	ef 90       	pop	r14
+     7b6:	df 90       	pop	r13
+     7b8:	cf 90       	pop	r12
+     7ba:	08 95       	ret
 
-00000632 <ReverseNibble>:
-
-/* Utility functions */
-
+000007bc <ReverseNibble>:
 uint8_t ReverseNibble(uint8_t nibble) {
- 632:	28 2f       	mov	r18, r24
- 634:	30 e0       	ldi	r19, 0x00	; 0
- 636:	80 ff       	sbrs	r24, 0
- 638:	23 c0       	rjmp	.+70     	; 0x680 <ReverseNibble+0x4e>
- 63a:	90 e8       	ldi	r25, 0x80	; 128
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     7bc:	28 2f       	mov	r18, r24
+     7be:	30 e0       	ldi	r19, 0x00	; 0
 		if((nibble & (1 << i)))
+     7c0:	80 ff       	sbrs	r24, 0
+     7c2:	15 c0       	rjmp	.+42     	; 0x7ee <ReverseNibble+0x32>
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
- 63c:	89 2f       	mov	r24, r25
- 63e:	80 64       	ori	r24, 0x40	; 64
- 640:	21 ff       	sbrs	r18, 1
- 642:	89 2f       	mov	r24, r25
- 644:	98 2f       	mov	r25, r24
- 646:	90 62       	ori	r25, 0x20	; 32
- 648:	22 fd       	sbrc	r18, 2
- 64a:	89 2f       	mov	r24, r25
- 64c:	98 2f       	mov	r25, r24
- 64e:	90 61       	ori	r25, 0x10	; 16
- 650:	23 fd       	sbrc	r18, 3
- 652:	89 2f       	mov	r24, r25
- 654:	98 2f       	mov	r25, r24
- 656:	98 60       	ori	r25, 0x08	; 8
- 658:	24 fd       	sbrc	r18, 4
- 65a:	89 2f       	mov	r24, r25
- 65c:	98 2f       	mov	r25, r24
- 65e:	94 60       	ori	r25, 0x04	; 4
- 660:	25 fd       	sbrc	r18, 5
- 662:	89 2f       	mov	r24, r25
- 664:	98 2f       	mov	r25, r24
- 666:	92 60       	ori	r25, 0x02	; 2
- 668:	26 fd       	sbrc	r18, 6
- 66a:	89 2f       	mov	r24, r25
- 66c:	98 2f       	mov	r25, r24
- 66e:	91 60       	ori	r25, 0x01	; 1
-
-	uint8_t NO_OF_BITS = sizeof(nibble)*8; 	/* Number of bits the nibble */
-	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
-
-	for (int i = 0; i < NO_OF_BITS; i++) {	/* Iterate through the bits */
+     7c4:	80 e8       	ldi	r24, 0x80	; 128
 		if((nibble & (1 << i)))
- 670:	22 0f       	add	r18, r18
- 672:	23 2f       	mov	r18, r19
- 674:	22 1f       	adc	r18, r18
- 676:	33 0b       	sbc	r19, r19
- 678:	23 2b       	or	r18, r19
- 67a:	09 f0       	breq	.+2      	; 0x67e <ReverseNibble+0x4c>
- 67c:	89 2f       	mov	r24, r25
+     7c6:	21 fd       	sbrc	r18, 1
 		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
-	}
-
-	return rev_nibble;
+     7c8:	80 64       	ori	r24, 0x40	; 64
+		if((nibble & (1 << i)))
+     7ca:	22 fd       	sbrc	r18, 2
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     7cc:	80 62       	ori	r24, 0x20	; 32
+		if((nibble & (1 << i)))
+     7ce:	23 fd       	sbrc	r18, 3
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     7d0:	80 61       	ori	r24, 0x10	; 16
+		if((nibble & (1 << i)))
+     7d2:	24 fd       	sbrc	r18, 4
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     7d4:	88 60       	ori	r24, 0x08	; 8
+		if((nibble & (1 << i)))
+     7d6:	25 fd       	sbrc	r18, 5
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     7d8:	84 60       	ori	r24, 0x04	; 4
+		if((nibble & (1 << i)))
+     7da:	26 fd       	sbrc	r18, 6
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     7dc:	82 60       	ori	r24, 0x02	; 2
+		if((nibble & (1 << i)))
+     7de:	22 0f       	add	r18, r18
+     7e0:	23 2f       	mov	r18, r19
+     7e2:	22 1f       	adc	r18, r18
+     7e4:	33 0b       	sbc	r19, r19
+     7e6:	23 2b       	or	r18, r19
+     7e8:	09 f0       	breq	.+2      	; 0x7ec <ReverseNibble+0x30>
+		   rev_nibble |= 1 << ((NO_OF_BITS - 1) - i);	/* Build reversed nibble */
+     7ea:	81 60       	ori	r24, 0x01	; 1
 }
- 67e:	08 95       	ret
- 680:	90 e0       	ldi	r25, 0x00	; 0
- 682:	dc cf       	rjmp	.-72     	; 0x63c <ReverseNibble+0xa>
+     7ec:	08 95       	ret
+	uint8_t rev_nibble = 0;					/* Reversed nibble temporary variable */
+     7ee:	80 e0       	ldi	r24, 0x00	; 0
+     7f0:	ea cf       	rjmp	.-44     	; 0x7c6 <ReverseNibble+0xa>
 
-00000684 <TransferData>:
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+000007f2 <TransferData>:
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 684:	61 30       	cpi	r22, 0x01	; 1
- 686:	11 f0       	breq	.+4      	; 0x68c <TransferData+0x8>
- 688:	0c 94 69 03 	jmp	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 68c:	0c 94 62 00 	jmp	0xc4	; 0xc4 <I2C_Write>
+     7f2:	61 30       	cpi	r22, 0x01	; 1
+     7f4:	11 f0       	breq	.+4      	; 0x7fa <TransferData+0x8>
+     7f6:	0c 94 1d 04 	jmp	0x83a	; 0x83a <SPI_MasterTransmit>
+     7fa:	0c 94 ff 00 	jmp	0x1fe	; 0x1fe <I2C_Write>
 
-00000690 <Send4BitCommand>:
+000007fe <Send4BitCommand>:
 }
 
 void Send4BitCommand(uint8_t command, uint8_t protocol_flag){
- 690:	cf 93       	push	r28
- 692:	c8 2f       	mov	r28, r24
-	// sends a 4 bit command, via I2C or SPI
+     7fe:	cf 93       	push	r28
+     800:	c8 2f       	mov	r28, r24
+     802:	8d 7f       	andi	r24, 0xFD	; 253
+	 * uint8_t protocol_flag - Chooses the protocol to use. Can be SPI or I2C
+	 * Returns: void
+	 */
 
 	command |= (1<<EN);
 	command &= ~(1<<RS);
- 694:	98 2f       	mov	r25, r24
- 696:	9d 7f       	andi	r25, 0xFD	; 253
- 698:	89 2f       	mov	r24, r25
- 69a:	84 60       	ori	r24, 0x04	; 4
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     804:	84 60       	ori	r24, 0x04	; 4
+     806:	c9 7f       	andi	r28, 0xF9	; 249
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 69c:	61 30       	cpi	r22, 0x01	; 1
- 69e:	39 f0       	breq	.+14     	; 0x6ae <Send4BitCommand+0x1e>
- 6a0:	0e 94 69 03 	call	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 6a4:	8c 2f       	mov	r24, r28
- 6a6:	89 7f       	andi	r24, 0xF9	; 249
+     808:	61 30       	cpi	r22, 0x01	; 1
+     80a:	31 f0       	breq	.+12     	; 0x818 <Send4BitCommand+0x1a>
+     80c:	0e 94 1d 04 	call	0x83a	; 0x83a <SPI_MasterTransmit>
+     810:	8c 2f       	mov	r24, r28
 	TransferData(command, protocol_flag);
 	command &= ~(1<<EN);
 	command &= ~(1<<RS);
 	TransferData(command, protocol_flag);
 
 }
- 6a8:	cf 91       	pop	r28
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     812:	cf 91       	pop	r28
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 6aa:	0c 94 69 03 	jmp	0x6d2	; 0x6d2 <SPI_MasterTransmit>
- 6ae:	0e 94 62 00 	call	0xc4	; 0xc4 <I2C_Write>
- 6b2:	8c 2f       	mov	r24, r28
- 6b4:	89 7f       	andi	r24, 0xF9	; 249
-	TransferData(command, protocol_flag);
-	command &= ~(1<<EN);
-	command &= ~(1<<RS);
-	TransferData(command, protocol_flag);
-
+     814:	0c 94 1d 04 	jmp	0x83a	; 0x83a <SPI_MasterTransmit>
+     818:	0e 94 ff 00 	call	0x1fe	; 0x1fe <I2C_Write>
+     81c:	8c 2f       	mov	r24, r28
 }
- 6b6:	cf 91       	pop	r28
-
-	return rev_nibble;
-}
-
-void TransferData(uint8_t data, uint8_t protocol_flag){
+     81e:	cf 91       	pop	r28
     I2C == protocol_flag ? I2C_Write(data): SPI_MasterTransmit(data);
- 6b8:	0c 94 62 00 	jmp	0xc4	; 0xc4 <I2C_Write>
+     820:	0c 94 ff 00 	jmp	0x1fe	; 0x1fe <I2C_Write>
 
-000006bc <SPI_MasterInit>:
+00000824 <SPI_MasterInit>:
 	/* Set up SPI Master
 	 * Returns: void.
 	 */
 
 	/* Set MOSI, SCK and SS output, MISO as input */
 	DDR_SPI |= (1<<DD_MOSI)|(1<<DD_SCK)|(1<<DD_SS);
- 6bc:	84 b1       	in	r24, 0x04	; 4
- 6be:	8c 62       	ori	r24, 0x2C	; 44
- 6c0:	84 b9       	out	0x04, r24	; 4
+     824:	84 b1       	in	r24, 0x04	; 4
+     826:	8c 62       	ori	r24, 0x2C	; 44
+     828:	84 b9       	out	0x04, r24	; 4
 
 	DDR_SPI &= ~(1<<DD_MISO);
- 6c2:	24 98       	cbi	0x04, 4	; 4
+     82a:	24 98       	cbi	0x04, 4	; 4
 
 	PORTB |= (1<<DD_SS);
- 6c4:	2a 9a       	sbi	0x05, 2	; 5
+     82c:	2a 9a       	sbi	0x05, 2	; 5
 
 	/* Enable SPI, Master, set clock rate fck/16 */
 	SPCR = (1<<SPE)|(1<<MSTR)|(0<<SPR0)|(1<<SPR1);
- 6c6:	82 e5       	ldi	r24, 0x52	; 82
- 6c8:	8c bd       	out	0x2c, r24	; 44
+     82e:	82 e5       	ldi	r24, 0x52	; 82
+     830:	8c bd       	out	0x2c, r24	; 44
 
 	SPSR &= ~(1<<SPI2X);
- 6ca:	8d b5       	in	r24, 0x2d	; 45
- 6cc:	8e 7f       	andi	r24, 0xFE	; 254
- 6ce:	8d bd       	out	0x2d, r24	; 45
- 6d0:	08 95       	ret
+     832:	8d b5       	in	r24, 0x2d	; 45
+     834:	8e 7f       	andi	r24, 0xFE	; 254
+     836:	8d bd       	out	0x2d, r24	; 45
+}
+     838:	08 95       	ret
 
-000006d2 <SPI_MasterTransmit>:
+0000083a <SPI_MasterTransmit>:
 	 */
 
 	uint8_t flush_buffer; /* Buffer to flush the existent data on the SPI register */
 
 	/* Start transmission */
 	SPDR = data;
- 6d2:	8e bd       	out	0x2e, r24	; 46
+     83a:	8e bd       	out	0x2e, r24	; 46
 
 	/* Wait for transmission complete */
 	while (!(SPSR & (1<<SPIF)));
- 6d4:	0d b4       	in	r0, 0x2d	; 45
- 6d6:	07 fe       	sbrs	r0, 7
- 6d8:	fd cf       	rjmp	.-6      	; 0x6d4 <SPI_MasterTransmit+0x2>
- 6da:	89 e0       	ldi	r24, 0x09	; 9
- 6dc:	90 e0       	ldi	r25, 0x00	; 0
+     83c:	0d b4       	in	r0, 0x2d	; 45
+     83e:	07 fe       	sbrs	r0, 7
+     840:	fd cf       	rjmp	.-6      	; 0x83c <SPI_MasterTransmit+0x2>
+void FlushShiftRegister(void) {
+	/* Flushes the shift register by switching the latch
+	 * Returns: void
 	 */
 
-	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
-
-	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
-		PORTB |= (1<<DD_SS);	/* Drive the latch to high */
- 6de:	2a 9a       	sbi	0x05, 2	; 5
+	PORTB |= (1<<DD_SS);	/* Drive the latch to high */
+     842:	2a 9a       	sbi	0x05, 2	; 5
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 6e0:	00 00       	nop
-		_delay_us(1);			/* Latch hold time */
-		PORTB &= ~(1<<DD_SS);	/* Drive the latch to low */
- 6e2:	2a 98       	cbi	0x05, 2	; 5
- 6e4:	01 97       	sbiw	r24, 0x01	; 1
-	 * Returns: void
-	 */
-
-	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
-
-	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
- 6e6:	d9 f7       	brne	.-10     	; 0x6de <SPI_MasterTransmit+0xc>
- 6e8:	00 00       	nop
-	/* Wait for transmission complete */
-	while (!(SPSR & (1<<SPIF)));
-
-	FlushShiftRegister(); 	/* Flush the shift register to put the byte into the screen */
-
+     844:	85 e0       	ldi	r24, 0x05	; 5
+     846:	8a 95       	dec	r24
+     848:	f1 f7       	brne	.-4      	; 0x846 <SPI_MasterTransmit+0xc>
+	_delay_us(1);			/* Latch hold time */
+	PORTB &= ~(1<<DD_SS);	/* Drive the latch to low */
+     84a:	2a 98       	cbi	0x05, 2	; 5
+     84c:	85 e0       	ldi	r24, 0x05	; 5
+     84e:	8a 95       	dec	r24
+     850:	f1 f7       	brne	.-4      	; 0x84e <SPI_MasterTransmit+0x14>
 	flush_buffer = SPDR;	/* Flush the SPI register */
- 6ea:	8e b5       	in	r24, 0x2e	; 46
- 6ec:	08 95       	ret
+     852:	8e b5       	in	r24, 0x2e	; 46
+}
+     854:	08 95       	ret
 
-000006ee <FlushShiftRegister>:
+00000856 <FlushShiftRegister>:
+	PORTB |= (1<<DD_SS);	/* Drive the latch to high */
+     856:	2a 9a       	sbi	0x05, 2	; 5
+     858:	85 e0       	ldi	r24, 0x05	; 5
+     85a:	8a 95       	dec	r24
+     85c:	f1 f7       	brne	.-4      	; 0x85a <FlushShiftRegister+0x4>
+	PORTB &= ~(1<<DD_SS);	/* Drive the latch to low */
+     85e:	2a 98       	cbi	0x05, 2	; 5
+     860:	85 e0       	ldi	r24, 0x05	; 5
+     862:	8a 95       	dec	r24
+     864:	f1 f7       	brne	.-4      	; 0x862 <FlushShiftRegister+0xc>
+
+	_delay_us(1);
+}
+     866:	08 95       	ret
+
+00000868 <SRAM_MarchCTest.constprop.0>:
+    }
+
+    return error;
 }
 
-void FlushShiftRegister(void) {
- 6ee:	89 e0       	ldi	r24, 0x09	; 9
- 6f0:	90 e0       	ldi	r25, 0x00	; 0
-	 */
+bool SRAM_MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size) {
+     868:	cf 93       	push	r28
+     86a:	df 93       	push	r29
+     86c:	ac 01       	movw	r20, r24
 
-	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
+	register uint16_t i = 0;
+	register uint8_t error = 0;
 
-	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
-		PORTB |= (1<<DD_SS);	/* Drive the latch to high */
- 6f2:	2a 9a       	sbi	0x05, 2	; 5
- 6f4:	00 00       	nop
-		_delay_us(1);			/* Latch hold time */
-		PORTB &= ~(1<<DD_SS);	/* Drive the latch to low */
- 6f6:	2a 98       	cbi	0x05, 2	; 5
- 6f8:	01 97       	sbiw	r24, 0x01	; 1
-	 * Returns: void
-	 */
+	/* Save to buffer unless buffer is being tested */
+	if (p_buffer != p_sram) {
+     86e:	81 e0       	ldi	r24, 0x01	; 1
+     870:	4e 35       	cpi	r20, 0x5E	; 94
+     872:	58 07       	cpc	r21, r24
+     874:	49 f0       	breq	.+18     	; 0x888 <SRAM_MarchCTest.constprop.0+0x20>
+     876:	da 01       	movw	r26, r20
+     878:	ee e5       	ldi	r30, 0x5E	; 94
+     87a:	f1 e0       	ldi	r31, 0x01	; 1
+		for (i = 0; i < size; i++) {
+			p_buffer[i] = p_sram[i];
+     87c:	8d 91       	ld	r24, X+
+     87e:	81 93       	st	Z+, r24
+		for (i = 0; i < size; i++) {
+     880:	92 e0       	ldi	r25, 0x02	; 2
+     882:	ee 39       	cpi	r30, 0x9E	; 158
+     884:	f9 07       	cpc	r31, r25
+     886:	d1 f7       	brne	.-12     	; 0x87c <SRAM_MarchCTest.constprop.0+0x14>
+     888:	9a 01       	movw	r18, r20
+     88a:	20 5c       	subi	r18, 0xC0	; 192
+     88c:	3e 4f       	sbci	r19, 0xFE	; 254
+bool SRAM_MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size) {
+     88e:	fa 01       	movw	r30, r20
+		}
+	}
 
-	uint8_t NO_OF_BITS = 8; /* Number of bits of the shift register */
+	/* M0 - Increasing address, write 0 */
+	for (i = 0; i < size; i++) {
+		p_sram[i] = 0x00;
+     890:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     892:	2e 17       	cp	r18, r30
+     894:	3f 07       	cpc	r19, r31
+     896:	e1 f7       	brne	.-8      	; 0x890 <SRAM_MarchCTest.constprop.0+0x28>
+     898:	fa 01       	movw	r30, r20
+	register uint8_t error = 0;
+     89a:	80 e0       	ldi	r24, 0x00	; 0
+	}
 
-	for (int i = 0; i < NO_OF_BITS + 1; i++) {	/* Iterate through the number of bits of the register */
- 6fa:	d9 f7       	brne	.-10     	; 0x6f2 <FlushShiftRegister+0x4>
- 6fc:	00 00       	nop
- 6fe:	08 95       	ret
+	/* M1 - Increasing address, read 0, write 1 */
+	for (i = 0; i < size; i++) {
+		if (p_sram[i] != 0x00) error = 1;
+		p_sram[i] = 0xFF;
+     89c:	6f ef       	ldi	r22, 0xFF	; 255
+		if (p_sram[i] != 0x00) error = 1;
+     89e:	90 81       	ld	r25, Z
+     8a0:	91 11       	cpse	r25, r1
+     8a2:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0xFF;
+     8a4:	61 93       	st	Z+, r22
+	for (i = 0; i < size; i++) {
+     8a6:	2e 17       	cp	r18, r30
+     8a8:	3f 07       	cpc	r19, r31
+     8aa:	c9 f7       	brne	.-14     	; 0x89e <SRAM_MarchCTest.constprop.0+0x36>
+     8ac:	fa 01       	movw	r30, r20
+	}
 
-00000700 <main>:
-#include <I2C_comms.h>
-#include <LCD1602A.h>
+	/* M2 - Increasing address, read 1, write 0 */
+	for (i = 0; i < size; i++) {
+		if (p_sram[i] != 0xFF) error = 1;
+     8ae:	90 81       	ld	r25, Z
+     8b0:	9f 3f       	cpi	r25, 0xFF	; 255
+     8b2:	09 f0       	breq	.+2      	; 0x8b6 <SRAM_MarchCTest.constprop.0+0x4e>
+     8b4:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0x00;
+     8b6:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     8b8:	2e 17       	cp	r18, r30
+     8ba:	3f 07       	cpc	r19, r31
+     8bc:	c1 f7       	brne	.-16     	; 0x8ae <SRAM_MarchCTest.constprop.0+0x46>
+     8be:	9a 01       	movw	r18, r20
+     8c0:	21 5c       	subi	r18, 0xC1	; 193
+     8c2:	3e 4f       	sbci	r19, 0xFE	; 254
+     8c4:	f9 01       	movw	r30, r18
+	}
 
-#define F_CPU 1600000UL
+	/* M3 - Decreasing address, read 0, write 1 */
+	for (i = size - 1; i > 0; i--) {
+		if (p_sram[i] != 0x00) error = 1;
+		p_sram[i] = 0xFF;
+     8c6:	6f ef       	ldi	r22, 0xFF	; 255
+     8c8:	01 c0       	rjmp	.+2      	; 0x8cc <SRAM_MarchCTest.constprop.0+0x64>
+	for (i = size - 1; i > 0; i--) {
+     8ca:	fe 01       	movw	r30, r28
+		if (p_sram[i] != 0x00) error = 1;
+     8cc:	90 81       	ld	r25, Z
+     8ce:	91 11       	cpse	r25, r1
+     8d0:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0xFF;
+     8d2:	60 83       	st	Z, r22
+     8d4:	ef 01       	movw	r28, r30
+     8d6:	21 97       	sbiw	r28, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     8d8:	4c 17       	cp	r20, r28
+     8da:	5d 07       	cpc	r21, r29
+     8dc:	b1 f7       	brne	.-20     	; 0x8ca <SRAM_MarchCTest.constprop.0+0x62>
+     8de:	d9 01       	movw	r26, r18
+     8e0:	01 c0       	rjmp	.+2      	; 0x8e4 <SRAM_MarchCTest.constprop.0+0x7c>
+	}
+
+	/* M4 - Decreasing address, read 1, write 0 */
+	for (i = size - 1; i > 0; i--) {
+     8e2:	db 01       	movw	r26, r22
+		if (p_sram[i] != 0xFF) error = 1;
+     8e4:	9c 91       	ld	r25, X
+     8e6:	9f 3f       	cpi	r25, 0xFF	; 255
+     8e8:	09 f0       	breq	.+2      	; 0x8ec <SRAM_MarchCTest.constprop.0+0x84>
+     8ea:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0x00;
+     8ec:	1c 92       	st	X, r1
+     8ee:	bd 01       	movw	r22, r26
+     8f0:	61 50       	subi	r22, 0x01	; 1
+     8f2:	71 09       	sbc	r23, r1
+	for (i = size - 1; i > 0; i--) {
+     8f4:	ae 17       	cp	r26, r30
+     8f6:	bf 07       	cpc	r27, r31
+     8f8:	a1 f7       	brne	.-24     	; 0x8e2 <SRAM_MarchCTest.constprop.0+0x7a>
+     8fa:	01 c0       	rjmp	.+2      	; 0x8fe <SRAM_MarchCTest.constprop.0+0x96>
+	}
+
+	/* M5 - Decreasing address, read 0 */
+	for (i = size - 1; i > 0; i--) {
+     8fc:	9b 01       	movw	r18, r22
+		if (p_sram[i] != 0x00) error = 1;
+     8fe:	d9 01       	movw	r26, r18
+     900:	9c 91       	ld	r25, X
+     902:	91 11       	cpse	r25, r1
+     904:	81 e0       	ldi	r24, 0x01	; 1
+     906:	b9 01       	movw	r22, r18
+     908:	61 50       	subi	r22, 0x01	; 1
+     90a:	71 09       	sbc	r23, r1
+	for (i = size - 1; i > 0; i--) {
+     90c:	2e 17       	cp	r18, r30
+     90e:	3f 07       	cpc	r19, r31
+     910:	a9 f7       	brne	.-22     	; 0x8fc <SRAM_MarchCTest.constprop.0+0x94>
+	}
+
+	/* Restore from buffer, unless buffer is being checked */
+	if (p_buffer != p_sram) {
+     912:	4e 55       	subi	r20, 0x5E	; 94
+     914:	51 40       	sbci	r21, 0x01	; 1
+     916:	49 f0       	breq	.+18     	; 0x92a <__stack+0x2b>
+     918:	ee e5       	ldi	r30, 0x5E	; 94
+     91a:	f1 e0       	ldi	r31, 0x01	; 1
+     91c:	2e e9       	ldi	r18, 0x9E	; 158
+     91e:	32 e0       	ldi	r19, 0x02	; 2
+		for (i = 0; i < size; i++) {
+			p_sram[i] = p_buffer[i];
+     920:	91 91       	ld	r25, Z+
+     922:	99 93       	st	Y+, r25
+		for (i = 0; i < size; i++) {
+     924:	2e 17       	cp	r18, r30
+     926:	3f 07       	cpc	r19, r31
+     928:	d9 f7       	brne	.-10     	; 0x920 <__stack+0x21>
+		}
+	}
+
+	return error;
+}
+     92a:	df 91       	pop	r29
+     92c:	cf 91       	pop	r28
+     92e:	08 95       	ret
+
+00000930 <SRAM_Test>:
+bool SRAM_Test(void)  {
+     930:	af 92       	push	r10
+     932:	bf 92       	push	r11
+     934:	cf 92       	push	r12
+     936:	df 92       	push	r13
+     938:	ef 92       	push	r14
+     93a:	ff 92       	push	r15
+     93c:	0f 93       	push	r16
+     93e:	1f 93       	push	r17
+     940:	cf 93       	push	r28
+     942:	df 93       	push	r29
+     944:	c0 ec       	ldi	r28, 0xC0	; 192
+     946:	d0 e0       	ldi	r29, 0x00	; 0
+     948:	b1 2c       	mov	r11, r1
+	if (p_buffer != p_sram) {
+     94a:	8e e5       	ldi	r24, 0x5E	; 94
+     94c:	c8 2e       	mov	r12, r24
+     94e:	81 e0       	ldi	r24, 0x01	; 1
+     950:	d8 2e       	mov	r13, r24
+		p_sram[i] = 0xFF;
+     952:	aa 24       	eor	r10, r10
+     954:	aa 94       	dec	r10
+     956:	9e e5       	ldi	r25, 0x5E	; 94
+     958:	e9 2e       	mov	r14, r25
+     95a:	92 e0       	ldi	r25, 0x02	; 2
+     95c:	f9 2e       	mov	r15, r25
+     95e:	00 e0       	ldi	r16, 0x00	; 0
+     960:	12 e0       	ldi	r17, 0x02	; 2
+     962:	0e 55       	subi	r16, 0x5E	; 94
+     964:	11 40       	sbci	r17, 0x01	; 1
+     966:	bb 20       	and	r11, r11
+     968:	09 f4       	brne	.+2      	; 0x96c <SRAM_Test+0x3c>
+     96a:	64 c0       	rjmp	.+200    	; 0xa34 <SRAM_Test+0x104>
+     96c:	81 e0       	ldi	r24, 0x01	; 1
+     96e:	b8 12       	cpse	r11, r24
+     970:	73 c0       	rjmp	.+230    	; 0xa58 <SRAM_Test+0x128>
+	if (p_buffer != p_sram) {
+     972:	c1 14       	cp	r12, r1
+     974:	92 e0       	ldi	r25, 0x02	; 2
+     976:	d9 06       	cpc	r13, r25
+     978:	59 f0       	breq	.+22     	; 0x990 <SRAM_Test+0x60>
+     97a:	e0 e0       	ldi	r30, 0x00	; 0
+     97c:	f2 e0       	ldi	r31, 0x02	; 2
+     97e:	df 01       	movw	r26, r30
+     980:	a2 5a       	subi	r26, 0xA2	; 162
+     982:	b0 40       	sbci	r27, 0x00	; 0
+			p_buffer[i] = p_sram[i];
+     984:	81 91       	ld	r24, Z+
+     986:	8c 93       	st	X, r24
+		for (i = 0; i < size; i++) {
+     988:	e1 15       	cp	r30, r1
+     98a:	83 e0       	ldi	r24, 0x03	; 3
+     98c:	f8 07       	cpc	r31, r24
+     98e:	b9 f7       	brne	.-18     	; 0x97e <SRAM_Test+0x4e>
+	if (p_buffer != p_sram) {
+     990:	e0 e0       	ldi	r30, 0x00	; 0
+     992:	f2 e0       	ldi	r31, 0x02	; 2
+		p_sram[i] = 0x00;
+     994:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     996:	e1 15       	cp	r30, r1
+     998:	93 e0       	ldi	r25, 0x03	; 3
+     99a:	f9 07       	cpc	r31, r25
+     99c:	d9 f7       	brne	.-10     	; 0x994 <SRAM_Test+0x64>
+     99e:	e0 e0       	ldi	r30, 0x00	; 0
+     9a0:	f2 e0       	ldi	r31, 0x02	; 2
+	register uint8_t error = 0;
+     9a2:	80 e0       	ldi	r24, 0x00	; 0
+		if (p_sram[i] != 0x00) error = 1;
+     9a4:	90 81       	ld	r25, Z
+     9a6:	91 11       	cpse	r25, r1
+     9a8:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0xFF;
+     9aa:	a1 92       	st	Z+, r10
+	for (i = 0; i < size; i++) {
+     9ac:	e1 15       	cp	r30, r1
+     9ae:	93 e0       	ldi	r25, 0x03	; 3
+     9b0:	f9 07       	cpc	r31, r25
+     9b2:	c1 f7       	brne	.-16     	; 0x9a4 <SRAM_Test+0x74>
+     9b4:	e0 e0       	ldi	r30, 0x00	; 0
+     9b6:	f2 e0       	ldi	r31, 0x02	; 2
+		if (p_sram[i] != 0xFF) error = 1;
+     9b8:	90 81       	ld	r25, Z
+     9ba:	9f 3f       	cpi	r25, 0xFF	; 255
+     9bc:	09 f0       	breq	.+2      	; 0x9c0 <SRAM_Test+0x90>
+     9be:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0x00;
+     9c0:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     9c2:	e1 15       	cp	r30, r1
+     9c4:	93 e0       	ldi	r25, 0x03	; 3
+     9c6:	f9 07       	cpc	r31, r25
+     9c8:	b9 f7       	brne	.-18     	; 0x9b8 <SRAM_Test+0x88>
+     9ca:	ef ef       	ldi	r30, 0xFF	; 255
+     9cc:	f2 e0       	ldi	r31, 0x02	; 2
+		if (p_sram[i] != 0x00) error = 1;
+     9ce:	90 81       	ld	r25, Z
+     9d0:	91 11       	cpse	r25, r1
+     9d2:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0xFF;
+     9d4:	a0 82       	st	Z, r10
+     9d6:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     9d8:	e1 15       	cp	r30, r1
+     9da:	92 e0       	ldi	r25, 0x02	; 2
+     9dc:	f9 07       	cpc	r31, r25
+     9de:	b9 f7       	brne	.-18     	; 0x9ce <SRAM_Test+0x9e>
+     9e0:	ef ef       	ldi	r30, 0xFF	; 255
+     9e2:	f2 e0       	ldi	r31, 0x02	; 2
+		if (p_sram[i] != 0xFF) error = 1;
+     9e4:	90 81       	ld	r25, Z
+     9e6:	9f 3f       	cpi	r25, 0xFF	; 255
+     9e8:	09 f0       	breq	.+2      	; 0x9ec <SRAM_Test+0xbc>
+     9ea:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0x00;
+     9ec:	10 82       	st	Z, r1
+     9ee:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     9f0:	e1 15       	cp	r30, r1
+     9f2:	92 e0       	ldi	r25, 0x02	; 2
+     9f4:	f9 07       	cpc	r31, r25
+     9f6:	b1 f7       	brne	.-20     	; 0x9e4 <SRAM_Test+0xb4>
+     9f8:	ef ef       	ldi	r30, 0xFF	; 255
+     9fa:	f2 e0       	ldi	r31, 0x02	; 2
+		if (p_sram[i] != 0x00) error = 1;
+     9fc:	90 81       	ld	r25, Z
+     9fe:	91 11       	cpse	r25, r1
+     a00:	81 e0       	ldi	r24, 0x01	; 1
+     a02:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     a04:	e1 15       	cp	r30, r1
+     a06:	92 e0       	ldi	r25, 0x02	; 2
+     a08:	f9 07       	cpc	r31, r25
+     a0a:	c1 f7       	brne	.-16     	; 0x9fc <SRAM_Test+0xcc>
+	if (p_buffer != p_sram) {
+     a0c:	c1 14       	cp	r12, r1
+     a0e:	92 e0       	ldi	r25, 0x02	; 2
+     a10:	d9 06       	cpc	r13, r25
+     a12:	51 f0       	breq	.+20     	; 0xa28 <SRAM_Test+0xf8>
+     a14:	ee e5       	ldi	r30, 0x5E	; 94
+     a16:	f1 e0       	ldi	r31, 0x01	; 1
+     a18:	d8 01       	movw	r26, r16
+     a1a:	ae 0f       	add	r26, r30
+     a1c:	bf 1f       	adc	r27, r31
+			p_sram[i] = p_buffer[i];
+     a1e:	91 91       	ld	r25, Z+
+     a20:	9c 93       	st	X, r25
+		for (i = 0; i < size; i++) {
+     a22:	ee 16       	cp	r14, r30
+     a24:	ff 06       	cpc	r15, r31
+     a26:	c1 f7       	brne	.-16     	; 0xa18 <SRAM_Test+0xe8>
+        if (SRAM_TestSection(i)) {
+     a28:	81 11       	cpse	r24, r1
+     a2a:	0a c0       	rjmp	.+20     	; 0xa40 <SRAM_Test+0x110>
+     a2c:	b3 94       	inc	r11
+     a2e:	d3 95       	inc	r29
+     a30:	b1 10       	cpse	r11, r1
+     a32:	9c cf       	rjmp	.-200    	; 0x96c <SRAM_Test+0x3c>
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
+     a34:	80 e0       	ldi	r24, 0x00	; 0
+     a36:	91 e0       	ldi	r25, 0x01	; 1
+     a38:	0e 94 34 04 	call	0x868	; 0x868 <SRAM_MarchCTest.constprop.0>
+        if (SRAM_TestSection(i)) {
+     a3c:	88 23       	and	r24, r24
+     a3e:	b1 f3       	breq	.-20     	; 0xa2c <SRAM_Test+0xfc>
+            has_errors = 1;
+     a40:	81 e0       	ldi	r24, 0x01	; 1
+}
+     a42:	df 91       	pop	r29
+     a44:	cf 91       	pop	r28
+     a46:	1f 91       	pop	r17
+     a48:	0f 91       	pop	r16
+     a4a:	ff 90       	pop	r15
+     a4c:	ef 90       	pop	r14
+     a4e:	df 90       	pop	r13
+     a50:	cf 90       	pop	r12
+     a52:	bf 90       	pop	r11
+     a54:	af 90       	pop	r10
+     a56:	08 95       	ret
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START + current_section * CLASSB_SEC_SIZE - CLASSB_OVERLAP_SIZE, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
+     a58:	ce 01       	movw	r24, r28
+     a5a:	0e 94 34 04 	call	0x868	; 0x868 <SRAM_MarchCTest.constprop.0>
+        if (SRAM_TestSection(i)) {
+     a5e:	81 11       	cpse	r24, r1
+     a60:	ef cf       	rjmp	.-34     	; 0xa40 <SRAM_Test+0x110>
+    for (register uint8_t i = 0; i < CLASSB_NSEC_TOTAL - 1; i++) {
+     a62:	96 e0       	ldi	r25, 0x06	; 6
+     a64:	b9 12       	cpse	r11, r25
+     a66:	e2 cf       	rjmp	.-60     	; 0xa2c <SRAM_Test+0xfc>
+     a68:	ec cf       	rjmp	.-40     	; 0xa42 <SRAM_Test+0x112>
+
+00000a6a <SRAM_TestSection>:
+bool SRAM_TestSection(register uint8_t current_section) {
+     a6a:	cf 93       	push	r28
+     a6c:	df 93       	push	r29
+     a6e:	81 30       	cpi	r24, 0x01	; 1
+     a70:	09 f4       	brne	.+2      	; 0xa74 <SRAM_TestSection+0xa>
+     a72:	79 c0       	rjmp	.+242    	; 0xb66 <SRAM_TestSection+0xfc>
+     a74:	88 23       	and	r24, r24
+     a76:	09 f4       	brne	.+2      	; 0xa7a <SRAM_TestSection+0x10>
+     a78:	70 c0       	rjmp	.+224    	; 0xb5a <SRAM_TestSection+0xf0>
+     a7a:	88 30       	cpi	r24, 0x08	; 8
+     a7c:	49 f0       	breq	.+18     	; 0xa90 <SRAM_TestSection+0x26>
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START + current_section * CLASSB_SEC_SIZE - CLASSB_OVERLAP_SIZE, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
+     a7e:	90 e0       	ldi	r25, 0x00	; 0
+     a80:	98 2f       	mov	r25, r24
+     a82:	88 27       	eor	r24, r24
+     a84:	80 54       	subi	r24, 0x40	; 64
+     a86:	9f 4f       	sbci	r25, 0xFF	; 255
+}
+     a88:	df 91       	pop	r29
+     a8a:	cf 91       	pop	r28
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START + current_section * CLASSB_SEC_SIZE - CLASSB_OVERLAP_SIZE, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
+     a8c:	0c 94 34 04 	jmp	0x868	; 0x868 <SRAM_MarchCTest.constprop.0>
+	if (p_buffer != p_sram) {
+     a90:	2e e5       	ldi	r18, 0x5E	; 94
+     a92:	31 e0       	ldi	r19, 0x01	; 1
+     a94:	e0 ec       	ldi	r30, 0xC0	; 192
+     a96:	f8 e0       	ldi	r31, 0x08	; 8
+     a98:	20 3c       	cpi	r18, 0xC0	; 192
+     a9a:	88 e0       	ldi	r24, 0x08	; 8
+     a9c:	38 07       	cpc	r19, r24
+     a9e:	49 f0       	breq	.+18     	; 0xab2 <SRAM_TestSection+0x48>
+     aa0:	df 01       	movw	r26, r30
+     aa2:	a2 56       	subi	r26, 0x62	; 98
+     aa4:	b7 40       	sbci	r27, 0x07	; 7
+			p_buffer[i] = p_sram[i];
+     aa6:	81 91       	ld	r24, Z+
+     aa8:	8c 93       	st	X, r24
+		for (i = 0; i < size; i++) {
+     aaa:	e1 15       	cp	r30, r1
+     aac:	99 e0       	ldi	r25, 0x09	; 9
+     aae:	f9 07       	cpc	r31, r25
+     ab0:	b9 f7       	brne	.-18     	; 0xaa0 <SRAM_TestSection+0x36>
+	if (p_buffer != p_sram) {
+     ab2:	e0 ec       	ldi	r30, 0xC0	; 192
+     ab4:	f8 e0       	ldi	r31, 0x08	; 8
+		p_sram[i] = 0x00;
+     ab6:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     ab8:	e1 15       	cp	r30, r1
+     aba:	89 e0       	ldi	r24, 0x09	; 9
+     abc:	f8 07       	cpc	r31, r24
+     abe:	d9 f7       	brne	.-10     	; 0xab6 <SRAM_TestSection+0x4c>
+     ac0:	e0 ec       	ldi	r30, 0xC0	; 192
+     ac2:	f8 e0       	ldi	r31, 0x08	; 8
+	register uint8_t error = 0;
+     ac4:	80 e0       	ldi	r24, 0x00	; 0
+		p_sram[i] = 0xFF;
+     ac6:	4f ef       	ldi	r20, 0xFF	; 255
+		if (p_sram[i] != 0x00) error = 1;
+     ac8:	90 81       	ld	r25, Z
+     aca:	91 11       	cpse	r25, r1
+     acc:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0xFF;
+     ace:	41 93       	st	Z+, r20
+	for (i = 0; i < size; i++) {
+     ad0:	e1 15       	cp	r30, r1
+     ad2:	99 e0       	ldi	r25, 0x09	; 9
+     ad4:	f9 07       	cpc	r31, r25
+     ad6:	c1 f7       	brne	.-16     	; 0xac8 <SRAM_TestSection+0x5e>
+     ad8:	e0 ec       	ldi	r30, 0xC0	; 192
+     ada:	f8 e0       	ldi	r31, 0x08	; 8
+		if (p_sram[i] != 0xFF) error = 1;
+     adc:	90 81       	ld	r25, Z
+     ade:	9f 3f       	cpi	r25, 0xFF	; 255
+     ae0:	09 f0       	breq	.+2      	; 0xae4 <SRAM_TestSection+0x7a>
+     ae2:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0x00;
+     ae4:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     ae6:	e1 15       	cp	r30, r1
+     ae8:	99 e0       	ldi	r25, 0x09	; 9
+     aea:	f9 07       	cpc	r31, r25
+     aec:	b9 f7       	brne	.-18     	; 0xadc <SRAM_TestSection+0x72>
+     aee:	ef ef       	ldi	r30, 0xFF	; 255
+     af0:	f8 e0       	ldi	r31, 0x08	; 8
+		p_sram[i] = 0xFF;
+     af2:	4f ef       	ldi	r20, 0xFF	; 255
+		if (p_sram[i] != 0x00) error = 1;
+     af4:	90 81       	ld	r25, Z
+     af6:	91 11       	cpse	r25, r1
+     af8:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0xFF;
+     afa:	40 83       	st	Z, r20
+     afc:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     afe:	e0 3c       	cpi	r30, 0xC0	; 192
+     b00:	98 e0       	ldi	r25, 0x08	; 8
+     b02:	f9 07       	cpc	r31, r25
+     b04:	b9 f7       	brne	.-18     	; 0xaf4 <SRAM_TestSection+0x8a>
+     b06:	ef ef       	ldi	r30, 0xFF	; 255
+     b08:	f8 e0       	ldi	r31, 0x08	; 8
+		if (p_sram[i] != 0xFF) error = 1;
+     b0a:	90 81       	ld	r25, Z
+     b0c:	9f 3f       	cpi	r25, 0xFF	; 255
+     b0e:	09 f0       	breq	.+2      	; 0xb12 <SRAM_TestSection+0xa8>
+     b10:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0x00;
+     b12:	10 82       	st	Z, r1
+     b14:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     b16:	e0 3c       	cpi	r30, 0xC0	; 192
+     b18:	98 e0       	ldi	r25, 0x08	; 8
+     b1a:	f9 07       	cpc	r31, r25
+     b1c:	b1 f7       	brne	.-20     	; 0xb0a <SRAM_TestSection+0xa0>
+     b1e:	ef ef       	ldi	r30, 0xFF	; 255
+     b20:	f8 e0       	ldi	r31, 0x08	; 8
+		if (p_sram[i] != 0x00) error = 1;
+     b22:	90 81       	ld	r25, Z
+     b24:	91 11       	cpse	r25, r1
+     b26:	81 e0       	ldi	r24, 0x01	; 1
+     b28:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     b2a:	e0 3c       	cpi	r30, 0xC0	; 192
+     b2c:	98 e0       	ldi	r25, 0x08	; 8
+     b2e:	f9 07       	cpc	r31, r25
+     b30:	c1 f7       	brne	.-16     	; 0xb22 <SRAM_TestSection+0xb8>
+     b32:	81 70       	andi	r24, 0x01	; 1
+	if (p_buffer != p_sram) {
+     b34:	20 3c       	cpi	r18, 0xC0	; 192
+     b36:	38 40       	sbci	r19, 0x08	; 8
+     b38:	69 f0       	breq	.+26     	; 0xb54 <SRAM_TestSection+0xea>
+     b3a:	ae e5       	ldi	r26, 0x5E	; 94
+     b3c:	b1 e0       	ldi	r27, 0x01	; 1
+     b3e:	ee 55       	subi	r30, 0x5E	; 94
+     b40:	f1 40       	sbci	r31, 0x01	; 1
+     b42:	ef 01       	movw	r28, r30
+     b44:	ca 0f       	add	r28, r26
+     b46:	db 1f       	adc	r29, r27
+			p_sram[i] = p_buffer[i];
+     b48:	9d 91       	ld	r25, X+
+     b4a:	98 83       	st	Y, r25
+		for (i = 0; i < size; i++) {
+     b4c:	91 e0       	ldi	r25, 0x01	; 1
+     b4e:	ae 39       	cpi	r26, 0x9E	; 158
+     b50:	b9 07       	cpc	r27, r25
+     b52:	b9 f7       	brne	.-18     	; 0xb42 <SRAM_TestSection+0xd8>
+}
+     b54:	df 91       	pop	r29
+     b56:	cf 91       	pop	r28
+     b58:	08 95       	ret
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
+     b5a:	80 e0       	ldi	r24, 0x00	; 0
+     b5c:	91 e0       	ldi	r25, 0x01	; 1
+}
+     b5e:	df 91       	pop	r29
+     b60:	cf 91       	pop	r28
+        error = SRAM_MarchCTest((uint8_t *)INTERNAL_SRAM_START, classb_buffer, CLASSB_SEC_SIZE + CLASSB_OVERLAP_SIZE);
+     b62:	0c 94 34 04 	jmp	0x868	; 0x868 <SRAM_MarchCTest.constprop.0>
+	if (p_buffer != p_sram) {
+     b66:	2e e5       	ldi	r18, 0x5E	; 94
+     b68:	31 e0       	ldi	r19, 0x01	; 1
+     b6a:	e0 e0       	ldi	r30, 0x00	; 0
+     b6c:	f2 e0       	ldi	r31, 0x02	; 2
+     b6e:	21 15       	cp	r18, r1
+     b70:	82 e0       	ldi	r24, 0x02	; 2
+     b72:	38 07       	cpc	r19, r24
+     b74:	49 f0       	breq	.+18     	; 0xb88 <SRAM_TestSection+0x11e>
+     b76:	df 01       	movw	r26, r30
+     b78:	a2 5a       	subi	r26, 0xA2	; 162
+     b7a:	b0 40       	sbci	r27, 0x00	; 0
+			p_buffer[i] = p_sram[i];
+     b7c:	81 91       	ld	r24, Z+
+     b7e:	8c 93       	st	X, r24
+		for (i = 0; i < size; i++) {
+     b80:	e1 15       	cp	r30, r1
+     b82:	93 e0       	ldi	r25, 0x03	; 3
+     b84:	f9 07       	cpc	r31, r25
+     b86:	b9 f7       	brne	.-18     	; 0xb76 <SRAM_TestSection+0x10c>
+	if (p_buffer != p_sram) {
+     b88:	e0 e0       	ldi	r30, 0x00	; 0
+     b8a:	f2 e0       	ldi	r31, 0x02	; 2
+		p_sram[i] = 0x00;
+     b8c:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     b8e:	e1 15       	cp	r30, r1
+     b90:	83 e0       	ldi	r24, 0x03	; 3
+     b92:	f8 07       	cpc	r31, r24
+     b94:	d9 f7       	brne	.-10     	; 0xb8c <SRAM_TestSection+0x122>
+     b96:	e0 e0       	ldi	r30, 0x00	; 0
+     b98:	f2 e0       	ldi	r31, 0x02	; 2
+	register uint8_t error = 0;
+     b9a:	80 e0       	ldi	r24, 0x00	; 0
+		p_sram[i] = 0xFF;
+     b9c:	4f ef       	ldi	r20, 0xFF	; 255
+		if (p_sram[i] != 0x00) error = 1;
+     b9e:	90 81       	ld	r25, Z
+     ba0:	91 11       	cpse	r25, r1
+     ba2:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0xFF;
+     ba4:	41 93       	st	Z+, r20
+	for (i = 0; i < size; i++) {
+     ba6:	e1 15       	cp	r30, r1
+     ba8:	93 e0       	ldi	r25, 0x03	; 3
+     baa:	f9 07       	cpc	r31, r25
+     bac:	c1 f7       	brne	.-16     	; 0xb9e <SRAM_TestSection+0x134>
+     bae:	e0 e0       	ldi	r30, 0x00	; 0
+     bb0:	f2 e0       	ldi	r31, 0x02	; 2
+		if (p_sram[i] != 0xFF) error = 1;
+     bb2:	90 81       	ld	r25, Z
+     bb4:	9f 3f       	cpi	r25, 0xFF	; 255
+     bb6:	09 f0       	breq	.+2      	; 0xbba <SRAM_TestSection+0x150>
+     bb8:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0x00;
+     bba:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     bbc:	e1 15       	cp	r30, r1
+     bbe:	93 e0       	ldi	r25, 0x03	; 3
+     bc0:	f9 07       	cpc	r31, r25
+     bc2:	b9 f7       	brne	.-18     	; 0xbb2 <SRAM_TestSection+0x148>
+     bc4:	ef ef       	ldi	r30, 0xFF	; 255
+     bc6:	f2 e0       	ldi	r31, 0x02	; 2
+		p_sram[i] = 0xFF;
+     bc8:	4f ef       	ldi	r20, 0xFF	; 255
+		if (p_sram[i] != 0x00) error = 1;
+     bca:	90 81       	ld	r25, Z
+     bcc:	91 11       	cpse	r25, r1
+     bce:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0xFF;
+     bd0:	40 83       	st	Z, r20
+     bd2:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     bd4:	e1 15       	cp	r30, r1
+     bd6:	92 e0       	ldi	r25, 0x02	; 2
+     bd8:	f9 07       	cpc	r31, r25
+     bda:	b9 f7       	brne	.-18     	; 0xbca <SRAM_TestSection+0x160>
+     bdc:	ef ef       	ldi	r30, 0xFF	; 255
+     bde:	f2 e0       	ldi	r31, 0x02	; 2
+		if (p_sram[i] != 0xFF) error = 1;
+     be0:	90 81       	ld	r25, Z
+     be2:	9f 3f       	cpi	r25, 0xFF	; 255
+     be4:	09 f0       	breq	.+2      	; 0xbe8 <SRAM_TestSection+0x17e>
+     be6:	81 e0       	ldi	r24, 0x01	; 1
+		p_sram[i] = 0x00;
+     be8:	10 82       	st	Z, r1
+     bea:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     bec:	e1 15       	cp	r30, r1
+     bee:	92 e0       	ldi	r25, 0x02	; 2
+     bf0:	f9 07       	cpc	r31, r25
+     bf2:	b1 f7       	brne	.-20     	; 0xbe0 <SRAM_TestSection+0x176>
+     bf4:	ef ef       	ldi	r30, 0xFF	; 255
+     bf6:	f2 e0       	ldi	r31, 0x02	; 2
+		if (p_sram[i] != 0x00) error = 1;
+     bf8:	90 81       	ld	r25, Z
+     bfa:	91 11       	cpse	r25, r1
+     bfc:	81 e0       	ldi	r24, 0x01	; 1
+     bfe:	31 97       	sbiw	r30, 0x01	; 1
+	for (i = size - 1; i > 0; i--) {
+     c00:	e1 15       	cp	r30, r1
+     c02:	92 e0       	ldi	r25, 0x02	; 2
+     c04:	f9 07       	cpc	r31, r25
+     c06:	c1 f7       	brne	.-16     	; 0xbf8 <SRAM_TestSection+0x18e>
+     c08:	81 70       	andi	r24, 0x01	; 1
+	if (p_buffer != p_sram) {
+     c0a:	21 15       	cp	r18, r1
+     c0c:	32 40       	sbci	r19, 0x02	; 2
+     c0e:	09 f4       	brne	.+2      	; 0xc12 <SRAM_TestSection+0x1a8>
+     c10:	a1 cf       	rjmp	.-190    	; 0xb54 <SRAM_TestSection+0xea>
+     c12:	2e e5       	ldi	r18, 0x5E	; 94
+     c14:	32 e0       	ldi	r19, 0x02	; 2
+     c16:	ae e5       	ldi	r26, 0x5E	; 94
+     c18:	b1 e0       	ldi	r27, 0x01	; 1
+     c1a:	ee 55       	subi	r30, 0x5E	; 94
+     c1c:	f1 40       	sbci	r31, 0x01	; 1
+     c1e:	ef 01       	movw	r28, r30
+     c20:	ca 0f       	add	r28, r26
+     c22:	db 1f       	adc	r29, r27
+			p_sram[i] = p_buffer[i];
+     c24:	9d 91       	ld	r25, X+
+     c26:	98 83       	st	Y, r25
+		for (i = 0; i < size; i++) {
+     c28:	2a 17       	cp	r18, r26
+     c2a:	3b 07       	cpc	r19, r27
+     c2c:	c1 f7       	brne	.-16     	; 0xc1e <SRAM_TestSection+0x1b4>
+}
+     c2e:	df 91       	pop	r29
+     c30:	cf 91       	pop	r28
+     c32:	08 95       	ret
+
+00000c34 <SRAM_MarchCTest>:
+bool SRAM_MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size) {
+     c34:	1f 93       	push	r17
+     c36:	cf 93       	push	r28
+     c38:	df 93       	push	r29
+	if (p_buffer != p_sram) {
+     c3a:	68 17       	cp	r22, r24
+     c3c:	79 07       	cpc	r23, r25
+     c3e:	09 f4       	brne	.+2      	; 0xc42 <SRAM_MarchCTest+0xe>
+     c40:	6e c0       	rjmp	.+220    	; 0xd1e <SRAM_MarchCTest+0xea>
+		for (i = 0; i < size; i++) {
+     c42:	41 15       	cp	r20, r1
+     c44:	51 05       	cpc	r21, r1
+     c46:	09 f4       	brne	.+2      	; 0xc4a <SRAM_MarchCTest+0x16>
+     c48:	79 c0       	rjmp	.+242    	; 0xd3c <SRAM_MarchCTest+0x108>
+     c4a:	fc 01       	movw	r30, r24
+     c4c:	db 01       	movw	r26, r22
+     c4e:	9a 01       	movw	r18, r20
+     c50:	28 0f       	add	r18, r24
+     c52:	39 1f       	adc	r19, r25
+			p_buffer[i] = p_sram[i];
+     c54:	c1 91       	ld	r28, Z+
+     c56:	cd 93       	st	X+, r28
+		for (i = 0; i < size; i++) {
+     c58:	2e 17       	cp	r18, r30
+     c5a:	3f 07       	cpc	r19, r31
+     c5c:	d9 f7       	brne	.-10     	; 0xc54 <SRAM_MarchCTest+0x20>
+     c5e:	dc 01       	movw	r26, r24
+bool SRAM_MarchCTest(register volatile uint8_t p_sram[], register volatile uint8_t p_buffer[], register uint16_t size) {
+     c60:	fc 01       	movw	r30, r24
+		p_sram[i] = 0x00;
+     c62:	11 92       	st	Z+, r1
+	for (i = 0; i < size; i++) {
+     c64:	2e 17       	cp	r18, r30
+     c66:	3f 07       	cpc	r19, r31
+     c68:	e1 f7       	brne	.-8      	; 0xc62 <SRAM_MarchCTest+0x2e>
+     c6a:	fc 01       	movw	r30, r24
+	register uint8_t error = 0;
+     c6c:	10 e0       	ldi	r17, 0x00	; 0
+		p_sram[i] = 0xFF;
+     c6e:	df ef       	ldi	r29, 0xFF	; 255
+		if (p_sram[i] != 0x00) error = 1;
+     c70:	c0 81       	ld	r28, Z
+     c72:	c1 11       	cpse	r28, r1
+     c74:	11 e0       	ldi	r17, 0x01	; 1
+		p_sram[i] = 0xFF;
+     c76:	d1 93       	st	Z+, r29
+	for (i = 0; i < size; i++) {
+     c78:	2e 17       	cp	r18, r30
+     c7a:	3f 07       	cpc	r19, r31
+     c7c:	c9 f7       	brne	.-14     	; 0xc70 <SRAM_MarchCTest+0x3c>
+		if (p_sram[i] != 0xFF) error = 1;
+     c7e:	ec 91       	ld	r30, X
+     c80:	ef 3f       	cpi	r30, 0xFF	; 255
+     c82:	09 f0       	breq	.+2      	; 0xc86 <SRAM_MarchCTest+0x52>
+     c84:	11 e0       	ldi	r17, 0x01	; 1
+		p_sram[i] = 0x00;
+     c86:	1d 92       	st	X+, r1
+	for (i = 0; i < size; i++) {
+     c88:	2a 17       	cp	r18, r26
+     c8a:	3b 07       	cpc	r19, r27
+     c8c:	c1 f7       	brne	.-16     	; 0xc7e <SRAM_MarchCTest+0x4a>
+	for (i = size - 1; i > 0; i--) {
+     c8e:	ea 01       	movw	r28, r20
+     c90:	21 97       	sbiw	r28, 0x01	; 1
+     c92:	09 f4       	brne	.+2      	; 0xc96 <SRAM_MarchCTest+0x62>
+     c94:	4b c0       	rjmp	.+150    	; 0xd2c <SRAM_MarchCTest+0xf8>
+     c96:	c8 0f       	add	r28, r24
+     c98:	d9 1f       	adc	r29, r25
+     c9a:	fe 01       	movw	r30, r28
+		p_sram[i] = 0xFF;
+     c9c:	af ef       	ldi	r26, 0xFF	; 255
+     c9e:	01 c0       	rjmp	.+2      	; 0xca2 <SRAM_MarchCTest+0x6e>
+	for (i = size - 1; i > 0; i--) {
+     ca0:	f9 01       	movw	r30, r18
+		if (p_sram[i] != 0x00) error = 1;
+     ca2:	20 81       	ld	r18, Z
+     ca4:	21 11       	cpse	r18, r1
+     ca6:	11 e0       	ldi	r17, 0x01	; 1
+		p_sram[i] = 0xFF;
+     ca8:	a0 83       	st	Z, r26
+     caa:	9f 01       	movw	r18, r30
+     cac:	21 50       	subi	r18, 0x01	; 1
+     cae:	31 09       	sbc	r19, r1
+	for (i = size - 1; i > 0; i--) {
+     cb0:	82 17       	cp	r24, r18
+     cb2:	93 07       	cpc	r25, r19
+     cb4:	a9 f7       	brne	.-22     	; 0xca0 <SRAM_MarchCTest+0x6c>
+     cb6:	de 01       	movw	r26, r28
+     cb8:	01 c0       	rjmp	.+2      	; 0xcbc <SRAM_MarchCTest+0x88>
+	for (i = size - 1; i > 0; i--) {
+     cba:	d9 01       	movw	r26, r18
+		if (p_sram[i] != 0xFF) error = 1;
+     cbc:	2c 91       	ld	r18, X
+     cbe:	2f 3f       	cpi	r18, 0xFF	; 255
+     cc0:	09 f0       	breq	.+2      	; 0xcc4 <SRAM_MarchCTest+0x90>
+     cc2:	11 e0       	ldi	r17, 0x01	; 1
+		p_sram[i] = 0x00;
+     cc4:	1c 92       	st	X, r1
+     cc6:	9d 01       	movw	r18, r26
+     cc8:	21 50       	subi	r18, 0x01	; 1
+     cca:	31 09       	sbc	r19, r1
+	for (i = size - 1; i > 0; i--) {
+     ccc:	ae 17       	cp	r26, r30
+     cce:	bf 07       	cpc	r27, r31
+     cd0:	a1 f7       	brne	.-24     	; 0xcba <SRAM_MarchCTest+0x86>
+     cd2:	01 c0       	rjmp	.+2      	; 0xcd6 <SRAM_MarchCTest+0xa2>
+	for (i = size - 1; i > 0; i--) {
+     cd4:	e9 01       	movw	r28, r18
+		if (p_sram[i] != 0x00) error = 1;
+     cd6:	28 81       	ld	r18, Y
+     cd8:	21 11       	cpse	r18, r1
+     cda:	11 e0       	ldi	r17, 0x01	; 1
+     cdc:	9e 01       	movw	r18, r28
+     cde:	21 50       	subi	r18, 0x01	; 1
+     ce0:	31 09       	sbc	r19, r1
+	for (i = size - 1; i > 0; i--) {
+     ce2:	ce 17       	cp	r28, r30
+     ce4:	df 07       	cpc	r29, r31
+     ce6:	b1 f7       	brne	.-20     	; 0xcd4 <SRAM_MarchCTest+0xa0>
+	if (p_buffer != p_sram) {
+     ce8:	68 17       	cp	r22, r24
+     cea:	79 07       	cpc	r23, r25
+     cec:	91 f0       	breq	.+36     	; 0xd12 <SRAM_MarchCTest+0xde>
+		for (i = 0; i < size; i++) {
+     cee:	41 15       	cp	r20, r1
+     cf0:	51 05       	cpc	r21, r1
+     cf2:	79 f0       	breq	.+30     	; 0xd12 <SRAM_MarchCTest+0xde>
+     cf4:	30 e0       	ldi	r19, 0x00	; 0
+     cf6:	20 e0       	ldi	r18, 0x00	; 0
+     cf8:	db 01       	movw	r26, r22
+     cfa:	a2 0f       	add	r26, r18
+     cfc:	b3 1f       	adc	r27, r19
+     cfe:	fc 01       	movw	r30, r24
+     d00:	e2 0f       	add	r30, r18
+     d02:	f3 1f       	adc	r31, r19
+			p_sram[i] = p_buffer[i];
+     d04:	ac 91       	ld	r26, X
+     d06:	a0 83       	st	Z, r26
+		for (i = 0; i < size; i++) {
+     d08:	2f 5f       	subi	r18, 0xFF	; 255
+     d0a:	3f 4f       	sbci	r19, 0xFF	; 255
+     d0c:	24 17       	cp	r18, r20
+     d0e:	35 07       	cpc	r19, r21
+     d10:	98 f3       	brcs	.-26     	; 0xcf8 <SRAM_MarchCTest+0xc4>
+	return error;
+     d12:	81 2f       	mov	r24, r17
+     d14:	81 70       	andi	r24, 0x01	; 1
+}
+     d16:	df 91       	pop	r29
+     d18:	cf 91       	pop	r28
+     d1a:	1f 91       	pop	r17
+     d1c:	08 95       	ret
+	for (i = 0; i < size; i++) {
+     d1e:	41 15       	cp	r20, r1
+     d20:	51 05       	cpc	r21, r1
+     d22:	61 f0       	breq	.+24     	; 0xd3c <SRAM_MarchCTest+0x108>
+     d24:	9a 01       	movw	r18, r20
+     d26:	26 0f       	add	r18, r22
+     d28:	37 1f       	adc	r19, r23
+     d2a:	99 cf       	rjmp	.-206    	; 0xc5e <SRAM_MarchCTest+0x2a>
+	if (p_buffer != p_sram) {
+     d2c:	68 17       	cp	r22, r24
+     d2e:	79 07       	cpc	r23, r25
+     d30:	81 f3       	breq	.-32     	; 0xd12 <SRAM_MarchCTest+0xde>
+			p_sram[i] = p_buffer[i];
+     d32:	fb 01       	movw	r30, r22
+     d34:	20 81       	ld	r18, Z
+     d36:	fc 01       	movw	r30, r24
+     d38:	20 83       	st	Z, r18
+     d3a:	eb cf       	rjmp	.-42     	; 0xd12 <SRAM_MarchCTest+0xde>
+	register uint8_t error = 0;
+     d3c:	10 e0       	ldi	r17, 0x00	; 0
+	for (i = size - 1; i > 0; i--) {
+     d3e:	cf ef       	ldi	r28, 0xFF	; 255
+     d40:	df ef       	ldi	r29, 0xFF	; 255
+     d42:	a9 cf       	rjmp	.-174    	; 0xc96 <SRAM_MarchCTest+0x62>
+
+00000d44 <SRAM_OK>:
+
+void SRAM_OK() {
+	for (uint8_t i = 0; i < 2; i++){
+		PORTB |= (1<<SRAM_SIGNAL);
+     d44:	28 9a       	sbi	0x05, 0	; 5
+	__builtin_avr_delay_cycles(__ticks_dc);
+     d46:	2f ef       	ldi	r18, 0xFF	; 255
+     d48:	8f e7       	ldi	r24, 0x7F	; 127
+     d4a:	96 e1       	ldi	r25, 0x16	; 22
+     d4c:	21 50       	subi	r18, 0x01	; 1
+     d4e:	80 40       	sbci	r24, 0x00	; 0
+     d50:	90 40       	sbci	r25, 0x00	; 0
+     d52:	e1 f7       	brne	.-8      	; 0xd4c <SRAM_OK+0x8>
+     d54:	00 c0       	rjmp	.+0      	; 0xd56 <SRAM_OK+0x12>
+     d56:	00 00       	nop
+
+		_delay_ms(500);
+
+		PORTB &= ~(1<<SRAM_SIGNAL);
+     d58:	28 98       	cbi	0x05, 0	; 5
+     d5a:	2f ef       	ldi	r18, 0xFF	; 255
+     d5c:	8f e7       	ldi	r24, 0x7F	; 127
+     d5e:	96 e1       	ldi	r25, 0x16	; 22
+     d60:	21 50       	subi	r18, 0x01	; 1
+     d62:	80 40       	sbci	r24, 0x00	; 0
+     d64:	90 40       	sbci	r25, 0x00	; 0
+     d66:	e1 f7       	brne	.-8      	; 0xd60 <SRAM_OK+0x1c>
+     d68:	00 c0       	rjmp	.+0      	; 0xd6a <SRAM_OK+0x26>
+     d6a:	00 00       	nop
+		PORTB |= (1<<SRAM_SIGNAL);
+     d6c:	28 9a       	sbi	0x05, 0	; 5
+     d6e:	2f ef       	ldi	r18, 0xFF	; 255
+     d70:	8f e7       	ldi	r24, 0x7F	; 127
+     d72:	96 e1       	ldi	r25, 0x16	; 22
+     d74:	21 50       	subi	r18, 0x01	; 1
+     d76:	80 40       	sbci	r24, 0x00	; 0
+     d78:	90 40       	sbci	r25, 0x00	; 0
+     d7a:	e1 f7       	brne	.-8      	; 0xd74 <SRAM_OK+0x30>
+     d7c:	00 c0       	rjmp	.+0      	; 0xd7e <SRAM_OK+0x3a>
+     d7e:	00 00       	nop
+		PORTB &= ~(1<<SRAM_SIGNAL);
+     d80:	28 98       	cbi	0x05, 0	; 5
+     d82:	2f ef       	ldi	r18, 0xFF	; 255
+     d84:	8f e7       	ldi	r24, 0x7F	; 127
+     d86:	96 e1       	ldi	r25, 0x16	; 22
+     d88:	21 50       	subi	r18, 0x01	; 1
+     d8a:	80 40       	sbci	r24, 0x00	; 0
+     d8c:	90 40       	sbci	r25, 0x00	; 0
+     d8e:	e1 f7       	brne	.-8      	; 0xd88 <SRAM_OK+0x44>
+     d90:	00 c0       	rjmp	.+0      	; 0xd92 <SRAM_OK+0x4e>
+     d92:	00 00       	nop
+
+		_delay_ms(500);
+	}
+}
+     d94:	08 95       	ret
+
+00000d96 <SRAM_NOK>:
+
+void SRAM_NOK() {
+	PORTB |= (1<<SRAM_SIGNAL);
+     d96:	28 9a       	sbi	0x05, 0	; 5
+}
+     d98:	08 95       	ret
+
+00000d9a <InitStringLeft>:
+
+#include <Shift_Strings.h>
+
+void InitStringLeft(uint8_t *string, uint8_t size) {
+	/* Display the string on the left screen */
+	PutString(string, size - 1, LEFT_SCREEN_PROTOCOL);
+     d9a:	61 50       	subi	r22, 0x01	; 1
+     d9c:	77 0b       	sbc	r23, r23
+     d9e:	40 e0       	ldi	r20, 0x00	; 0
+     da0:	0e 94 30 03 	call	0x660	; 0x660 <PutString>
+     da4:	8f ef       	ldi	r24, 0xFF	; 255
+     da6:	9f e8       	ldi	r25, 0x8F	; 143
+     da8:	01 97       	sbiw	r24, 0x01	; 1
+     daa:	f1 f7       	brne	.-4      	; 0xda8 <InitStringLeft+0xe>
+     dac:	00 c0       	rjmp	.+0      	; 0xdae <InitStringLeft+0x14>
+     dae:	00 00       	nop
+	_delay_ms(10);
+
+	/* Shift cursor back to the start of the left screen */
+	ScreenInstruction(LCD_MOVE_CURSOR_HOME, LEFT_SCREEN_PROTOCOL);
+     db0:	60 e0       	ldi	r22, 0x00	; 0
+     db2:	82 e0       	ldi	r24, 0x02	; 2
+     db4:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     db8:	8f ef       	ldi	r24, 0xFF	; 255
+     dba:	9f e8       	ldi	r25, 0x8F	; 143
+     dbc:	01 97       	sbiw	r24, 0x01	; 1
+     dbe:	f1 f7       	brne	.-4      	; 0xdbc <InitStringLeft+0x22>
+     dc0:	00 c0       	rjmp	.+0      	; 0xdc2 <InitStringLeft+0x28>
+     dc2:	00 00       	nop
+	_delay_ms(10);
+}
+     dc4:	08 95       	ret
+
+00000dc6 <StringOnLeftScreen>:
+
+void StringOnLeftScreen(void) {
+	/* Shift the left screen to the right */
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT, LEFT_SCREEN_PROTOCOL);
+     dc6:	60 e0       	ldi	r22, 0x00	; 0
+     dc8:	8c e1       	ldi	r24, 0x1C	; 28
+     dca:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     dce:	86 e6       	ldi	r24, 0x66	; 102
+     dd0:	9e e0       	ldi	r25, 0x0E	; 14
+     dd2:	01 97       	sbiw	r24, 0x01	; 1
+     dd4:	f1 f7       	brne	.-4      	; 0xdd2 <StringOnLeftScreen+0xc>
+     dd6:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift cursor back to the starting position */
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, LEFT_SCREEN_PROTOCOL);
+     dd8:	60 e0       	ldi	r22, 0x00	; 0
+     dda:	80 e1       	ldi	r24, 0x10	; 16
+     ddc:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     de0:	86 e6       	ldi	r24, 0x66	; 102
+     de2:	9e e0       	ldi	r25, 0x0E	; 14
+     de4:	01 97       	sbiw	r24, 0x01	; 1
+     de6:	f1 f7       	brne	.-4      	; 0xde4 <StringOnLeftScreen+0x1e>
+     de8:	00 00       	nop
+	_delay_ms(1);
+}
+     dea:	08 95       	ret
+
+00000dec <StringOnMiddleLeft>:
+
+void StringOnMiddleLeft(uint8_t *string, uint8_t string_count) {
+     dec:	0f 93       	push	r16
+     dee:	1f 93       	push	r17
+     df0:	cf 93       	push	r28
+     df2:	8c 01       	movw	r16, r24
+     df4:	c6 2f       	mov	r28, r22
+	/* Shift the right screen to the right */
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT,RIGHT_SCREEN_PROTOCOL);
+     df6:	61 e0       	ldi	r22, 0x01	; 1
+     df8:	8c e1       	ldi	r24, 0x1C	; 28
+     dfa:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     dfe:	86 e6       	ldi	r24, 0x66	; 102
+     e00:	9e e0       	ldi	r25, 0x0E	; 14
+     e02:	01 97       	sbiw	r24, 0x01	; 1
+     e04:	f1 f7       	brne	.-4      	; 0xe02 <StringOnMiddleLeft+0x16>
+     e06:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift cursor back to the starting position */
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT,RIGHT_SCREEN_PROTOCOL);
+     e08:	61 e0       	ldi	r22, 0x01	; 1
+     e0a:	80 e1       	ldi	r24, 0x10	; 16
+     e0c:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     e10:	86 e6       	ldi	r24, 0x66	; 102
+     e12:	9e e0       	ldi	r25, 0x0E	; 14
+     e14:	01 97       	sbiw	r24, 0x01	; 1
+     e16:	f1 f7       	brne	.-4      	; 0xe14 <StringOnMiddleLeft+0x28>
+     e18:	00 00       	nop
+	_delay_ms(1);
+
+	/* Put character on the right screen */
+	PutChar(string[string_count-1],RIGHT_SCREEN_PROTOCOL);
+     e1a:	f8 01       	movw	r30, r16
+     e1c:	ec 0f       	add	r30, r28
+     e1e:	f1 1d       	adc	r31, r1
+     e20:	31 97       	sbiw	r30, 0x01	; 1
+     e22:	61 e0       	ldi	r22, 0x01	; 1
+     e24:	80 81       	ld	r24, Z
+     e26:	0e 94 fe 02 	call	0x5fc	; 0x5fc <PutChar>
+     e2a:	86 e6       	ldi	r24, 0x66	; 102
+     e2c:	9e e0       	ldi	r25, 0x0E	; 14
+     e2e:	01 97       	sbiw	r24, 0x01	; 1
+     e30:	f1 f7       	brne	.-4      	; 0xe2e <StringOnMiddleLeft+0x42>
+     e32:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift cursor back to the starting position */
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT,RIGHT_SCREEN_PROTOCOL);
+     e34:	61 e0       	ldi	r22, 0x01	; 1
+     e36:	80 e1       	ldi	r24, 0x10	; 16
+     e38:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     e3c:	86 e6       	ldi	r24, 0x66	; 102
+     e3e:	9e e0       	ldi	r25, 0x0E	; 14
+     e40:	01 97       	sbiw	r24, 0x01	; 1
+     e42:	f1 f7       	brne	.-4      	; 0xe40 <StringOnMiddleLeft+0x54>
+     e44:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift the left screen to the right */
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT,LEFT_SCREEN_PROTOCOL);
+     e46:	60 e0       	ldi	r22, 0x00	; 0
+     e48:	8c e1       	ldi	r24, 0x1C	; 28
+     e4a:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     e4e:	86 e6       	ldi	r24, 0x66	; 102
+     e50:	9e e0       	ldi	r25, 0x0E	; 14
+     e52:	01 97       	sbiw	r24, 0x01	; 1
+     e54:	f1 f7       	brne	.-4      	; 0xe52 <StringOnMiddleLeft+0x66>
+     e56:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift cursor back to the starting position */
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, LEFT_SCREEN_PROTOCOL);
+     e58:	60 e0       	ldi	r22, 0x00	; 0
+     e5a:	80 e1       	ldi	r24, 0x10	; 16
+     e5c:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     e60:	86 e6       	ldi	r24, 0x66	; 102
+     e62:	9e e0       	ldi	r25, 0x0E	; 14
+     e64:	01 97       	sbiw	r24, 0x01	; 1
+     e66:	f1 f7       	brne	.-4      	; 0xe64 <StringOnMiddleLeft+0x78>
+     e68:	00 00       	nop
+	_delay_ms(1);
+}
+     e6a:	cf 91       	pop	r28
+     e6c:	1f 91       	pop	r17
+     e6e:	0f 91       	pop	r16
+     e70:	08 95       	ret
+
+00000e72 <StringOnRightScreen>:
+
+void StringOnRightScreen(void) {
+	/* Shift the right screen to the right */
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT, RIGHT_SCREEN_PROTOCOL);
+     e72:	61 e0       	ldi	r22, 0x01	; 1
+     e74:	8c e1       	ldi	r24, 0x1C	; 28
+     e76:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     e7a:	86 e6       	ldi	r24, 0x66	; 102
+     e7c:	9e e0       	ldi	r25, 0x0E	; 14
+     e7e:	01 97       	sbiw	r24, 0x01	; 1
+     e80:	f1 f7       	brne	.-4      	; 0xe7e <StringOnRightScreen+0xc>
+     e82:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift cursor back to the starting position */
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, RIGHT_SCREEN_PROTOCOL);
+     e84:	61 e0       	ldi	r22, 0x01	; 1
+     e86:	80 e1       	ldi	r24, 0x10	; 16
+     e88:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     e8c:	86 e6       	ldi	r24, 0x66	; 102
+     e8e:	9e e0       	ldi	r25, 0x0E	; 14
+     e90:	01 97       	sbiw	r24, 0x01	; 1
+     e92:	f1 f7       	brne	.-4      	; 0xe90 <StringOnRightScreen+0x1e>
+     e94:	00 00       	nop
+	_delay_ms(1);
+}
+     e96:	08 95       	ret
+
+00000e98 <StringOnMiddleRight>:
+
+void StringOnMiddleRight(uint8_t *string, uint8_t string_count) {
+     e98:	0f 93       	push	r16
+     e9a:	1f 93       	push	r17
+     e9c:	cf 93       	push	r28
+     e9e:	8c 01       	movw	r16, r24
+     ea0:	c6 2f       	mov	r28, r22
+	/* Shift left screen to the right */
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT, LEFT_SCREEN_PROTOCOL);
+     ea2:	60 e0       	ldi	r22, 0x00	; 0
+     ea4:	8c e1       	ldi	r24, 0x1C	; 28
+     ea6:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     eaa:	86 e6       	ldi	r24, 0x66	; 102
+     eac:	9e e0       	ldi	r25, 0x0E	; 14
+     eae:	01 97       	sbiw	r24, 0x01	; 1
+     eb0:	f1 f7       	brne	.-4      	; 0xeae <StringOnMiddleRight+0x16>
+     eb2:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift cursor back to the starting position */
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, LEFT_SCREEN_PROTOCOL);
+     eb4:	60 e0       	ldi	r22, 0x00	; 0
+     eb6:	80 e1       	ldi	r24, 0x10	; 16
+     eb8:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     ebc:	86 e6       	ldi	r24, 0x66	; 102
+     ebe:	9e e0       	ldi	r25, 0x0E	; 14
+     ec0:	01 97       	sbiw	r24, 0x01	; 1
+     ec2:	f1 f7       	brne	.-4      	; 0xec0 <StringOnMiddleRight+0x28>
+     ec4:	00 00       	nop
+	_delay_ms(1);
+
+	/* Put character on the right screen */
+	PutChar(string[string_count-1], LEFT_SCREEN_PROTOCOL);
+     ec6:	f8 01       	movw	r30, r16
+     ec8:	ec 0f       	add	r30, r28
+     eca:	f1 1d       	adc	r31, r1
+     ecc:	31 97       	sbiw	r30, 0x01	; 1
+     ece:	60 e0       	ldi	r22, 0x00	; 0
+     ed0:	80 81       	ld	r24, Z
+     ed2:	0e 94 fe 02 	call	0x5fc	; 0x5fc <PutChar>
+     ed6:	86 e6       	ldi	r24, 0x66	; 102
+     ed8:	9e e0       	ldi	r25, 0x0E	; 14
+     eda:	01 97       	sbiw	r24, 0x01	; 1
+     edc:	f1 f7       	brne	.-4      	; 0xeda <StringOnMiddleRight+0x42>
+     ede:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift cursor back to the starting position */
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, LEFT_SCREEN_PROTOCOL);
+     ee0:	60 e0       	ldi	r22, 0x00	; 0
+     ee2:	80 e1       	ldi	r24, 0x10	; 16
+     ee4:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     ee8:	86 e6       	ldi	r24, 0x66	; 102
+     eea:	9e e0       	ldi	r25, 0x0E	; 14
+     eec:	01 97       	sbiw	r24, 0x01	; 1
+     eee:	f1 f7       	brne	.-4      	; 0xeec <StringOnMiddleRight+0x54>
+     ef0:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift right screen to the right */
+	ScreenInstruction(LCD_MOVE_DISP_RIGHT, RIGHT_SCREEN_PROTOCOL);
+     ef2:	61 e0       	ldi	r22, 0x01	; 1
+     ef4:	8c e1       	ldi	r24, 0x1C	; 28
+     ef6:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     efa:	86 e6       	ldi	r24, 0x66	; 102
+     efc:	9e e0       	ldi	r25, 0x0E	; 14
+     efe:	01 97       	sbiw	r24, 0x01	; 1
+     f00:	f1 f7       	brne	.-4      	; 0xefe <StringOnMiddleRight+0x66>
+     f02:	00 00       	nop
+	_delay_ms(1);
+
+	/* Shift cursor back to the starting position */
+	ScreenInstruction(LCD_MOVE_CURSOR_LEFT, RIGHT_SCREEN_PROTOCOL);
+     f04:	61 e0       	ldi	r22, 0x01	; 1
+     f06:	80 e1       	ldi	r24, 0x10	; 16
+     f08:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     f0c:	86 e6       	ldi	r24, 0x66	; 102
+     f0e:	9e e0       	ldi	r25, 0x0E	; 14
+     f10:	01 97       	sbiw	r24, 0x01	; 1
+     f12:	f1 f7       	brne	.-4      	; 0xf10 <StringOnMiddleRight+0x78>
+     f14:	00 00       	nop
+	_delay_ms(1);
+}
+     f16:	cf 91       	pop	r28
+     f18:	1f 91       	pop	r17
+     f1a:	0f 91       	pop	r16
+     f1c:	08 95       	ret
+
+00000f1e <main>:
+#define LEFT         0
+#define RIGHT        1
+#define MIDDLE_LEFT  2
+#define MIDDLE_RIGHT 3
 
 int main(void) {
- 700:	cf 93       	push	r28
- 702:	df 93       	push	r29
- 704:	cd b7       	in	r28, 0x3d	; 61
- 706:	de b7       	in	r29, 0x3e	; 62
- 708:	60 97       	sbiw	r28, 0x10	; 16
- 70a:	0f b6       	in	r0, 0x3f	; 63
- 70c:	f8 94       	cli
- 70e:	de bf       	out	0x3e, r29	; 62
- 710:	0f be       	out	0x3f, r0	; 63
- 712:	cd bf       	out	0x3d, r28	; 61
-	SPI_MasterInit();
- 714:	0e 94 5e 03 	call	0x6bc	; 0x6bc <SPI_MasterInit>
-	#else
-		//round up by default
-		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
-	#endif
+     f1e:	cd b7       	in	r28, 0x3d	; 61
+     f20:	de b7       	in	r29, 0x3e	; 62
+     f22:	c3 55       	subi	r28, 0x53	; 83
+     f24:	d1 09       	sbc	r29, r1
+     f26:	0f b6       	in	r0, 0x3f	; 63
+     f28:	f8 94       	cli
+     f2a:	de bf       	out	0x3e, r29	; 62
+     f2c:	0f be       	out	0x3f, r0	; 63
+     f2e:	cd bf       	out	0x3d, r28	; 61
 
-	__builtin_avr_delay_cycles(__ticks_dc);
- 718:	2f e7       	ldi	r18, 0x7F	; 127
- 71a:	88 e3       	ldi	r24, 0x38	; 56
- 71c:	91 e0       	ldi	r25, 0x01	; 1
- 71e:	21 50       	subi	r18, 0x01	; 1
- 720:	80 40       	sbci	r24, 0x00	; 0
- 722:	90 40       	sbci	r25, 0x00	; 0
- 724:	e1 f7       	brne	.-8      	; 0x71e <main+0x1e>
- 726:	00 c0       	rjmp	.+0      	; 0x728 <main+0x28>
- 728:	00 00       	nop
-	_delay_ms(400);
+	bool memory_tests_error = 0; /* Global memory tests error flag */
 
-	uint8_t command;
+	/* Test the EEPROM */
+	bool eeprom_test = EEPROM_Test();
+     f30:	0e 94 4b 00 	call	0x96	; 0x96 <EEPROM_Test>
+     f34:	08 2f       	mov	r16, r24
 
+	/* Test the FLASH */
+	bool flash_test = FLASH_Test();
+     f36:	0e 94 ad 00 	call	0x15a	; 0x15a <FLASH_Test>
+     f3a:	18 2f       	mov	r17, r24
+
+	/* Test the SRAM */
+	bool sram_test = SRAM_Test();
+     f3c:	0e 94 98 04 	call	0x930	; 0x930 <SRAM_Test>
+     f40:	f8 2e       	mov	r15, r24
+
+	/* Initialize the screen in SPI mode */
 	ScreenInit(SPI);
- 72a:	80 e0       	ldi	r24, 0x00	; 0
- 72c:	0e 94 b7 01 	call	0x36e	; 0x36e <ScreenInit>
+     f42:	80 e0       	ldi	r24, 0x00	; 0
+     f44:	0e 94 63 02 	call	0x4c6	; 0x4c6 <ScreenInit>
+     f48:	86 e6       	ldi	r24, 0x66	; 102
+     f4a:	9e e0       	ldi	r25, 0x0E	; 14
+     f4c:	01 97       	sbiw	r24, 0x01	; 1
+     f4e:	f1 f7       	brne	.-4      	; 0xf4c <main+0x2e>
+     f50:	00 00       	nop
+	_delay_ms(1);
 
-	/* Display ON, Cursor Blink */
+	/* Initialize the screen in I2C mode */
+	ScreenInit(I2C);
+     f52:	81 e0       	ldi	r24, 0x01	; 1
+     f54:	0e 94 63 02 	call	0x4c6	; 0x4c6 <ScreenInit>
+     f58:	86 e6       	ldi	r24, 0x66	; 102
+     f5a:	9e e0       	ldi	r25, 0x0E	; 14
+     f5c:	01 97       	sbiw	r24, 0x01	; 1
+     f5e:	f1 f7       	brne	.-4      	; 0xf5c <main+0x3e>
+     f60:	00 00       	nop
+	_delay_ms(1);
 
-	command = LCD_DISP_ON_BLINK;
-	ScreenInstruction(command, SPI);
- 730:	60 e0       	ldi	r22, 0x00	; 0
- 732:	8d e0       	ldi	r24, 0x0D	; 13
- 734:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
+	/* Display the EEPROM test result */
+	uint8_t EEPROM_ok[] = "EEPROM OK";
+     f62:	8a e0       	ldi	r24, 0x0A	; 10
+     f64:	e0 e0       	ldi	r30, 0x00	; 0
+     f66:	f1 e0       	ldi	r31, 0x01	; 1
+     f68:	de 01       	movw	r26, r28
+     f6a:	d9 96       	adiw	r26, 0x39	; 57
+     f6c:	01 90       	ld	r0, Z+
+     f6e:	0d 92       	st	X+, r0
+     f70:	8a 95       	dec	r24
+     f72:	e1 f7       	brne	.-8      	; 0xf6c <main+0x4e>
+	uint8_t EEPROM_nok[] = "EEPROM NOT OK";
+     f74:	8e e0       	ldi	r24, 0x0E	; 14
+     f76:	ea e0       	ldi	r30, 0x0A	; 10
+     f78:	f1 e0       	ldi	r31, 0x01	; 1
+     f7a:	de 01       	movw	r26, r28
+     f7c:	52 96       	adiw	r26, 0x12	; 18
+     f7e:	01 90       	ld	r0, Z+
+     f80:	0d 92       	st	X+, r0
+     f82:	8a 95       	dec	r24
+     f84:	e1 f7       	brne	.-8      	; 0xf7e <main+0x60>
 
-	/* Print 'O' */
+	PutString(eeprom_test ? EEPROM_nok : EEPROM_ok, eeprom_test ? sizeof(EEPROM_nok) - 1 : sizeof(EEPROM_ok) - 1, LEFT_SCREEN_PROTOCOL);
+     f86:	00 23       	and	r16, r16
+     f88:	09 f4       	brne	.+2      	; 0xf8c <main+0x6e>
+     f8a:	9d c0       	rjmp	.+314    	; 0x10c6 <main+0x1a8>
+     f8c:	6d e0       	ldi	r22, 0x0D	; 13
+     f8e:	70 e0       	ldi	r23, 0x00	; 0
+     f90:	ce 01       	movw	r24, r28
+     f92:	42 96       	adiw	r24, 0x12	; 18
+     f94:	40 e0       	ldi	r20, 0x00	; 0
+     f96:	0e 94 30 03 	call	0x660	; 0x660 <PutString>
+     f9a:	9f ef       	ldi	r25, 0xFF	; 255
+     f9c:	2f ef       	ldi	r18, 0xFF	; 255
+     f9e:	3c e2       	ldi	r19, 0x2C	; 44
+     fa0:	91 50       	subi	r25, 0x01	; 1
+     fa2:	20 40       	sbci	r18, 0x00	; 0
+     fa4:	30 40       	sbci	r19, 0x00	; 0
+     fa6:	e1 f7       	brne	.-8      	; 0xfa0 <main+0x82>
+     fa8:	00 c0       	rjmp	.+0      	; 0xfaa <main+0x8c>
+     faa:	00 00       	nop
+	_delay_ms(1000);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
+     fac:	60 e0       	ldi	r22, 0x00	; 0
+     fae:	81 e0       	ldi	r24, 0x01	; 1
+     fb0:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+     fb4:	8f ef       	ldi	r24, 0xFF	; 255
+     fb6:	9f e8       	ldi	r25, 0x8F	; 143
+     fb8:	01 97       	sbiw	r24, 0x01	; 1
+     fba:	f1 f7       	brne	.-4      	; 0xfb8 <main+0x9a>
+     fbc:	00 c0       	rjmp	.+0      	; 0xfbe <main+0xa0>
+     fbe:	00 00       	nop
+	_delay_ms(10);
 
-	uint8_t string[] = "O Andre e gay!!";
- 738:	80 e1       	ldi	r24, 0x10	; 16
- 73a:	e0 e0       	ldi	r30, 0x00	; 0
- 73c:	f1 e0       	ldi	r31, 0x01	; 1
- 73e:	de 01       	movw	r26, r28
- 740:	11 96       	adiw	r26, 0x01	; 1
- 742:	01 90       	ld	r0, Z+
- 744:	0d 92       	st	X+, r0
- 746:	8a 95       	dec	r24
- 748:	e1 f7       	brne	.-8      	; 0x742 <main+0x42>
-	PutString(string, sizeof(string) -1, SPI);
- 74a:	40 e0       	ldi	r20, 0x00	; 0
- 74c:	6f e0       	ldi	r22, 0x0F	; 15
- 74e:	70 e0       	ldi	r23, 0x00	; 0
- 750:	ce 01       	movw	r24, r28
- 752:	01 96       	adiw	r24, 0x01	; 1
- 754:	0e 94 88 02 	call	0x510	; 0x510 <PutString>
- 758:	2f e3       	ldi	r18, 0x3F	; 63
- 75a:	82 e4       	ldi	r24, 0x42	; 66
- 75c:	9f e0       	ldi	r25, 0x0F	; 15
- 75e:	21 50       	subi	r18, 0x01	; 1
- 760:	80 40       	sbci	r24, 0x00	; 0
- 762:	90 40       	sbci	r25, 0x00	; 0
- 764:	e1 f7       	brne	.-8      	; 0x75e <main+0x5e>
- 766:	00 c0       	rjmp	.+0      	; 0x768 <main+0x68>
- 768:	00 00       	nop
+	/* Display the FLASH test result */
+	uint8_t FLASH_ok[] = "FLASH OK";
+     fc0:	89 e0       	ldi	r24, 0x09	; 9
+     fc2:	e8 e1       	ldi	r30, 0x18	; 24
+     fc4:	f1 e0       	ldi	r31, 0x01	; 1
+     fc6:	de 01       	movw	r26, r28
+     fc8:	ad 5b       	subi	r26, 0xBD	; 189
+     fca:	bf 4f       	sbci	r27, 0xFF	; 255
+     fcc:	01 90       	ld	r0, Z+
+     fce:	0d 92       	st	X+, r0
+     fd0:	8a 95       	dec	r24
+     fd2:	e1 f7       	brne	.-8      	; 0xfcc <main+0xae>
+	uint8_t FLASH_nok[] = "FLASH NOT OK";
+     fd4:	8d e0       	ldi	r24, 0x0D	; 13
+     fd6:	e1 e2       	ldi	r30, 0x21	; 33
+     fd8:	f1 e0       	ldi	r31, 0x01	; 1
+     fda:	de 01       	movw	r26, r28
+     fdc:	90 96       	adiw	r26, 0x20	; 32
+     fde:	01 90       	ld	r0, Z+
+     fe0:	0d 92       	st	X+, r0
+     fe2:	8a 95       	dec	r24
+     fe4:	e1 f7       	brne	.-8      	; 0xfde <main+0xc0>
 
-	_delay_ms(5000);
+	PutString(flash_test ? FLASH_nok : FLASH_ok, flash_test ? sizeof(FLASH_nok) - 1 : sizeof(FLASH_ok) - 1, LEFT_SCREEN_PROTOCOL);
+     fe6:	11 11       	cpse	r17, r1
+     fe8:	eb c0       	rjmp	.+470    	; 0x11c0 <main+0x2a2>
+     fea:	68 e0       	ldi	r22, 0x08	; 8
+     fec:	70 e0       	ldi	r23, 0x00	; 0
+     fee:	ce 01       	movw	r24, r28
+     ff0:	8d 5b       	subi	r24, 0xBD	; 189
+     ff2:	9f 4f       	sbci	r25, 0xFF	; 255
+     ff4:	40 e0       	ldi	r20, 0x00	; 0
+     ff6:	0e 94 30 03 	call	0x660	; 0x660 <PutString>
+     ffa:	9f ef       	ldi	r25, 0xFF	; 255
+     ffc:	2f ef       	ldi	r18, 0xFF	; 255
+     ffe:	3c e2       	ldi	r19, 0x2C	; 44
+    1000:	91 50       	subi	r25, 0x01	; 1
+    1002:	20 40       	sbci	r18, 0x00	; 0
+    1004:	30 40       	sbci	r19, 0x00	; 0
+    1006:	e1 f7       	brne	.-8      	; 0x1000 <main+0xe2>
+    1008:	00 c0       	rjmp	.+0      	; 0x100a <main+0xec>
+    100a:	00 00       	nop
+	_delay_ms(1000);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
+    100c:	60 e0       	ldi	r22, 0x00	; 0
+    100e:	81 e0       	ldi	r24, 0x01	; 1
+    1010:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+    1014:	8f ef       	ldi	r24, 0xFF	; 255
+    1016:	9f e8       	ldi	r25, 0x8F	; 143
+    1018:	01 97       	sbiw	r24, 0x01	; 1
+    101a:	f1 f7       	brne	.-4      	; 0x1018 <main+0xfa>
+    101c:	00 c0       	rjmp	.+0      	; 0x101e <main+0x100>
+    101e:	00 00       	nop
+	_delay_ms(10);
 
-	while (1) {
-		ScreenInstruction(LCD_MOVE_DISP_RIGHT, SPI);
- 76a:	60 e0       	ldi	r22, 0x00	; 0
- 76c:	8c e1       	ldi	r24, 0x1C	; 28
- 76e:	0e 94 3b 01 	call	0x276	; 0x276 <ScreenInstruction>
- 772:	2f e7       	ldi	r18, 0x7F	; 127
- 774:	84 e8       	ldi	r24, 0x84	; 132
- 776:	9e e1       	ldi	r25, 0x1E	; 30
- 778:	21 50       	subi	r18, 0x01	; 1
- 77a:	80 40       	sbci	r24, 0x00	; 0
- 77c:	90 40       	sbci	r25, 0x00	; 0
- 77e:	e1 f7       	brne	.-8      	; 0x778 <main+0x78>
- 780:	00 c0       	rjmp	.+0      	; 0x782 <main+0x82>
- 782:	00 00       	nop
- 784:	f2 cf       	rjmp	.-28     	; 0x76a <main+0x6a>
+	/* Display the SRAM test result */
+	uint8_t SRAM_ok[] = "SRAM OK";
+    1020:	88 e0       	ldi	r24, 0x08	; 8
+    1022:	ee e2       	ldi	r30, 0x2E	; 46
+    1024:	f1 e0       	ldi	r31, 0x01	; 1
+    1026:	de 01       	movw	r26, r28
+    1028:	a4 5b       	subi	r26, 0xB4	; 180
+    102a:	bf 4f       	sbci	r27, 0xFF	; 255
+    102c:	01 90       	ld	r0, Z+
+    102e:	0d 92       	st	X+, r0
+    1030:	8a 95       	dec	r24
+    1032:	e1 f7       	brne	.-8      	; 0x102c <main+0x10e>
+	uint8_t SRAM_nok[] = "SRAM NOT OK";
+    1034:	8c e0       	ldi	r24, 0x0C	; 12
+    1036:	e6 e3       	ldi	r30, 0x36	; 54
+    1038:	f1 e0       	ldi	r31, 0x01	; 1
+    103a:	de 01       	movw	r26, r28
+    103c:	9d 96       	adiw	r26, 0x2d	; 45
+    103e:	01 90       	ld	r0, Z+
+    1040:	0d 92       	st	X+, r0
+    1042:	8a 95       	dec	r24
+    1044:	e1 f7       	brne	.-8      	; 0x103e <main+0x120>
 
-00000786 <_exit>:
- 786:	f8 94       	cli
+	PutString(sram_test ? SRAM_nok : SRAM_ok, sram_test ? sizeof(SRAM_nok) - 1 : sizeof(SRAM_ok) - 1, LEFT_SCREEN_PROTOCOL);
+    1046:	ff 20       	and	r15, r15
+    1048:	09 f4       	brne	.+2      	; 0x104c <main+0x12e>
+    104a:	42 c0       	rjmp	.+132    	; 0x10d0 <main+0x1b2>
+    104c:	40 e0       	ldi	r20, 0x00	; 0
+    104e:	6b e0       	ldi	r22, 0x0B	; 11
+    1050:	70 e0       	ldi	r23, 0x00	; 0
+    1052:	ce 01       	movw	r24, r28
+    1054:	8d 96       	adiw	r24, 0x2d	; 45
+    1056:	0e 94 30 03 	call	0x660	; 0x660 <PutString>
+    105a:	9f ef       	ldi	r25, 0xFF	; 255
+    105c:	2f ef       	ldi	r18, 0xFF	; 255
+    105e:	3c e2       	ldi	r19, 0x2C	; 44
+    1060:	91 50       	subi	r25, 0x01	; 1
+    1062:	20 40       	sbci	r18, 0x00	; 0
+    1064:	30 40       	sbci	r19, 0x00	; 0
+    1066:	e1 f7       	brne	.-8      	; 0x1060 <main+0x142>
+    1068:	00 c0       	rjmp	.+0      	; 0x106a <main+0x14c>
+    106a:	00 00       	nop
+	_delay_ms(1000);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
+    106c:	60 e0       	ldi	r22, 0x00	; 0
+    106e:	81 e0       	ldi	r24, 0x01	; 1
+    1070:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+    1074:	8f ef       	ldi	r24, 0xFF	; 255
+    1076:	9f e8       	ldi	r25, 0x8F	; 143
+    1078:	01 97       	sbiw	r24, 0x01	; 1
+    107a:	f1 f7       	brne	.-4      	; 0x1078 <main+0x15a>
+    107c:	00 c0       	rjmp	.+0      	; 0x107e <main+0x160>
+    107e:	00 00       	nop
+	memory_tests_error |= (sram_test)|(flash_test)|(eeprom_test);
 
-00000788 <__stop_program>:
- 788:	ff cf       	rjmp	.-2      	; 0x788 <__stop_program>
+	/* If one of the tests did not pass, return */
+	if (memory_tests_error)
+	{
+		uint8_t mem_test_error_msg[] = "MEM ERROR. EXIT.";
+    1080:	81 e1       	ldi	r24, 0x11	; 17
+    1082:	e2 e4       	ldi	r30, 0x42	; 66
+    1084:	f1 e0       	ldi	r31, 0x01	; 1
+    1086:	de 01       	movw	r26, r28
+    1088:	11 96       	adiw	r26, 0x01	; 1
+    108a:	01 90       	ld	r0, Z+
+    108c:	0d 92       	st	X+, r0
+    108e:	8a 95       	dec	r24
+    1090:	e1 f7       	brne	.-8      	; 0x108a <main+0x16c>
+		PutString(mem_test_error_msg, sizeof(mem_test_error_msg) - 1, LEFT_SCREEN_PROTOCOL);
+    1092:	40 e0       	ldi	r20, 0x00	; 0
+    1094:	60 e1       	ldi	r22, 0x10	; 16
+    1096:	70 e0       	ldi	r23, 0x00	; 0
+    1098:	ce 01       	movw	r24, r28
+    109a:	01 96       	adiw	r24, 0x01	; 1
+    109c:	0e 94 30 03 	call	0x660	; 0x660 <PutString>
+    10a0:	9f ef       	ldi	r25, 0xFF	; 255
+    10a2:	2f ef       	ldi	r18, 0xFF	; 255
+    10a4:	3c e2       	ldi	r19, 0x2C	; 44
+    10a6:	91 50       	subi	r25, 0x01	; 1
+    10a8:	20 40       	sbci	r18, 0x00	; 0
+    10aa:	30 40       	sbci	r19, 0x00	; 0
+    10ac:	e1 f7       	brne	.-8      	; 0x10a6 <main+0x188>
+    10ae:	00 c0       	rjmp	.+0      	; 0x10b0 <main+0x192>
+    10b0:	00 00       	nop
+
+	}
+
+
+	return 0;
+}
+    10b2:	81 e0       	ldi	r24, 0x01	; 1
+    10b4:	90 e0       	ldi	r25, 0x00	; 0
+    10b6:	cd 5a       	subi	r28, 0xAD	; 173
+    10b8:	df 4f       	sbci	r29, 0xFF	; 255
+    10ba:	0f b6       	in	r0, 0x3f	; 63
+    10bc:	f8 94       	cli
+    10be:	de bf       	out	0x3e, r29	; 62
+    10c0:	0f be       	out	0x3f, r0	; 63
+    10c2:	cd bf       	out	0x3d, r28	; 61
+    10c4:	08 95       	ret
+	PutString(eeprom_test ? EEPROM_nok : EEPROM_ok, eeprom_test ? sizeof(EEPROM_nok) - 1 : sizeof(EEPROM_ok) - 1, LEFT_SCREEN_PROTOCOL);
+    10c6:	69 e0       	ldi	r22, 0x09	; 9
+    10c8:	70 e0       	ldi	r23, 0x00	; 0
+    10ca:	ce 01       	movw	r24, r28
+    10cc:	c9 96       	adiw	r24, 0x39	; 57
+    10ce:	62 cf       	rjmp	.-316    	; 0xf94 <main+0x76>
+	PutString(sram_test ? SRAM_nok : SRAM_ok, sram_test ? sizeof(SRAM_nok) - 1 : sizeof(SRAM_ok) - 1, LEFT_SCREEN_PROTOCOL);
+    10d0:	40 e0       	ldi	r20, 0x00	; 0
+    10d2:	67 e0       	ldi	r22, 0x07	; 7
+    10d4:	70 e0       	ldi	r23, 0x00	; 0
+    10d6:	ce 01       	movw	r24, r28
+    10d8:	84 5b       	subi	r24, 0xB4	; 180
+    10da:	9f 4f       	sbci	r25, 0xFF	; 255
+    10dc:	0e 94 30 03 	call	0x660	; 0x660 <PutString>
+    10e0:	9f ef       	ldi	r25, 0xFF	; 255
+    10e2:	2f ef       	ldi	r18, 0xFF	; 255
+    10e4:	3c e2       	ldi	r19, 0x2C	; 44
+    10e6:	91 50       	subi	r25, 0x01	; 1
+    10e8:	20 40       	sbci	r18, 0x00	; 0
+    10ea:	30 40       	sbci	r19, 0x00	; 0
+    10ec:	e1 f7       	brne	.-8      	; 0x10e6 <main+0x1c8>
+    10ee:	00 c0       	rjmp	.+0      	; 0x10f0 <main+0x1d2>
+    10f0:	00 00       	nop
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
+    10f2:	60 e0       	ldi	r22, 0x00	; 0
+    10f4:	81 e0       	ldi	r24, 0x01	; 1
+    10f6:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+    10fa:	8f ef       	ldi	r24, 0xFF	; 255
+    10fc:	9f e8       	ldi	r25, 0x8F	; 143
+    10fe:	01 97       	sbiw	r24, 0x01	; 1
+    1100:	f1 f7       	brne	.-4      	; 0x10fe <main+0x1e0>
+    1102:	00 c0       	rjmp	.+0      	; 0x1104 <main+0x1e6>
+    1104:	00 00       	nop
+	if (memory_tests_error)
+    1106:	01 11       	cpse	r16, r1
+    1108:	bb cf       	rjmp	.-138    	; 0x1080 <main+0x162>
+    110a:	11 11       	cpse	r17, r1
+    110c:	b9 cf       	rjmp	.-142    	; 0x1080 <main+0x162>
+	uint8_t string[] = "0123456789";
+    110e:	8b e0       	ldi	r24, 0x0B	; 11
+    1110:	e3 e5       	ldi	r30, 0x53	; 83
+    1112:	f1 e0       	ldi	r31, 0x01	; 1
+    1114:	de 01       	movw	r26, r28
+    1116:	11 96       	adiw	r26, 0x01	; 1
+    1118:	01 90       	ld	r0, Z+
+    111a:	0d 92       	st	X+, r0
+    111c:	8a 95       	dec	r24
+    111e:	e1 f7       	brne	.-8      	; 0x1118 <main+0x1fa>
+	InitStringLeft(string, size);
+    1120:	6b e0       	ldi	r22, 0x0B	; 11
+    1122:	ce 01       	movw	r24, r28
+    1124:	01 96       	adiw	r24, 0x01	; 1
+    1126:	0e 94 cd 06 	call	0xd9a	; 0xd9a <InitStringLeft>
+	uint8_t string_count = (size/sizeof(string[0])-1);
+    112a:	1a e0       	ldi	r17, 0x0A	; 10
+	uint8_t lcd_count = LCD_SIZE - ( size / sizeof(string[0] ) -1);
+    112c:	06 e0       	ldi	r16, 0x06	; 6
+	uint8_t state = LEFT;
+    112e:	80 e0       	ldi	r24, 0x00	; 0
+    1130:	9f ef       	ldi	r25, 0xFF	; 255
+    1132:	2f e3       	ldi	r18, 0x3F	; 63
+    1134:	3b e0       	ldi	r19, 0x0B	; 11
+    1136:	91 50       	subi	r25, 0x01	; 1
+    1138:	20 40       	sbci	r18, 0x00	; 0
+    113a:	30 40       	sbci	r19, 0x00	; 0
+    113c:	e1 f7       	brne	.-8      	; 0x1136 <main+0x218>
+    113e:	00 c0       	rjmp	.+0      	; 0x1140 <main+0x222>
+    1140:	00 00       	nop
+    1142:	82 30       	cpi	r24, 0x02	; 2
+    1144:	59 f0       	breq	.+22     	; 0x115c <main+0x23e>
+    1146:	83 30       	cpi	r24, 0x03	; 3
+    1148:	29 f1       	breq	.+74     	; 0x1194 <main+0x276>
+    114a:	81 30       	cpi	r24, 0x01	; 1
+    114c:	79 f0       	breq	.+30     	; 0x116c <main+0x24e>
+				if (0 == lcd_count) {
+    114e:	00 23       	and	r16, r16
+    1150:	29 f1       	breq	.+74     	; 0x119c <main+0x27e>
+				StringOnLeftScreen();
+    1152:	0e 94 e3 06 	call	0xdc6	; 0xdc6 <StringOnLeftScreen>
+				lcd_count--;			/* Decrease lcd_count */
+    1156:	01 50       	subi	r16, 0x01	; 1
+				break;
+    1158:	80 e0       	ldi	r24, 0x00	; 0
+    115a:	ea cf       	rjmp	.-44     	; 0x1130 <main+0x212>
+				if (0 == string_count) {
+    115c:	11 11       	cpse	r17, r1
+    115e:	28 c0       	rjmp	.+80     	; 0x11b0 <main+0x292>
+					string_count = (size/sizeof(string[0])-1);
+    1160:	1a e0       	ldi	r17, 0x0A	; 10
+				StringOnRightScreen();
+    1162:	0e 94 39 07 	call	0xe72	; 0xe72 <StringOnRightScreen>
+				lcd_count--;			/* Decrease lcd_count */
+    1166:	01 50       	subi	r16, 0x01	; 1
+				break;
+    1168:	81 e0       	ldi	r24, 0x01	; 1
+    116a:	e2 cf       	rjmp	.-60     	; 0x1130 <main+0x212>
+				if (0 == lcd_count) {
+    116c:	01 11       	cpse	r16, r1
+    116e:	f9 cf       	rjmp	.-14     	; 0x1162 <main+0x244>
+					ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
+    1170:	60 e0       	ldi	r22, 0x00	; 0
+    1172:	81 e0       	ldi	r24, 0x01	; 1
+    1174:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+    1178:	86 e6       	ldi	r24, 0x66	; 102
+    117a:	9e e0       	ldi	r25, 0x0E	; 14
+    117c:	01 97       	sbiw	r24, 0x01	; 1
+    117e:	f1 f7       	brne	.-4      	; 0x117c <main+0x25e>
+    1180:	00 00       	nop
+					lcd_count = LCD_SIZE - ( size / sizeof(string[0] ) -1);
+    1182:	06 e0       	ldi	r16, 0x06	; 6
+				StringOnMiddleRight(string, string_count);
+    1184:	61 2f       	mov	r22, r17
+    1186:	ce 01       	movw	r24, r28
+    1188:	01 96       	adiw	r24, 0x01	; 1
+    118a:	0e 94 4c 07 	call	0xe98	; 0xe98 <StringOnMiddleRight>
+				string_count--;			/* Decrease string_count */
+    118e:	11 50       	subi	r17, 0x01	; 1
+				break;
+    1190:	83 e0       	ldi	r24, 0x03	; 3
+    1192:	ce cf       	rjmp	.-100    	; 0x1130 <main+0x212>
+				if (0 == string_count) {
+    1194:	11 11       	cpse	r17, r1
+    1196:	f6 cf       	rjmp	.-20     	; 0x1184 <main+0x266>
+					string_count = (size/sizeof(string[0])-1);
+    1198:	1a e0       	ldi	r17, 0x0A	; 10
+    119a:	db cf       	rjmp	.-74     	; 0x1152 <main+0x234>
+					ScreenInstruction(LCD_DISP_CLEAR, RIGHT_SCREEN_PROTOCOL);
+    119c:	61 e0       	ldi	r22, 0x01	; 1
+    119e:	81 e0       	ldi	r24, 0x01	; 1
+    11a0:	0e 94 ef 01 	call	0x3de	; 0x3de <ScreenInstruction>
+    11a4:	86 e6       	ldi	r24, 0x66	; 102
+    11a6:	9e e0       	ldi	r25, 0x0E	; 14
+    11a8:	01 97       	sbiw	r24, 0x01	; 1
+    11aa:	f1 f7       	brne	.-4      	; 0x11a8 <main+0x28a>
+    11ac:	00 00       	nop
+					lcd_count = LCD_SIZE - ( size / sizeof(string[0] ) -1);
+    11ae:	06 e0       	ldi	r16, 0x06	; 6
+				StringOnMiddleLeft(string, string_count);
+    11b0:	61 2f       	mov	r22, r17
+    11b2:	ce 01       	movw	r24, r28
+    11b4:	01 96       	adiw	r24, 0x01	; 1
+    11b6:	0e 94 f6 06 	call	0xdec	; 0xdec <StringOnMiddleLeft>
+				string_count--;			/* Decrease string_count */
+    11ba:	11 50       	subi	r17, 0x01	; 1
+				break;
+    11bc:	82 e0       	ldi	r24, 0x02	; 2
+    11be:	b8 cf       	rjmp	.-144    	; 0x1130 <main+0x212>
+	PutString(flash_test ? FLASH_nok : FLASH_ok, flash_test ? sizeof(FLASH_nok) - 1 : sizeof(FLASH_ok) - 1, LEFT_SCREEN_PROTOCOL);
+    11c0:	6c e0       	ldi	r22, 0x0C	; 12
+    11c2:	70 e0       	ldi	r23, 0x00	; 0
+    11c4:	ce 01       	movw	r24, r28
+    11c6:	80 96       	adiw	r24, 0x20	; 32
+    11c8:	15 cf       	rjmp	.-470    	; 0xff4 <main+0xd6>
+
+000011ca <eeprom_read_byte>:
+    11ca:	f9 99       	sbic	0x1f, 1	; 31
+    11cc:	fe cf       	rjmp	.-4      	; 0x11ca <eeprom_read_byte>
+    11ce:	92 bd       	out	0x22, r25	; 34
+    11d0:	81 bd       	out	0x21, r24	; 33
+    11d2:	f8 9a       	sbi	0x1f, 0	; 31
+    11d4:	99 27       	eor	r25, r25
+    11d6:	80 b5       	in	r24, 0x20	; 32
+    11d8:	08 95       	ret
+
+000011da <eeprom_read_word>:
+    11da:	a8 e1       	ldi	r26, 0x18	; 24
+    11dc:	b0 e0       	ldi	r27, 0x00	; 0
+    11de:	42 e0       	ldi	r20, 0x02	; 2
+    11e0:	50 e0       	ldi	r21, 0x00	; 0
+    11e2:	0c 94 08 09 	jmp	0x1210	; 0x1210 <eeprom_read_blraw>
+
+000011e6 <eeprom_write_byte>:
+    11e6:	26 2f       	mov	r18, r22
+
+000011e8 <eeprom_write_r18>:
+    11e8:	f9 99       	sbic	0x1f, 1	; 31
+    11ea:	fe cf       	rjmp	.-4      	; 0x11e8 <eeprom_write_r18>
+    11ec:	1f ba       	out	0x1f, r1	; 31
+    11ee:	92 bd       	out	0x22, r25	; 34
+    11f0:	81 bd       	out	0x21, r24	; 33
+    11f2:	20 bd       	out	0x20, r18	; 32
+    11f4:	0f b6       	in	r0, 0x3f	; 63
+    11f6:	f8 94       	cli
+    11f8:	fa 9a       	sbi	0x1f, 2	; 31
+    11fa:	f9 9a       	sbi	0x1f, 1	; 31
+    11fc:	0f be       	out	0x3f, r0	; 63
+    11fe:	01 96       	adiw	r24, 0x01	; 1
+    1200:	08 95       	ret
+
+00001202 <eeprom_write_word>:
+    1202:	0e 94 f3 08 	call	0x11e6	; 0x11e6 <eeprom_write_byte>
+    1206:	27 2f       	mov	r18, r23
+    1208:	0c 94 f4 08 	jmp	0x11e8	; 0x11e8 <eeprom_write_r18>
+
+0000120c <eeprom_read_block>:
+    120c:	dc 01       	movw	r26, r24
+    120e:	cb 01       	movw	r24, r22
+
+00001210 <eeprom_read_blraw>:
+    1210:	fc 01       	movw	r30, r24
+    1212:	f9 99       	sbic	0x1f, 1	; 31
+    1214:	fe cf       	rjmp	.-4      	; 0x1212 <eeprom_read_blraw+0x2>
+    1216:	06 c0       	rjmp	.+12     	; 0x1224 <eeprom_read_blraw+0x14>
+    1218:	f2 bd       	out	0x22, r31	; 34
+    121a:	e1 bd       	out	0x21, r30	; 33
+    121c:	f8 9a       	sbi	0x1f, 0	; 31
+    121e:	31 96       	adiw	r30, 0x01	; 1
+    1220:	00 b4       	in	r0, 0x20	; 32
+    1222:	0d 92       	st	X+, r0
+    1224:	41 50       	subi	r20, 0x01	; 1
+    1226:	50 40       	sbci	r21, 0x00	; 0
+    1228:	b8 f7       	brcc	.-18     	; 0x1218 <eeprom_read_blraw+0x8>
+    122a:	08 95       	ret
+
+0000122c <_exit>:
+    122c:	f8 94       	cli
+
+0000122e <__stop_program>:
+    122e:	ff cf       	rjmp	.-2      	; 0x122e <__stop_program>

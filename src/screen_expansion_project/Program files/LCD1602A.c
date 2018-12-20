@@ -1,7 +1,12 @@
 /************************************************************************
  *																		*
  *		FILE NAME: LCD1602A.c											*
- *		PURPOSE:														*
+ *		PURPOSE:
+ *			LIbrary for the LCD1602A, for both SPI and I2C communication protocols.
+ *			We defined functions for initializing the screens, sending instructions and displaying
+ *			data. Almost all functions expect a parameter to choose the SPI or the I2C communication
+ *			protocol.
+ *							*
  *		FILE REFERENCES:												*
  *																		*
  *		Name			I/O			Description							*
@@ -28,8 +33,8 @@
  * 		DEVELOPMENT HISTORY:											*
  *																		*
  *		Date	Author	Change ID	Release		Description of change	*
- *		Dec 11, 2018	joaorodrigues													*
- *																		*
+ *		Dec 11, 2018	joaorodrigues					SPI implementation				*
+ *		Dec 14, 2018	Andre silva					I2C implementation
  * 		ALGORITHM (PDL)													*
  *																		*
  ************************************************************************/

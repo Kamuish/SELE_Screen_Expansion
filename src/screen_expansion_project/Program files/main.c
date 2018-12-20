@@ -1,11 +1,14 @@
 /************************************************************************
- *																		*
- *		FILE NAME: main.c											*
- *		PURPOSE:														*
- *		FILE REFERENCES:												*
- *																		*
- *		Name			I/O			Description							*
- *		----			---			-----------							*
+ *																		                                                                                                *
+ *		FILE NAME: main.c																			                                 			*
+ *		PURPOSE:
+ *				Main program of the project. IMplements a state machine to shift the
+ *				string between both screens.
+ *																				                                		                                 				*
+ *		FILE REFERENCES:																			                                 			*
+ *																																		                                *
+ *		Name			I/O			Description																		   						*
+ *		----			---			-----------																			      					*
  *																		*
  *		EXTERNAL VARIABLES:												*
  *																		*
