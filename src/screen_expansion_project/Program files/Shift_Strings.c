@@ -1,9 +1,40 @@
-/*
- * Shift_Strings.c
- *
- *  Created on: Dec 12, 2018
- *      Author: andre
- */
+/************************************************************************
+ *																		*
+ *		FILE NAME: I2C_comms.c											*
+ *		PURPOSE:
+ *			Functions to put the strings on the screens. One for each state of the state machine
+ *										*
+ *		FILE REFERENCES:												*
+ *																		*
+ *		Name			I/O			Description							*
+ *		----			---			-----------							*
+ *																		*
+ *		EXTERNAL VARIABLES:												*
+ *																		*
+ *		Name	Type	I/O			Description							*
+ *		----	----	---			----------- 						*
+ *																		*
+ *		EXTERNAL REFERENCES:											*
+ *																		*
+ *		Name						Description							*
+ *		----						-----------							*
+ *																		*
+ * 		ABNORMAL TERMINATION CONDITIONS, ERROR AND WARNING MESSAGES: 	*
+ *																		*
+ * 		ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS:							*
+ *																		*
+ *		NOTES:															*
+ *																		*
+ * 		REQUIREMENTS/FUNCTIONAL SPECIFICATIONS REFERENCES:				*
+ *																		*
+ * 		DEVELOPMENT HISTORY:											*
+ *																		*
+ *		Date	Author	Change ID	Release		Description of change	*
+ *		Dec 11, 2018	André Silva													*
+ *																		*
+ * 		ALGORITHM (PDL)													*
+ *																		*
+ ************************************************************************/
 
 #include <Shift_Strings.h>
 

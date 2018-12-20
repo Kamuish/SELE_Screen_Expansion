@@ -1,7 +1,9 @@
 /************************************************************************
  *																		*
  *		FILE NAME: SRAM.c											*
- *		PURPOSE:														*
+ *		PURPOSE:
+ *			Implements MARCH C SRAM test, to verify the correct functioning of the memory.
+ *			If errors are found we return a one. Otherwise, we return zero.									*
  *		FILE REFERENCES:												*
  *																		*
  *		Name			I/O			Description							*

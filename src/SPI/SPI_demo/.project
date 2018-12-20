@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>eeprom_write</name>
+	<name>SPI_demo</name>
 	<comment></comment>
 	<projects>
 	</projects>

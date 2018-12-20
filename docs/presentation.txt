@@ -1,0 +1,32 @@
+Functionalities to show:
+    
+    - Talk about the communication protocols and the limitations imposed by the backpack
+        - SPI (lack of) error handling
+        - I2C error handling
+        - Show the protocols working as expected
+        - Show error on the I2C protocol
+
+    - Display the algorithm working as expected (all memory tests passing)
+
+    - Talk about the memory tests:
+        - brief overview of FLASH, EEPROM and SRAM memory tests
+        - Talk about how we calculate the hash from the hex file and how we send it
+        - Talk about the EEPROM memory test 
+        - Talk about the SRAM MARCH C test
+
+        - Simulate detection of faults:
+
+            - SRAM and EEPROM : simply set the error variables to one
+            - FLASH : change a line of code and compile it
+
+    - Talk about the NASA coding standards and what we did not implement
+        - We sometimes have warnings in the compilation, because we do not use int as 
+        the type of the main function. Instead we use uint8_t
+    - Show the schematic of the circuit
+
+
+What we should prepare better:
+    
+    - Defend our choice of the MARCH C memory test
+    - Problems in the EEMEM
+

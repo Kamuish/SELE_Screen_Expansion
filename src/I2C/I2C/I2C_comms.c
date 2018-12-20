@@ -34,7 +34,7 @@
  *																		*
  ************************************************************************/
 
-#include <I2C_comms.h>
+#include "I2C_comms.h"
 
 void I2C_Init(void){
 	/* Sets up I2C communication

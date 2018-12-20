@@ -35,7 +35,7 @@
  *																		*
  ************************************************************************/
 
-#include <SPI_comms.h>
+#include "SPI_comms.h"
 
 void SPI_MasterInit(void) {
 	/* Set up SPI Master

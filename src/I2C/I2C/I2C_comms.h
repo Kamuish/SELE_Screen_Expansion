@@ -8,6 +8,7 @@
 #ifndef I2C_COMMS_H_
 #define I2C_COMMS_H_
 
+#include <util/delay.h>
 #include <avr/io.h>
 #include <compat/twi.h>
 #include <stdbool.h>
