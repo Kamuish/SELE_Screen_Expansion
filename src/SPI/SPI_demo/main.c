@@ -5,10 +5,12 @@
  *      Author: andre
  */
 
-#include <SPI_comms.h>
+#include "SPI_comms.h"
 uint8_t main(void){
+
 	SPI_MasterInit();
 	uint8_t data = 0x00;
 	SPI_MasterTransmit(data);
 
+	return 0;
 }
