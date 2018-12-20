@@ -13,7 +13,7 @@
 #include <avr/eeprom.h>
 #include <stdbool.h>
 
-#define BYTES_FLASH 3206U
+#define BYTES_FLASH 3290U
 #define EEPROM_ADDR 69
 
 /* Define the functions */

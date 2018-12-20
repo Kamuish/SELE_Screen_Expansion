@@ -73,7 +73,7 @@ sizedummy: atmega368p_SPI.elf
 
 avrdudedummy: atmega368p_SPI.elf
 	@echo 'Invoking: AVRDude'
-	/usr/bin/avrdude -pm328p -carduino -P/dev/ttyACM0 -Uflash:w:atmega368p_SPI.hex:a
+	/usr/bin/avrdude -pm328p -cavrisp -P/dev/ttyACM0 -b19200 -u -Uflash:w:atmega368p_SPI.hex:a -Ueeprom:w:atmega368p_SPI.eep:a -Ulfuse:w:0xf7:m -Uhfuse:w:0xd1:m -Uefuse:w:0xff:m
 	@echo 'Finished building: $@'
 	@echo ' '
 
