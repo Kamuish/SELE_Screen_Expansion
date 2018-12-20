@@ -77,10 +77,6 @@ int main(void) {
 	/* Test the SRAM */
 	bool sram_test = SRAM_Test();
 
-	eeprom_test = 0;
-	flash_test = 0;
-	sram_test = 0;
-
 	/* Initialize the screen in SPI mode */
 	ScreenInit(SPI);
 	_delay_ms(1);
@@ -93,27 +89,27 @@ int main(void) {
 	uint8_t EEPROM_ok[] = "EEPROM OK";
 	uint8_t EEPROM_nok[] = "EEPROM NOT OK";
 
-	PutString(eeprom_test ? EEPROM_nok : EEPROM_ok, eeprom_test ? sizeof(EEPROM_nok) - 1 : sizeof(EEPROM_ok) - 1, RIGHT_SCREEN_PROTOCOL);
+	PutString(eeprom_test ? EEPROM_nok : EEPROM_ok, eeprom_test ? sizeof(EEPROM_nok) - 1 : sizeof(EEPROM_ok) - 1, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(1000);
-	ScreenInstruction(LCD_DISP_CLEAR, RIGHT_SCREEN_PROTOCOL);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(10);
 
 	/* Display the FLASH test result */
 	uint8_t FLASH_ok[] = "FLASH OK";
 	uint8_t FLASH_nok[] = "FLASH NOT OK";
 
-	PutString(flash_test ? FLASH_nok : FLASH_ok, flash_test ? sizeof(FLASH_nok) - 1 : sizeof(FLASH_ok) - 1, RIGHT_SCREEN_PROTOCOL);
+	PutString(flash_test ? FLASH_nok : FLASH_ok, flash_test ? sizeof(FLASH_nok) - 1 : sizeof(FLASH_ok) - 1, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(1000);
-	ScreenInstruction(LCD_DISP_CLEAR, RIGHT_SCREEN_PROTOCOL);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(10);
 
 	/* Display the SRAM test result */
 	uint8_t SRAM_ok[] = "SRAM OK";
 	uint8_t SRAM_nok[] = "SRAM NOT OK";
 
-	PutString(sram_test ? SRAM_nok : SRAM_ok, sram_test ? sizeof(SRAM_nok) - 1 : sizeof(SRAM_ok) - 1, RIGHT_SCREEN_PROTOCOL);
+	PutString(sram_test ? SRAM_nok : SRAM_ok, sram_test ? sizeof(SRAM_nok) - 1 : sizeof(SRAM_ok) - 1, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(1000);
-	ScreenInstruction(LCD_DISP_CLEAR, RIGHT_SCREEN_PROTOCOL);
+	ScreenInstruction(LCD_DISP_CLEAR, LEFT_SCREEN_PROTOCOL);
 	_delay_ms(10);
 
 	memory_tests_error |= (sram_test)|(flash_test)|(eeprom_test);
@@ -122,7 +118,7 @@ int main(void) {
 	if (memory_tests_error)
 	{
 		uint8_t mem_test_error_msg[] = "MEM ERROR. EXIT.";
-		PutString(mem_test_error_msg, sizeof(mem_test_error_msg) - 1, RIGHT_SCREEN_PROTOCOL);
+		PutString(mem_test_error_msg, sizeof(mem_test_error_msg) - 1, LEFT_SCREEN_PROTOCOL);
 		_delay_ms(1000);
 
 		return 1;

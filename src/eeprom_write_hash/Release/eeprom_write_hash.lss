@@ -58,12 +58,12 @@ Disassembly of section .text:
   7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000080 <main>:
-  80:	85 ea       	ldi	r24, 0xA5	; 165
-  82:	90 ec       	ldi	r25, 0xC0	; 192
+  80:	84 e7       	ldi	r24, 0x74	; 116
+  82:	93 e2       	ldi	r25, 0x23	; 35
   84:	90 93 01 00 	sts	0x0001, r25
   88:	80 93 00 00 	sts	0x0000, r24
-  8c:	65 ea       	ldi	r22, 0xA5	; 165
-  8e:	70 ec       	ldi	r23, 0xC0	; 192
+  8c:	64 e7       	ldi	r22, 0x74	; 116
+  8e:	73 e2       	ldi	r23, 0x23	; 35
   90:	85 e4       	ldi	r24, 0x45	; 69
   92:	90 e0       	ldi	r25, 0x00	; 0
   94:	0e 94 4f 00 	call	0x9e	; 0x9e <eeprom_write_word>

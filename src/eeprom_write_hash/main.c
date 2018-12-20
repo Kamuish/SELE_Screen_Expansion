@@ -43,6 +43,6 @@ EEMEM uint16_t word;
 
 int main(void)
 {
-	word = 49317;
+	word = 9076;
 	eeprom_write_word((uint16_t *)eeprom_addr, (uint16_t)word);
 }
