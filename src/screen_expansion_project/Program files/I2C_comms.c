@@ -45,7 +45,7 @@ void I2C_Init(void){
 
 	 TWSR = 0;                            /* no prescaler */
 	 TWBR = ( (F_CPU/SCL_CLOCK )-16 )/2;  /* must be > 10 for stable operation */
-	 DDRB = (1 <<PB0);
+	 DDRB |= (1 <<PB0);
 }
 
 void I2C_Start(unsigned char addr){
@@ -53,14 +53,14 @@ void I2C_Start(unsigned char addr){
 	 * Also checks TWI status register for correct sending of start signal.
 	 * Afterwards chooses the slave, by setting the address to twdr and clearing the TWINT flag
 	 */
-	PORTB = ~ (1 <<PB0); /* turn off the LED */
+	PORTB &= ~(1 <<PB0); /* turn off the LED */
 	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN);
 
 	I2C_WaitForTwint();
 
 	if ( (TWSR & 0xF8)  != TW_START){
 		/* Did not receive slave ack*/
-		PORTB = (1 <<PB0);
+		PORTB |= (1 <<PB0);
 		I2C_Stop();  /* Does not allow to send more data*/
 
 	}
@@ -71,7 +71,7 @@ void I2C_Start(unsigned char addr){
 	I2C_WaitForTwint();
 	if ( (TWSR & 0xF8)  != TW_MT_SLA_ACK){
 		/* Did not receive slave ack*/
-		PORTB = (1 <<PB0);
+		PORTB |= (1 <<PB0);
 		I2C_Stop();  /* Does not allow to send more data*/
 	}
 
@@ -89,7 +89,7 @@ void I2C_Write( unsigned char data_i2c){
 
 	uint8_t status = (TWSR & 0xF8) ;
 	if ( status  != TW_MT_DATA_ACK){
-		PORTB = ( 1 << PB0);
+		PORTB |= ( 1 << PB0);
 		I2C_Stop();  /* Does not allow to send more data*/
 		}
 }

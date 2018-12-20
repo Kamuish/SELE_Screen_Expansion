@@ -34,10 +34,10 @@ int main(void) {
 	_delay_ms(1000);
 
 	while (1) {
-		//ScreenInstruction(LCD_DISP_CLEAR, SPI);
+		ScreenInstruction(LCD_DISP_CLEAR, SPI);
 		_delay_ms(10);
 
-		//PutString(string1, sizeof(string) - 1, SPI);
+		PutString(string1, sizeof(string) - 1, SPI);
 		_delay_ms(100);
 
 		ScreenInstruction(LCD_DISP_CLEAR, I2C);
@@ -47,10 +47,10 @@ int main(void) {
 
 		_delay_ms(1000);
 
-		//ScreenInstruction(LCD_DISP_CLEAR, SPI);
+		ScreenInstruction(LCD_DISP_CLEAR, SPI);
 		_delay_ms(10);
 
-		//PutString(string, sizeof(string) - 1, SPI);
+		PutString(string, sizeof(string) - 1, SPI);
 		_delay_ms(100);
 
 		ScreenInstruction(LCD_DISP_CLEAR, I2C);
