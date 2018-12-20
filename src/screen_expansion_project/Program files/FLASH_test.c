@@ -1,9 +1,41 @@
-/*
- * flash.c
- *
- *  Created on: Dec 15, 2018
- *      Author: andre
- */
+/************************************************************************
+ *																		*
+ *		FILE NAME: FLASH_test.c										*
+ *		PURPOSE:
+ *			Implementation of tests for the FLASH memory. To validate this memory we compare
+ *			a previously calculated  (with a python script) hash of the .hex file  stored on the EEPROM
+ *			memory (a different project was used to write on the EEPROM memory) with a 16 bit XOR hash
+ *			calculated on the utilized bytes of the FLASH memory.  					*
+ *																		*
+ *		Name			I/O			Description							*
+ *		----			---			-----------							*
+ *																		*
+ *		EXTERNAL VARIABLES:												*
+ *																		*
+ *		Name	Type	I/O			Description							*
+ *		----	----	---			----------- 						*
+ *																		*
+ *		EXTERNAL REFERENCES:											*
+ *																		*
+ *		Name						Description							*
+ *		----						-----------							*
+ *																		*
+ * 		ABNORMAL TERMINATION CONDITIONS, ERROR AND WARNING MESSAGES: 	*
+ *																		*
+ * 		ASSUMPTIONS, CONSTRAINTS, RESTRICTIONS:							*
+ *																		*
+ *		NOTES:															*
+ *																		*
+ * 		REQUIREMENTS/FUNCTIONAL SPECIFICATIONS REFERENCES:				*
+ *																		*
+ * 		DEVELOPMENT HISTORY:											*
+ *																		*
+ *		Date	Author	Change ID	Release		Description of change	*
+ *		Dec 11, 2018	André Silva													*
+ *																		*
+ * 		ALGORITHM (PDL)													*
+ *																		*
+ ************************************************************************/
 
 #include <FLASH_test.h>
 
