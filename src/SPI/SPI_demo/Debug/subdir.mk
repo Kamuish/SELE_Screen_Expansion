@@ -4,19 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../LCD.c \
-../main.c \
-../twimaster.c 
+../SPI_comms.c \
+../main.c 
 
 OBJS += \
-./LCD.o \
-./main.o \
-./twimaster.o 
+./SPI_comms.o \
+./main.o 
 
 C_DEPS += \
-./LCD.d \
-./main.d \
-./twimaster.d 
+./SPI_comms.d \
+./main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

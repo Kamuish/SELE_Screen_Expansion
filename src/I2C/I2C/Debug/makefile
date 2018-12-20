@@ -32,14 +32,8 @@ endif
 LSS += \
 I2C.lss \
 
-FLASH_IMAGE += \
-I2C.hex \
-
 SIZEDUMMY += \
 sizedummy \
-
-AVRDUDEDUMMY += \
-avrdudedummy \
 
 
 # All Target
@@ -59,30 +53,18 @@ I2C.lss: I2C.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
-I2C.hex: I2C.elf
-	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex I2C.elf  "I2C.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 sizedummy: I2C.elf
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega328p I2C.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
-avrdudedummy: I2C.elf
-	@echo 'Invoking: AVRDude'
-	/usr/bin/avrdude -pm328p -cavrisp -P/dev/ttyACM0 -b19200 -Uflash:w:I2C.hex:a
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(AVRDUDEDUMMY)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) I2C.elf
+	-$(RM) $(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) I2C.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
+secondary-outputs: $(LSS) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:

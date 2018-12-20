@@ -39,10 +39,10 @@
 
 #define eeprom_addr 69
 
-EEMEM uint16_t word;
+uint16_t word;
 
 int main(void)
 {
-	word = 9076;
+	word = 1898;
 	eeprom_write_word((uint16_t *)eeprom_addr, (uint16_t)word);
 }

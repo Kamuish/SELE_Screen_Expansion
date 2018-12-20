@@ -56,11 +56,11 @@ bool EEPROM_Test(void) {
     uint16_t real_hash = eeprom_read_word( (uint16_t *) USED_ADDR); /* Stores the real hash stored on the specified Eeprom's addr*/
     uint8_t tmp = 0;
     bool errors = 0; /* If we detect erros, we set this flag to 1*/
-    for (uint16_t k =0; k < N_BYTES_EEPROM ; k++)
+    for (uint16_t k = USED_ADDR; k < N_BYTES_EEPROM + USED_ADDR ; k++)
     {
         eeprom_write_byte((uint8_t *) k, 0x00);
     }
-    for(uint16_t k =0; k < N_BYTES_EEPROM; k++)
+    for(uint16_t k = USED_ADDR; k < N_BYTES_EEPROM + USED_ADDR; k++)
     {
     	tmp = eeprom_read_byte((uint8_t*) k);
         if (0 == tmp)
@@ -75,7 +75,7 @@ bool EEPROM_Test(void) {
     }
 
 
-    for(uint16_t k = 0; k < N_BYTES_EEPROM ; k++)
+    for(uint16_t k = USED_ADDR; k < N_BYTES_EEPROM + USED_ADDR; k++)
     {
     	tmp=eeprom_read_byte((uint8_t*) k);
         if (0xFF == tmp)
@@ -89,7 +89,7 @@ bool EEPROM_Test(void) {
         }
     }
 
-    for (uint16_t k =0; k < N_BYTES_EEPROM; k++)
+    for(uint16_t k = USED_ADDR; k < N_BYTES_EEPROM + USED_ADDR; k++)
     {
     	tmp =eeprom_read_byte((uint8_t*) k );
         if(0 != tmp)
