@@ -11,29 +11,56 @@
 
 int main(void) {
 
+	/*
 	SPI_MasterInit();
-	_delay_ms(400);
 
-	uint8_t command;
+	uint8_t command = 0x55;
+	SPI_MasterTransmit(command);
+	*/
 
-	screen_init();
+	ScreenInit(SPI);
+	_delay_ms(100);
+	ScreenInit(I2C);
+	_delay_ms(100);
 
-	/* Display ON, Cursor Blink */
+	uint8_t string[] = "aaaaaaaa";
+	uint8_t string1[] = "bbbbbbbb";
 
-	command = LCD_DISP_ON_BLINK;
-	screen_instruction(command);
+	PutString(string, sizeof(string) - 1, SPI);
+	_delay_ms(100);
+	PutString(string, sizeof(string) - 1, I2C);
+	_delay_ms(100);
 
-	/* Print 'O' */
-
-	uint8_t string[] = "O Andre e gay!!";
-	put_string(string, sizeof(string) -1);
-
-	_delay_ms(5000);
+	_delay_ms(1000);
 
 	while (1) {
-		screen_instruction(LCD_MOVE_DISP_RIGHT);
-		_delay_ms(10000);
+		//ScreenInstruction(LCD_DISP_CLEAR, SPI);
+		_delay_ms(10);
+
+		//PutString(string1, sizeof(string) - 1, SPI);
+		_delay_ms(100);
+
+		ScreenInstruction(LCD_DISP_CLEAR, I2C);
+		_delay_ms(10);
+
+		PutString(string1, sizeof(string) - 1, I2C);
+
+		_delay_ms(1000);
+
+		//ScreenInstruction(LCD_DISP_CLEAR, SPI);
+		_delay_ms(10);
+
+		//PutString(string, sizeof(string) - 1, SPI);
+		_delay_ms(100);
+
+		ScreenInstruction(LCD_DISP_CLEAR, I2C);
+		_delay_ms(10);
+
+		PutString(string, sizeof(string) - 1, I2C);
+
+		_delay_ms(1000);
 	}
+
 
 	return 0;
 }

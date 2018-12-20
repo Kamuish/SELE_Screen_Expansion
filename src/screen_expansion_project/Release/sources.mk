@@ -16,7 +16,6 @@ EEPROM_IMAGE :=
 S_DEPS := 
 SIZEDUMMY := 
 S_UPPER_DEPS := 
-LSS := 
 C_DEPS := 
 
 # Every subdirectory with source files must be described here

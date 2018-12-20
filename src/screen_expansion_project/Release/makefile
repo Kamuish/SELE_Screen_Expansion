@@ -30,9 +30,6 @@ endif
 -include ../makefile.defs
 
 # Add inputs and outputs from these tool invocations to the build variables 
-LSS += \
-screen_expansion.lss \
-
 FLASH_IMAGE += \
 screen_expansion.hex \
 
@@ -52,12 +49,6 @@ screen_expansion.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Invoking: AVR C Linker'
 	avr-gcc -Wl,-Map,screen_expansion.map -Wl,--section-start=.classb_sram_buffer=0x800100,--section-start=.data=0x800240 -mmcu=atmega328p -o "screen_expansion.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
-	@echo ' '
-
-screen_expansion.lss: screen_expansion.elf
-	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S screen_expansion.elf  >"screen_expansion.lss"
-	@echo 'Finished building: $@'
 	@echo ' '
 
 screen_expansion.hex: screen_expansion.elf
@@ -80,10 +71,10 @@ sizedummy: screen_expansion.elf
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) screen_expansion.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(C_DEPS) screen_expansion.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
+secondary-outputs: $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 

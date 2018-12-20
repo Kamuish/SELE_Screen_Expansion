@@ -1,7 +1,7 @@
 /*
  * SPI_comms.h
  *
- *  Created on: Nov 24, 2018
+ *  Created on: Dec 11, 2018
  *      Author: joaorodrigues
  */
 
@@ -13,17 +13,19 @@
 
 /* Define SPI Data Direction Register and Bits */
 
-#define DDR_SPI DDRB
-#define DD_SS PB2
-#define DD_MOSI PB3
-#define DD_MISO PB4
-#define DD_SCK PB5
+#define DDR_SPI DDRB	/* SPI Data Direction Register */
+#define DD_SS   PB2		/* Slave Select bit - Shift register latch */
+#define DD_MOSI PB3		/* SPI MOSI */
+#define DD_MISO PB4		/* SPI MISO */
+#define DD_SCK  PB5		/* SPI Clock */
 
-/* Define SPI_comms.c functions */
+/* SPI functions */
 
-void SPI_MasterInit(void);
-void SPI_MasterTransmit(uint8_t cData);
+void SPI_MasterInit(void);				/* Initializes SPI Master */
+void SPI_MasterTransmit(uint8_t data);	/* Transmits data through SPI */
 
-void flush_shift_register(void);
+/* Utility functions */
+
+void FlushShiftRegister(void);			/* Flushes the shift register */
 
 #endif /* SPI_COMMS_H_ */
