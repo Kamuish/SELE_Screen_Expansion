@@ -64,7 +64,7 @@ sizedummy: atmega368p_SPI.elf
 
 avrdudedummy: atmega368p_SPI.elf
 	@echo 'Invoking: AVRDude'
-	/usr/bin/avrdude -pm328p -carduino -P/dev/ttyACM0 -Uflash:w:atmega368p_SPI.hex:a
+	/usr/bin/avrdude -pm328p -carduino -Uflash:w:atmega368p_SPI.hex:a
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -76,6 +76,5 @@ clean:
 secondary-outputs: $(FLASH_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
 
 .PHONY: all clean dependents
-.SECONDARY:
 
 -include ../makefile.targets
