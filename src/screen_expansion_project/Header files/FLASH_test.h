@@ -18,6 +18,6 @@
 
 /* Define the functions */
 
-bool  FLASH_Test(void);   // compares the eeprom hash with the real one
-uint16_t FLASH_CalculateHashXOR(void); // calculates the real hash on the MCU flash memory
+bool  FLASH_Test(void);   /* compares the eeprom hash with the real one */
+uint16_t FLASH_CalculateHashXOR(void); / calculates the real hash on the MCU flash memory */
 #endif /* FLASH_H_ */
