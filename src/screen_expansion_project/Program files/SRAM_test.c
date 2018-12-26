@@ -98,31 +98,31 @@ bool SRAM_MarchCTest(register volatile uint8_t p_sram[], register volatile uint8
 
 	/* M1 - Increasing address, read 0, write 1 */
 	for (i = 0; i < size; i++) {
-		if (p_sram[i] != 0x00) error = 1;
+		if (0x00 != p_sram[i] ) error = 1;
 		p_sram[i] = 0xFF;
 	}
 
 	/* M2 - Increasing address, read 1, write 0 */
 	for (i = 0; i < size; i++) {
-		if (p_sram[i] != 0xFF) error = 1;
+		if (0xFF != p_sram[i] ) error = 1;
 		p_sram[i] = 0x00;
 	}
 
 	/* M3 - Decreasing address, read 0, write 1 */
 	for (i = size - 1; i > 0; i--) {
-		if (p_sram[i] != 0x00) error = 1;
+		if (0x00 != p_sram[i] ) error = 1;
 		p_sram[i] = 0xFF;
 	}
 
 	/* M4 - Decreasing address, read 1, write 0 */
 	for (i = size - 1; i > 0; i--) {
-		if (p_sram[i] != 0xFF) error = 1;
+		if (0xFF != p_sram[i] ) error = 1;
 		p_sram[i] = 0x00;
 	}
 
 	/* M5 - Decreasing address, read 0 */
 	for (i = size - 1; i > 0; i--) {
-		if (p_sram[i] != 0x00) error = 1;
+		if (0x00 != p_sram[i] ) error = 1;
 	}
 
 	/* Restore from buffer, unless buffer is being checked */
