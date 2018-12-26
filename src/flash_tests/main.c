@@ -14,12 +14,9 @@ int main(void){
 
 	_delay_ms(1000);
 	puts("Starting flash test");
-	//uint8_t result = flash_teste();
+	uint8_t result = flash_teste();
 
 	uint16_t hash = flash_test_calculate_xor();
-
-	char buffer[10];
-	itoa(hash, buffer, 10);
 
 
 
