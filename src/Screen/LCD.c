@@ -37,18 +37,18 @@ void i2c_init_screen(uint8_t addr){
 
 	uint8_t command;
 
-	// Initialize backpack
+	/* Initialize backpack */
 
 	_delay_ms(100);
-	// COnfigures all  the pins as outputs
+	/* COnfigures all  the pins as outputs */
 	i2c_start(addr);
 	_delay_ms(1);
-	i2c_write(0x00); // register addr
+	i2c_write(0x00); /* register addr  */
 	_delay_ms(1);
-	i2c_write(0x00); // clear all bits
+	i2c_write(0x00); /* clear all bits  */
 	i2c_stop();
 	_delay_ms(100);
-	// set up internal register for continuous write to address
+	/* set up internal register for continuous write to address */
 	i2c_start(addr);
 	_delay_ms(100);
 	i2c_write(0x05);
@@ -56,13 +56,13 @@ void i2c_init_screen(uint8_t addr){
 	i2c_write(0x20);
 	i2c_stop();
 
-	// Prepares to write on the GPIO registers
+	/* Prepares to write on the GPIO registers */
 	i2c_start(0x40);
 	_delay_ms(100);
-	i2c_write(0x09); // gpio register
+	i2c_write(0x09); /* gpio register */
 	_delay_ms(10);
 
-	// Screen init
+	/* Screen init  */
 	command = 0x18;
 	send_4_bit_command(command, I2C);
 	_delay_ms(41);
@@ -176,7 +176,7 @@ void screen_instruction(uint8_t instruction, uint8_t comm ) {
 }
 
 void transfer_data(uint8_t data, uint8_t comm ){
-	//i2c_write(data);
+	
     I2C == comm ? i2c_write(data): SPI_MasterTransmit(data);
 }
 
@@ -233,7 +233,7 @@ void put_string(uint8_t string[], uint16_t length, uint8_t comm) {
 }
 
 void send_4_bit_command(uint8_t command, uint8_t comm){
-	// sends a 4 bit command, via I2C or SPI
+	/* sends a 4 bit command, via I2C or SPI */
 
 	command |= (1<<EN);
 	command &= ~(1<<RS);
