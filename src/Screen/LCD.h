@@ -1,17 +1,17 @@
 #ifndef LCD_H_
 #define LCD_H_
 
-// INcludes the I2C communication
+/* Includes the I2C communication */
 #include "util/delay.h"
 #include "../I2C/I2C/I2C_comms.h"
 #include "../SPI/atmega368p_SPI/SPI_comms.h"
 
-//
+/*
 #define SPI 0
 #define I2C 1
 
 
-// Define screen pins
+/* Define screen pins
 #define RS 1
 #define EN 2
 #define BKL 7
@@ -67,16 +67,16 @@
 
 
 
-// Define the library functions
+/* Define the library functions  */
 uint8_t reverse_nibble(uint8_t nibble);
-void i2c_init_screen(uint8_t addr);// Start instructions for the screen using the I2C interface
-void spi_init(void);  // Start instructions for the screen using the SPI interface
+void i2c_init_screen(uint8_t addr);/* Start instructions for the screen using the I2C interface  */
+void spi_init(void);  /* Start instructions for the screen using the SPI interface */
 
 void screen_init(uint8_t addr, uint8_t comm);
 void screen_instruction(uint8_t instruction, uint8_t comm);
-void transfer_data(uint8_t data, uint8_t comm); // Transfer data via I2C or SPI
-void screen_data(uint8_t data , uint8_t comm); // Sends an 8 bit data command (RS ==1) to the screen
-void put_string(uint8_t string[], uint16_t length, uint8_t comm);  // Writes string to the screen
-void send_4_bit_command(uint8_t command, uint8_t comm); // Sends a 4 bit command to the screen
+void transfer_data(uint8_t data, uint8_t comm); /* Transfer data via I2C or SPI */
+void screen_data(uint8_t data , uint8_t comm); /* Sends an 8 bit data command (RS ==1) to the screen */
+void put_string(uint8_t string[], uint16_t length, uint8_t comm);  /* Writes string to the screen */
+void send_4_bit_command(uint8_t command, uint8_t comm); /* Sends a 4 bit command to the screen */
 
 #endif

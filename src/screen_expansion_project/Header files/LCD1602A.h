@@ -74,7 +74,7 @@
 
 #define LCD_SIZE 16
 
-// Define the library functions
+/* Define the library functions */
 
 void ScreenInit(uint8_t protocol_flag);		/* Initialize screen in either SPI or I2C modes */
 void I2C_InitScreen(void);					/* Start instructions for the screen using the I2C interface */

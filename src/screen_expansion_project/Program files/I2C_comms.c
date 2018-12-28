@@ -54,7 +54,7 @@ void I2C_Start(unsigned char addr){
 	 * Afterwards chooses the slave, by setting the address to twdr and clearing the TWINT flag
 	 */
 	PORTB &= ~(1 <<PB0); /* turn off the LED */
-	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN);
+	TWCR = ( 1 << TWINT ) | ( 1 << TWSTA)  |  ( 1 << TWEN); /* Set TWCR for START condition    */
 
 	I2C_WaitForTwint();
 
@@ -66,9 +66,9 @@ void I2C_Start(unsigned char addr){
 
 	}
 
-	TWDR = addr ;
+	TWDR = addr ; /* Load SLAVE + R/W */ 
 
-	TWCR = (1<<TWINT) | (1<<TWEN);
+	TWCR = (1<<TWINT) | (1<<TWEN); /* clear TWCR bits*/
 	I2C_WaitForTwint();
 	if ( (TWSR & 0xF8)  != TW_MT_SLA_ACK){
 		/* Did not receive slave ack*/
