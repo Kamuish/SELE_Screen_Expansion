@@ -19,13 +19,13 @@ We have 3 different folders:
 # src structure:
   
   Inside this folder we find many folders, each for a different purpose:
-    - I2C - folder in which we have a program to show the I2C protocol during the presentation
-    - SPI - folder in which we have a program to show the SPI protocol during the presentation
-    - SRAM - folder used for development of the SRAM protocol
-    - UART 
+  
+    - I2C - folder in which we have a program to show the I2C protocol during the presentation;
+    - SPI - folder in which we have a program to show the SPI protocol during the presentation;
+    - SRAM - folder used for development of the SRAM test;
     - eeprom_write_hash - project used to write the hash to the eeprom memory address;
-    - flash_test
-    - hash_calc - python script to calculate the hash of a IntelHex file
+    - flash_test - folder used for the development of the Flash memory test;
+    - hash_calc - python script to calculate the hash of a IntelHex file;
     - screen_expansion_project - the final project.
 # The screen_expansion_project
 
